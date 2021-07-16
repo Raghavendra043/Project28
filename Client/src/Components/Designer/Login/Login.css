@@ -1,0 +1,87 @@
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+.loginForm > form {
+  display: flex;
+  flex-direction: column;
+}
+
+.loginForm > form > input {
+  width: 350px;
+  height: 50px;
+  font-size: 20px;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 0.5px solid;
+}
+
+.loginForm > form > input:focus {
+  outline: none !important;
+  /* change the colors */
+  border: 2px solid #0a66c2;
+  background-color: #e8f0fe;
+}
+
+.loginForm > form > button {
+  /* change the colors */
+  width: 350px;
+  height: 50px;
+  margin-top: 10px;
+  margin-left: 7px;
+  font-size: large;
+  color: white;
+  background-color: #0a66c2;
+  border-radius: 50px;
+  border: 0.5px solid;
+  outline: none !important;
+}
+
+.loginForm > form > button:hover {
+  cursor: pointer;
+  filter: brightness(110%);
+}
+
+.loginChange {
+  cursor: pointer;
+  color: #0a66c2;
+}
+
+.loginForm > p {
+  margin-top: 20px;
+}
+
+/* @media screen and (max-width: 750px) {
+    .loginLogo > img {
+      height: 180px;
+      margin-top: -10px;
+  }
+  
+  .login > form > input {
+    width: 320px;
+    height: 42px;
+    font-size: 16px;
+    margin: 0 10px 12px 10px;
+   
+  }
+  .login > form > button {
+    width: 250px;
+    height: 50px;
+    margin-top: 20px;
+    margin-left: 45px;
+  }
+  
+  .login > p {
+    margin-top: 30px;
+  }
+  
+  .login > h4 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 70px;
+  }
+  } */
