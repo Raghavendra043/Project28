@@ -1,0 +1,40 @@
+.navbar {
+  width: 100%;
+  display: flex;
+}
+.part1 {
+  display: flex;
+  flex-grow: 1;
+}
+.part2 {
+  display: flex;
+}
+.navbar > div {
+  margin: 10px;
+}
+.part1 > div {
+  margin: 10px;
+}
+.part2 > div {
+  margin: 10px;
+}
+
+.navA {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 30px;
+  color: #1e1f1e;
+}
+.navB {
+  font-family: Red Hat Display;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 30px;
+  /* identical to box height, or 167% */
+  text-transform: uppercase;
+
+  color: #00b4b3;
+}
