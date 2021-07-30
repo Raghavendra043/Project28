@@ -14,6 +14,7 @@
 }
 .part1 > div {
   margin: 10px;
+  margin-right: 50px;
 }
 .part2 > div {
   margin: 10px;
@@ -26,6 +27,10 @@
   font-size: 18px;
   line-height: 30px;
   color: #1e1f1e;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .navB {
   font-family: Red Hat Display;
@@ -37,4 +42,16 @@
   text-transform: uppercase;
 
   color: #00b4b3;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#navE{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-left: 50px;
 }

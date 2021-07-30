@@ -3,6 +3,7 @@ import "./Login.css";
 
 function login() {
   return (
+    <div className="loginParent">
     <div className="login">
       <div id="textA">WELCOME, DESIGNER</div>
       <div id="textB">
@@ -10,7 +11,7 @@ function login() {
       </div>
       <div id="textC">Designer’s Login</div>
       <div id="form">
-        <div id="email">
+        <div id="email" className='spacing'>
           <div className="inputText">Enter Your Email ID</div>
           <input
             className="inputInput"
@@ -18,7 +19,7 @@ function login() {
             placeholder="Ex. johndoe@example.com"
           />
         </div>
-        <div id="password">
+        <div id="password" className='spacing'>
           <div className="inputText">Enter Your Password</div>
           <input
             className="inputInput"
@@ -37,6 +38,7 @@ function login() {
       <div id="loginBtn">
         <div id="liginBtnText">Login</div>
       </div>
+    </div>
     </div>
   );
 }
