@@ -18,11 +18,11 @@ function App() {
       {/* <SignupA /> */}
       {/* <Login /> */}
       {/* <Stage1 /> */}
-      <Slider
+      {/* <Slider
         min={0}
         max={1000}
         onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`)}
-      />
+      /> */}
     </div>
   );
 }
