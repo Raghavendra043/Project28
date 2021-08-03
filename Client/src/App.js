@@ -6,6 +6,7 @@ import Stage2 from "./Components/Designer/Stage2";
 import SignupA from "./Components/Designer/Signup/SignupA";
 import SignupB from "./Components/Designer/Signup/SignupB";
 import SignupC from "./Components/Designer/Signup/SignupC";
+import Slider from "./Components/Designer/Slider/Slider";
 
 function App() {
   return (
@@ -16,7 +17,12 @@ function App() {
       {/* <SignupB /> */}
       {/* <SignupA /> */}
       {/* <Login /> */}
-      <Stage1 />
+      {/* <Stage1 /> */}
+      <Slider
+        min={0}
+        max={1000}
+        onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`)}
+      />
     </div>
   );
 }
