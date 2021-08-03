@@ -6,6 +6,20 @@
   flex-direction: column;
 }
 
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  width: 777px;
+  height: 864px;
+  background: #ffffff;
+  box-shadow: 0px 4px 24px rgba(30, 31, 30, 0.08);
+  border-radius: 8px;
+}
+
 .stage1TextA {
   font-family: Red Hat Display;
   font-style: normal;
