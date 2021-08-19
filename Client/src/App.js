@@ -7,14 +7,16 @@ import SignupA from "./Components/Designer/Signup/SignupA";
 import SignupB from "./Components/Designer/Signup/SignupB";
 import SignupC from "./Components/Designer/Signup/SignupC";
 import Slider from "./Components/Designer/Slider/Slider";
+import Main from "./Components/Designer/Dashboard/Main";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      {/* <Navbar /> */}
       {/* <Stage2 /> */}
       {/* <SignupC /> */}
       {/* <SignupB /> */}
+      <Main />
       {/* <SignupA /> */}
       {/* <Login /> */}
       {/* <Stage1 /> */}
