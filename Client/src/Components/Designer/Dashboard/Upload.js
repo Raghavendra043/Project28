@@ -5,14 +5,15 @@ function Upload() {
     <div>
       <div
         style={{
-          width: 583,
-          height: 428,
+          width: 583 - 2 * 32,
+          height: 428 - 2 * 32,
           backgroundColor: "white",
           boxShadow: "0px 4px 24px rgba(30, 31, 30, 0.08)",
           borderRadius: 32,
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          padding: 32,
         }}
       >
         <div

@@ -2,12 +2,22 @@ import React from "react";
 import Brief from "./Brief";
 import Expt from "./Expt";
 import Proj from "./Proj";
+import Updates from "./Updates";
 import Upload from "./Upload";
 
 function Main() {
   return (
-    <div>
-      <div>
+    <div
+      style={{
+        display: "flex",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
         <div>
           <Proj />
         </div>
@@ -24,8 +34,18 @@ function Main() {
         </div>
       </div>
       <div>
-        <div></div>
-        <div></div>
+        <div>
+          <Updates />
+        </div>
+        <div>
+          <Updates />
+        </div>
+        <div>
+          <Updates />
+        </div>
+        <div>
+          <Updates />
+        </div>
       </div>
       <div>
         <div></div>
