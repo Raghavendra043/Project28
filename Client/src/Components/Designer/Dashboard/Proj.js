@@ -3,11 +3,10 @@ import React from "react";
 function Proj() {
   return (
     <div
-      style={
-        {
-          // position: "absolute",
-        }
-      }
+      style={{
+        // position: "absolute",
+        margin: 16,
+      }}
     >
       <div
         style={{
@@ -76,8 +75,10 @@ function Proj() {
               }}
             >
               Lorem ipsum dolor sit amet. Vivamus ra felis bibendum ut tristique
-              et.{" "}
+              et.
             </span>
+
+            {/* create the date display  */}
           </div>
         </div>
       </div>

@@ -2,7 +2,13 @@ import React from "react";
 
 function Updates() {
   return (
-    <div>
+    <div
+      style={{
+        marginTop: 16,
+        marginBottom: 4,
+        marginRight: 16,
+      }}
+    >
       <div
         style={{
           width: 258 - 2 * 24,

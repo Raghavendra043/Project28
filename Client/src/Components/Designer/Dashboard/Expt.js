@@ -2,7 +2,13 @@ import React from "react";
 
 function Expt() {
   return (
-    <div>
+    <div
+      style={{
+        marginRight: 16,
+        marginLeft: 16,
+        marginBottom: 40,
+      }}
+    >
       <div
         style={{
           width: 385,

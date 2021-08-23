@@ -2,7 +2,7 @@ import React from "react";
 
 function Upload() {
   return (
-    <div>
+    <div style={{ marginTop: 16 }}>
       <div
         style={{
           width: 583 - 2 * 32,
