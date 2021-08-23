@@ -7,7 +7,7 @@ function LeftNav() {
         display: "flex",
         flexDirection: "column",
         padding: 20,
-        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       <div
@@ -54,7 +54,13 @@ function LeftNav() {
           src="https://via.placeholder.com/24x24"
         />
       </div>
-      <div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
         <div
           style={{
             width: 64,
