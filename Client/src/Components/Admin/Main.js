@@ -18,7 +18,17 @@ import Link from "@material-ui/core/Link";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationsIcon from "@material-ui/icons/Notifications";
-import { mainListItems, secondaryListItems } from "./Adminlistitems";
+
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import ListSubheader from "@material-ui/core/ListSubheader";
+import DashboardIcon from "@material-ui/icons/Dashboard";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import PeopleIcon from "@material-ui/icons/People";
+import BarChartIcon from "@material-ui/icons/BarChart";
+import LayersIcon from "@material-ui/icons/Layers";
+import AssignmentIcon from "@material-ui/icons/Assignment";
 
 function Copyright() {
   return (
@@ -117,6 +127,9 @@ const useStyles = makeStyles((theme) => ({
 export default function Dashboard() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
+
+  const [sec, setsec] = React.useState("Dashboard");
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -152,7 +165,7 @@ export default function Dashboard() {
             noWrap
             className={classes.title}
           >
-            Dashboard
+            {sec}
           </Typography>
           <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
@@ -174,9 +187,100 @@ export default function Dashboard() {
           </IconButton>
         </div>
         <Divider />
-        <List>{mainListItems}</List>
+        <List>
+          {" "}
+          <div>
+            <ListItem
+              button
+              onClick={() => {
+                setsec("Dashboard");
+              }}
+            >
+              <ListItemIcon>
+                <DashboardIcon />
+              </ListItemIcon>
+              <ListItemText primary="Dashboard" />
+            </ListItem>
+            {/* <ListItem button>
+      <ListItemIcon>
+        <ShoppingCartIcon />
+      </ListItemIcon>
+      <ListItemText primary="Create a Project" />
+    </ListItem> */}
+            <ListItem
+              button
+              onClick={() => {
+                setsec("Projects");
+              }}
+            >
+              <ListItemIcon>
+                <PeopleIcon />
+              </ListItemIcon>
+              <ListItemText primary="Projects" />
+            </ListItem>
+            <ListItem
+              button
+              onClick={() => {
+                setsec("Meetings");
+              }}
+            >
+              <ListItemIcon>
+                <BarChartIcon />
+              </ListItemIcon>
+              <ListItemText primary="Meetings" />
+            </ListItem>
+            <ListItem
+              button
+              onClick={() => {
+                setsec("Email");
+              }}
+            >
+              <ListItemIcon>
+                <LayersIcon />
+              </ListItemIcon>
+              <ListItemText primary="Email" />
+            </ListItem>
+          </div>
+        </List>
         <Divider />
-        <List>{secondaryListItems}</List>
+        <List>
+          <div>
+            <ListSubheader inset>Database</ListSubheader>
+            <ListItem
+              button
+              onClick={() => {
+                setsec("Client DB");
+              }}
+            >
+              <ListItemIcon>
+                <AssignmentIcon />
+              </ListItemIcon>
+              <ListItemText primary="Client" />
+            </ListItem>
+            <ListItem
+              button
+              onClick={() => {
+                setsec("Designer DB");
+              }}
+            >
+              <ListItemIcon>
+                <AssignmentIcon />
+              </ListItemIcon>
+              <ListItemText primary="Designer" />
+            </ListItem>
+            <ListItem
+              button
+              onClick={() => {
+                setsec("MISC");
+              }}
+            >
+              <ListItemIcon>
+                <AssignmentIcon />
+              </ListItemIcon>
+              <ListItemText primary="Misc" />
+            </ListItem>
+          </div>
+        </List>
       </Drawer>
 
       {/* main content */}

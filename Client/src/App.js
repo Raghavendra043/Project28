@@ -8,6 +8,7 @@ import SignupB from "./Components/Designer/Signup/SignupB";
 import SignupC from "./Components/Designer/Signup/SignupC";
 import Slider from "./Components/Designer/Slider/Slider";
 import Main from "./Components/Designer/Dashboard/Main";
+import AdminMain from "./Components/Admin/Main";
 import Dashboard from "./Components/Admin/Dashboard/Dashboard";
 import ClientDB from "./Components/Admin/Database/ClientDB";
 
@@ -20,7 +21,8 @@ function App() {
       {/* <SignupB /> */}
       {/* <Main /> */}
       {/* <Dashboard /> */}
-      <ClientDB />
+      <AdminMain />
+      {/* <ClientDB /> */}
       {/* <SignupA /> */}
       {/* <Login /> */}
       {/* <Stage1 /> */}
