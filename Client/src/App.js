@@ -11,6 +11,7 @@ import Main from "./Components/Designer/Dashboard/Main";
 import AdminMain from "./Components/Admin/Main";
 import Dashboard from "./Components/Admin/Dashboard/Dashboard";
 import ClientDB from "./Components/Admin/Database/ClientDB";
+import Projects from "./Components/Admin/Projects/Projects";
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
       {/* <SignupB /> */}
       {/* <Main /> */}
       {/* <Dashboard /> */}
-      <AdminMain />
+      {/* <AdminMain /> */}
+      <Projects />
       {/* <ClientDB /> */}
       {/* <SignupA /> */}
       {/* <Login /> */}
