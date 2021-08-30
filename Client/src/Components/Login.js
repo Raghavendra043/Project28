@@ -4,41 +4,44 @@ import "./Login.css";
 function login() {
   return (
     <div className="loginParent">
-    <div className="login">
-      <div id="textA">WELCOME, DESIGNER</div>
-      <div id="textB">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do{" "}
-      </div>
-      <div id="textC">Designer’s Login</div>
-      <div id="form">
-        <div id="email" className='spacing'>
-          <div className="inputText">Enter Your Email ID</div>
-          <input
-            className="inputInput"
-            type="email"
-            placeholder="Ex. johndoe@example.com"
-          />
+      <div className="login_a" style={{ width: 320 }}>
+        <div id="textA_a">WELCOME, DESIGNER</div>
+        <div id="textB_a">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do{" "}
         </div>
-        <div id="password" className='spacing'>
-          <div className="inputText">Enter Your Password</div>
-          <input
-            className="inputInput"
-            type="password"
-            placeholder="password@123"
-          />
-        </div>
-        <div id="options">
-          <div id="opt1">
-            <input type="checkbox" id="RememberMe" name="RememberMe" />
-            <label for="RememberMe"> Remember me </label>
+        <div id="textC_a">Designer’s Login</div>
+        <div id="form">
+          <div id="email" className="spacing_a">
+            <div className="inputText_a">Enter Your Email ID</div>
+            <input
+              className="inputInput_a"
+              type="email"
+              placeholder="Ex. johndoe@example.com"
+            />
           </div>
-          <div id="opt2">Forgot Password?</div>
+          <div id="password" className="spacing_a">
+            <div className="inputText_a">Enter Your Password</div>
+            <input
+              className="inputInput_a"
+              type="password"
+              placeholder="password@123"
+            />
+          </div>
+          <div id="options_a">
+            <div id="opt1_a">
+              <input type="checkbox" id="RememberMe_a" name="RememberMe" />
+              <label id="remem" for="RememberMe">
+                {" "}
+                Remember me{" "}
+              </label>
+            </div>
+            <div id="opt2_a">Forgot Password?</div>
+          </div>
+        </div>
+        <div id="loginBtn_a">
+          <div id="liginBtnText_a">Login</div>
         </div>
       </div>
-      <div id="loginBtn">
-        <div id="liginBtnText">Login</div>
-      </div>
-    </div>
     </div>
   );
 }

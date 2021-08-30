@@ -23,10 +23,10 @@ function App() {
       {/* <Main /> */}
       {/* <Dashboard /> */}
       {/* <AdminMain /> */}
-      <Projects />
+      {/* <Projects /> */}
       {/* <ClientDB /> */}
       {/* <SignupA /> */}
-      {/* <Login /> */}
+      <Login />
       {/* <Stage1 /> */}
       {/* <Slider
         min={0}

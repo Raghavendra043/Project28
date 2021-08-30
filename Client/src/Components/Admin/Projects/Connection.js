@@ -10,7 +10,7 @@ function Connection(props) {
         if (props.data === 0) {
           return (
             <div>
-              <ListofProjects />{" "}
+              <ListofProjects />
             </div>
           );
         } else if (props.data === 1) {
