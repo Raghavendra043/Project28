@@ -1,0 +1,49 @@
+.des-d-t-box-container{
+    overflow-y: scroll;
+    height: 100%;
+}
+.des-d-t-on{
+    --des-text-col:white;
+    --back : radial-gradient(77.73% 106.88% at 5.62% 8.64%, rgba(36, 87, 106, 0.77) 0%, #24576A 100%);
+}
+.des-d-t-box-container::-webkit-scrollbar {
+    display: none;
+}
+.des-d-t-comp{
+    --back:white;
+    --des-text-col:rgba(36, 87, 106, 1);
+}
+
+.des-d-t-up{
+    --back:rgba(36, 87, 106, 0.3);
+    --des-text-col:white;
+}
+
+.des-d-t-box{
+    background: var(--back);
+    border-radius: 3.5em;
+    padding: 2em;
+    color: var(--des-text-col);
+    font-family: Red Hat Display;
+    font-style: normal;
+    font-weight:bold;
+    line-height: 0.8em;
+    margin: 0.7em 0.2em;
+
+}
+
+.des-d-t-number{
+    font-size: 2.5em;
+    padding-bottom: 0.5em;
+}
+
+
+.des-d-t-des{
+    font-size:1em;
+}
+
+.des-d-t-check{
+    width: 1em;
+    height: 1em;
+    margin-left: 0.5em;
+}
