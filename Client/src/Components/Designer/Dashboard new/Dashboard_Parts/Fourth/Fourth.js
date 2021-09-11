@@ -7,7 +7,7 @@ function Fourth() {
     return (
         <div>
             
-            <div style={{overflow:"hidden",height:"100vh"}}>
+            <div style={{overflow:"hidden",height:"100vh",}}>
                 <div className='des-d-f-container'>
                 <div className='des-d-f-title'>Updates</div>
                     {updates.map((data,key) =>{

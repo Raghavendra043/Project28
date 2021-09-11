@@ -11,13 +11,15 @@
 }
 
 .third{
+    
     width: 14vw;
-    margin: 10px;
+    margin-top: 50px;
 }
 
 .fourth{
      width: 21vw;
-     margin: 10px;
+     margin-top: 50px;
+     margin-left: 10px;
 }
 .outercontainer{
     
