@@ -4,17 +4,17 @@ import First from './Dashboard_Parts/First';
 
 function Main() {
     return (
-        <div>
-            <div className="row">
-                <div className='col-3 first'>
+        <div className="outercontainer">
+          
+                <div className=' first'>
                     <First />
                 </div>
-                <div className='col-4 second'>
-
+                <div className='second'>
+                    sdf
                 </div>
-                <div className='col-2 third'>dfa</div>
-                <div className='col-3 f'>adf</div>
-            </div>
+                <div className=' third'>dfa</div>
+                <div className=' fourth'>adf</div>
+          
         </div>
     )
 }

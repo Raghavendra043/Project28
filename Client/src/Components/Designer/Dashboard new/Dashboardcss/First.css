@@ -1,0 +1,89 @@
+.box{
+    height: 43vh;
+    background: #FFFFFF;
+    border-radius: 50px;
+}
+.upper{
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+.top{
+    height: 7vh;
+    background-color: #24576A;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    font-size: 15px;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.header{
+    font-family: Red Hat Display;
+    font-weight: 700;
+    font-size: 20px;
+    margin: 3vh;
+}
+.subheader{
+    font-family: Red Hat Display;
+    font-weight: 700;
+    font-size: 13px;
+}
+.description
+{
+    font-size: 13px;
+    font-weight: 400;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 10px;
+    text-align: center;
+
+}
+.dates{
+    width: fit-content;
+}
+.date{
+    display: flex;
+    flex-direction:row;
+    height: fit-content;
+    justify-content: center;
+    margin-top: 15px;
+    text-align: left;
+}
+.number{
+    font-family: Red Hat Display;
+    font-size: 30px;
+    font-weight: 500;
+    color:#19BAA8;
+}
+.restdate{
+    margin-left: 10px;
+    font-size: 12px;
+}
+.month{
+    font-weight: 700;
+}
+.bottom{
+    display: flex;
+    flex-direction: row;
+}
+.dotted{
+    margin-top: 30px;
+    margin-right: 20px;
+}
+.image{
+  transform: translate(60%,50%);
+}
+.lower{
+    padding-top: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+}

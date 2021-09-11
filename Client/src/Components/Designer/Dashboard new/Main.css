@@ -1,15 +1,32 @@
 .first{
-    background-color: aqua;
+    
+    
+    width: 21vw;
 }
 
 .second{
-    background-color: antiquewhite;
+    background-color: red;
+    width: 25vw;
+    margin: 10px;
 }
 
 .third{
     background-color: aquamarine;
+    width: 14vw;
+    margin: 10px;
 }
 
-.f{
+.fourth{
     background-color: black;
+     width: 21vw;
+     margin: 10px;
+}
+.outercontainer{
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-left: 2vw;
+    
 }
