@@ -5,19 +5,21 @@
 }
 
 .second{
-    background-color: red;
-    width: 25vw;
+    
+    width: 27vw;
     margin: 10px;
 }
 
 .third{
+    
     width: 14vw;
-    margin: 10px;
+    margin-top: 50px;
 }
 
 .fourth{
      width: 21vw;
-     margin: 10px;
+     margin-top: 50px;
+     margin-left: 10px;
 }
 .outercontainer{
     
@@ -28,4 +30,3 @@
     margin-left: 2vw;
     
 }
-

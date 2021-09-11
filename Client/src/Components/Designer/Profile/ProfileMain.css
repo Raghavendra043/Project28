@@ -1,0 +1,19 @@
+.des-profile-container{
+    background-color: #393939;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-left:4vw;
+    margin-right: 1vw;
+}
+
+.des-profile-per{
+    background-color: aqua;
+    width: 49vw;
+}
+
+.des-profile-pro{
+    background-color: antiquewhite;
+    width: 49vw;
+}

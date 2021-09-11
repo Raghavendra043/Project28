@@ -12,13 +12,15 @@ import AdminMain from "./Components/Admin/Main";
 import Dashboard from "./Components/Admin/Dashboard/Dashboard";
 import ClientDB from "./Components/Admin/Database/ClientDB";
 import Projects from "./Components/Admin/Projects/Projects";
+import ProfileMain from "./Components/Designer/Profile/ProfileMain";
 
 function App() {
   return (
     <div className="App">
+      <ProfileMain />
      {/* <Dashboard /> */}
      {/* <Navbar /> */}
-     <Main />
+     {/* <Main /> */}
       {/* <Stage1 />
      <Stage2 />
       <SignupA />
