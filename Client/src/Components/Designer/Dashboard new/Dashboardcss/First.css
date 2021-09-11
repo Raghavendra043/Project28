@@ -1,10 +1,10 @@
 .box{
-    height: 43vh;
+    min-height: 43vh;
     background: #FFFFFF;
     border-radius: 50px;
 }
 .upper{
-    margin-top: 50px;
+    
     margin-bottom: 30px;
 }
 .top{

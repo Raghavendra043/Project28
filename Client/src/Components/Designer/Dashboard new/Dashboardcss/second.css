@@ -1,0 +1,45 @@
+.box{
+    min-height: 43vh;
+    background: #FFFFFF;
+    border-radius: 50px;
+    margin-left: 20px;
+}
+.upper{
+    
+    margin-bottom: 30px;
+}
+.topsecond{
+    background-color: white;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    height: 5vh;
+    padding-top: 2vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.headerSecond{
+    font-family: Red Hat Display;
+    font-weight: 700;
+    font-size: 20px;
+    margin-left: 3vh;
+}
+.logo{
+    margin-right: 1.5vw;
+}
+.contentSecond{
+    font-size: 14px;
+    margin-top: 4vh;
+    padding-left: 23px ;
+    padding-right: 23px ;
+}
+.lines{
+    margin-top: 25px;
+}
+.FileUpload{
+    outline: none;
+    border: none;
+    text-decoration: none;
+    background-color: #00DDDC;
+    overflow: hidden;
+}
