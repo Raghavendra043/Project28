@@ -1,5 +1,5 @@
 .box{
-    height: 43vh;
+    min-height: 43vh;
     background: #FFFFFF;
     border-radius: 50px;
 }

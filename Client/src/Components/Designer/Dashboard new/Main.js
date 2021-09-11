@@ -1,6 +1,7 @@
 import React from 'react'
 import './Main.css';
 import First from './Dashboard_Parts/First';
+import Second from './Dashboard_Parts/Second';
 
 function Main() {
     return (
@@ -10,7 +11,7 @@ function Main() {
                     <First />
                 </div>
                 <div className='second'>
-                    sdf
+                    <Second/>
                 </div>
                 <div className=' third'>dfa</div>
                 <div className=' fourth'>adf</div>
