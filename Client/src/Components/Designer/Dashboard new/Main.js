@@ -7,21 +7,21 @@ import Fourth from './Dashboard_Parts/Fourth/Fourth';
 
 function Main() {
     return (
-        <div style={{  padding:"1em"  ,backgroundColor: "#FAFAFA"}}>
-            <div className="row">
-                <div className='col-3 first'>
+        <div className="outercontainer">
+          
+                <div className=' first'>
                     <First />
                 </div>
-                <div className='col-4 second'>
-
+                <div className='second'>
+                    sdf
                 </div>
-                <div className='col-2 third'>
+                <div className=' third'>
                     <Third />
                 </div>
-                <div className='col-3 f'>
+                <div className=' fourth'>
                     <Fourth />
                 </div>
-            </div>
+          
         </div>
     )
 }
