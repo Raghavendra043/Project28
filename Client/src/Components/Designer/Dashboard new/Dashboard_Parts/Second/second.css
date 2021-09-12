@@ -5,7 +5,7 @@
     margin-left: 20px;
 }
 .upper{
-    
+    margin-top: 6vh;
     margin-bottom: 30px;
 }
 .topsecond{
@@ -36,10 +36,25 @@
 .lines{
     margin-top: 25px;
 }
-.FileUpload{
-    outline: none;
-    border: none;
-    text-decoration: none;
-    background-color: #00DDDC;
-    overflow: hidden;
+.upload{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+input[type="file"]{
+    display: none;
+}
+label{
+    text-align: center;
+    color: rgb(206, 198, 198);
+}
+label:hover{
+    cursor: pointer;
+}
+.filetitle{
+    font-size: 12px;
+    margin-top: 10px;
+    font-family: sans-serif;
+    font-weight: 400;
 }

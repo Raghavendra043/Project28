@@ -12,7 +12,7 @@ import data from "./drafts.json"
 
 function Third() {
     return (
-            <div style={{overflow:"hidden",height:"100vh"}}>
+            <div style={{overflow:"hidden",height:"90vh"}}>
 
                 <div className="des-d-t-box-container">
                     {data.map((data,key) =>{

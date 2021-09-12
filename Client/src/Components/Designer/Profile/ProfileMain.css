@@ -1,19 +1,39 @@
 .des-profile-container{
-    background-color: #393939;
+    height: 85vh;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-left:4vw;
-    margin-right: 1vw;
+    justify-content: center;
 }
 
 .des-profile-per{
-    background-color: aqua;
-    width: 49vw;
+    height: 70vh;
+    width: 45vw;
 }
 
 .des-profile-pro{
-    background-color: antiquewhite;
-    width: 49vw;
+    height: 70vh;
+    width: 45vw;
+}
+
+.des-pro-but-cover{
+    padding-right: 5em;
+    display: flex;
+    justify-content:flex-end;
+}
+
+.des-pro-but{
+    font-family: Red Hat Display;
+    font-size: 0.8em;
+    border: none;
+    border-radius: 5px;
+    background-color: #19BAA8;
+    color: white;
+    padding: 1em 4.5em;
+    transition: 0.2s ease;
+}
+
+.des-pro-but:hover{
+    border: 1px solid #19BAA8;
+    color: #19BAA8;
+    background-color: white;
 }

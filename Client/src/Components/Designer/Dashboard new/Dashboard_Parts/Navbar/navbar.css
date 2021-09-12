@@ -1,0 +1,45 @@
+.maincontainerSidebar{
+    display: flex;
+    flex-direction: column;
+    padding-left: 2vw ;
+    padding-right: 2vw ;
+    width: 15vw;
+    transition: 0.15s;
+}
+.null{
+    display: none;
+}
+.compressedSidebar{
+    width: 5vw;
+    display: flex;
+    flex-direction: column;
+    padding-left: 2vw ;
+    padding-right: 2vw ;
+    transition: 0.2s;
+}
+.button{
+   display: flex;
+   flex-direction: row;
+   height: 25px;
+}
+.menuname
+{   bottom: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+}
+.svg{
+    margin-right: 35px;
+}
+.cross{
+    margin-top: 10px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.button:active,.button:focus{
+    font-weight: 600;
+}
+.menuname:active,.menuname:focus{
+    font-weight: 600;
+}

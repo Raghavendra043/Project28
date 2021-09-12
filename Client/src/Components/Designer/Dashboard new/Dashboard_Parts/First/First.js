@@ -1,5 +1,5 @@
 import React from 'react'
-import "../Dashboardcss/First.css"
+import "./First.css"
 
 function First() {
     return (

@@ -1,0 +1,19 @@
+{
+    "username":"John Doe",
+
+    "specialization":{
+        "Graphic Design": true,
+        "UI design": true,
+        "UX desing":false,
+        "Branding":false,
+        "Social Media Posts":true    
+    },
+
+    "work_experience":[
+        "Designation, lorem ipsum dolor sit amet Vivamus ",
+        "Designation, lorem ipsum dolor sit amet Vivamus ",
+        "Designation, lorem ipsum dolor sit amet Vivamus "
+    ],
+
+    "link":"facebook.com"
+}
