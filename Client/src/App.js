@@ -17,7 +17,7 @@ import ProfileMain from "./Components/Designer/Profile/ProfileMain";
 function App() {
   return (
     <div className="App">
-      <ProfileMain />
+      <Main />
      {/* <Dashboard /> */}
      {/* <Navbar /> */}
      {/* <Main /> */}
