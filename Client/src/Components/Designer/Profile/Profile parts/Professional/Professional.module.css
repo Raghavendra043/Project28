@@ -1,9 +1,9 @@
 .container{
     background-color: white;
     border-radius: 4em;
-    padding: 1em 5.5em;
+    padding: 1em 4em;
     margin: 1em 1em;
-    height: 70vh;
+    height: 80vh;
 }
 
 .work{
@@ -34,7 +34,7 @@
 
 .profile_input{
     width: 100%;
-    height: 2.5em;
+    height: 2em;
     border: 1px solid black;
     border-radius: 5px;
     padding-left: 1em;
@@ -50,7 +50,7 @@ input[type='file']{
 }
 
 .resume_cover{
-    width: 104%;
+    width: 100%;
     margin-top: 0.5em;
     border: 2px dashed #C4C4C4;
     display: flex;

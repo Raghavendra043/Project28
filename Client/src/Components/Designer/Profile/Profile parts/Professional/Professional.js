@@ -1,9 +1,9 @@
 import React from 'react'
 import styles from './Professional.module.css';
-// import {ReactComponent as Pencil} from './../pencil.svg';
-// import P from './../p.png';
+
 
 function Professional(props) {
+
     return (
         <div style={{height:"100vh",backgroundColor:"light grey"}}>
             <div className={styles.container}>
@@ -16,10 +16,10 @@ function Professional(props) {
                         Work Experience
                         <span> <i class="fas fa-pencil-alt fa"></i></span>
                     </div>
-                    {props.work.map((data,key)=>{
+                    {props.workRef.current.map((data,key)=>{
                         return(
                         <div className={styles.input_cover}>
-                            <input type='text' className={styles.profile_input} value={data}/>
+                            <input type='text' className={styles.profile_input} ref={props.workRef} placeholder={data}/>
                         </div>
                         
                         );
@@ -32,7 +32,7 @@ function Professional(props) {
                         
                     </div>
                     <div className={styles.input_cover}>
-                        <input type='text' className={styles.profile_input} value={props.link}/>
+                        <input type='text' className={styles.profile_input} ref={props.linkRef} placeholder={props.linkRef.current}/>
                     </div>
                     <div className={styles.or}>OR</div>
                     <div className={styles.resume_cover}>

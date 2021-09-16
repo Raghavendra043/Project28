@@ -1,9 +1,8 @@
 import React from 'react'
 import styles from './Personal.module.css';
-// import {ReactComponent as Pencil} from './../pencil.svg';
+
 
 function Personal(props) {
-
 
     return (
         <div>
@@ -22,7 +21,7 @@ function Personal(props) {
                         <span> <i class="fas fa-pencil-alt fa"></i></span>
                     </div>
                         <div  className={styles.input_cover}>
-                            <input type="text" className={styles.profile_input} value={props.user}/>
+                            <input type="text" className={styles.profile_input} ref={props.nameRef} placeholder={props.nameRef.current}/>
                         </div>
                     </div>
                     <div className = {styles.special}> 
@@ -31,7 +30,15 @@ function Personal(props) {
                             <span> <i class="fas fa-pencil-alt fa"></i></span>
                         </div>
                         <div  className={styles.input_cover}>
-                            <input type="text" className={styles.profile_input}/>
+                            <select name = "specializations" className={styles.profile_input}>
+                                {props.special.map((data,index) =>{
+                                    return ( 
+                                        <option>{data} 
+                                            <span> <input type="checkbox"/> </span> 
+                                        </option>
+                                    );
+                                })}
+                            </select>
                         </div>
                     </div>
                 </div>
