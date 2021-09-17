@@ -2,14 +2,27 @@
     "username":"John Doe",
 
     "specialization":[
-        "Graphic Design",
-        "UI design",
-        "UX desing",
-        "Branding",
-        "Social Media Posts"   
+        {
+            "name":"UI",
+            "status":true
+        },
+        {
+            "name":"UI",
+            "status":true
+        },
+        {
+            "name":"UI",
+            "status":true
+        },
+        {
+            "name":"UI",
+            "status":true
+        },
+        {
+            "name":"UI",
+            "status":true
+        }
     ],
-
-    "specialization_state":[true,false,true,false,true],
 
     "work_experience":[
         "Designation, lorem ipsum dolor sit amet Vivamus ",

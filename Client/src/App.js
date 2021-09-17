@@ -18,15 +18,12 @@ function App() {
   return (
     <div className="App">
 
-    {/* <SignupA />
-    <SignupC />
-    <SignupB /> */}
 
-    {/* <Stage1 />
-    <Stage2 /> */}
+
+
   <DesginerSignUp/>  
       {/* <DesignerPerformance/> */}
-      {/* <ProfileMain /> */}
+      {/* <Main /> */}
 
 
 
