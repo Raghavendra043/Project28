@@ -1,5 +1,5 @@
 .first{
-    
+    height: 100%;
     width: 21vw;
 }
 
@@ -14,15 +14,14 @@
 }
 
 .fourth{
-     width: 21vw;
+     width: 28vw;
      margin-left: 10px;
 }
 .outercontainer{
     
     display: flex;
     flex-direction: row;
-    /* align-items: flex-start;
-    justify-content: center; */
+
     margin-left:7vw ;
     
 }

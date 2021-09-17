@@ -1,44 +1,50 @@
-import "./App.css";
-import Login from "./Components/Login";
-import Navbar from "./Components/Navbar";
-import Stage1 from "./Components/Designer/Stage1";
-import Stage2 from "./Components/Designer/Stage2";
-import SignupA from "./Components/Designer/Signup/SignupA";
-import SignupB from "./Components/Designer/Signup/SignupB";
-import SignupC from "./Components/Designer/Signup/SignupC";
+import Navbar from "./Components/Navbar/Navbar";
 import Slider from "./Components/Designer/Slider/Slider";
-import Main from "./Components/Designer/Dashboard new/Main";
+
+
 import AdminMain from "./Components/Admin/Main";
 import Dashboard from "./Components/Admin/Dashboard/Dashboard";
 import ClientDB from "./Components/Admin/Database/ClientDB";
 import Projects from "./Components/Admin/Projects/Projects";
+
+
+
+import Main from "./Components/Designer/Dashboard new/Main";
 import ProfileMain from "./Components/Designer/Profile/ProfileMain";
 import DesignerPerformance from "./Components/Designer/Performance/DesignerPerformance";
+import DesginerSignUp from "./Components/Designer/Signup/DesginerSignUp";
 
 function App() {
   return (
     <div className="App">
-      <DesignerPerformance/>
-      {/* <Main /> */}
+
+    {/* <SignupA />
+    <SignupC />
+    <SignupB /> */}
+
+    {/* <Stage1 />
+    <Stage2 /> */}
+  <DesginerSignUp/>  
+      {/* <DesignerPerformance/> */}
+      {/* <ProfileMain /> */}
+
+
+
      {/* <Dashboard /> */}
      {/* <Navbar /> */}
+     {/* <AdminMain /> */}
      {/* <Main /> */}
-      {/* <Stage1 />
-     <Stage2 />
-      <SignupA />
-     <SignupC />
-     <SignupB />
+      {/* 
     <Login /> */}
+     {/* <Slider
+       min={0}
+       max={1000}
+       onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`)}
+     />  */}
      {/* <Main />
-     <AdminMain />
      <Projects />
-     <ClientDB /> 
-      <Slider
-        min={0}
-        max={1000}
-        onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`)}
-      /> */}
-    </div>
+     <ClientDB />*/} 
+    </div> 
   );
 }
 

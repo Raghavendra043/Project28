@@ -1,0 +1,19 @@
+.container{
+    height: 100%;
+    width: 100%;
+}
+
+.box{
+    background: white;
+    border-radius: 30px;
+    width:97%;
+    height: 95%;
+    margin: 0.5em auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 7% 7% 0;
+    color: black;
+    font-family: Red Hat Display;
+}
