@@ -20,7 +20,7 @@
 .button{
    display: flex;
    flex-direction: row;
-   height: 25px;
+   height: 20px;
 }
 .menuname
 {   bottom: 0px;
@@ -37,9 +37,21 @@
     flex-direction: row;
     align-items: center;
 }
-.button:active,.button:focus{
+/* .button:active,.button:focus{
     font-weight: 600;
 }
 .menuname:active,.menuname:focus{
     font-weight: 600;
+} */
+.menuname:hover{
+    cursor: pointer;
+}
+.button{
+    margin-bottom: 40px;
+}
+.menunameBold{
+    bottom: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight:700 ;
 }
