@@ -17,6 +17,7 @@ function SignUpSecond(props) {
                             className={props.styles.inputs}
                             type="password"
                             placeholder="Enter Your Password"
+                            ref={props.password1Ref}
                         />
                     </div>
                     <div className={props.styles.input_cover}>
@@ -25,6 +26,7 @@ function SignUpSecond(props) {
                             className={props.styles.inputs}
                             type="password"
                             placeholder="Renter Your Password"
+                            ref={props.password2Ref}
                         />
                     </div>
 

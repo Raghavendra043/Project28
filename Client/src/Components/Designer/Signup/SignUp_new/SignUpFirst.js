@@ -16,8 +16,9 @@ function SignUpFirst(props) {
                         <div className={props.styles.titles}>Your Name</div>
                         <input
                             className={props.styles.inputs}
-                            type="email"
+                            type="text"
                             placeholder="Enter Your Full Name"
+                            ref = {props.nameRef}
                         />
                     </div>
                     <div className={props.styles.input_cover}>
@@ -26,6 +27,7 @@ function SignUpFirst(props) {
                             className={props.styles.inputs}
                             type="email"
                             placeholder="Eg. johndoe@email.com"
+                            ref = {props.emailRef}
                         />
                     </div>
                     <div className={props.styles.input_cover}>
@@ -34,6 +36,7 @@ function SignUpFirst(props) {
                             className={props.styles.inputs}
                             type="tel"
                             placeholder="Eg. +91 9123456789"
+                            ref= {props.phoneRef}
                         />
                     </div>
                 </div>
