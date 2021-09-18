@@ -2,36 +2,36 @@ import React from 'react'
 import styles from "./First.module.css";
 
 
-function SignUpFirst() {
+function SignUpFirst(props) {
     return (
         <div className={styles.container}>
             <div className={styles.box}>
-                <div className={styles.header}>DEAR DESIGNER</div>
-                <div className={styles.desc}>
+                <div className={props.styles.header}>DEAR DESIGNER</div>
+                <div className={props.styles.desc}>
                     Freelancing was never this easy!{" "}
                 </div>
         
-                <div className={styles.data}>
-                    <div className={styles.input_cover}>
-                        <div className={styles.titles}>Your Name</div>
+                <div className={props.styles.data}>
+                    <div className={props.styles.input_cover}>
+                        <div className={props.styles.titles}>Your Name</div>
                         <input
-                            className={styles.inputs}
+                            className={props.styles.inputs}
                             type="email"
                             placeholder="Enter Your Full Name"
                         />
                     </div>
-                    <div className={styles.input_cover}>
-                        <div className={styles.titles}>Enter Your Email ID</div>
+                    <div className={props.styles.input_cover}>
+                        <div className={props.styles.titles}>Enter Your Email ID</div>
                         <input
-                            className={styles.inputs}
+                            className={props.styles.inputs}
                             type="email"
                             placeholder="Eg. johndoe@email.com"
                         />
                     </div>
-                    <div className={styles.input_cover}>
-                        <div className={styles.titles}>Your Phone Number</div>
+                    <div className={props.styles.input_cover}>
+                        <div className={props.styles.titles}>Your Phone Number</div>
                         <input
-                            className={styles.inputs}
+                            className={props.styles.inputs}
                             type="tel"
                             placeholder="Eg. +91 9123456789"
                         />
