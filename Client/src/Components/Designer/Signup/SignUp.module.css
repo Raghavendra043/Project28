@@ -13,6 +13,7 @@
 
 .box{
     position:absolute;
+    height: 85vh;
     top: 10%;
     width: 34%;
     left: 33%;
