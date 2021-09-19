@@ -1,0 +1,48 @@
+.title{
+    text-align: center;
+    font-size:1.2em;
+    font-weight: 500;
+    font-family:  Red Hat Display;
+    margin-bottom: 1em;
+}
+
+.login_specifics{
+    margin: 0 auto;
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkbox{
+    color: #19BAA8;
+    width: 1em;
+    height: 1em;
+    margin-right: 0.7em;
+}
+
+.link{
+    text-decoration: none;
+    color: #19BAA8;
+}
+
+.cover{
+    display: flex;
+    justify-content: center;
+    margin: 2em 0 0;
+    width: 100%;
+}
+
+.complete{
+    background-color: rgba(25, 186, 168, 1);
+    border: 1px solid rgba(25, 186, 168, 1);
+    width: 55%;
+    height: 2.7em;
+    color: white;
+    border-radius: 4px;
+    transition: 0.2s ease-in-out;
+}
+
+.complete:hover{
+    background-color: white;
+    color:  rgba(25, 186, 168, 1);
+}

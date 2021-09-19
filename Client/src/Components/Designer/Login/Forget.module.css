@@ -1,0 +1,39 @@
+.desc{
+    font-size: 0.7em;
+    font-family: Open sans;
+    font-weight: 550;
+}
+.message{
+    display: none;
+    margin-top: 1em;
+    font-size: 0.7em;
+    font-family: Open sans;
+    font-weight: 550;
+    color: rgba(25, 186, 168, 1) ;
+}
+
+.on{
+    display: block;
+}
+
+
+.cover{
+    display: flex;
+    justify-content: center;
+    margin: 20% 0 0;
+    width: 100%;
+}
+.complete{
+    background-color: rgba(25, 186, 168, 1);
+    border: 1px solid rgba(25, 186, 168, 1);
+    width: 55%;
+    height: 2.7em;
+    color: white;
+    border-radius: 4px;
+    transition: 0.2s ease-in-out;
+}
+
+.complete:hover{
+    background-color: white;
+    color:  rgba(25, 186, 168, 1);
+}
