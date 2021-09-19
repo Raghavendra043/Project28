@@ -24,11 +24,9 @@
         }
     ],
 
-    "work_experience":[
-        "Designation, lorem ipsum dolor sit amet Vivamus ",
-        "Designation, lorem ipsum dolor sit amet Vivamus ",
-        "Designation, lorem ipsum dolor sit amet Vivamus "
-    ],
+    "work_experience1":"Designation, lorem ipsum dolor sit amet Vivamus ",
+    "work_experience2":"Designation, lorem ipsum dolor sit amet Vivamus ",
+    "work_experience3":"Designation, lorem ipsum dolor sit amet Vivamus ",
 
     "link":"facebook.com"
 }     

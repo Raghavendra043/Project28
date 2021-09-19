@@ -16,14 +16,16 @@ function Professional(props) {
                         Work Experience
                         <span> <i class="fas fa-pencil-alt fa"></i></span>
                     </div>
-                    {props.workRef.current.map((data,key)=>{
-                        return(
-                        <div className={styles.input_cover}>
-                            <input type='text' className={styles.profile_input} ref={props.workRef} placeholder={data}/>
-                        </div>
-                        
-                        );
-                    })}
+                    <div className={styles.input_cover}>
+                        <input type='text' className={styles.profile_input} ref={props.work1Ref} placeholder={props.work1Ref.current}/>
+                    </div>
+                    <div className={styles.input_cover}>
+                        <input type='text' className={styles.profile_input} ref={props.work2Ref} placeholder={props.work2Ref.current}/>
+                    </div>
+                    <div className={styles.input_cover}>
+                        <input type='text' className={styles.profile_input} ref={props.work3Ref} placeholder={props.work3Ref.current}/>
+                    </div>
+
                 </div>
                 <div className={styles.links}>
                     <div className={styles.title}>

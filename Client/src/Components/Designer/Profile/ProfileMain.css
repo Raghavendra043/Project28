@@ -1,5 +1,6 @@
 .des-profile-container{
-    height: 90vh;
+    margin-top: 7vh;
+    height: 83vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -7,16 +8,16 @@
 
 .des-profile-per{
     height: 70vh;
-    width: 40vw;
+    width: 37vw;
 }
 
 .des-profile-pro{
     height: 70vh;
-    width: 40vw;
+    width: 37vw;
 }
 
 .des-pro-but-cover{
-    padding-right: 9em;
+    padding-right: 14vw;
     display: flex;
     justify-content:flex-end;
 }

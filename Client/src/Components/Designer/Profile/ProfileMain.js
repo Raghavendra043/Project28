@@ -9,31 +9,14 @@ function ProfileMain() {
     const nameRef = useRef(data.username);
     const special = data.specialization;
     const [checkedState,setCheckedState] = useState(data.specialization_state);
-    const workRef = useRef(data.work_experience);
+    const work1Ref = useRef(data.work_experience1);
+    const work2Ref = useRef(data.work_experience2);
+    const work3Ref = useRef(data.work_experience3);
     const linkRef = useRef(data.link);
 
 
     const handleSubmit = () =>{
         console.log("f");
-        var x = {
-            "username":"John Doe",
-        
-            "specialization":{ 
-                "Graphic Design": true,
-                "UI design": true,
-                "UX desing":false,
-                "Branding":false,
-                "Social Media Posts":true    
-            },
-        
-            "work_experience":[
-                "Designation, lorem ipsum dolor sit amet Vivamus ",
-                "Designation, lorem ipsum dolor sit amet Vivamus ",
-                "Designation, lorem ipsum dolor sit amet Vivamus "
-            ],
-        
-            "link":"facebook.com"
-        }   
     }
 
     return (
@@ -43,7 +26,7 @@ function ProfileMain() {
                     <Personal nameRef={nameRef} special={special} checkedState={checkedState} setCheckedState={setCheckedState}/>
                 </div>
                 <div className='des-profile-pro'>
-                    <Professional workRef={workRef} linkRef={linkRef}/>
+                    <Professional work1Ref={work1Ref} work2Ref={work2Ref} work3Ref={work3Ref} linkRef={linkRef}/>
                 </div>
 
             </div>

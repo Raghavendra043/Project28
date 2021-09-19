@@ -33,7 +33,7 @@ function Personal(props) {
                             <select name = "specializations" className={styles.profile_input}>
                                 {props.special.map((data,index) =>{
                                     return ( 
-                                        <option>{data} 
+                                        <option>{data.name} 
                                             <span> <input type="checkbox"/> </span> 
                                         </option>
                                     );

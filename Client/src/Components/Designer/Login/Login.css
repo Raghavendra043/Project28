@@ -1,0 +1,168 @@
+.loginParent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 100vh;
+}
+
+.login_a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+
+  width: 320px;
+  height: 380px;
+
+  background: #ffffff;
+  box-shadow: 0px 4px 24px rgba(30, 31, 30, 0.08);
+  border-radius: 8px;
+}
+
+#textA_a {
+  font-family: Red Hat Display;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 24px;
+  /* identical to box height, or 100% */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+
+  color: #1e1f1e;
+}
+
+#textB_a {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 9px;
+  line-height: 16px;
+  /* identical to box height, or 178% */
+
+  color: #1e1f1e;
+}
+
+#textC_c {
+  font-family: Red Hat Display;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #1e1f1e;
+}
+
+.inputText_a {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  /* identical to box height, or 133% */
+
+  color: #1e1f1e;
+
+  width: 113px;
+  height: 16px;
+}
+
+.inputInput_a {
+  width: 280px;
+  height: 28px;
+  background: #ffffff;
+  border: 0.5px solid #000000;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.inputInput_a::placeholder {
+  font-family: Open Sans;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 10px;
+  line-height: 16px;
+  /* identical to box height, or 150% */
+
+  color: #1e1f1e;
+  padding: 10px;
+}
+
+#options_a {
+  display: flex;
+  margin-top: 5px;
+}
+#opt1_a {
+  flex-grow: 1;
+}
+#opt2_a {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 10px;
+  line-height: 16px;
+  /* identical to box height, or 160% */
+
+  color: #19baa8;
+}
+
+#remem {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 16px;
+  /* identical to box height, or 160% */
+
+  color: #1e1f1e;
+}
+
+#RememberMe_a {
+  width: 12px;
+  height: 12px;
+
+  background: #ffffff;
+  border: 0.5px solid #000000;
+  box-sizing: border-box;
+  border-radius: 2px;
+}
+
+#loginBtn_a {
+  background: #00b4b3;
+  border-radius: 4px;
+  width: 170px;
+  height: 28px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#loginBtnText_a {
+  font-family: Red Hat Display;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 16px;
+  /* identical to box height, or 160% */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #ffffff;
+}
+
+.spacing_a {
+  /* padding-top: 30px; */
+}

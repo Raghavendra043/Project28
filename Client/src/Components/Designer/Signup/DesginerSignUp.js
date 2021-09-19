@@ -97,44 +97,7 @@ function DesginerSignUp() {
 
 
     }        
-        
-    return (
-       
-       
 
-
-
-        <div className={styles.container}>
-            <div className={styles.bottom_background}></div>
-            {/*             
-            <div className={styles.first}>
-                <div className={styles.man_svg}>
-                    <FirstMan/>
-                </div>
-                <div className={styles.box}>
-                    <SignUpFirst styles={styles} nameRef={nameRef} emailRef={emailRef} phoneRef={phoneRef}/>
-                </div>
-            </div> */}
-            {/* <div className={styles.second}>
-                <div className={styles.man_svg}>
-                    <SecondMan/>
-                </div>
-                <div className={styles.box}>
-                    <SignUpSecond styles={styles} password1Ref={password1Ref} password2Ref={password2Ref}/>
-                </div>
-            </div> */}
-            <div className={styles.third}>
-                <div className={styles.man_svg}>
-                    <ThirdMan />
-                </div>
-                <div className={styles.box}>
-                    <SignUpThird styles={styles} />
-                </div>
-            </div>
-
-
-        </div>
-    )
 }
 
 export default DesginerSignUp;

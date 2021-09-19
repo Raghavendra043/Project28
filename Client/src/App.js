@@ -1,3 +1,6 @@
+import React from "react";
+import { Route, Switch ,  BrowserRouter as Router,} from "react-router-dom";
+
 import Navbar from "./Components/Navbar/Navbar";
 import Slider from "./Components/Designer/Slider/Slider";
 
@@ -13,34 +16,26 @@ import Main from "./Components/Designer/Dashboard new/Main";
 import ProfileMain from "./Components/Designer/Profile/ProfileMain";
 import DesignerPerformance from "./Components/Designer/Performance/DesignerPerformance";
 import DesginerSignUp from "./Components/Designer/Signup/DesginerSignUp";
+import DesignerLogin from "./Components/Designer/Login/DesignerLogin";
+import ForgetPassword from "./Components/Designer/Login/ForgetPassword";
+
 
 function App() {
   return (
     <div className="App">
+      <Router>
+        <Switch>
+            <Route path="/" exact component={Main} /> 
+            <Route path="/designer/login" exact component={DesignerLogin} /> 
+            <Route path="/designer/performance" exact component={DesignerPerformance} /> 
+            <Route path="/designer/signup" exact component={DesginerSignUp} /> 
+            <Route path="/designer/dash" exact component={Main} /> 
+            <Route path="/designer/profile" exact component={ProfileMain} /> 
+            <Route path="/designer/forget" exact component={ForgetPassword} /> 
+        </Switch>
+      </Router>
 
 
-
-
-  <DesginerSignUp/>  
-      {/* <DesignerPerformance/> */}
-      {/* <Main /> */}
-
-
-
-     {/* <Dashboard /> */}
-     {/* <Navbar /> */}
-     {/* <AdminMain /> */}
-     {/* <Main /> */}
-      {/* 
-    <Login /> */}
-     {/* <Slider
-       min={0}
-       max={1000}
-       onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`)}
-     />  */}
-     {/* <Main />
-     <Projects />
-     <ClientDB />*/} 
     </div> 
   );
 }

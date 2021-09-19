@@ -13,7 +13,8 @@
 
 .box{
     position:absolute;
-    height: 85vh;
+    max-height: 85vh;
+    min-height: 75vh;
     top: 10%;
     width: 34%;
     left: 33%;
@@ -23,6 +24,7 @@
     background: #ffffff;
     box-shadow: 0px 4px 24px rgba(30, 31, 30, 0.08);
     border-radius: 4px;
+    padding-bottom: 3em;
 }
 
 .man_svg{
@@ -63,7 +65,6 @@
 .input_cover{
     margin: 0 auto;
     width: 85%;
-    height: 100%;
     margin-bottom: 1em;
 }
 
@@ -77,6 +78,7 @@
 }
 
 .inputs::placeholder{
+    font-family: Open Sans;
     font-style: italic;
 }
 .hide{
