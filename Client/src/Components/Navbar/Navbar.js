@@ -1,7 +1,7 @@
 import React from "react";
 import "./Navbar.css";
-import logo from "../assets/P28logo.png";
-import icon from "../assets/UserIcon.png";
+import logo from "./../../assets/P28logo.png";
+import icon from "./../../assets/UserIcon.png";
 
 function Navbar() {
   return (

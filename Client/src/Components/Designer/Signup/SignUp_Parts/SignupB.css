@@ -9,12 +9,9 @@
   display: flex;
   flex-direction: column;
 
-  justify-content: center;
+  justify-content: flex-start !important;
 
-  width: auto;
-
-  width: 777px;
-  height: 864px;
+  padding-top: 72px;
 
   background: #ffffff;
   box-shadow: 0px 4px 24px rgba(30, 31, 30, 0.08);
@@ -49,28 +46,48 @@
   /* identical to box height, or 167% */
 
   color: #1e1f1e;
+  padding-bottom: 104px;
 }
 
-#textC {
-  font-family: Red Hat Display;
+.inputText {
+  font-family: Open Sans;
   font-style: normal;
-  font-weight: 500;
-  font-size: 36px;
-  line-height: 54px;
-  /* identical to box height, or 150% */
-
-  display: flex;
-  align-items: center;
-  text-align: center;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 30px;
+  /* identical to box height, or 125% */
 
   color: #1e1f1e;
 
-  margin-top: 139px;
+  margin: 5px;
 }
+
+.inputInput {
+  width: 488px;
+  height: 54px;
+  background: #ffffff;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 8px;
+  margin: 5px;
+}
+
+.inputInput::placeholder {
+  font-family: Open Sans;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 30px;
+  /* identical to box height, or 150% */
+
+  color: #1e1f1e;
+  padding: 10px;
+}
+
 #loginBtn {
   background: #00b4b3;
-  border-radius: 8px;
-  width: 488px;
+  border-radius: 4px;
+  width: 385px;
   height: 54px;
 
   display: flex;
@@ -91,33 +108,6 @@
   color: #ffffff;
 }
 
-#loginBtn2 {
-  background: #ffffff;
-  border: 1px solid #1e1f1e;
-  box-sizing: border-box;
-  border-radius: 8px;
-
-  width: 488px;
-  height: 54px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  margin-top: 30px;
-}
-
-#loginBtnText2 {
-  font-family: Open Sans;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 30px;
-  /* identical to box height, or 167% */
-
-  color: #1e1f1e;
-}
-
 .spacing {
-  padding-top: 30px;
+  padding-bottom: 30px;
 }

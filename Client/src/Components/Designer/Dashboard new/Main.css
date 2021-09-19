@@ -1,36 +1,37 @@
 .first{
+<<<<<<< HEAD
     
     top: 0%;
+=======
+    height: 100%;
+>>>>>>> 1fe9090249b7dc9848dc654a563745a01818a3ac
     width: 21vw;
 }
 
 .second{
     top: 0%;
     width: 27vw;
-    margin: 10px;
 }
 
 .third{
-    
+    margin-left: 2% ;
     width: 14vw;
-    margin-top: 50px;
 }
 
 .fourth{
-     width: 21vw;
-     margin-top: 50px;
+     width: 28vw;
      margin-left: 10px;
 }
 .outercontainer{
     
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
+
     margin-left:7vw ;
     
-    
 }
+    
+
 .Sidebar{
     background-color: #FAFAFA;
     height: 100vh;

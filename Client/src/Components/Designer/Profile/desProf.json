@@ -1,0 +1,34 @@
+{
+    "username":"John Doe",
+
+    "specialization":[
+        {
+            "name":"UI",
+            "status":true
+        },
+        {
+            "name":"UI",
+            "status":true
+        },
+        {
+            "name":"UI",
+            "status":true
+        },
+        {
+            "name":"UI",
+            "status":true
+        },
+        {
+            "name":"UI",
+            "status":true
+        }
+    ],
+
+    "work_experience":[
+        "Designation, lorem ipsum dolor sit amet Vivamus ",
+        "Designation, lorem ipsum dolor sit amet Vivamus ",
+        "Designation, lorem ipsum dolor sit amet Vivamus "
+    ],
+
+    "link":"facebook.com"
+}     

@@ -1,12 +1,9 @@
 .box{
-    min-height: 43vh;
+    max-height: 100vh;
     background: #FFFFFF;
     border-radius: 50px;
 }
-.upper{
-    
-    margin-bottom: 30px;
-}
+
 .top{
     height: 5em;
     background-color: #24576A;
@@ -86,4 +83,8 @@
     padding-top: 40px;
     padding-left: 20px;
     padding-right: 20px;
+}
+
+.des-f-svg{
+    height: 15vh;
 }

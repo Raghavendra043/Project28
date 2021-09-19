@@ -13,9 +13,9 @@ import Navbar from './Dashboard_Parts/Navbar/Navbar';
 function Main() {
     return (
         <div className="maincontainer">
-                <div className="Sidebar">
+                {/* <div className="Sidebar">
                     <Navbar/>
-            </div>
+            </div> */}
             <div className="outercontainer">
                 <div className=' first'>
                     <First />
