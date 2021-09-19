@@ -1,10 +1,9 @@
 .first{
-<<<<<<< HEAD
+
     
     top: 0%;
-=======
     height: 100%;
->>>>>>> 1fe9090249b7dc9848dc654a563745a01818a3ac
+
     width: 21vw;
 }
 
@@ -16,11 +15,13 @@
 .third{
     margin-left: 2% ;
     width: 14vw;
+      height: 100%;
 }
 
 .fourth{
      width: 28vw;
      margin-left: 10px;
+       height: 100%;
 }
 .outercontainer{
     

@@ -79,3 +79,33 @@
 .inputs::placeholder{
     font-style: italic;
 }
+.hide{
+    display: none;
+}
+.show{
+    text-align:center;
+}
+.signupbox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+.next{
+    height: 7vh;
+    width: 5vw;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid lightseagreen;
+    color: lightseagreen ;
+    transition: 0.2s;
+}
+.next:hover{
+    background-color: lightseagreen;
+    color: white;
+}

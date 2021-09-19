@@ -1,13 +1,16 @@
 import React from 'react'
 import styles from './Third.module.css'
+import style from '../../Signup/SignUp.module.css';
 
 
-function SignUpThird(props) {
+
+function SignUpThird( { formData, setForm, navigation }) {
     return (
         <div className={styles.container}>
+            <div className={style.next} onClick={navigation.previous}>{ '<'}</div>
             <div className={styles.box}>
-                <div className={props.styles.header}>Hey! “Username”,</div>
-                <div className={props.styles.desc}>
+                <div className={style.header}>Hey! “Username”,</div>
+                <div className={style.desc}>
                     Completing your profile will help you get noticed quicker!{" "}
                 </div>
         

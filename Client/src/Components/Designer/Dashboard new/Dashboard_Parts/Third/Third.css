@@ -1,6 +1,6 @@
 .des-d-t-box-container{
     overflow-y: scroll;
-    height: 100%;
+  height: 90vh;
 }
 .des-d-t-on{
     --des-text-col:white;
