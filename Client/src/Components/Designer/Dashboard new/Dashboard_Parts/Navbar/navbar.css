@@ -20,12 +20,12 @@
 .button{
    display: flex;
    flex-direction: row;
-   height: 20px;
+   height: 2em;
 }
 .menuname
 {   bottom: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 1em;
 }
 .svg{
     margin-right: 35px;
@@ -51,7 +51,7 @@
 }
 .menunameBold{
     bottom: 0px;
-    font-family: sans-serif;
-    font-size: 18px;
+    font-family: Open sans;
+    font-size: 1em;
     font-weight:700 ;
 }

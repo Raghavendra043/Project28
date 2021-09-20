@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from "./First.module.css";
 import style from '../../Signup/SignUp.module.css';
-
+import {ReactComponent as ArrowRight} from './../assests/ArrowRight.svg'
 
 function SignUpFirst({ formData, setForm, navigation }) {
     console.log(navigation);
@@ -57,7 +57,7 @@ function SignUpFirst({ formData, setForm, navigation }) {
                 <div className={styles.otp_input_cover}>
                     <div className={styles.otp_titles}>Enter OTP</div>
                     <div className={styles.otp}>
-                        <input type="text" className={styles.number} placeholder='-' name="otp1" value={formData.otp1} onChange={setForm} />
+                        <input type="tel" className={styles.number} placeholder='-' name="otp1" value={formData.otp1} onChange={setForm} />
                         <input type="text" className={styles.number} placeholder='-' name="otp2" value={formData.otp2} onChange={setForm}/>
                         <input type="text" className={styles.number} placeholder='-' name="otp3" value={formData.otp3} onChange={setForm}/>
                         <input type="text" className={styles.number} placeholder='-' name="otp4" value={formData.otp4} onChange={setForm}/>
@@ -70,7 +70,7 @@ function SignUpFirst({ formData, setForm, navigation }) {
                 if (formData.fullname.trim() && formData.email.trim()&& formData.phonenumber.trim() && formData.otp1.trim() && formData.otp2.trim()&& formData.otp3.trim()&& formData.otp4.trim()) {
                     navigation.next();
                 }
-                }}>{'>'}</div>
+                }}><ArrowRight className={style.arrow_right}/></div>
                 
         </div>
     )

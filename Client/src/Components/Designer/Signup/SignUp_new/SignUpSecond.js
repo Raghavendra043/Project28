@@ -2,7 +2,8 @@ import React from 'react'
 import styles from './Second.module.css'
 import { useState } from 'react';
 import style from '../../Signup/SignUp.module.css';
-
+import {ReactComponent as ArrowRight} from './../assests/ArrowRight.svg'
+import {ReactComponent as ArrowLeft} from './../assests/ArrowLeft.svg'
 
 
 function SignUpSecond({ formData, setForm, navigation }) {
@@ -12,8 +13,8 @@ function SignUpSecond({ formData, setForm, navigation }) {
     return (
         <div className={style.signupbox}>
             
-                <div className={style.next} onClick={navigation.previous}>
-                    {'<'}
+                <div className={style.previous} onClick={navigation.previous}>
+                    <ArrowLeft className={style.arrow_left}/>
                 </div>
         <div className={styles.container}>
                 <div className={style.header}>DEAR DESIGNER,</div>
@@ -46,7 +47,7 @@ function SignUpSecond({ formData, setForm, navigation }) {
                         onChange={setForm}
                         />
                     </div>
-                    <div className={toggle? style.show : style.hide}>*passwords don't match*</div>
+                    <div className={toggle? style.show : style.hide}>Passwords don't match! Try again</div>
 
                     <div className={styles.line}>
                         Almost there
@@ -61,7 +62,7 @@ function SignUpSecond({ formData, setForm, navigation }) {
                         setToggle(true)
                     }
                     }}>
-                    {'>'}
+                    <ArrowRight className={style.arrow_right}/>
                 </div>
                 
         </div>

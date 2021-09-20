@@ -1,13 +1,12 @@
 import React from 'react'
 import styles from './Third.module.css'
 import style from '../../Signup/SignUp.module.css';
-
-
+import {ReactComponent as ArrowLeft} from './../assests/ArrowLeft.svg'
 
 function SignUpThird( { formData, setForm, navigation }) {
     return (
         <div className={styles.container}>
-            <div className={style.next} onClick={navigation.previous}>{ '<'}</div>
+            <div className={style.previous} onClick={navigation.previous}><ArrowLeft className={style.arrow_left}/></div>
             <div className={styles.box}>
                 <div className={style.header}>Hey! “Username”,</div>
                 <div className={style.desc}>

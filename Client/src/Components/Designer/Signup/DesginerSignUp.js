@@ -53,7 +53,7 @@ function DesginerSignUp() {
                         <div className={styles.bottom_background}></div>
                         <div className={styles.third}>
                             <div className={styles.man_svg}>
-                                <ThirdMan />
+                                <FirstMan />
                             </div>
                             <div className={styles.box}>
                     <SignUpFirst  {...props}/>
@@ -69,7 +69,7 @@ function DesginerSignUp() {
                         <div className={styles.bottom_background}></div>
                         <div className={styles.third}>
                             <div className={styles.man_svg}>
-                                <ThirdMan />
+                                <SecondMan />
                             </div>
                             <div className={styles.box}>
                                 <SignUpSecond  {...props}/>
@@ -97,6 +97,7 @@ function DesginerSignUp() {
 
 
     }        
+
 
 }
 

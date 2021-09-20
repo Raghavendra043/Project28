@@ -22,6 +22,7 @@
     flex-direction: column;
     justify-content: flex-start;
     background: #ffffff;
+    border-top: 2px solid rgba(25, 186, 168, 1);
     box-shadow: 0px 4px 24px rgba(30, 31, 30, 0.08);
     border-radius: 4px;
     padding-bottom: 3em;
@@ -86,6 +87,9 @@
 }
 .show{
     text-align:center;
+    color: rgba(241, 92, 62, 1);
+    font-family: open sans;
+    font-weight: 600;
 }
 .signupbox{
     display: flex;
@@ -94,20 +98,44 @@
     justify-content: center;
 
 }
+
 .next{
-    height: 7vh;
-    width: 5vw;
-    
+    height: 4em;
+    width: 3em;
+    position: absolute;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    left:120%;
     border-radius: 5px;
     border: 1px solid lightseagreen;
-    color: lightseagreen ;
+    background-color: white;
     transition: 0.2s;
+    box-shadow: 0px 4px 8px rgba(30, 31, 30, 0.08);
+
 }
 .next:hover{
     background-color: lightseagreen;
     color: white;
+}
+
+.next:hover > .arrow_right  path{
+    stroke:white;
+}
+.previous{
+    height: 4em;
+    width: 3em;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 10%;
+    right:110%;
+    border-radius: 5px;
+    transition: 0.2s;
+    box-shadow: 0px 4px 8px rgba(30, 31, 30, 0.08);
+}
+
+.previous:hover {
+    background-color: white;
 }

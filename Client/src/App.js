@@ -32,6 +32,9 @@ function App() {
             <Route path="/designer/dash" exact component={Main} /> 
             <Route path="/designer/profile" exact component={ProfileMain} /> 
             <Route path="/designer/forget" exact component={ForgetPassword} /> 
+
+
+            
         </Switch>
       </Router>
 
