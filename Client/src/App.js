@@ -12,7 +12,8 @@ import DesignerPerformance from "./Components/Designer/Performance/DesignerPerfo
 import DesginerSignUp from "./Components/Designer/Signup/DesginerSignUp";
 import DesignerLogin from "./Components/Designer/Login/DesignerLogin";
 import ForgetPassword from "./Components/Designer/Login/ForgetPassword";
-import ClientSignup from "./Components/client/ClientSignup";
+import ClientSignup from "./Components/client/Signup/ClientSignup";
+import ClientLogin from "./Components/client/Login/ClientLogin";
 
 
 function App() {
@@ -27,7 +28,8 @@ function App() {
             <Route path="/designer/dash" exact component={Main} /> 
             <Route path="/designer/profile" exact component={ProfileMain} /> 
             <Route path="/designer/forget" exact component={ForgetPassword} /> 
-            <Route path="/client" exact component={ClientSignup} /> 
+            <Route path="/clientSignup" exact component={ClientSignup} /> 
+            <Route path="/clientLogin" exact component={ClientLogin} /> 
         </Switch>
       </Router>
 

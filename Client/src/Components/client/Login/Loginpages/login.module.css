@@ -1,0 +1,62 @@
+
+
+.otp_titles{
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1em;
+}
+.cover{
+    display: flex;
+    justify-content: center;
+    margin: 3em 0 0;
+    width: 100%;
+}
+.complete{
+    background-color: #20C1EF;
+    border: 1px solid #20C1EF;
+    width: 60%;
+    height: 2.7em;
+    color: white;
+    border-radius: 4px;
+    transition: 0.2s ease-in-out;
+}
+
+.complete:hover{
+    background-color: white;
+    color:  #20C1EF;
+}
+
+.container{
+    width: 100%;
+}
+
+.line{
+    width: 100%;
+    margin: 7em auto;
+    text-align: center;
+    color: rgba(25, 186, 168, 1);
+}
+
+
+.otp_input_cover{
+    margin: 2em auto;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 1em;
+}
+
+.otp{
+    display: flex;
+    justify-content: center;
+}
+
+.number{
+    border: 1.2px solid black;
+    width: 9%;
+    height: 2.4rem;
+    margin: 00.9rem 1rem;
+    border-radius: 5px;
+    padding: 0.8em;
+}
+
+
