@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch ,  BrowserRouter as Router,} from "react-router-dom";
+import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import Navbar from "./Components/Navbar/Navbar";
 import Slider from "./Components/Designer/Slider/Slider";
 import AdminMain from "./Components/Admin/Main";
@@ -14,25 +14,22 @@ import DesignerLogin from "./Components/Designer/Login/DesignerLogin";
 import ForgetPassword from "./Components/Designer/Login/ForgetPassword";
 import ClientSignup from "./Components/client/ClientSignup";
 
-
 function App() {
   return (
     <div className="App">
       <Router>
         <Switch>
-            <Route path="/" exact component={Main} /> 
-            <Route path="/designer/login" exact component={DesignerLogin} /> 
-            <Route path="/designer/performance" exact component={DesignerPerformance} /> 
-            <Route path="/designer/signup" exact component={DesginerSignUp} /> 
-            <Route path="/designer/dash" exact component={Main} /> 
-            <Route path="/designer/profile" exact component={ProfileMain} /> 
-            <Route path="/designer/forget" exact component={ForgetPassword} /> 
-            <Route path="/client" exact component={ClientSignup} /> 
+          <Route path="/" exact component={Main} />
+          <Route path="/designer/login" exact component={DesignerLogin} />
+          <Route path="/designer/perf" exact component={DesignerPerformance} />
+          <Route path="/designer/signup" exact component={DesginerSignUp} />
+          <Route path="/designer/dash" exact component={Main} />
+          <Route path="/designer/profile" exact component={ProfileMain} />
+          <Route path="/designer/forget" exact component={ForgetPassword} />
+          <Route path="/client" exact component={ClientSignup} />
         </Switch>
       </Router>
-
-
-    </div> 
+    </div>
   );
 }
 
