@@ -12,11 +12,11 @@ import Navbar from './Dashboard_Parts/Navbar/Navbar';
 
 function Main() {
     return (
-        <div className="maincontainer">
+        <div className="main_container1">
                 <div className="Sidebar">
                     <Navbar/>
             </div>
-            <div className="outercontainer">
+            <div className="outer_container1">
                 <div className=' first'>
                     <First />
                 </div>

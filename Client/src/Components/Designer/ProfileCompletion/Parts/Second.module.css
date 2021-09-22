@@ -1,0 +1,55 @@
+.slider{
+    width: 85%;
+ margin: 1em auto;
+}
+
+.desc{
+    font-size: 0.7em;
+    padding-left: 1em;
+}
+
+.input_cover{
+    margin-top: 2.5em;
+}
+
+.resume_cover{
+    width: 100%;
+    margin-top: 0.5em;
+    border: 2px dashed #C4C4C4;
+    display: flex;
+    justify-content: center;
+    padding: 0.8em 0;
+    border-radius: 8px;
+}
+
+.resume{
+    margin-left: 1em;
+    font-size: 0.8em;
+    color: #C4C4C4;
+}
+
+.or{
+    text-align: center;
+    color: rgb(165, 158, 158);
+    margin: 1em auto;
+}
+
+.resume_input_cover{
+    width: 100%;
+}
+
+.profile_input{
+    width: 100%;
+    height: 2.8em;
+    padding-left: 1em;
+}
+
+.profile_input::placeholder{
+    font-size: 0.9em;
+    font-style: italic;
+}
+.verify_cover{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}

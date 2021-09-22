@@ -1,13 +1,13 @@
 import { Switch } from '@material-ui/core';
 import React from 'react'
 import { useForm, useStep } from 'react-hooks-helper'
-import Signup1 from '../client/SignupPages/Signup1';
-import Signup2 from '../client/SignupPages/Signup2';
-import Signup3 from '../client/SignupPages/Signup3';
-import Signup4 from '../client/SignupPages/Signup4';
-import {ReactComponent as Lady} from '../client/assets/Lady.svg'
-import { ReactComponent as Man } from '../client/assets/Man.svg'
-import styles from "../client/Signup.module.css"
+import Signup1 from '../Signup/SignupPages/Signup1';
+import Signup2 from '../Signup/SignupPages/Signup2';
+import Signup3 from '../Signup/SignupPages/Signup3';
+import Signup4 from '../Signup/SignupPages/Signup4';
+import {ReactComponent as Lady} from '../Signup/assets/Lady.svg'
+import { ReactComponent as Man } from '../Signup/assets/Man.svg'
+import styles from "../Signup/Signup.module.css"
 
 
 

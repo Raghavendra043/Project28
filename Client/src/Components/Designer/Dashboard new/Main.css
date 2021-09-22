@@ -4,12 +4,12 @@
     top: 0%;
     height: 100%;
 
-    width: 21vw;
+    width: 23vw;
 }
 
 .second{
     top: 0%;
-    width: 27vw;
+    width: 30vw;
 }
 
 .third{
@@ -19,12 +19,12 @@
 }
 
 .fourth{
-     width: 28vw;
+     width: 23vw;
      margin-left: 10px;
        height: 100%;
 }
-.outercontainer{
-    
+.outer_container1{
+    height: 100%;
     display: flex;
     flex-direction: row;
 
@@ -39,7 +39,9 @@
     position: fixed;
     z-index: 100;
 }
-.maincontainer{
+.main_container1{
+    height: 100vh;
+    background-color: #c4c4c4;
     display: flex;
     flex-direction: row;
 }

@@ -3,17 +3,17 @@
 .otp_titles{
     text-align: center;
     font-weight: 600;
-    font-size: 1.1em;
+    font-size:2.5vh;
 }
 
 
 
 
 .otp_input_cover{
-    margin: 2em auto;
+    margin: 4vh auto;
     width: 100%;
     height: 100%;
-    margin-bottom: 1em;
+
 }
 
 .otp{
@@ -24,7 +24,7 @@
 .number{
     border: 1.2px solid black;
     width: 9%;
-    height: 2.4rem;
+    height: 6vh;
     margin: 00.9rem 1rem;
     border-radius: 5px;
     padding: 0.8em;

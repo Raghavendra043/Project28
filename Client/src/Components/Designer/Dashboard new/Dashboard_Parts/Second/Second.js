@@ -4,7 +4,7 @@ import "./second.css"
 function Second() {
     return (
         <div>
-            <div className="box upper">
+            <div className="box2 upper">
                 <div className="topsecond">
                     <div className="headerSecond">Project Brief</div>
                     <div className="logo">
@@ -20,7 +20,7 @@ function Second() {
                     <div className="lines">Lorem Ipsum dolor sit amet. Vivamus ra felis endum</div>
                 </div>
             </div>
-            <div className="box upload">
+            <div className="box2 upload">
                 <div className="inpurFile">
                     <input type="file" id="file" className="FileUpload" />
                     <label for="file">
