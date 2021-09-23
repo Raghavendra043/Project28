@@ -1,5 +1,5 @@
 .container{
-    height: 94vh;
+    height: 90vh;
     width: 100%;
     margin-top: 6vh;
 }
@@ -8,7 +8,7 @@
     background: white;
     border-radius: 30px;
     width:97%;
-    height: 95%;
+    height: 98%;
     margin: 0.5em auto;
     display: flex;
     flex-direction: column;

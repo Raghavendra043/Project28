@@ -8,7 +8,7 @@ function Navbar() {
     <div className="navbar">
       <div className="part1">
         <div id="navLogo">
-          <img src={logo} alt="logo" width="179px" />
+          <img src={logo} alt="logo" width="100vw" />
         </div>
         <div className="navA">About Us</div>
         <div className="navA">How it Works</div>

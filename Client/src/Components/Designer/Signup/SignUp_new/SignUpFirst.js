@@ -57,7 +57,7 @@ function SignUpFirst({ formData, setForm, navigation }) {
                 <div className={styles.otp_input_cover}>
                     <div className={styles.otp_titles}>Enter OTP</div>
                     <div className={styles.otp}>
-                        <input type="tel" className={styles.number} placeholder='-' name="otp1" value={formData.otp1} onChange={setForm} />
+                        <input type="tel" className={styles.number} placeholder='-' pattern="[0-9]" name="otp1" value={formData.otp1} onChange={setForm} />
                         <input type="text" className={styles.number} placeholder='-' name="otp2" value={formData.otp2} onChange={setForm}/>
                         <input type="text" className={styles.number} placeholder='-' name="otp3" value={formData.otp3} onChange={setForm}/>
                         <input type="text" className={styles.number} placeholder='-' name="otp4" value={formData.otp4} onChange={setForm}/>

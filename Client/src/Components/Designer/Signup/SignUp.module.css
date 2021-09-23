@@ -12,8 +12,9 @@
 }
 
 .box{
+    margin-top: 1.5vh;
     position:absolute;
-    height: 80vh;
+    height: 79vh;
     top: 10%;
     width: 34%;
     left: 33%;
@@ -24,7 +25,8 @@
     border-top: 2px solid rgba(25, 186, 168, 1);
     box-shadow: 0px 4px 24px rgba(30, 31, 30, 0.08);
     border-radius: 4px;
-    padding-bottom: 1.5vh;
+    padding-bottom: 0.5vh;
+    padding-top: 1vh;
 }
 
 .man_svg{
@@ -42,15 +44,17 @@
     font-family: Red Hat Display;
     font-weight: 500;
     text-align: center;
-    padding: 1vh 0 0;
+    padding: 2vh 0 0;
 }
 
 .desc{
     font-size: 2vh;
     text-align: center;
+    margin-bottom: 1.5vh;
 }
 
 .titles{
+    margin-top: 3vh;
     font-size: 2.5vh;
     font-weight: 600;
     font-family: Open Sans;
