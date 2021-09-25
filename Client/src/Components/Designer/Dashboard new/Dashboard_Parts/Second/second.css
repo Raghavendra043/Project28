@@ -1,4 +1,4 @@
-.box{
+.box2{
     min-height: 43vh;
     background: #FFFFFF;
     border-radius: 50px;
@@ -6,7 +6,7 @@
 }
 .upper{
     margin-top: 6vh;
-    margin-bottom: 30px;
+    margin-bottom: 1em;
 }
 .topsecond{
     background-color: white;

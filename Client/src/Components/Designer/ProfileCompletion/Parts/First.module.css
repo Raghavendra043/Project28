@@ -1,0 +1,51 @@
+.checkbox_cover{
+    display: flex;
+    justify-content: space-between;
+}
+
+.left{
+    width: 50%;
+}
+
+.check{
+    margin-right: 2em;
+}
+
+label{
+    font-weight: 500;
+    color: black;
+}
+
+input[type='checkbox']{
+    height: 1em;
+    width: 1em;
+    margin-right: 0.5em;
+}
+
+.right{
+    width: 50%;
+}
+
+.input{
+    width: 100%;
+    height: 2.5em;
+    border-radius: 4px;
+    padding-left: 1em;
+}
+
+.work_input{
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5em 0;;
+}
+
+.work_left{
+    width: 38%;
+}
+.work_right{
+    width: 60%;
+}
+
+.titles{
+    margin-bottom: 0.7em;
+}
