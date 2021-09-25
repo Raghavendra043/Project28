@@ -1,35 +1,35 @@
 .container{
     background-color: white;
     border-radius: 4em;
-    padding: 1em 4em;
-    margin: 1em 1em;
+    padding: 3vh 3vw;
+    margin:  2vh;
     height: 75vh;
 }
 
 .work{
-    padding: 0.5em 0;
+    padding: 2vh 0;
 }
 .links{
-    padding: 0.5em 0 1em;
+    padding: 1vh 0 2vh;
 }
 
 .main_title{
     font-family: Red Hat Display;
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 4vh;
     text-align: center;
-    margin-bottom: 0.5em;
+    margin-bottom: 1vh;
 }
 
 
 
 .title{
     font-family : Open sans; 
-    font-size: 1.1em;
+    font-size: 3vh;
 }
 .input_cover{
 
-    margin: 0.55em auto;
+    margin: 2vh auto;
 }
 
 .profile_input{
@@ -37,8 +37,9 @@
     height: 2em;
     border: 1px solid black;
     border-radius: 5px;
-    padding-left: 1em;
+    padding-left: 1.5vw;
     font-family : Open sans; 
+    font-size: 2.7vh;
 }
 
 .or{
@@ -52,10 +53,10 @@ input[type='file']{
 
 .resume_cover{
     width: 100%;
-    margin-top: 0.5em;
+    margin-top: 1vh;
     border: 2px dashed #C4C4C4;
     display: flex;
     justify-content: center;
-    padding: 0.7em 0;
+    padding: 2vh 0;
     border-radius: 8px;
 }

@@ -1,8 +1,8 @@
 .container{
     background-color: white;
     border-radius: 4em;
-    padding: 1em 4em;
-    margin: 1em 1em;
+    padding: 3vh 3vw;
+    margin:  2vh;
     height: 75vh;
 }
 .image_cover{
@@ -13,8 +13,8 @@
 
 .image{
     border-radius: 50%;
-    height: 10em;
-    width: 10em;
+    height: 27vh;
+    width: 27vh;
 }
 
 .pencil{
@@ -24,29 +24,29 @@
 }
 
 .user{
-    padding: 1.2em 0 0.5em;
+    padding: 3vh 0 1vh;
 }
 .special{
-    padding: 0.5em 0;;
+    padding: 2vh 0;;
 }
 
 .main_title{
     font-family: Red Hat Display;
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 4vh;
     text-align: center;
-    margin-bottom: 1em;
+    margin-bottom: 1vh;
 }
 
 
 
 .title{
     font-family : Open sans; 
-    font-size: 1.1em;
+    font-size: 3vh;
 }
 .input_cover{
 
-    margin: 0.5em auto;
+    margin: 2vh auto;
 }
 
 .profile_input{
@@ -54,6 +54,7 @@
     height: 2em;
     border: 1px solid black;
     border-radius: 5px;
-    padding-left: 1em;
+    padding-left: 1.5vw;
     font-family : Open sans; 
+    font-size: 2.7vh; 
 }

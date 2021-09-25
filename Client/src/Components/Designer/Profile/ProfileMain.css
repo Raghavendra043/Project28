@@ -1,5 +1,4 @@
 .des-profile-container{
-    margin-top: 7vh;
     height: 83vh;
     display: flex;
     flex-direction: row;
@@ -7,16 +6,20 @@
 }
 
 .des-profile-per{
-    height: 70vh;
+    margin-top: 7vh;
+    height: 67vh;
     width: 37vw;
 }
 
 .des-profile-pro{
-    height: 70vh;
+    
+    margin-top: 7vh;
+    height: 67vh;
     width: 37vw;
 }
 
 .des-pro-but-cover{
+    padding-top: 5vh;
     padding-right: 14vw;
     display: flex;
     justify-content:flex-end;
@@ -24,12 +27,12 @@
 
 .des-pro-but{
     font-family: Red Hat Display;
-    font-size: 0.8em;
+    font-size: 2.2vh;
     border: none;
     border-radius: 5px;
     background-color: #19BAA8;
     color: white;
-    padding: 1em 4.5em;
+    padding: 2vh 3vw;
     transition: 0.2s ease;
 }
 

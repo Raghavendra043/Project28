@@ -60,7 +60,7 @@ function DesignerLogin() {
                                             className={styles.checkbox}
 
                                         />
-                                        <label for="remember">Remember Me</label>
+                                        <label for="remember" style={{fontSize:"2.5vh"}}>Remember Me</label>
                                     </div>
                                     <div className={styles.forget}>
                                         <a href='#' className={styles.link}>Forget Password?</a>

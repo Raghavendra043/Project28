@@ -54,7 +54,7 @@ function ForgetPassword() {
                             </div>
 
                                 <div className={styles.cover}>
-                                    <button onClick={submitHander} className={styles.complete}>Send Recovery Email</button>
+                                    <button type='submit' onClick={submitHander} className={styles.complete}>Send Recovery Email</button>
                                 </div>
                 </div>
             </div>

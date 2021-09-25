@@ -20,7 +20,7 @@ function ProfileMain() {
     }
 
     return (
-        <div  style={{height:"100vh",backgroundColor:"#4d494905"}}>
+        <div  style={{backgroundColor:"#4d494905"}}>
             <div className='des-profile-container'>
                 <div className='des-profile-per'>
                     <Personal nameRef={nameRef} special={special} checkedState={checkedState} setCheckedState={setCheckedState}/>

@@ -1,37 +1,37 @@
 .slider{
     width: 85%;
- margin: 1em auto;
+ margin: 3vh auto;
 }
 
 .desc{
-    font-size: 0.7em;
-    padding-left: 1em;
+    font-size: 2vh;
+    padding-left: 1vw;
 }
 
 .input_cover{
-    margin-top: 2.5em;
+    margin-top: 5vh;
 }
 
 .resume_cover{
     width: 100%;
-    margin-top: 0.5em;
+    margin-top: 1vh;
     border: 2px dashed #C4C4C4;
     display: flex;
     justify-content: center;
-    padding: 0.8em 0;
+    padding: 1.5vh 0;
     border-radius: 8px;
 }
 
 .resume{
-    margin-left: 1em;
-    font-size: 0.8em;
+    margin-left: 1vw;
+    font-size: 2.2vh;
     color: #C4C4C4;
 }
 
 .or{
     text-align: center;
     color: rgb(165, 158, 158);
-    margin: 1em auto;
+    margin: 1vh auto;
 }
 
 .resume_input_cover{
@@ -40,8 +40,8 @@
 
 .profile_input{
     width: 100%;
-    height: 2.8em;
-    padding-left: 1em;
+    height: 7vh;
+    padding-left: 2vw;
 }
 
 .profile_input::placeholder{

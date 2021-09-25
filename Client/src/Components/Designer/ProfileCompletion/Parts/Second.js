@@ -57,7 +57,7 @@ function Second() {
                 <div className={e_style.input_cover}>
                   <div className={styles.verify_cover}>
                     <input type="checkbox" name="verify" style={{width:"4em"}}/>
-                        <label for='verify' style={{textAlign:"left",fontSize:"0.9em"}}>
+                        <label for='verify' style={{textAlign:"left",fontSize:"2.1vh"}}>
                           By selecting this box, you are providing us consent to share 
                           your portfolio with potential clients in order to provide you
                           with opportunities. 
