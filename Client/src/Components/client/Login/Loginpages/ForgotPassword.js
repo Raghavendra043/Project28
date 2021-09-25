@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from "../Loginpages/forgotpassword.module.css"
+import styles from "../Loginpages/forgotpassword.css"
 import style from "../ClientLogin.module.css"
 
 function ForgotPassword({formData,setForm,navigation}) {
