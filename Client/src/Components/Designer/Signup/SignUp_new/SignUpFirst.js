@@ -84,6 +84,8 @@ function SignUpFirst({ formData, setForm, navigation }) {
                             <input type="text" className={styles.number} placeholder='-' maxlength='1' pattern="[0-9]" name="otp2" value={formData.otp2} onChange={setForm}/>
                             <input type="text" className={styles.number} placeholder='-' name="otp3" maxlength='1' pattern="[0-9]" value={formData.otp3} onChange={setForm}/>
                             <input type="text" className={styles.number} placeholder='-' name="otp4" maxlength='1' pattern="[0-9]" value={formData.otp4} onChange={setForm}/>
+                            <input type="text" className={styles.number} placeholder='-' name="otp4" maxlength='1' pattern="[0-9]" value={formData.otp4} onChange={setForm}/>
+                            <input type="text" className={styles.number} placeholder='-' name="otp4" maxlength='1' pattern="[0-9]" value={formData.otp4} onChange={setForm}/>
                         </div>
                     </div>
 
