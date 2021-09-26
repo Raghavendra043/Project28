@@ -31,8 +31,13 @@
 .navA button, .navB button, .navE button, .navLogo button{
   font-weight: 800;
   border: none;
+  font-size: 2.3vh;
   background-color: inherit;
   transition: 0.2s step-start;
+}
+
+.nav-logo-button{
+  width: 10vw;
 }
 
 .navB button{

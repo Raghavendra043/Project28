@@ -9,8 +9,13 @@ import e_style from "./../Signup/SignUp.module.css";
 
 const defaultData = {
   fullname: "",
-  email: ""
-  
+  email: "",
+  work1: "",
+  exp1:"",
+  work2: "",
+  exp2:"",
+  work3: "",
+  exp3:"",
 }
 
 const steps = [
@@ -30,14 +35,23 @@ function DesignerComplete() {
     steps, initialStep: 0,
   });
   const props = { formData, setForm, navigation }
+  switch (step.id) {
+      case 1:
+          return (
+              <>
+              <First {...props}/>
+              </>
+          )
+      case 2:
+              return (
+              <>
+                <Second {...props}/>
+              </>
+          )
 
 
-  return (
-    <div>
-      <First />
-      {/* <Second /> */}
-    </div>
-  );
+  }     
+
 }
 
 export default DesignerComplete;

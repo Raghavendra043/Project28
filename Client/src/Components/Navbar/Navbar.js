@@ -1,14 +1,14 @@
 import React from "react";
 import "./Navbar.css";
-import logo from "./../../assets/P28logo.png";
-import icon from "./../../assets/UserIcon.png";
+import logo from "./../../assets/logo.svg";
+import icon from "./../../assets/user.svg";
 
 function Navbar() {
   return (
     <div className="navbar">
       <div className="part1">
         <div className="navLogo">
-          <button><img src={logo} alt="logo" width="100vw" /></button>
+          <button className="nav-logo-button"><img src={logo} alt="logo" width='100vw'/></button>
         </div>
         <div className="navA"><button>About Us</button></div>
         <div className="navA"><button>How it Works</button></div>

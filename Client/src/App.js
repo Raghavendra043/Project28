@@ -23,7 +23,7 @@ import ClientLogin from "./Components/client/Login/ClientLogin";
 function App() {
   return (
     <div className="App">
-
+      
       <Navbar/>
       <Router>
         <Switch>
