@@ -4,7 +4,7 @@ import styles from './Personal.module.css';
 
 function Personal(props) {
 
-    var expanded = false;
+    var expanded = true;
     const showCheckboxes = () => {
       var check = document.getElementsByClassName(styles.checkboxes)[0];
       if (!expanded) {
@@ -17,6 +17,10 @@ function Personal(props) {
         check.classList.remove(styles.show);
         check.classList.add(styles.hide);
       }
+    }
+
+    const handleCheck = (i) => {
+        props.special[i].status = !props.special[i].status;    
     }
 
     return (
@@ -53,16 +57,14 @@ function Personal(props) {
                                     <div clasNname={styles.overSelect}></div>
                                 </div>
                                 <div className={styles.checkboxes}>
-                                    <label for="one">
-                                    <input type="checkbox" id="one" className={styles.checkme}/>First checkbox</label>
-                                    <label for="two">
-                                    <input type="checkbox" id="two" className={styles.checkme} />Second checkbox</label>
-                                    <label for="three">
-                                    <input type="checkbox" id="three" className={styles.checkme}/>Third checkbox</label>
-                                    <label for="four">
-                                    <input type="checkbox" id="four" className={styles.checkme}/>Third checkbox</label>
-                                    <label for="five">
-                                    <input type="checkbox" id="five" className={styles.checkme}/>Third checkbox</label>
+                                    {props.special.map((data, key) => {
+                                        return (
+                                            <label for={key}>
+                                                <input type="checkbox" id={key} onChange={handleCheck(key)} className={styles.checkme} />{data.name}</label>
+        
+                                        );    
+                                    })}
+
                                 </div>
                             </div>
                         </div>

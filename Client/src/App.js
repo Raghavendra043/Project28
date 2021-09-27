@@ -14,17 +14,24 @@ import DesignerPerformance from "./Components/Designer/Performance/DesignerPerfo
 import DesginerSignUp from "./Components/Designer/Signup/DesginerSignUp";
 import DesignerComplete from "./Components/Designer/ProfileCompletion/DesignerComplete";
 import DesignerLogin from "./Components/Designer/Login/DesignerLogin";
-import ForgetPassword from "./Components/Designer/Login/ForgetPassword";
+import ForgetMain from "./Components/Designer/Login/ForgetMain";
 
 // ---------------------------------Client--------------------------------
 import ClientSignup from "./Components/client/Signup/ClientSignup";
 import ClientLogin from "./Components/client/Login/ClientLogin";
 
+
+// ---------------------------------Admin---------------------------------
+import AdminDashboard from "./Components/Admin_new/Dasdboard/AdminDashboard";
+import ProjectTracker from "./Components/Admin_new/ProjectTracker/ProjectTracker";
+
 function App() {
   return (
     <div className="App">
+       <Navbar/>
+      {/* <AdminDashboard/> */}
+      {/* <ProjectTracker/> */}
       
-      <Navbar/>
       <Router>
         <Switch>
           <Route path="/" exact component={Main} />
@@ -37,8 +44,10 @@ function App() {
           <Route path="/designer/signup" exact component={DesginerSignUp} />
           <Route path="/designer/dash" exact component={Main} />
           <Route path="/designer/profile" exact component={ProfileMain} />
-          <Route path="/designer/forget" exact component={ForgetPassword} />
+          <Route path="/designer/forget" exact component={ForgetMain} />
           <Route path="/designer/complete" exact component={DesignerComplete} />
+
+          
           <Route path="/clientSignup" exact component={ClientSignup} />
           <Route path="/clientLogin" exact component={ClientLogin} />
         </Switch>

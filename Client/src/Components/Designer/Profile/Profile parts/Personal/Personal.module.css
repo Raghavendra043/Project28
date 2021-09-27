@@ -51,7 +51,7 @@
 
 .profile_input{
     width: 100%;
-    height: 2em;
+    height: 6vh;
     border: 1px solid black;
     border-radius: 5px;
     padding-left: 1.5vw;
@@ -73,7 +73,9 @@
   .selectBox select {
     width: 100%;
     font-weight: bold;
-    height: 6.5vh;
+    height: 6vh;
+    border-radius: 5px;
+    border: 1px solid black;
   }
   
   .overSelect {
@@ -89,6 +91,9 @@
     border: 1px #dadada solid;
     background-color: white;
     width: 29%;
+    overflow-y: hidden;
+    overflow: scroll;
+    height:20vh;
   }
 
   .hide{
@@ -110,6 +115,7 @@
   }
 
   .checkme{
+      color: #1e90ff;
       height: 3vh;
       width: 3vh;
   }

@@ -1,0 +1,29 @@
+.container{
+    display: flex;
+    height: 100vh;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    background-color: grey;
+    padding-bottom: 3vh;
+}
+
+.about{
+    height: 90%;
+    width: 25vw;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.details{
+    height: 90%;
+    width: 40vw;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.chat{
+    height: 90%;
+    width: 30vw;
+    background-color: white;
+    border-radius: 5px;
+}

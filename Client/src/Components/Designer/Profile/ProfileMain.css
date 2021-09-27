@@ -19,8 +19,7 @@
 }
 
 .des-pro-but-cover{
-    padding-top: 5vh;
-    padding-right: 14vw;
+    padding: 8vh 14vw 2vh;
     display: flex;
     justify-content:flex-end;
 }
