@@ -1,0 +1,11 @@
+.container{
+    width: 100%;
+}
+
+.line{
+    width: 100%;
+    margin: 7em auto;
+    text-align: center;
+    color: rgba(25, 186, 168, 1);
+    font-size: 3vh;
+}

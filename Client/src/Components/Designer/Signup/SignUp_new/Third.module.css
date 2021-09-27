@@ -9,24 +9,25 @@
 .cover {
   display: flex;
   justify-content: center;
-  margin: 2em 0 0;
   width: 100%;
+  font-size: 3vh;
 }
 
 .title {
   font-family: Red Hat Display;
-  font-size: 1.1em;
+  font-size: 3.5vh;
   font-weight: 500;
 }
 
 .complete {
   background-color: rgba(25, 186, 168, 1);
   border: 1px solid rgba(25, 186, 168, 1);
-  width: 60%;
-  height: 2.7em;
+  width: 22vw;
+  height: 8vh;
   color: white;
   border-radius: 4px;
   transition: 0.2s ease-in-out;
+  margin-top: 6vh;
 }
 
 .complete:hover {
@@ -37,11 +38,12 @@
 .proceed {
   background-color: white;
   border: 1px solid black;
-  width: 60%;
-  height: 2.7em;
+  width: 22vw;
+  height: 8vh;
   color: black;
   border-radius: 4px;
   transition: 0.2s ease-in-out;
+  margin-top: 6vh;
 }
 
 .proceed:hover {

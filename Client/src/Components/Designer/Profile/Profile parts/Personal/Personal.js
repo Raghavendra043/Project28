@@ -4,6 +4,25 @@ import styles from './Personal.module.css';
 
 function Personal(props) {
 
+    var expanded = true;
+    const showCheckboxes = () => {
+      var check = document.getElementsByClassName(styles.checkboxes)[0];
+      if (!expanded) {
+        expanded = true;
+        check.classList.add(styles.show);
+        check.classList.remove(styles.hide);
+      }
+      else {
+        expanded = false;
+        check.classList.remove(styles.show);
+        check.classList.add(styles.hide);
+      }
+    }
+
+    const handleCheck = (i) => {
+        props.special[i].status = !props.special[i].status;    
+    }
+
     return (
         <div>
             <div className={styles.container}>
@@ -30,15 +49,24 @@ function Personal(props) {
                             <span> <i class="fas fa-pencil-alt fa"></i></span>
                         </div>
                         <div  className={styles.input_cover}>
-                            <select name = "specializations" className={styles.profile_input}>
-                                {props.special.map((data,index) =>{
-                                    return ( 
-                                        <option>{data.name} 
-                                            <span> <input type="checkbox"/> </span> 
-                                        </option>
-                                    );
-                                })}
-                            </select>
+                            <div className={styles.multiselect}>
+                                <div className={styles.selectBox} onClick={showCheckboxes}>
+                                    <select>
+
+                                    </select>
+                                    <div clasNname={styles.overSelect}></div>
+                                </div>
+                                <div className={styles.checkboxes}>
+                                    {props.special.map((data, key) => {
+                                        return (
+                                            <label for={key}>
+                                                <input type="checkbox" id={key} onChange={handleCheck(key)} className={styles.checkme} />{data.name}</label>
+        
+                                        );    
+                                    })}
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,57 @@
+.header,.group{
+    margin: 3vh 2vw;
+    text-align: center;
+}
+
+
+.main_title, title{
+    font-family: Red Hat Display;
+}
+
+.main_title{
+    font-size: 4vh;
+    font-weight: 600;
+}
+
+.title{
+    font-size: 3vh;
+    font-weight: 600;
+}
+
+.main_desc, .desc{
+    font-family: Open sans;
+}
+
+.main_desc{
+    font-size: 3vh;
+}
+
+.desc{
+    font-size: 3vh;
+}
+
+
+.notifications{
+    text-align: center;
+    margin-top: 2vh;
+}
+
+
+.push{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1vh;
+}
+
+.notif{
+    width: 20vw;
+    height: 6.5vh;
+}
+
+.notif_p{
+    border: none;
+    height: 6.5vh;
+    width: 3vw;
+    background-color: aqua;
+}
+

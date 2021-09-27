@@ -5,7 +5,7 @@ import styles from './Professional.module.css';
 function Professional(props) {
 
     return (
-        <div style={{height:"100vh",backgroundColor:"light grey"}}>
+        <div>
             <div className={styles.container}>
                 <div className={styles.main_title}>
                     Professional Info

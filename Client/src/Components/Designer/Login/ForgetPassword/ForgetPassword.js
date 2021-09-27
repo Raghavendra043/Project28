@@ -1,7 +1,9 @@
 import React,{useRef,useState} from 'react'
-import e_style from './../Signup/SignUp.module.css';
+import e_style from './../../Signup/SignUp.module.css';
+import style from './../../Signup/SignUp_new/First.module.css';
 import styles from './Forget.module.css';
-import {ReactComponent as Man} from './assets/Man.svg'
+import {ReactComponent as Man} from './../assets/Man.svg'
+import classnames from 'classnames';
 
 function ForgetPassword() {
 
@@ -14,6 +16,20 @@ function ForgetPassword() {
 
         
 
+    }
+
+
+    const startOtp = () => {
+        var button = document.getElementsByClassName(styles.cover)[0];
+        button.classList.add(style.hide2);
+        var button = document.getElementsByClassName(styles.complete)[0];
+        button.classList.add(style.hide);
+        var button = document.getElementsByClassName(style.otp_input_cover)[0];
+        button.classList.remove(style.hide2);
+        var button = document.getElementsByClassName(style.otp_titles)[0];
+        button.classList.remove(style.hide);
+        var button = document.getElementsByClassName(style.otp)[0];
+        button.classList.remove(style.hide);
     }
 
     return (
@@ -54,8 +70,14 @@ function ForgetPassword() {
                             </div>
 
                                 <div className={styles.cover}>
-                                    <button onClick={submitHander} className={styles.complete}>Send Recovery Email</button>
-                                </div>
+                                    <button type='submit' className={styles.complete} onClick={startOtp}>Send Recovery Email</button>
+                    </div>
+                    <div className={classnames(style.otp_input_cover,style.hide2)}>
+                        <div className={classnames(style.otp_titles,style.hide)}>Enter OTP</div>
+                        <div className={classnames(style.otp, style.hide)}>
+                            <input type="text" placeholder="******" className={styles.otp_input}/>
+                        </div>
+                    </div>
                 </div>
             </div>
 

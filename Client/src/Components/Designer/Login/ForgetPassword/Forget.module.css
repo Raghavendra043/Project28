@@ -1,0 +1,49 @@
+.desc{
+    font-size: 2vh;
+    font-family: Open sans;
+    font-weight: 550;
+}
+.message{
+    display: none;
+    margin-top: 2vh;
+    font-size: 2vh;
+    font-family: Open sans;
+    font-weight: 600;
+    color: rgba(25, 186, 168, 1) ;
+}
+
+.on{
+    display: block;
+}
+
+
+.cover{
+    display: flex;
+    justify-content: center;
+    margin: 20vh 0 0;
+    width: 100%;
+}
+.complete{
+    background-color: rgba(25, 186, 168, 1);
+    border: 1px solid rgba(25, 186, 168, 1);
+    width: 22vw;
+    height: 7vh;
+    color: white;
+    border-radius: 4px;
+    font-size: 3vh;
+    transition: 0.2s ease-in-out;
+}
+
+.complete:hover{
+    background-color: white;
+    color:  rgba(25, 186, 168, 1);
+}
+
+.otp_input{
+    margin-top: 3vh;
+    height: 6vh;
+    width: 60%;
+    text-align: center;
+    border: none;
+    border-bottom: 2px solid grey;
+}

@@ -1,18 +1,18 @@
 import React from "react";
 import "./Navbar.css";
-import logo from "./../../assets/P28logo.png";
-import icon from "./../../assets/UserIcon.png";
+import logo from "./../../assets/logo.svg";
+import icon from "./../../assets/user.svg";
 
 function Navbar() {
   return (
     <div className="navbar">
       <div className="part1">
-        <div id="navLogo">
-          <img src={logo} alt="logo" width="100vw" />
+        <div className="navLogo">
+          <button className="nav-logo-button"><img src={logo} alt="logo" width='100vw'/></button>
         </div>
-        <div className="navA">About Us</div>
-        <div className="navA">How it Works</div>
-        <div className="navA">Get in touch</div>
+        <div className="navA"><button>About Us</button></div>
+        <div className="navA"><button>How it Works</button></div>
+        <div className="navA"><button>Get in touch</button></div>
       </div>
       <div className="toggle-button">
         <span class="bar"></span>
@@ -21,9 +21,11 @@ function Navbar() {
       </div>
 
       <div className="part2">
-        <div className="navB">GET STARTED</div>
-        <div id="navE">
-          <img src={icon} alt="userIcon" width="22px" height="24px" />
+        <div className="navB"><button>GET STARTED</button></div>
+        <div className="navE">
+          <button>
+            <img src={icon} alt="userIcon" width="22px" height="24px" />
+          </button>
         </div>
       </div>
     </div>

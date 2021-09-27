@@ -22,8 +22,8 @@
 }
 
 .number{
-    border: 1.2px solid black;
-    width: 9%;
+    border: 1px solid black;
+    width: 8%;
     height: 6vh;
     margin: 02vh 0.7vw;
     border-radius: 5px;
@@ -31,3 +31,21 @@
 }
 
 
+.hide{
+    display: none;
+    margin: 0;
+}
+
+.hide2{
+    margin-top: 0;
+    height: 0;
+}
+
+.otp_input{
+    margin-top: 3vh;
+    height: 6vh;
+    width: 60%;
+    text-align: center;
+    border: none;
+    border-bottom: 2px solid grey;
+}
