@@ -1,5 +1,5 @@
 .box{
-    min-height: 37vh;
+    height:42vh;
     background: #FFFFFF;
     border-radius: 4em;
 }
@@ -9,7 +9,7 @@
     background-color: #24576A;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
-    font-size: 15px;
+    font-size: 1em;
     font-weight: 700;
     color: white;
     text-align: center;
@@ -26,7 +26,7 @@
 .header{
     font-family: Red Hat Display;
     font-weight: 700;
-    font-size: 20px;
+    font-size: 1.25em;
     margin: 3vh;
 }
 .subheader{
@@ -36,7 +36,7 @@
 }
 .description
 {
-    font-size: 13px;
+    font-size: 0.8125em;
     font-weight: 400;
     margin-right: 20px;
     margin-left: 20px;
@@ -80,7 +80,7 @@
 }
 .lower{
     padding:1.2em 1.5em 0; 
-    height: 7vh;
+    height: 42vh;
 }
 
 .lower .text{
