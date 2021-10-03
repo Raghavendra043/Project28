@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './ProjectTracker.module.css';
 import About from './TrackerParts/About';
+import Utilites from './TrackerParts/Utilites';
 
 function ProjectTracker() {
     return (
@@ -10,8 +11,8 @@ function ProjectTracker() {
                     <About/>
                 </div>
                 <div className={styles.details}>
-
-                </div>
+                    <Utilites/>
+                </div>  
                 <div className={styles.chat}>
 
                 </div>
