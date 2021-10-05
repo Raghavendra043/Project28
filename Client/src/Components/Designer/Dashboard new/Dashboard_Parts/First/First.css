@@ -1,5 +1,5 @@
 .box{
-    min-height: 37vh;
+    height:42vh;
     background: #FFFFFF;
     border-radius: 3em;
 }
@@ -9,7 +9,11 @@
     background-color: #24576A;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
+<<<<<<< HEAD
     font-size: 2.8vh;
+=======
+    font-size: 1em;
+>>>>>>> ece5956588dcf52160235627e15542a8ccedec3d
     font-weight: 700;
     color: white;
     text-align: center;
@@ -27,8 +31,13 @@
 .header{
     font-family: Red Hat Display;
     font-weight: 700;
+<<<<<<< HEAD
     font-size: 3.5vh;
     margin: 1vh;
+=======
+    font-size: 1.25em;
+    margin: 3vh;
+>>>>>>> ece5956588dcf52160235627e15542a8ccedec3d
 }
 .subheader{
     font-family: Red Hat Display;
@@ -37,7 +46,11 @@
 }
 .description
 {
+<<<<<<< HEAD
     font-size: 2vh;
+=======
+    font-size: 0.8125em;
+>>>>>>> ece5956588dcf52160235627e15542a8ccedec3d
     font-weight: 400;
     margin-right: 20px;
     margin-left: 20px;
@@ -80,8 +93,13 @@
   transform: translate(65%,25%);
 }
 .lower{
+<<<<<<< HEAD
     padding: 3.5vh 1.5vw 2vh 2vw; 
     height: 7vh;
+=======
+    padding:1.2em 1.5em 0; 
+    height: 42vh;
+>>>>>>> ece5956588dcf52160235627e15542a8ccedec3d
 }
 
 .lower .text{

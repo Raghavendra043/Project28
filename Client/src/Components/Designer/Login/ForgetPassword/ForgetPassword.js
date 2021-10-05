@@ -2,10 +2,13 @@ import React,{useRef,useState} from 'react'
 import e_style from './../../Signup/SignUp.module.css';
 import style from './../../Signup/SignUp_new/First.module.css';
 import styles from './Forget.module.css';
-import {ReactComponent as Man} from './../assets/Man.svg'
+import { ReactComponent as Man } from './../assets/Man.svg'
+import { ReactComponent as ArrowRight } from './../assets/ArrowRight.svg'
+import {ReactComponent as ArrowLeft} from './../assets/ArrowLeft.svg'
+
 import classnames from 'classnames';
 
-function ForgetPassword() {
+function ForgetPassword({ formData, setForm, navigation }) {
 
     const emailRef = useRef('');
 
@@ -33,6 +36,10 @@ function ForgetPassword() {
     }
 
     return (
+        <div className={style.signupbox}>
+             <div className={style.previous} onClick={navigation.previous}>
+                    <ArrowLeft className={style.arrow_left}/>
+                </div>
         <div className={e_style.container}>
             <div className={e_style.bottom_background}></div>
 
@@ -60,6 +67,9 @@ function ForgetPassword() {
                                         type="email"
                                         placeholder="Ex: johndoe@example.com"
                                         ref={emailRef}
+                                        name="email"
+                                        onChange={setForm}
+                                        value={formData.email}
                                         required="true"
                                     />
                                     <div className={styles.message}>
@@ -72,17 +82,21 @@ function ForgetPassword() {
                                 <div className={styles.cover}>
                                     <button type='submit' className={styles.complete} onClick={startOtp}>Send Recovery Email</button>
                     </div>
-                    <div className={classnames(style.otp_input_cover,style.hide2)}>
-                        <div className={classnames(style.otp_titles,style.hide)}>Enter OTP</div>
-                        <div className={classnames(style.otp, style.hide)}>
-                            <input type="text" placeholder="******" className={styles.otp_input}/>
-                        </div>
-                    </div>
+                 
                 </div>
             </div>
 
 
-        </div>
+            </div>
+            <div className={style.next} onClick={() => {
+                    if (formData.email.trim()) {
+                            navigation.next();
+                    }
+                    }}>
+                    <ArrowRight className={style.arrow_right}/>
+                </div>
+                
+            </div>
     )
 }
 
