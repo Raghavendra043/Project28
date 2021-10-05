@@ -29,9 +29,7 @@ function App() {
   return (
     <div className="App">
        <Navbar/>
-      {/* <AdminDashboard/> */}
-      <ProjectTracker/>
-{/*       
+      
       <Router>
         <Switch>
           <Route path="/" exact component={Main} />
@@ -50,8 +48,13 @@ function App() {
           
           <Route path="/clientSignup" exact component={ClientSignup} />
           <Route path="/clientLogin" exact component={ClientLogin} />
+
+
+          <Route path="/admin/project" exact component={ProjectTracker} />
+          <Route path="/admin/dash" exact component={AdminDashboard} />
+          
         </Switch>
-      </Router> */}
+      </Router>
     </div>
   );
 }

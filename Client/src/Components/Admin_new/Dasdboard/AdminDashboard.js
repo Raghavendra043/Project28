@@ -8,9 +8,6 @@ function AdminDashboard() {
                 <div className={styles.project_list}>
 
                 </div>
-                <div className={styles.tracker}>
-
-                </div>
             </div>
         </div>
     )

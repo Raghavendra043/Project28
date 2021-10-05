@@ -1,7 +1,7 @@
 .box{
     min-height: 37vh;
     background: #FFFFFF;
-    border-radius: 4em;
+    border-radius: 3em;
 }
 
 .top{
@@ -9,7 +9,7 @@
     background-color: #24576A;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
-    font-size: 15px;
+    font-size: 2.8vh;
     font-weight: 700;
     color: white;
     text-align: center;
@@ -19,6 +19,7 @@
     justify-content: center;
 }
 .content{
+    height: 40vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,17 +27,17 @@
 .header{
     font-family: Red Hat Display;
     font-weight: 700;
-    font-size: 20px;
-    margin: 3vh;
+    font-size: 3.5vh;
+    margin: 1vh;
 }
 .subheader{
     font-family: Red Hat Display;
     font-weight: 700;
-    font-size: 13px;
+    font-size: 2.2vh;
 }
 .description
 {
-    font-size: 13px;
+    font-size: 2vh;
     font-weight: 400;
     margin-right: 20px;
     margin-left: 20px;
@@ -76,17 +77,17 @@
     margin-right: 20px;
 }
 .image{
-  transform: translate(60%,50%);
+  transform: translate(65%,25%);
 }
 .lower{
-    padding:1.2em 1.5em 0; 
+    padding: 3.5vh 1.5vw 2vh 2vw; 
     height: 7vh;
 }
 
 .lower .text{
-    font-size: 0.9em;
+    font-size: 2.5vh;
 }
 
 .des-f-svg{
-    height: 15vh;
+    height: 17vh;
 }

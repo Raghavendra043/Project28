@@ -1,20 +1,7 @@
 .container{
     display: flex;
     height: 100vh;
-    justify-content: space-evenly;
-    align-items: flex-end;
-}
-
-.project_list{
-    height: 90%;
-    width: 35vw;
-    background-color: aqua;
-}
-
-.tracker{
-    height: 90%;
-    width: 55vw;
-    background-color: black;
+    background-color: white;
 }
 
 

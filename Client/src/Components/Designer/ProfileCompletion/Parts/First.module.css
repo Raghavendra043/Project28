@@ -62,12 +62,22 @@ label{
   .selectBox {
     position: relative;
   }
-  
-  .selectBox select {
+  .selectBox input {
+    position: relative;
     width: 100%;
-    font-weight: bold;
-    height: 6.5vh;
+    height: 6vh;
+    border-radius: 5px;
+    border: 1px solid black;
   }
+  
+
+  .selectBox::after{
+    content:url(tick.svg);
+    position: absolute;
+    top:-0.5vh;
+    right:1vw;
+    font-size: 4vh;
+  } 
   
   .overSelect {
     position: absolute;
@@ -78,10 +88,13 @@ label{
   }
   
   .checkboxes {
-      position: absolute;
-    border: 1px #dadada solid;
+    position: absolute;
+    border: 1px #19BAA8 solid;
     background-color: white;
-    width: 88%;
+    width: 30vw;
+    overflow-y: hidden;
+    overflow: scroll;
+    height:20vh;
   }
 
   .hide{

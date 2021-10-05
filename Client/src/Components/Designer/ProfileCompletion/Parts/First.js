@@ -45,9 +45,7 @@ function First() {
               
               <div className={styles.multiselect}>
                 <div className={styles.selectBox} onClick={showCheckboxes}>
-                    <select>
-
-                    </select>
+                <input type='text' className={styles.profile_input} placeholder='Select Your Specializaiton' disabled/>
                     <div clasNname={styles.overSelect}></div>
                   </div>
                 <div className={styles.checkboxes}>
