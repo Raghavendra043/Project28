@@ -15,6 +15,7 @@ import DesginerSignUp from "./Components/Designer/Signup/DesginerSignUp";
 import DesignerComplete from "./Components/Designer/ProfileCompletion/DesignerComplete";
 import DesignerLogin from "./Components/Designer/Login/DesignerLogin";
 import ForgetMain from "./Components/Designer/Login/ForgetMain";
+import ClientProfile from "./Components/client/Profile/Profile"
 
 // ---------------------------------Client--------------------------------
 import ClientSignup from "./Components/client/Signup/ClientSignup";
@@ -30,8 +31,8 @@ function App() {
     <div className="App">
        <Navbar/>
       {/* <AdminDashboard/> */}
-      <ProjectTracker/>
-{/*       
+      {/* <ProjectTracker/> */}
+      
       <Router>
         <Switch>
           <Route path="/" exact component={Main} />
@@ -46,12 +47,13 @@ function App() {
           <Route path="/designer/profile" exact component={ProfileMain} />
           <Route path="/designer/forget" exact component={ForgetMain} />
           <Route path="/designer/complete" exact component={DesignerComplete} />
+          <Route path="/client/profile" exact component={ClientProfile} />
 
           
           <Route path="/clientSignup" exact component={ClientSignup} />
           <Route path="/clientLogin" exact component={ClientLogin} />
         </Switch>
-      </Router> */}
+      </Router>
     </div>
   );
 }

@@ -1,0 +1,100 @@
+.Sidebar{
+    background-color: #949292;
+    height: 100vh;
+    position: fixed;
+    z-index: 100;
+}
+.main_container1{
+    height: 100vh;
+    background-color: #c4c4c42c;
+    display: flex;
+    flex-direction: row;
+}
+.Profile{
+    margin-top: 9vh;
+    margin-left: 7vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+.box{
+    width: 43vw;
+    height: 80vh;
+    margin-top: 2vh; 
+    margin-bottom: 2vh; 
+    margin-left: 5vh; 
+    margin-right: 5vh; 
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.row{
+    margin-top: 2vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+.inputs{
+    margin-left:1vw;
+    margin-right:1vw;
+    margin-bottom: 2vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+.inputboxmain{
+    width: 16vw;
+    margin-top: 1vh;
+    border-radius: 5px;
+    margin-top: 0.7em;
+    height: 2.5em;
+    border: 1.5px solid rgba(128, 128, 128, 0.541);
+    border-radius: 4px;
+    padding: 1em 0 1em 0.8em;
+
+
+}
+.input2{
+    margin-left: 2vw;
+}
+.headinput{
+    font-size: 0.9em;
+    font-weight: 600;
+    padding-left: 0.2em;
+    font-family: Open Sans;
+}
+.boxheader{
+    font-size: 1.8em;
+    font-family: Red Hat Display;
+    font-weight: 500;
+    text-align: left;
+    padding: 0.5em 0 0;
+    margin-left:1vw;
+    margin-right:1vw;
+    margin-bottom:3vh;
+}
+.innerbox{
+    width: 40vw;
+    height: 39vh;
+    margin-top: 2vh; 
+    margin-bottom: 2vh; 
+    margin-left: 5vh; 
+    margin-right: 5vh; 
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    padding: 25px;
+}
