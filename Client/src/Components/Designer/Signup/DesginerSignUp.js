@@ -24,10 +24,7 @@ const defaultData = {
     fullname: "",
     email: "",
     phonenummber: "",
-    otp1:"",
-    otp2:"",
-    otp3:"",
-    otp4: "",
+    otp:"",
     password1: "",
     password2: "",
     

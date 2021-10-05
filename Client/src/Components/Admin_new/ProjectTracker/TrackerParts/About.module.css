@@ -1,7 +1,14 @@
-.header,.group{
-    margin: 3vh 2vw;
-    text-align: center;
+.details{
+    background-color: white;
+    border-radius: 4px;
+    padding: 2vh 0;
 }
+
+.header,.group{
+    margin: 2vh 2vw;
+
+}
+
 
 
 .main_title, title{
@@ -11,6 +18,7 @@
 .main_title{
     font-size: 4vh;
     font-weight: 600;
+    letter-spacing: .1em;
 }
 
 .title{
@@ -32,19 +40,26 @@
 
 
 .notifications{
-    text-align: center;
-    margin-top: 2vh;
+    margin: 2vh 0;
+    background-color: white;
+    border-radius: 4px;
+    padding: 3vh 2vw;
 }
 
+.sub_title{
+    font-size: 2.5vh;
+    font-weight: 600;
+    margin-top: 1.7vh;
+}
 
 .push{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     margin-top: 1vh;
 }
 
 .notif{
-    width: 20vw;
+    width: 16vw;
     height: 6.5vh;
 }
 
@@ -52,6 +67,28 @@
     border: none;
     height: 6.5vh;
     width: 3vw;
-    background-color: aqua;
+    background-color: #19BAA8;
 }
 
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
+.button{
+    margin-top: 2vh;
+    border: none;
+    padding: 1vh 1vw;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cbut,.dbut{
+    background-color: white;
+    border: 2px solid #19BAA8;
+}
+
+.cbut:hover,.dbut:hover{
+    background-color: #19BAA8;
+}

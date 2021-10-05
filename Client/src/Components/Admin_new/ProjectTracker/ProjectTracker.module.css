@@ -10,15 +10,11 @@
 .about{
     height: 90%;
     width: 25vw;
-    background-color: white;
-    border-radius: 5px;
 }
 
 .details{
     height: 90%;
     width: 40vw;
-    background-color: white;
-    border-radius: 5px;
 }
 
 .chat{

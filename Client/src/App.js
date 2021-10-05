@@ -30,8 +30,8 @@ function App() {
     <div className="App">
        <Navbar/>
       {/* <AdminDashboard/> */}
-      {/* <ProjectTracker/> */}
-      
+      <ProjectTracker/>
+{/*       
       <Router>
         <Switch>
           <Route path="/" exact component={Main} />
@@ -51,7 +51,7 @@ function App() {
           <Route path="/clientSignup" exact component={ClientSignup} />
           <Route path="/clientLogin" exact component={ClientLogin} />
         </Switch>
-      </Router>
+      </Router> */}
     </div>
   );
 }
