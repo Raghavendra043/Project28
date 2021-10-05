@@ -31,7 +31,7 @@ function SignUpSecond({ formData, setForm, navigation }) {
                             placeholder="Enter Your Password"
                             // ref={props.password1Ref}
                         name="password1"
-                        value={formData.password1}
+                        value={formData.password}
                         onChange={setForm}
                         />
                     </div>
@@ -43,7 +43,7 @@ function SignUpSecond({ formData, setForm, navigation }) {
                             placeholder="Renter Your Password"
                             // ref={props.password2Ref}
                         name="password2"
-                         value={formData.password2}
+                         value={formData.confirmPassword}
                         onChange={setForm}
                         />
                     </div>
@@ -55,10 +55,10 @@ function SignUpSecond({ formData, setForm, navigation }) {
                 </div>
                 </div>
                 <div className={style.next} onClick={() => {
-                    if (formData.password1.trim() && formData.password2.trim() && formData.password1 == formData.password2) {
+                    if (formData.password.trim() && formData.confirmPassword.trim() && formData.password == formData.confirmPassword) {
                             navigation.next();
                     }
-                    else if (formData.password1 != formData.password2) {
+                    else if (formData.password != formData.confirmPassword) {
                         setToggle(true)
                     }
                     }}>

@@ -39,7 +39,7 @@ function ClientLogin() {
                     </div>
                 </>
             )
-        case "FOrgotPassword":
+        case "ForgotPassword":
             return (
                 <>
                     <div className={styles.container}>
