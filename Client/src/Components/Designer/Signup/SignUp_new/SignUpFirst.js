@@ -4,13 +4,15 @@ import third_styles from "./Third.module.css";
 import style from '../../Signup/SignUp.module.css';
 import { ReactComponent as ArrowRight } from './../assests/ArrowRight.svg'
 import classnames from 'classnames';
+import { sendcode, verify } from '../../../../firebasefunctions/phoneVerification';
 
 function SignUpFirst({ formData, setForm, navigation }) {
     console.log(navigation);
     console.log(formData);
 
 
-    const startOtp = () => {
+    const startOtp = async () => {
+        await sendcode(formData.phonenumber);
         var button = document.getElementsByClassName(third_styles.cover)[0];
         button.classList.add(styles.hide2);
         var button = document.getElementsByClassName(third_styles.complete)[0];
@@ -72,6 +74,7 @@ function SignUpFirst({ formData, setForm, navigation }) {
                         />
                     </div>
                     </div>
+                    <div id = "recaptcha" style={{display: "none"}}></div>
                     <div className={classnames(third_styles.cover)}>
                         <button className={classnames(third_styles.complete)} onClick={startOtp}>Send Verification</button>
                     </div>
@@ -80,16 +83,23 @@ function SignUpFirst({ formData, setForm, navigation }) {
                     <div className={classnames(styles.otp_input_cover,styles.hide2)}>
                         <div className={classnames(styles.otp_titles,styles.hide)}>Enter OTP</div>
                         <div className={classnames(styles.otp, styles.hide)}>
-                        <input type="text" placeholder="******" className={styles.otp_input}/>
+                        <input type="number" placeholder="******" className={styles.otp_input} name="otp" value={formData.otp} onChange={setForm}/>
                         </div>
                     </div>
 
                 </div>
                 </div>
                 
-            <div className={style.next} onClick={() => {
-                if (formData.fullname.trim() && formData.email.trim()&& formData.phonenumber.trim() && formData.otp1.trim() && formData.otp2.trim()&& formData.otp3.trim()&& formData.otp4.trim()) {
-                    navigation.next();
+            <div className={style.next} onClick={async () => {
+                if (formData.fullname.trim() && formData.email.trim()&& formData.phonenumber.trim()) {
+                    
+                    const y = await verify(formData.otp);
+                    console.log("entered", y);
+                    if(y){
+                        navigation.next();
+                    } else {
+                         alert('invalid OTP')
+                    }
                 }
                 }}><ArrowRight className={style.arrow_right}/></div>
                 

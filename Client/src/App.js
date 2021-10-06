@@ -26,6 +26,15 @@ import ClientLogin from "./Components/client/Login/ClientLogin";
 import AdminDashboard from "./Components/Admin_new/Dasdboard/AdminDashboard";
 import ProjectTracker from "./Components/Admin_new/ProjectTracker/ProjectTracker";
 
+// -----------------------------ChatBox-----------------------------
+import Chat from './trail/chat'
+import ChatEngine from "./trail/admin";
+import Signup from "./trail/signup";
+
+// -----------------------------Feedback-----------------------------
+import MyComponent from "./pdf/sample";
+import { signup } from "./firebasefunctions/login";
+
 function App() {
   return (
     <div className="App">
@@ -55,6 +64,12 @@ function App() {
           <Route path="/admin/project" exact component={ProjectTracker} />
           <Route path="/admin/dash" exact component={AdminDashboard} />
           
+          <Route path="/pdf" exact component={MyComponent} />
+
+          <Route path="/chat" exact component={Chat} />
+          <Route path="/chatadmin" exact component={ChatEngine} />
+          <Route path="/test" exact component={Signup} />
+
         </Switch>
       </Router>
     </div>

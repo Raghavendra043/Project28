@@ -4,7 +4,10 @@ import { useState } from 'react';
 import style from '../../Signup/SignUp.module.css';
 import {ReactComponent as ArrowRight} from './../assests/ArrowRight.svg'
 import {ReactComponent as ArrowLeft} from './../assests/ArrowLeft.svg'
-
+import { addData } from '../../../../firebasefunctions/firestore';
+import { signup } from '../../../../firebasefunctions/login';
+import { CreateUser, CreateChat } from '../../../../trail/createchat';
+require('../../../../firebasefunctions/firestore');
 
 function SignUpSecond({ formData, setForm, navigation }) {
     
@@ -54,8 +57,15 @@ function SignUpSecond({ formData, setForm, navigation }) {
                     </div>
                 </div>
                 </div>
-                <div className={style.next} onClick={() => {
+                <div className={style.next} onClick={async() => {
                     if (formData.password1.trim() && formData.password2.trim() && formData.password1 == formData.password2) {
+                        await signup(formData.email, formData.password1);
+                        CreateUser(formData.email);
+                        await addData('Designers',formData.email ,{
+                            "name":formData.fullname,
+                            "email":formData.email,
+                            "phone":formData.phonenumber
+                        });
                             navigation.next();
                     }
                     else if (formData.password1 != formData.password2) {
