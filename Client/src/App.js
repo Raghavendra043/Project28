@@ -2,10 +2,6 @@ import React from "react";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import Navbar from "./Components/Navbar/Navbar";
 
-import AdminMain from "./Components/Admin/Main";
-import Dashboard from "./Components/Admin/Dashboard/Dashboard";
-import ClientDB from "./Components/Admin/Database/ClientDB";
-import Projects from "./Components/Admin/Projects/Projects";
 
 // -----------------------------Designer-----------------------------
 import Main from "./Components/Designer/Dashboard new/Main";

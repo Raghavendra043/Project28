@@ -12,7 +12,7 @@ var PROJECT_ID = '68a08b56-b99d-4754-85e8-375c862bef48'
 var USER_NAME = 'Ragh'
 
 function ProjectTracker() {
-    const dummy = {"endDate":"12-12-12","projectType":"Design","designermail":"Designer@gmail.com","id":1,"projectSummary":"Sample Project","files":{"0":{"files":[]},"1":{"files":[],"feedback":[],"adminFirstApproval":false,"clientFeedback":[],"approved":false,"adminSecondApproval":false,"currentState":"Waiting for Files from Designers"},"2":{"clientFeedback":[],"adminSecondApproval":false,"adminFirstApproval":false,"files":[],"approved":false,"feedback":[]}},"startDate":"12-12-12","notifications":[],"title":"Sample","currentStage":1,"clientEmail":"sample@gmail.com"}
+    const dummy = {"endDate":"","projectType":"Design","designermail":"Designer@gmail.com","id":1,"projectSummary":"Sample Project","files":{"0":{"files":[]},"1":{"files":[],"feedback":[],"adminFirstApproval":false,"clientFeedback":[],"approved":false,"adminSecondApproval":false,"currentState":"Waiting for Files from Designers"},"2":{"clientFeedback":[],"adminSecondApproval":false,"adminFirstApproval":false,"files":[],"approved":false,"feedback":[]}},"startDate":"12-12-12","notifications":[],"title":"Sample","currentStage":1,"clientEmail":"sample@gmail.com"}
 
     //const [formData1, setForm] = useForm(dummy);
     const [ formData, setForm] = useForm(dummy);
