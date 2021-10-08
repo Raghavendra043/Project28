@@ -1,93 +1,91 @@
-.box{
-    height:50vh;
-    background: #FFFFFF;
-    border-radius: 3em;
+.box {
+  height: 50vh;
+  background: #ffffff;
+  border-radius: 5vh;
 }
 
-.top{
-    height: 7vh;
-    background-color: #24576A;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-    font-size: 2.5vh;
-    font-weight: 700;
-    color: white;
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+.top {
+  height: 7vh;
+  background-color: #24576a;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  font-size: 2.5vh;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
-.content{
-    height: 40vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.content {
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.header{
-    font-family: Red Hat Display;
-    font-weight: 700;
-    font-size: 3vh;
-    margin: 2vh;
+.header {
+  font-family: Red Hat Display;
+  font-weight: 700;
+  font-size: 3vh;
+  margin: 2vh;
 }
-.subheader{
-    font-family: Red Hat Display;
-    font-weight: 700;
-    font-size: 2.2vh;
+.subheader {
+  font-family: Red Hat Display;
+  font-weight: 700;
+  font-size: 2.2vh;
 }
-.description
-{
-    font-size: 2.2vh;
-    font-weight: 400;
-    margin:2vh 2vw 0 ;
-    text-align: center;
-
+.description {
+  font-size: 2.2vh;
+  font-weight: 400;
+  margin: 2vh 2vw 0;
+  text-align: center;
 }
-.dates{
-    width: fit-content;
+.dates {
+  width: fit-content;
 }
-.date{
-    display: flex;
-    flex-direction:row;
-    justify-content: center;
-    margin-top: 3vh;
-    text-align: left;
+.date {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 3vh;
+  text-align: left;
 }
-.number{
-    font-family: Red Hat Display;
-    font-size: 5vh;
-    font-weight: 500;
-    color:#19BAA8;
+.number {
+  font-family: Red Hat Display;
+  font-size: 5vh;
+  font-weight: 500;
+  color: #19baa8;
 }
-.restdate{
-    margin-left: 0.5vw;
-    font-size: 2.2vh;
+.restdate {
+  margin-left: 0.5vw;
+  font-size: 2.2vh;
 }
-.month{
-    font-weight: 700;
+.month {
+  font-weight: 700;
 }
-.bottom{
-    display: flex;
-    flex-direction: row;
+.bottom {
+  display: flex;
+  flex-direction: row;
 }
-.dotted{
-    margin: 5vh 1vw 0 3vw
+.dotted {
+  margin: 5vh 1vw 0 3vw;
 }
-.image{
+.image {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
 }
-.lower{
-    padding:3vh 0 1vh 3vw; 
-    height: 36.5vh;
+.lower {
+  padding: 3vh 0 1vh 2vw;
+  height: 36.5vh;
 }
 
-.lower .text{
-    font-size: 2.2vh;
-    margin-right: 3vw;
+.lower .text {
+  font-size: 2.2vh;
+  margin-right: 3vw;
 }
 
-.des-f-svg{
-    height: 19vh;
+.des-f-svg {
+  height: 19vh;
 }
