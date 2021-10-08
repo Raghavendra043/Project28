@@ -4,16 +4,16 @@ import classnames from 'classnames';
 import { ReactComponent as Mail } from './../../assets/mail.svg';
 import { ReactComponent as Download } from './../../assets/download.svg';
 
-function About() {
+function About({ formData, setForm }) {
     return (
         <div>
             <div className={styles.details}>
                 <div className={styles.header}>
                     <div className={styles.main_title}>
-                        PROJECT NAME
+                        {formData.title}
                     </div>
                     <div className={styles.main_desc}>
-                        John Doe
+                        {formData.startDate} - {formData.endDate}
                     </div>
                 </div>
                 <div className={styles.group}>
@@ -21,7 +21,7 @@ function About() {
                         CLIENT NAME
                     </div>
                     <div className={styles.desc}>
-                        John Doe
+                        {formData.clientEmail}
                     </div>
                 </div>
                 <div className={styles.group}>
@@ -29,7 +29,7 @@ function About() {
                         DESIGNER
                     </div>
                     <div className={styles.desc}>
-                        John Doe
+                    {formData.designermail}
                     </div>
                 </div>
 

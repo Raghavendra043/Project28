@@ -6,7 +6,7 @@ function AdminDashboard() {
         <div>
             <div className={styles.container}>
                 <div className={styles.project_list}>
-
+                    Admin dashboard
                 </div>
             </div>
         </div>
