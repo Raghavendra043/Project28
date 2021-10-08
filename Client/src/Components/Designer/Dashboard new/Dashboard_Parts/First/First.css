@@ -1,15 +1,15 @@
 .box{
-    height:42vh;
+    height:50vh;
     background: #FFFFFF;
     border-radius: 3em;
 }
 
 .top{
-    height: 3em;
+    height: 7vh;
     background-color: #24576A;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
-    font-size: 1em;
+    font-size: 2.5vh;
     font-weight: 700;
     color: white;
     text-align: center;
@@ -27,8 +27,8 @@
 .header{
     font-family: Red Hat Display;
     font-weight: 700;
-    font-size: 1.25em;
-    margin: 3vh;
+    font-size: 3vh;
+    margin: 2vh;
 }
 .subheader{
     font-family: Red Hat Display;
@@ -37,11 +37,9 @@
 }
 .description
 {
-    font-size: 0.8125em;
+    font-size: 2.2vh;
     font-weight: 400;
-    margin-right: 20px;
-    margin-left: 20px;
-    margin-top: 10px;
+    margin:2vh 2vw 0 ;
     text-align: center;
 
 }
@@ -52,18 +50,18 @@
     display: flex;
     flex-direction:row;
     justify-content: center;
-    margin-top: 15px;
+    margin-top: 3vh;
     text-align: left;
 }
 .number{
     font-family: Red Hat Display;
-    font-size: 30px;
+    font-size: 5vh;
     font-weight: 500;
     color:#19BAA8;
 }
 .restdate{
-    margin-left: 10px;
-    font-size: 12px;
+    margin-left: 0.5vw;
+    font-size: 2.2vh;
 }
 .month{
     font-weight: 700;
@@ -73,21 +71,23 @@
     flex-direction: row;
 }
 .dotted{
-    margin-top: 30px;
-    margin-right: 20px;
+    margin: 5vh 1vw 0 3vw
 }
 .image{
-  transform: translate(65%,25%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 .lower{
-    padding:1.2em 1.5em 0; 
-    height: 42vh;
+    padding:3vh 0 1vh 3vw; 
+    height: 36.5vh;
 }
 
 .lower .text{
-    font-size: 2.5vh;
+    font-size: 2.2vh;
+    margin-right: 3vw;
 }
 
 .des-f-svg{
-    height: 17vh;
+    height: 19vh;
 }
