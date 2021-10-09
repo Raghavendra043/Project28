@@ -7,8 +7,8 @@
 .top {
   height: 7vh;
   background-color: #24576a;
-  border-top-left-radius: 50px;
-  border-top-right-radius: 50px;
+  border-top-left-radius: 5vh;
+  border-top-right-radius: 5vh;
   font-size: 2.5vh;
   font-weight: 700;
   color: white;

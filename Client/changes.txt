@@ -1,4 +1,4 @@
-1. side navbar 
+1. side navbar (done)
 
 *signup second for desiger is scrolling - check all the pages for scrolling
 3. client profile   -- paritosh

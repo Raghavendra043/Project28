@@ -1,7 +1,7 @@
 .box2{
     height: 43.5vh;
     background: #FFFFFF;
-    border-radius: 50px;
+    border-radius: 5vh;
     margin-left: 20px;
 }
 .upper{
@@ -10,8 +10,8 @@
 }
 .topsecond{
     background-color: white;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
+    border-top-left-radius: 5vh;
+    border-top-right-radius: 5vh;
     height: 5vh;
     padding-top: 2vh;
     display: flex;
