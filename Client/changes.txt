@@ -2,7 +2,7 @@
 
 *signup second for desiger is scrolling - check all the pages for scrolling
 3. client profile   -- paritosh
-4. client signup (vh) -- paritosh
+4. client signup (vh) -- paritosh (done)
 6. client forget pass -- paritosh
 7. client login vh    -- paritosh
 
