@@ -14,18 +14,21 @@ export const Login = async (email, password) =>{
 };
 
 export const signup = async (email, password) =>{
-    
-    console.log("Enteged signup", email, password);
-    await auth.createUserWithEmailAndPassword(email, password);
-            
-    sendVerification();
-
+    try {
+        console.log("Enteged signup", email, password);
+        await auth.createUserWithEmailAndPassword(email, password);
+        sendVerification();
+        return "0";
+    }
+    catch(err){
+        console.log(err);
+        return err.message;
+    }
 };
 
 const sendVerification = () =>{
     try {
-    auth.currentUser.sendEmailVerification();
-
+        auth.currentUser.sendEmailVerification();
     } catch(err){
         console.log(err)
     }

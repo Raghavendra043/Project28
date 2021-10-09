@@ -7,6 +7,7 @@ import {ReactComponent as ArrowLeft} from './../assests/ArrowLeft.svg'
 import { addData } from '../../../../firebasefunctions/firestore';
 import { signup } from '../../../../firebasefunctions/login';
 import { CreateUser, CreateChat } from '../../../../trail/createchat';
+import axios from 'axios'
 require('../../../../firebasefunctions/firestore');
 
 function SignUpSecond({ formData, setForm, navigation }) {
@@ -59,7 +60,8 @@ function SignUpSecond({ formData, setForm, navigation }) {
                 </div>
                 <div className={style.next} onClick={async() => {
                     if (formData.password1.trim() && formData.password2.trim() && formData.password1 == formData.password2) {
-                        await signup(formData.email, formData.password1);
+                        //await signup(formData.email, formData.password1);
+                        axios.post(`${process.env.REACT_APP_LINK}/passwordReset`, {email:formData.email, password:formData.password1})
                         CreateUser(formData.email);
                         await addData('Designers',formData.email ,{
                             "name":formData.fullname,

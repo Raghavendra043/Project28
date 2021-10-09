@@ -45,7 +45,7 @@ const recaptcha = async ()=>{
       console.log(otpInput);
       const y = await optConfirm.confirm(otpInput);
       console.log("from verufy funciton", y);
-      return true;
+      return "1";
     } catch(error){
       console.log(error);
       return "invalid OTP";

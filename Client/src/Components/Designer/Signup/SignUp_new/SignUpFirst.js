@@ -1,28 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from "./First.module.css";
 import third_styles from "./Third.module.css";
 import style from '../../Signup/SignUp.module.css';
 import { ReactComponent as ArrowRight } from './../assests/ArrowRight.svg'
 import classnames from 'classnames';
 import { sendcode, verify } from '../../../../firebasefunctions/phoneVerification';
+import { signup } from '../../../../firebasefunctions/login';
 
 function SignUpFirst({ formData, setForm, navigation }) {
     console.log(navigation);
     console.log(formData);
+    const [Err , setErr] = useState('');
 
 
     const startOtp = async () => {
-        await sendcode(formData.phonenumber);
-        var button = document.getElementsByClassName(third_styles.cover)[0];
-        button.classList.add(styles.hide2);
-        var button = document.getElementsByClassName(third_styles.complete)[0];
-        button.classList.add(styles.hide);
-        var button = document.getElementsByClassName(styles.otp_input_cover)[0];
-        button.classList.remove(styles.hide2);
-        var button = document.getElementsByClassName(styles.otp_titles)[0];
-        button.classList.remove(styles.hide);
-        var button = document.getElementsByClassName(styles.otp)[0];
-        button.classList.remove(styles.hide);
+        if (!(formData.fullname.trim() && formData.email.trim()&& formData.phonenumber.trim())) {
+            setErr('Please Fill all the fields');
+        } else {
+            await sendcode(formData.phonenumber);
+            var button = document.getElementsByClassName(third_styles.cover)[0];
+            button.classList.add(styles.hide2);
+            var button = document.getElementsByClassName(third_styles.complete)[0];
+            button.classList.add(styles.hide);
+            var button = document.getElementsByClassName(styles.otp_input_cover)[0];
+            button.classList.remove(styles.hide2);
+            var button = document.getElementsByClassName(styles.otp_titles)[0];
+            button.classList.remove(styles.hide);
+            var button = document.getElementsByClassName(styles.otp)[0];
+            button.classList.remove(styles.hide);
+        }
     }
 
 
@@ -86,20 +92,30 @@ function SignUpFirst({ formData, setForm, navigation }) {
                         <input type="number" placeholder="******" className={styles.otp_input} name="otp" value={formData.otp} onChange={setForm}/>
                         </div>
                     </div>
-
+                    
+                    <div id = "message" value = {Err} className = {third_styles.errorMessage}>{Err} </div>
                 </div>
+                
                 </div>
                 
             <div className={style.next} onClick={async () => {
                 if (formData.fullname.trim() && formData.email.trim()&& formData.phonenumber.trim()) {
                     
-                    const y = await verify(formData.otp);
-                    console.log("entered", y);
-                    if(y){
-                        navigation.next();
+                    const Verify = await verify(formData.otp);
+
+                    if(Verify === "1"){
+                        const sign = await signup(formData.email, 'Project28');
+                        console.log(sign);
+                        if(sign != 0){
+                            setErr("EmailID already in use. Please Login");
+                        } else {
+                            navigation.next();
+                        }
                     } else {
-                         alert('invalid OTP')
+                         setErr('invalid OTP');
                     }
+                } else {
+                    setErr('Please Fill all the Fields');
                 }
                 }}><ArrowRight className={style.arrow_right}/></div>
                 

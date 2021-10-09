@@ -27,7 +27,7 @@
   color: white;
   border-radius: 4px;
   transition: 0.2s ease-in-out;
-  margin-top: 6vh;
+  margin-top: 2.5vh;
 }
 
 .complete:hover {
@@ -49,4 +49,8 @@
 .proceed:hover {
   border: 1px solid rgba(25, 186, 168, 1);
   color: rgba(25, 186, 168, 1);
+}
+
+.errorMessage {
+  text-align: center;
 }
