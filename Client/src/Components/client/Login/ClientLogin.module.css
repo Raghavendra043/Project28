@@ -13,8 +13,7 @@
 
 .box{
     position:absolute;
-    max-height: 85vh;
-    min-height: 75vh;
+    height: 75vh;
     top: 10%;
     width: 34%;
     left: 33%;
@@ -22,10 +21,12 @@
     flex-direction: column;
     justify-content: flex-start;
     background: #ffffff;
-    border-top: 2px solid #20C1EF;
-    box-shadow: 0px 4px 24px rgba(30, 31, 30, 0.08);
-    border-radius: 4px;
-    padding-bottom: 3em;
+    border-top: 0.4vh solid #20C1EF;
+    box-shadow: 0px 0.8vh 4.8vh rgba(30, 31, 30, 0.08);
+    border-radius: 0.8vh;
+    padding-bottom: 5vh;
+    padding-left: 4vh;
+    padding-right: 4vh;
 }
 
 .man_svg{
@@ -39,50 +40,56 @@
 
 .header{
     text-transform: uppercase;
-    font-size: 2.1em;
+    font-size: 4.4vh;
     font-family: Red Hat Display;
     font-weight: 500;
     text-align: center;
-    padding: 0.5em 0 0;
+    padding: 1.1vh 0 0;
 }
 
 .desc{
-    font-size: 0.8em;
+    font-size: 2vh;
     text-align: center;
+    margin-top: 1vh;
+}
+.desc1{
+    font-size: 2vh;
+    text-align: left;
+    margin-top: 1vh;
 }
 
 .titles{
-    font-size: 0.9em;
+    font-size: 2.2vh;
     font-weight: 600;
-    padding-left: 0.2em;
+    padding-left: 0.5vh;
     font-family: Open Sans;
 }
 
 .data{
     width: 100%;
-    padding: 2em 0 0;
+    padding: 4.1vh 0 0;
 }
 
 .input_cover{
     margin: 0 auto;
     width: 85%;
-    margin-bottom: 1em;
-
+    margin-bottom: 2.1vh;
 }
 
 .inputs{
-    margin-top: 0.7em;
+    margin-top: 1vh;
     width: 100%;
-    height: 2.5em;
-    border: 1.5px solid rgba(128, 128, 128, 0.541);
-    border-radius: 4px;
-    padding: 1em 0 1em 0.8em;
-
+    height: 6vh;
+    border: 0.2vh solid rgba(128, 128, 128, 0.541);
+    border-radius: 0.8vh;
+    padding: 1.5vh 0 1.5vh 1vh;
+    font-size: 2.4vh;
 }
 
 .inputs::placeholder{
     font-family: Open Sans;
     font-style: italic;
+    font-size: 2.4vh;
 }
 .hide{
     display: none;
@@ -102,8 +109,8 @@
 }
 
 .next{
-    height: 4em;
-    width: 3em;
+    height: 9vh;
+    width: 6vh;
     position: absolute;
     display: flex;
     align-items: center;
@@ -114,7 +121,7 @@
     border: 1px solid white;
     background-color: white;
     transition: 0.2s;
-    box-shadow: 0px 4px 8px rgba(30, 31, 30, 0.08);
+    box-shadow: 0px 0.8vh 1.6vh rgba(30, 31, 30, 0.08);
 
 }
 .next:hover{
@@ -126,29 +133,29 @@
     stroke:white;
 }
 .previous{
-    height: 4em;
-    width: 3em;
+    height: 9vh;
+    width: 6vh;
     position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
     top: 10%;
     right:110%;
-    border-radius: 5px;
+    border-radius: 1vh;
     transition: 0.2s;
-    box-shadow: 0px 4px 8px rgba(30, 31, 30, 0.08);
+    box-shadow: 0px 0.8vh 1.6vh rgba(30, 31, 30, 0.08);
 }
 
 .previous:hover {
     background-color: white;
 }
 .header2{
-   margin-top: 0.6em;
-    font-size: 1.3em;
+   margin-top: 1.3vh;
+    font-size: 2.7vh;
     font-family: Red Hat Display;
     font-weight: 500;
     text-align: center;
-    padding: 0.5em 0 0;
+    padding: 1.1vh 0 0;
 }
 .underinputs{
     width: 100%;
@@ -160,11 +167,16 @@
 .forgotPassword{
     color: grey;
     transition: 0.1s;
+    font-size: 2vh;
 }
 .forgotPassword:hover{
     cursor: pointer;
     color:#20C1EF;
 }
 .remember{
-    margin-right:10px ;
+    margin-right: 1.5vh ;
+    font-size: 2vh;
+}
+label{
+    font-size: 2vh;
 }

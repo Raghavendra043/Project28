@@ -4,6 +4,7 @@ import { ReactComponent as Man } from '../Signup/assets/Man.svg'
 import Login from '../Login/Loginpages/Login'
 import ForgotPassword from '../Login/Loginpages/ForgotPassword'
 import styles from "../Login/ClientLogin.module.css"
+import ForgetPassword2 from "../Login/Loginpages/ForgotPassword2"
 
 const defaultData = {
     email: "",
@@ -13,6 +14,7 @@ const defaultData = {
 const steps = [
     {id:"LoginPage"},
     {id:"ForgotPassword"},
+    {id:"ForgotPassword2"},
 ]
 
 function ClientLogin() {
@@ -50,6 +52,22 @@ function ClientLogin() {
                             </div>
                             <div className={styles.box}>
                                 <ForgotPassword  {...props} />
+                            </div>
+                        </div>
+                    </div>
+                </>
+            )
+        case "ForgotPassword2":
+            return (
+                <>
+                    <div className={styles.container}>
+                        <div className={styles.bottom_background}></div>
+                        <div className={styles.third}>
+                            <div className={styles.man_svg}>
+                                <Man />
+                            </div>
+                            <div className={styles.box}>
+                                <ForgetPassword2  {...props} />
                             </div>
                         </div>
                     </div>
