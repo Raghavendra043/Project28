@@ -27,7 +27,7 @@
     margin-left: 5vh; 
     margin-right: 5vh; 
     background-color: white;
-    border-radius: 15px;
+    border-radius: 3vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -44,9 +44,11 @@
     
 }
 .inputs{
+   
     margin-left:1vw;
     margin-right:1vw;
     margin-bottom: 2vh;
+    
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -56,11 +58,24 @@
     width: 16vw;
     margin-top: 1vh;
     border-radius: 5px;
-    margin-top: 0.7em;
-    height: 2.5em;
-    border: 1.5px solid rgba(128, 128, 128, 0.541);
-    border-radius: 4px;
-    padding: 1em 0 1em 0.8em;
+    margin-top: 1.4vh;
+    height: 5vh;
+    border: 0.3vh solid rgba(128, 128, 128, 0.541);
+    border-radius: 0.8vh;
+    padding: 2vh 0 2vh 1.6vh;
+
+
+}
+.inputboxcompany{
+    width: 34.5vw;
+    margin-top: 1vh;
+    border-radius: 5px;
+    margin-top: 1.4vh;
+    height: 5vh;
+    border: 0.3vh solid rgba(128, 128, 128, 0.541);
+    border-radius: 0.8vh;
+    padding: 2vh 0 2vh 1.6vh;
+    font-size: 2.3vh;
 
 
 }
@@ -68,20 +83,34 @@
     margin-left: 2vw;
 }
 .headinput{
-    font-size: 0.9em;
+    font-size: 1.8vh;
     font-weight: 600;
-    padding-left: 0.2em;
+    padding-left: 0.4vh;
     font-family: Open Sans;
 }
 .boxheader{
-    font-size: 1.8em;
+    font-size: 3.6vh;
     font-family: Red Hat Display;
     font-weight: 500;
     text-align: left;
-    padding: 0.5em 0 0;
+    padding: 1vh 0 0;
+    margin-left:1vw;
+    margin-right:1vw;
+    margin-bottom:10vh;
+    position: absolute;
+    top: 16vh;
+}
+.boxheader2{
+    font-size: 3.6vh;
+    font-family: Red Hat Display;
+    font-weight: 500;
+    text-align: left;
+    padding: 1vh 0 0;
     margin-left:1vw;
     margin-right:1vw;
     margin-bottom:3vh;
+    position: absolute;
+    bottom: 33.5vh;
 }
 .innerbox{
     width: 40vw;
@@ -91,10 +120,33 @@
     margin-left: 5vh; 
     margin-right: 5vh; 
     background-color: white;
-    border-radius: 15px;
+    border-radius: 3vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: left;
-    padding: 25px;
+    padding: 5vh;
+    padding-top: 10vh;
+    font-size: 3.5vh;
+}
+.inputboxmain{
+    font-size: 2.2vh
+}
+.fileupload{
+    position: absolute;
+    right: 8vh;
+    bottom: 8vh;
+
+}
+.svg{
+    height: 5vh;
+    width: 5.1vh;
+}
+.photoUpload{
+    height: 22vh;
+    width: 22vh;
+}
+.pencilsvg{
+    height: 2vh;
+    width: 2vh;
 }

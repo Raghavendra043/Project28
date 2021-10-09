@@ -32,7 +32,7 @@ function ClientLogin() {
                         <div className={styles.bottom_background}></div>
                         <div className={styles.third}>
                             <div className={styles.man_svg}>
-                                <Man />
+                                <Man  className={styles.svg}/>
                             </div>
                             <div className={styles.box}>
                                 <Login  {...props} />
@@ -48,7 +48,7 @@ function ClientLogin() {
                         <div className={styles.bottom_background}></div>
                         <div className={styles.third}>
                             <div className={styles.man_svg}>
-                                <Man />
+                                <Man className={styles.svg}/>
                             </div>
                             <div className={styles.box}>
                                 <ForgotPassword  {...props} />
@@ -64,7 +64,7 @@ function ClientLogin() {
                         <div className={styles.bottom_background}></div>
                         <div className={styles.third}>
                             <div className={styles.man_svg}>
-                                <Man />
+                                <Man className={styles.svg} />
                             </div>
                             <div className={styles.box}>
                                 <ForgetPassword2  {...props} />
