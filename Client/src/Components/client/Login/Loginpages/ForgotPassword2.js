@@ -50,7 +50,7 @@ function ForgetPassword2({ formData, setForm, navigation }) {
                     <div className={toggle? style.show : style.hide}>Passwords don't match! Try again</div>
 
                     <div className={styles.cover}>
-                        <button className={styles.complete} onClick={navigation.next}>Set Password { `&`} Login</button>
+                        <button className={styles.complete}>Set Password { `&`} Login</button>
               </div>
                 </div>
                 </div>
