@@ -1,55 +1,97 @@
-.slider{
-    width: 85%;
- margin: 3vh auto;
+.slider {
+  width: 85%;
+  margin: 3vh auto;
 }
 
-.desc{
-    font-size: 2vh;
-    padding-left: 1vw;
+.desc {
+  font-size: 2vh;
+  padding-left: 1vw;
 }
 
-.input_cover{
-    margin-top: 5vh;
+.input_cover {
+  margin-top: 5vh;
 }
 
-.resume_cover{
-    width: 100%;
-    margin-top: 1vh;
-    border: 2px dashed #C4C4C4;
-    display: flex;
-    justify-content: center;
-    padding: 1.5vh 0;
-    border-radius: 8px;
+.resume_cover {
+  width: 100%;
+  margin-top: 1vh;
+  border: 2px dashed #c4c4c4;
+  display: flex;
+  justify-content: center;
+  padding: 1.5vh 0;
+  border-radius: 8px;
 }
 
-.resume{
-    margin-left: 1vw;
-    font-size: 2.2vh;
-    color: #C4C4C4;
+.resume {
+  margin-left: 1vw;
+  font-size: 2.2vh;
+  color: #c4c4c4;
 }
 
-.or{
-    text-align: center;
-    color: rgb(165, 158, 158);
-    margin: 1vh auto;
+.or {
+  text-align: center;
+  color: rgb(165, 158, 158);
+  margin: 1vh auto;
 }
 
-.resume_input_cover{
-    width: 100%;
+.resume_input_cover {
+  width: 100%;
 }
 
-.profile_input{
-    width: 100%;
-    height: 7vh;
-    padding-left: 2vw;
+.profile_input {
+  width: 100%;
+  height: 7vh;
+  padding-left: 2vw;
 }
 
-.profile_input::placeholder{
-    font-size: 0.9em;
-    font-style: italic;
+.profile_input::placeholder {
+  font-size: 0.9em;
+  font-style: italic;
 }
-.verify_cover{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+.verify_cover {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.next {
+  height: 4em;
+  width: 3em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 20%;
+  top: 50%;
+  border-radius: 5px;
+  border: 1px solid lightseagreen;
+  background-color: white;
+  transition: 0.2s;
+  box-shadow: 0px 4px 8px rgba(30, 31, 30, 0.08);
+}
+.next:hover {
+  background-color: lightseagreen;
+  color: white;
+}
+
+.next:hover > .arrow_right path {
+  stroke: white;
+}
+
+.previous {
+  height: 4em;
+  width: 3em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 10%;
+  left: 25%;
+  border-radius: 5px;
+  transition: 0.2s;
+  box-shadow: 0px 4px 8px rgba(30, 31, 30, 0.08);
+}
+
+.previous:hover {
+  background-color: white;
 }

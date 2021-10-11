@@ -11,8 +11,8 @@ function SignUpSecond({ formData, setForm, navigation }) {
 
   return (
     <div className={e_style.signupbox}>
-      <div className={style.previous} onClick={navigation.previous}>
-        <ArrowLeft className={style.arrow_left} />
+      <div className={styles.previous} onClick={navigation.previous}>
+        <ArrowLeft className={styles.arrow_left} />
       </div>
       <div className={styles.container}>
         <div className={style.header}>DEAR DESIGNER,</div>
