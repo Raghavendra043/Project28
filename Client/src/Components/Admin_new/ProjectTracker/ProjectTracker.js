@@ -26,7 +26,7 @@ function ProjectTracker() {
     projectSummary: "Sample Project",
     files: {
       0: { files: [] },
-      1: {
+      one: {
         files: [],
         feedback: [],
         adminFirstApproval: false,

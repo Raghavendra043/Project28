@@ -1,21 +1,22 @@
 import React from "react";
 import styles from "./Utilites.module.css";
 import classnames from "classnames";
-import { ReactComponent as Download } from "./../../assets/download.svg";
 
-function Utilites(props) {
+function Utilites({ formData, setForm }) {
   window.onclick = function (event) {
     var modal = document.getElementById("projectModal");
     var modal1 = document.getElementById("projectModalGive");
     var modal2 = document.getElementById("projectModalView");
     if (
-      event.target == modal ||
-      event.target == modal1 ||
-      event.target == modal2
+      event.target === modal ||
+      event.target === modal1 ||
+      event.target === modal2
     ) {
       event.target.style.display = "none";
     }
   };
+
+  //------------------------------button handlers------------------------------
 
   const approveHandler = () => {
     var modal = document.getElementById("projectModal");
@@ -35,11 +36,15 @@ function Utilites(props) {
   const closeHandler = () => {
     var modal = document.getElementById("projectModal");
     modal.style.display = "none";
-    var modal = document.getElementById("projectModalView");
+    modal = document.getElementById("projectModalView");
     modal.style.display = "none";
-    var modal = document.getElementById("projectModalGive");
+    modal = document.getElementById("projectModalGive");
     modal.style.display = "none";
   };
+
+  //----------------------buttons--------------------------------------------
+
+  //----------------------------------------------------------
 
   return (
     <div>
@@ -47,24 +52,33 @@ function Utilites(props) {
         <div className={styles.title}>FEED</div>
         <div className={styles.list}>
           <div className={styles.box}>
-            <div className={styles.name}>Project Name</div>
+            <div className={styles.name}>
+              Draft {Object.keys(formData.files).length}
+            </div>
 
             <div className={styles.action}>
               <div className={styles.button_cover}>
-                <button
-                  onClick={approveHandler}
-                  className={classnames(styles.button, styles.hello)}
-                >
-                  Approve
-                </button>
+                {((formData.files.one.files.length > 0 &&
+                  formData.files.one.adminFirstApproval === false) ||
+                  (formData.files.one.clientFeedback.lenght > 0 &&
+                    formData.files.one.adminSecondApproval === false)) && (
+                  <button
+                    onClick={approveHandler}
+                    className={classnames(styles.button, styles.hello)}
+                  >
+                    Approve
+                  </button>
+                )}
               </div>
               <div className={styles.button_cover}>
-                <button
-                  onClick={viewHandler}
-                  className={classnames(styles.button, styles.hello)}
-                >
-                  View FeedBack
-                </button>
+                {formData.files.one.clientFeedback > 0 && (
+                  <button
+                    onClick={viewHandler}
+                    className={classnames(styles.button, styles.hello)}
+                  >
+                    View FeedBack
+                  </button>
+                )}
               </div>
               <div className={styles.button_cover}>
                 <button
