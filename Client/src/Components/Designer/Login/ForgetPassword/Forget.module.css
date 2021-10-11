@@ -1,49 +1,72 @@
-.desc{
-    font-size: 2vh;
-    font-family: Open sans;
-    font-weight: 550;
+.desc {
+  font-size: 2vh;
+  font-family: Open sans;
+  font-weight: 550;
 }
-.message{
-    display: none;
-    margin-top: 2vh;
-    font-size: 2vh;
-    font-family: Open sans;
-    font-weight: 600;
-    color: rgba(25, 186, 168, 1) ;
-}
-
-.on{
-    display: block;
+.message {
+  display: none;
+  margin-top: 2vh;
+  font-size: 2vh;
+  font-family: Open sans;
+  font-weight: 600;
+  color: rgba(25, 186, 168, 1);
 }
 
-
-.cover{
-    display: flex;
-    justify-content: center;
-    margin: 20vh 0 0;
-    width: 100%;
-}
-.complete{
-    background-color: rgba(25, 186, 168, 1);
-    border: 1px solid rgba(25, 186, 168, 1);
-    width: 22vw;
-    height: 7vh;
-    color: white;
-    border-radius: 4px;
-    font-size: 3vh;
-    transition: 0.2s ease-in-out;
+.on {
+  display: block;
 }
 
-.complete:hover{
-    background-color: white;
-    color:  rgba(25, 186, 168, 1);
+.cover {
+  display: flex;
+  justify-content: center;
+  margin: 20vh 0 0;
+  width: 100%;
+}
+.complete {
+  background-color: rgba(25, 186, 168, 1);
+  border: 1px solid rgba(25, 186, 168, 1);
+  width: 22vw;
+  height: 7vh;
+  color: white;
+  border-radius: 4px;
+  font-size: 3vh;
+  transition: 0.2s ease-in-out;
 }
 
-.otp_input{
-    margin-top: 3vh;
-    height: 6vh;
-    width: 60%;
-    text-align: center;
-    border: none;
-    border-bottom: 2px solid grey;
+.complete:hover {
+  background-color: white;
+  color: rgba(25, 186, 168, 1);
+}
+
+.otp_input {
+  margin-top: 3vh;
+  height: 6vh;
+  width: 60%;
+  text-align: center;
+  border: none;
+  border-bottom: 2px solid grey;
+}
+
+.next {
+  height: 4em;
+  width: 3em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 20%;
+  top: 50%;
+  border-radius: 5px;
+  border: 1px solid lightseagreen;
+  background-color: white;
+  transition: 0.2s;
+  box-shadow: 0px 4px 8px rgba(30, 31, 30, 0.08);
+}
+.next:hover {
+  background-color: lightseagreen;
+  color: white;
+}
+
+.next:hover > .arrow_right path {
+  stroke: white;
 }

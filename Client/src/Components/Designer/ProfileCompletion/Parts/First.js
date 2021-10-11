@@ -3,8 +3,9 @@ import e_style from "./../../Signup/SignUp.module.css";
 import styles from "./First.module.css";
 import { ReactComponent as Man } from "./../assets/Firstman.svg";
 import classnames from "classnames";
+import { ReactComponent as ArrowRight } from "./../assets/ArrowRight.svg";
 
-function First() {
+function First({ formData, setForm, navigation }) {
   const [grad, setGrad] = useState("false");
 
   const handleGrad = () => {
@@ -184,6 +185,19 @@ function First() {
             </div>
           </div>
         </div>
+      </div>
+      <div
+        className={styles.next}
+        onClick={async () => {
+          if (
+            formData.fullname.trim() &&
+            formData.email.trim() &&
+            formData.phonenumber.trim()
+          ) {
+          }
+        }}
+      >
+        <ArrowRight className={styles.arrow_right} />
       </div>
     </div>
   );
