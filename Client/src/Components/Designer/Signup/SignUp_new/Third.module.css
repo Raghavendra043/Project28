@@ -53,4 +53,19 @@
 
 .errorMessage {
   text-align: center;
+  font-size: 2.5vh;
+}
+
+@media screen and (max-width: 500px) {
+  .complete {
+    width: 80%;
+  }
+
+  .proceed {
+    width: 80%;
+  }
+
+  .errorMessage {
+    font-size: 0.7em;
+  }
 }

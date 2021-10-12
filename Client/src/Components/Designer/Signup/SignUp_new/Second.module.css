@@ -1,11 +1,17 @@
-.container{
-    width: 100%;
+.container {
+  width: 100%;
 }
 
-.line{
-    width: 100%;
-    margin: 7em auto;
-    text-align: center;
-    color: rgba(25, 186, 168, 1);
-    font-size: 3vh;
+.line {
+  width: 100%;
+  margin: 7em auto;
+  text-align: center;
+  color: rgba(25, 186, 168, 1);
+  font-size: 3vh;
+}
+
+@media screen and (max-width: 500px) {
+  .line {
+    margin: 2em auto;
+  }
 }

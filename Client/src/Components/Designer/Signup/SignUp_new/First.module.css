@@ -1,51 +1,48 @@
-
-
-.otp_titles{
-    text-align: center;
-    font-weight: 600;
-    font-size:2.5vh;
+.complete {
+  margin-top: 5vh;
 }
 
-
-
-
-.otp_input_cover{
-    margin: 2vh auto;
-    width: 100%;
-    height: 100%;
-
+.otp_titles {
+  text-align: center;
+  font-weight: 600;
+  font-size: 2.5vh;
 }
 
-.otp{
-    display: flex;
-    justify-content: center;
+.otp_input_cover {
+  margin: 2vh auto;
+  width: 100%;
+  height: 100%;
 }
 
-.number{
-    border: 1px solid black;
-    width: 8%;
-    height: 6vh;
-    margin: 02vh 0.7vw;
-    border-radius: 5px;
-    padding: 0.8em;
+.otp {
+  display: flex;
+  justify-content: center;
 }
 
-
-.hide{
-    display: none;
-    margin: 0;
+.number {
+  border: 1px solid black;
+  width: 8%;
+  height: 6vh;
+  margin: 02vh 0.7vw;
+  border-radius: 5px;
+  padding: 0.8em;
 }
 
-.hide2{
-    margin-top: 0;
-    height: 0;
+.hide {
+  display: none;
+  margin: 0;
 }
 
-.otp_input{
-    margin-top: 3vh;
-    height: 6vh;
-    width: 60%;
-    text-align: center;
-    border: none;
-    border-bottom: 2px solid grey;
+.hide2 {
+  margin-top: 0;
+  height: 0;
+}
+
+.otp_input {
+  margin-top: 3vh;
+  height: 6vh;
+  width: 60%;
+  text-align: center;
+  border: none;
+  border-bottom: 2px solid grey;
 }

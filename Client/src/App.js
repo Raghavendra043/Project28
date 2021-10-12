@@ -2,7 +2,6 @@ import React from "react";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import Navbar from "./Components/Navbar/Navbar";
 
-
 // -----------------------------Designer-----------------------------
 import Main from "./Components/Designer/Dashboard new/Main";
 import ProfileMain from "./Components/Designer/Profile/ProfileMain";
@@ -11,19 +10,18 @@ import DesginerSignUp from "./Components/Designer/Signup/DesginerSignUp";
 import DesignerComplete from "./Components/Designer/ProfileCompletion/DesignerComplete";
 import DesignerLogin from "./Components/Designer/Login/DesignerLogin";
 import ForgetMain from "./Components/Designer/Login/ForgetMain";
-import ClientProfile from "./Components/client/Profile/Profile"
+import ClientProfile from "./Components/client/Profile/Profile";
 import Second from "./Components/Designer/ProfileCompletion/Parts/Second";
 // ---------------------------------Client--------------------------------
 import ClientSignup from "./Components/client/Signup/ClientSignup";
 import ClientLogin from "./Components/client/Login/ClientLogin";
-
 
 // ---------------------------------Admin---------------------------------
 import AdminDashboard from "./Components/Admin_new/Dasdboard/AdminDashboard";
 import ProjectTracker from "./Components/Admin_new/ProjectTracker/ProjectTracker";
 
 // -----------------------------ChatBox-----------------------------
-import Chat from './trail/chat'
+import Chat from "./trail/chat";
 import ChatEngine from "./trail/admin";
 import Signup from "./trail/signup";
 
@@ -34,8 +32,8 @@ import { signup } from "./firebasefunctions/login";
 function App() {
   return (
     <div className="App">
-       <Navbar/>
-      
+      {/* <Navbar/> */}
+
       <Router>
         <Switch>
           <Route path="/" exact component={Main} />
@@ -52,20 +50,18 @@ function App() {
           <Route path="/designer/complete" exact component={DesignerComplete} />
           <Route path="/client/profile" exact component={ClientProfile} />
           <Route path="/second" exact component={Second} />
-          
+
           <Route path="/clientSignup" exact component={ClientSignup} />
           <Route path="/clientLogin" exact component={ClientLogin} />
 
-
           <Route path="/admin/project" exact component={ProjectTracker} />
           <Route path="/admin/dash" exact component={AdminDashboard} />
-          
+
           <Route path="/pdf" exact component={MyComponent} />
 
           <Route path="/chat" exact component={Chat} />
           <Route path="/chatadmin" exact component={ChatEngine} />
           <Route path="/test" exact component={Signup} />
-
         </Switch>
       </Router>
     </div>
