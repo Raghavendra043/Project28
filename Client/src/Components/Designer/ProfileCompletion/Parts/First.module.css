@@ -1,3 +1,12 @@
+.header {
+  text-transform: uppercase;
+  font-size: 4.8vh;
+  font-family: Red Hat Display;
+  font-weight: 500;
+  text-align: center;
+  padding: 2vh 0 0;
+}
+
 .checkbox_cover {
   display: flex;
   justify-content: space-between;
@@ -139,4 +148,30 @@ label {
 
 .next:hover > .arrow_right path {
   stroke: white;
+}
+
+@media screen and (max-width: 500px) {
+  .checkboxes {
+    position: absolute;
+    border: 1px #19baa8 solid;
+    background-color: white;
+    width: 92%;
+    overflow-y: hidden;
+    overflow: scroll;
+    height: 20vh;
+  }
+
+  .next {
+    top: 85%;
+    left: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    border: 1px solid lightseagreen;
+    background-color: lightseagreen;
+    box-shadow: 0px 2px 4px lightseagreen;
+  }
+
+  .next > .arrow_right path {
+    stroke: white;
+  }
 }

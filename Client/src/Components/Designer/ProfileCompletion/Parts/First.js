@@ -33,8 +33,8 @@ function First({ formData, setForm, navigation }) {
         <div className={e_style.man_svg}>
           <Man />
         </div>
-        <div className={e_style.box} style={{ borderTop: "3px solid #00B4B3" }}>
-          <div className={e_style.header}>COMPLETE YOUR PROFILE</div>
+        <div className={e_style.box}>
+          <div className={styles.header}>COMPLETE YOUR PROFILE</div>
           <div className={e_style.desc}>
             Caution! Existing opportunites ahead{" "}
           </div>

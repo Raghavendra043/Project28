@@ -19,7 +19,7 @@ function Second({ formData, setForm, navigation }) {
         <div className={styles.previous} onClick={navigation.previous}>
           <ArrowLeft className={styles.arrow_left} />
         </div>
-        <div className={e_style.box} style={{ borderTop: "3px solid #00B4B3" }}>
+        <div className={e_style.box}>
           <div className={e_style.header}>COMPLETE YOUR PROFILE</div>
           <div className={e_style.desc}>
             Caution! Existing opportunites ahead{" "}
@@ -41,7 +41,9 @@ function Second({ formData, setForm, navigation }) {
             <div
               className={classnames(styles.input_cover, e_style.input_cover)}
             >
-              <div className={e_style.titles}>Portfolio</div>
+              <div className={e_style.titles} style={{ marginTop: "8vh" }}>
+                Portfolio
+              </div>
               <div className={styles.resume_cover}>
                 <input type="file" id="resume" accept="image/*" />
                 <label for="resume" className={styles.resume}>
