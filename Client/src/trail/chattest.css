@@ -1,11 +1,30 @@
-/* .ce-chat-title-container {
-    width: 40% ;
-    padding: 0;
-}
-.ce-chat-title-text {
-    width: 40vw;
+.ql-editor {
+    color: blue;
 }
 
-.ce-chat-subtitle-text {
-    width: 40vw;
-} */
+.ql-container {
+    border-radius: 10px;
+}
+
+.ce-message-bubble {
+    background-color: rgb(24, 144, 25) !important;
+}
+.ce-my-message-bubble {
+    background-color: coral !important;
+}
+
+.ql-toolbar  {
+    /* display: none; */
+}
+
+.ql-snow{
+
+}
+
+
+
+#ce-send-message-button{
+    background-color: crimson !important;
+    position: 120px 200px;
+    display: inline;
+}

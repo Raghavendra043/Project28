@@ -2,7 +2,6 @@ import { CreateChat, CreateUser } from "./createchat";
 import { ChatEngine } from 'react-chat-engine';
 import { ChatEngineWrapper, ChatSocket, ChatList, ChatFeed, ChatSettings } from 'react-chat-engine'
 import { Col } from 'react-grid-system'
-import './chattest.css'
 var PROJECT_ID = '68a08b56-b99d-4754-85e8-375c862bef48'
 var USER_NAME = 'Ragh'
 

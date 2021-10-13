@@ -10,3 +10,7 @@
 8. complete profile side arrow , props -- paritosh
 2. logo
 9. forget password (done)
+
+10. client signup
+11. file conformation
+12. notification 

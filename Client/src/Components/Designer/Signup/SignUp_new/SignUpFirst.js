@@ -127,17 +127,17 @@ function SignUpFirst({ formData, setForm, navigation }) {
           ) {
             const Verify = await verify(formData.otp);
 
-            if (Verify === "1") {
-              const sign = await signup(formData.email, "Project28");
-              console.log(sign);
-              if (sign != 0) {
+            //if (Verify === "1") {
+              //const sign = await signup(formData.email, "Project28");
+              //console.log(sign);
+              //if (sign != 0) {
                 setErr("EmailID already in use. Please Login");
-              } else {
+              //} else {
                 navigation.next();
-              }
-            } else {
-              setErr("invalid OTP");
-            }
+              //}
+            //} else {
+              //setErr("invalid OTP");
+            //}
           } else {
             setErr("Please Fill all the Fields");
           }
