@@ -50,3 +50,9 @@
     border: 0.2vh solid #20C1EF;;
     color:  #20C1EF;
 }
+@media screen and (max-width:550px){
+    .cover{
+        position:relative;
+        width: 120%;
+    }
+}
