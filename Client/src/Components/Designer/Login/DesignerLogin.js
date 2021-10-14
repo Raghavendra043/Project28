@@ -2,15 +2,22 @@ import React,{useRef,useState} from 'react'
 import e_style from './../Signup/SignUp.module.css';
 import styles from './Login.module.css';
 import {ReactComponent as Man} from './assets/Man.svg'
-
+import { Login } from "../../../firebasefunctions/login";
+import firebase from '../../../firebase'
 function DesignerLogin() {
 
     const emailRef = useRef('');
     const passwordRef = useRef('');
+    const [Err, setErr] = useState('');
     const [checkState,setCheckState] = useState(false);
 
-    const submitHander = () =>{
-
+    const submitHander = async() =>{    
+        const verified = true;
+        if(verified){
+            await Login(emailRef, passwordRef);
+        } else {
+            setErr('Username and Password Dosent match');
+        }
     }
 
     return (
@@ -70,6 +77,7 @@ function DesignerLogin() {
                                 <div className={styles.cover}>
                                     <button onClick={submitHander} className={styles.complete}>Login</button>
                                 </div>
+                                <div >{Err}</div>
                             </div>
                 </div>
             </div>

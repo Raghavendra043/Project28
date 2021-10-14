@@ -32,17 +32,13 @@ import { signup } from "./firebasefunctions/login";
 function App() {
   return (
     <div className="App">
-      {/* <Navbar/> */}
+      <Navbar/>
 
       <Router>
         <Switch>
           <Route path="/" exact component={Main} />
           <Route path="/designer/login" exact component={DesignerLogin} />
-          <Route
-            path="/designer/performance"
-            exact
-            component={DesignerPerformance}
-          />
+          <Route path="/designer/performance" exact component={DesignerPerformance}/>
           <Route path="/designer/signup" exact component={DesginerSignUp} />
           <Route path="/designer/dash" exact component={Main} />
           <Route path="/designer/profile" exact component={ProfileMain} />
