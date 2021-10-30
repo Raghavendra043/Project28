@@ -1,5 +1,6 @@
 .container{
     height: 100%;
+
 }
 
 .bottom_background{
@@ -25,6 +26,7 @@
     box-shadow: 0px 0.8vh 4.8vh rgba(30, 31, 30, 0.08);
     border-radius: 0.8vh;
     padding-bottom: 5vh;
+    padding-top: 5vh;
     padding-left: 4vh;
     padding-right: 4vh;
 }
@@ -40,7 +42,7 @@
 
 .header{
     text-transform: uppercase;
-    font-size: 4.4vh;
+    font-size: 4.6vh;
     font-family: Red Hat Display;
     font-weight: 500;
     text-align: center;
@@ -53,7 +55,7 @@
     margin-top: 1vh;
 }
 .desc1{
-    font-size: 2vh;
+    font-size: 2.4vh;
     text-align: left;
     margin-top: 1vh;
 }
@@ -63,6 +65,7 @@
     font-weight: 600;
     padding-left: 0.5vh;
     font-family: Open Sans;
+    
 }
 
 .data{
@@ -151,7 +154,7 @@
 }
 .header2{
    margin-top: 1.3vh;
-    font-size: 2.7vh;
+    font-size: 3vh;
     font-family: Red Hat Display;
     font-weight: 500;
     text-align: center;
@@ -167,7 +170,7 @@
 .forgotPassword{
     color: grey;
     transition: 0.1s;
-    font-size: 2vh;
+    font-size: 2.2vh;
 }
 .forgotPassword:hover{
     cursor: pointer;
@@ -182,4 +185,91 @@ label{
 }
 .svg{
     height: 55vh;
+}
+@media screen and (max-width: 550px){
+    .bottom_background {
+    display: none;
+  }
+
+  .man_svg {
+    display: none;
+  }
+  .desc1{
+      font-size: 2vh;
+  }
+  .signupbox {
+    display: block;
+  }
+  .header{
+      font-size: 3.5vh;
+  }
+  .header2{
+      font-size:3vh;
+  }
+
+  .container {
+    margin-top: 2em;
+  }
+
+  .box {
+    display: block;
+    position: relative;
+    left: 0;
+    height: 100%;
+    width: 100vw;
+    border: none;
+    box-shadow: none;
+  }
+
+  .input_cover {
+    width: 92%;
+  }
+
+  .inputs {
+    height: 2.6em;
+  }
+
+  .next {
+    bottom: -10%;
+    left: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    border: 1px solid lightseagreen;
+    background-color: lightseagreen;
+    box-shadow: 0px 2px 4px lightseagreen;
+  }
+
+  .next > .arrow_right path {
+    stroke: white;
+  }
+
+  .previous {
+    top: 97%;
+    left: 35%;
+    width: 2.5em;
+    height: 2.5em;
+    border: 1px solid lightseagreen;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(30, 31, 30, 0.08);
+  }
+  .forgotPassword{
+      font-size: 2vh;
+      margin-bottom: -2vh;
+  }
+  .underinputs{
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  }
+  .rememberMe{
+      margin-bottom: 2vh;
+  }
+  .box{
+
+    padding-bottom: 5vh;
+    padding-top: 5vh;
+    padding-left: 1.5vh;
+    padding-right: 1.5vh;
+}
+
 }

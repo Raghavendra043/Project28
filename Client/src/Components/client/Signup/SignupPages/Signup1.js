@@ -9,7 +9,7 @@ function signup1({formData,setForm,navigation}) {
             <div className={styles.container}>
             
             <div className={styles.box}>
-                <div className={style.header}>DEAR DESIGNER</div>
+                <div className={style.header}>DEAR Client</div>
                 <div className={style.desc}>
                     Freelancing was never this easy!{" "}
                 </div>
@@ -44,11 +44,11 @@ function signup1({formData,setForm,navigation}) {
                         <input
                             className={style.inputs}
                             type="email"
-                            value={formData.companyName}
+                            value={formData.companyWebsite}
                             onChange={setForm}
                             placeholder="Enter Company Website Link"
-                            // ref = {props.emailRef}
-                            name="companyName"
+                            // ref = {props.emailRef}   
+                            name="companyWebsite"
                         />
                     </div>
                     <div className={style.input_cover}>
@@ -68,7 +68,8 @@ function signup1({formData,setForm,navigation}) {
                 </div>
                 
             <div className={style.next} onClick={() => {
-                if (formData.fullname.trim() && formData.email.trim()) {
+                navigation.next();
+                if (formData.fullname.trim() && formData.email.trim() && formData.companyName.trim() && formData.companyWebsite.trim() ) {
                     navigation.next();
                 }
                 }}><ArrowRight className={style.arrow_right}/></div>

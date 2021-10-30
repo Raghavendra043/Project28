@@ -25,6 +25,7 @@
     box-shadow: 0px 0.8vh 4.8vh rgba(30, 31, 30, 0.08);
     border-radius: 0.8vh;
     padding-bottom: 5vh;
+    padding-top: 5vh;
 }
 
 .man_svg{
@@ -108,7 +109,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    bottom: 40%;
+    bottom: 50%;
     left:110%;
     border-radius: 5px;
     border: 1px solid white;
@@ -141,4 +142,91 @@
 
 .previous:hover {
     background-color: white;
+}
+@media screen and (max-width: 550px){
+    .bottom_background {
+    display: none;
+  }
+
+  .man_svg {
+    display: none;
+  }
+  .desc1{
+      font-size: 2vh;
+  }
+  .signupbox {
+    display: block;
+  }
+  .header{
+      font-size: 3.5vh;
+  }
+  .header2{
+      font-size:3vh;
+  }
+
+  .container {
+    margin-top: 2em;
+  }
+
+  .box {
+    display: block;
+    position: relative;
+    left: 0;
+    height: 100%;
+    width: 100vw;
+    border: none;
+    box-shadow: none;
+  }
+
+  .input_cover {
+    width: 92%;
+  }
+
+  .inputs {
+    height: 2.6em;
+  }
+
+  .next {
+    bottom: -3%;
+    left: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    border: 1px solid #20C1EF;
+    background-color: #20C1EF;
+    box-shadow: 0px 2px 4px #20C1EF;
+  }
+
+  .next > .arrow_right path {
+    stroke: white;
+  }
+
+  .previous {
+    top: 97%;
+    left: 35%;
+    width: 2.5em;
+    height: 2.5em;
+    border: 1px solid #20C1EF;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(30, 31, 30, 0.08);
+  }
+  .forgotPassword{
+      font-size: 2vh;
+      margin-bottom: -2vh;
+  }
+  .underinputs{
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  }
+  .rememberMe{
+      margin-bottom: 2vh;
+  }
+  .box{
+
+    padding-bottom: 5vh;
+    padding-top: 5vh;
+    padding-left: 1.5vh;
+    padding-right: 1.5vh;
+}
+
 }

@@ -11,7 +11,7 @@
 2. logo
 9. forget password (done)
 
-10. client signup
+10. client signup(done)
 11. file conformation
 12. notification 
 13. complete your profile ( years of exp )
