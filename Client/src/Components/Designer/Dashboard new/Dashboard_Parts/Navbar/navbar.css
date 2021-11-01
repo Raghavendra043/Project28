@@ -125,3 +125,41 @@ input:checked + .slider:before {
   width: 0;
   height: 0;
 }
+.hamNav{
+  display: none;
+}
+@media screen and (max-width: 500px) {
+
+.maincontainerSidebar{
+  display: none;
+}
+.compressedSidebar{
+  display: none;
+}
+.hamNav{
+  display: block;
+  padding: 10px;
+}
+.headerSidebar{
+  display: none;
+}
+.HamButton{
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+  margin-bottom: 5vh;
+}
+.hamMenu{
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.8;
+}
+.HamButtons{
+  padding-top: 15vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+}

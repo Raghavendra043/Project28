@@ -115,6 +115,7 @@ function Navbar() {
     ]
     
     return (
+        <>
         <div className={isHamOn ? "maincontainerSidebar":"compressedSidebar"}>
             <div className="headerSidebar">
                 <div className="cross" onClick={handleClick}>
@@ -140,8 +141,8 @@ function Navbar() {
                 {arr.map((arr) => {
                     return(
                         <div className="button" key={arr.id} onClick={() => { toggleActive(arr.id) }} >
-                    <div className={arr.id==ActiveTopic ? "null" : "svg"} >{arr.img}</div>
-                    <div className={arr.id==ActiveTopic? "svg" : "null"} > {arr.imgalt}</div>
+                            <div className={arr.id==ActiveTopic ? "null" : "svg"} >{arr.img}</div>
+                            <div className={arr.id==ActiveTopic? "svg" : "null"} > {arr.imgalt}</div>
                     <div className={isHamOn ? "menuname" : "null"}  >
                          <div className={arr.id==ActiveTopic? "menunameBold" : "menuname1"} > 
                             {arr.menuname}
@@ -150,7 +151,34 @@ function Navbar() {
                 </div>
                 )})}
             </div>
+            </div>
+        <div className="hamNav">
+                <div className={isHamOn ? "null" : "lined"} onClick={handleClick}>
+                    <svg width="17" height="12" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 11.0001H10.375" stroke="#1E1F1E" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M1 6.00006L16 6.00006" stroke="#1E1F1E" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M1 1L6.625 1" stroke="#1E1F1E" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div className={isHamOn ? "crossed" : "null" } onClick={handleClick}>
+                        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.0001 0.999981L11.4854 11.7266" stroke="#1E1F1E" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M1.0001 11.7266L11.4854 1" stroke="#1E1F1E" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div className={isHamOn ? "hamMenu" : "null"}>
+                    <div className="HamButtons">
+                        {arr.map((arr) => {
+                            return(
+                            <div className="HamButton" id={arr.id} onClick={handleClick}>
+                            <div className="logo">{arr.img}</div>
+                            <div className="ButtonName">{arr.menuname}</div>
+                        </div>
+                        )})}
+                    </div>
+                </div>
         </div>
+    </>
     )
 }
 
