@@ -189,13 +189,13 @@ function First({ formData, setForm, navigation }) {
       <div
         className={styles.next}
         onClick={async () => {
-          // if (
-          //   formData.fullname.trim() &&
-          //   formData.email.trim() &&
-          //   formData.phonenumber.trim()
-          // ) {
-          // }
-          navigation.next();
+          if (
+            formData.work1.trim() &&
+            formData.exp1.trim()
+          ) {
+            navigation.next();
+          }
+            navigation.next();
         }}
       >
         <ArrowRight className={styles.arrow_right} />

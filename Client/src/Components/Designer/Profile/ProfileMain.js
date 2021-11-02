@@ -28,7 +28,6 @@ function ProfileMain() {
                 <div className='des-profile-pro'>
                     <Professional work1Ref={work1Ref} work2Ref={work2Ref} work3Ref={work3Ref} linkRef={linkRef}/>
                 </div>
-
             </div>
             <div className='des-pro-but-cover'>
                 <button className='des-pro-but' onClick={handleSubmit}>Save Changes & Proceed</button>

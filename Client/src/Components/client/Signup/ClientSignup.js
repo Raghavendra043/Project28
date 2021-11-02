@@ -17,10 +17,7 @@ const defaultData = {
     companyName: "",
     companyWebsite: "",
     phoneNumber: "",
-    otp1:"",
-    otp2:"",
-    otp3:"",
-    otp4: "",
+    otp:"",
     password: "",
     confirmPassword:"",
 }

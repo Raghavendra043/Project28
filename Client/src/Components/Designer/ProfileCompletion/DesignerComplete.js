@@ -2,13 +2,12 @@ import React from "react";
 import { useForm, useStep } from "react-hooks-helper";
 import First from "./Parts/First";
 import Second from "./Parts/Second";
-
+import { useHistory } from "react-router";
 import styles from "./Complete.module.css";
 import e_style from "./../Signup/SignUp.module.css";
 
 
 const defaultData = {
-  fullname: "",
   email: "",
   work1: "",
   exp1:"",
@@ -16,6 +15,12 @@ const defaultData = {
   exp2:"",
   work3: "",
   exp3:"",
+  payment:"",
+  profileLink:"",
+  link:"",
+  specs:"",
+  experience:"",
+
 }
 
 const steps = [
