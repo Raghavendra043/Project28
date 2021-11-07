@@ -155,4 +155,79 @@
         height: fit-content;
         width: 100vw;
     }
+    .Profile{
+        flex-direction: column;
+        height: fit-content;
+        margin-left: 0vw;
+    }
+    .innerbox{
+        height: fit-content;
+    }
+    .box{
+        width: 100vw;
+        height: fit-content;
+        margin-left: 0vh; 
+        margin-right: 0vh; 
+        margin-top: 15vh;
+    }
+    .main_container1{
+        height: fit-content;
+        flex-direction: column;
+    }
+    .boxheader{
+        display: none;
+    }
+    .photoUpload{
+        transform: translateY(-10vh);
+        margin-bottom: -10vh;
+    }
+    .filetitle{
+        display: none;
+        
+    }
+    .inputboxmain{
+        width: 45vw;
+        border: 0.2vh solid rgba(128, 128, 128, 0.541);
+        font-size: 2vh;
+    }
+    .inputs{
+        margin: 1vh;
+    }
+    .inputboxcompany{
+        width: 90vw;
+        border: 0.2vh solid rgba(128, 128, 128, 0.541);
+        font-size: 2vh;
+    }
+    .innerbox{
+    width: 100vw;
+    height: fit-content;
+    margin-top: 0vh; 
+    margin-bottom: 2vh; 
+    margin-left: 0vh; 
+    margin-right: 0vh; 
+    background-color: white;
+    border-radius: 0vh;
+    border-bottom-left-radius: 5vh;
+    border-bottom-right-radius: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    padding: 1vh;
+    padding-top: 5vh;
+    padding-bottom: 4vh;
+    font-size: 3.5vh;
+}
+.box{
+    margin-bottom: 0vh;
+}
+.boxheader1{
+    font-size: 2.7vh;
+    font-weight: bolder;
+    margin-bottom: 3vh;
+    margin-left: 1.5vh;
+}
+.fileupload{
+    display: none;
+}
 }

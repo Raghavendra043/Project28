@@ -13,7 +13,6 @@ function Profile() {
             </div>
           
             <div className={styles.Profile}>
-                
                 <div className={styles.box}>
                     <div className={styles.boxheader}>Personal info</div>
                     <div className={styles.row}>
@@ -21,7 +20,7 @@ function Profile() {
                     <input type="file" id="file" className="FileUpload" />
                     <label for="file">
                                 <ProfilePhoto className={styles.photoUpload}/>
-                        <div className="filetitle">Upload all your files here</div>
+                        <div className={styles.filetitle}>Upload all your files here</div>
                     </label>
                     </div>
                         </div>
@@ -74,7 +73,7 @@ function Profile() {
                     </div>
                     <div className={styles.box1}>
                     <div className={styles.innerbox}>
-                        <div className={styles.boxheader}>Billing Address</div>
+                        <div className={styles.boxheader1}>Billing Address</div>
                         <div className={styles.inputs}>
                             <div className={styles.input}>
                                 <div className={styles.headinput}>Address1 </div>
@@ -110,7 +109,7 @@ function Profile() {
                         
                         </div>
                     <div className={styles.innerbox}>
-                        <div className={styles.boxheader2}>Brand Assets</div>
+                        <div className={styles.boxheader3}>Brand Assets</div>
                         <div className={styles.fileupload}><input type="file" id="file" className="FileUpload" />
                     <label for="file">
                                 <Upload className={styles.svg}/>
