@@ -22,20 +22,36 @@ function Chat() {
         
 
 	return (
-        <Col style = {{height:"80vh", width:"40vw", marginTop:"20vh"}}>
-        <ChatEngineWrapper>
-            <ChatSocket 
-                projectID={PROJECT_ID}
-                chatID = '59600'
-                chatAccessKey = 'ca-e9987fb7-0adb-4df6-8f7f-75b06cdc59c9'
-                senderUsername = {USER_NAME}
-            />
-            
-                <ChatFeed />
-        </ChatEngineWrapper>    <button onClick={()=>{
-            document.getElementById('ce-send-message-button').click();
-        }}>Click me</button> <button onClick={create}>cteate</button> </Col>
+        <>
         
+        <div style={{width:"30vw", marginTop:"10vh", textAlign:"center"}}>
+            <button id = "client"> Client</button>
+            <button id = "admin">
+                Admin
+            </button>
+        </div>
+        <Col style = {{height:"65vh", width:"30vw", marginTop:"10vh"}}>
+            <ChatEngineWrapper>
+                <ChatSocket 
+                    projectID={PROJECT_ID}
+                    chatID = '59600'
+                    chatAccessKey = 'ca-e9987fb7-0adb-4df6-8f7f-75b06cdc59c9'
+                    senderUsername = {USER_NAME}
+                />
+                
+                    <ChatFeed />
+            </ChatEngineWrapper>    
+            
+            <button onClick={()=>{
+                document.getElementById('ce-send-message-button').click();
+            }}>Click me</button> 
+            
+            <button onClick={()=>{
+                document.getElementById('upload-document-button').click();
+            }}>cteate</button> 
+        
+        </Col>
+        </>
     )
 }
 

@@ -1,9 +1,10 @@
 .ql-editor {
     color: blue;
+    width: 80%;
 }
-
 .ql-container {
     border-radius: 10px;
+    width: 80%;
 }
 
 .ce-message-bubble {
@@ -14,11 +15,7 @@
 }
 
 .ql-toolbar  {
-    /* display: none; */
-}
-
-.ql-snow{
-
+    display: none;
 }
 
 
@@ -27,4 +24,34 @@
     background-color: crimson !important;
     position: 120px 200px;
     display: inline;
+}
+.toolbar {
+    display: none;
+}
+
+#client  {
+    display:inline;
+    width:12vw;
+    padding:5px;
+    border-Radius:15px;
+    border:none;
+    right:10px;
+    margin-right: 15px;
+    background:hsla(199, 55%, 60%, 0.431)
+}
+
+#admin {
+    width:12vw;
+    padding:5px;
+    border-Radius:15px;
+    border:none;
+    background:hsla(199, 55%, 60%, 0.431)
+}
+
+.ce-chat-title {
+    display: none !important;
+}
+
+.ce-feed-container-top{
+    height:10px !important;
 }

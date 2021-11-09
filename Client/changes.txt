@@ -5,11 +5,10 @@
 4. client signup (vh) -- paritosh (done)
 6. client forget pass -- paritosh (done)
 7. client login vh    -- paritosh (done)
-
 5. Designer profile -- shah
 8. complete profile side arrow , props -- paritosh
 2. logo
-9. forget password (done)
+9. forget password (done)   
 
 10. client signup(done)
 11. file conformation
