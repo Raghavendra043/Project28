@@ -8,10 +8,10 @@
 }
 
 .ce-message-bubble {
-    background-color: rgb(24, 144, 25) !important;
+    background-color: hsla(199, 37%, 27%, 0.938) !important;
 }
 .ce-my-message-bubble {
-    background-color: coral !important;
+    background-color: hsla(199, 57%, 61%, 0.938) !important;
 }
 
 .ql-toolbar  {
@@ -31,7 +31,7 @@
 
 #client  {
     display:inline;
-    width:12vw;
+    width:9vw;
     padding:5px;
     border-Radius:15px;
     border:none;
@@ -41,7 +41,7 @@
 }
 
 #admin {
-    width:12vw;
+    width:9vw;
     padding:5px;
     border-Radius:15px;
     border:none;

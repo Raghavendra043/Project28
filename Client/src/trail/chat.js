@@ -24,13 +24,13 @@ function Chat() {
 	return (
         <>
         
-        <div style={{width:"30vw", marginTop:"10vh", textAlign:"center"}}>
+        <div style={{textAlign:"center", width:"20vw"}}>
             <button id = "client"> Client</button>
             <button id = "admin">
                 Admin
             </button>
         </div>
-        <Col style = {{height:"65vh", width:"30vw", marginTop:"10vh"}}>
+        <Col style = {{height:"80vh", width:"30vw", marginTop:"3vh"}}>
             <ChatEngineWrapper>
                 <ChatSocket 
                     projectID={PROJECT_ID}
@@ -40,15 +40,16 @@ function Chat() {
                 />
                 
                     <ChatFeed />
+                    
             </ChatEngineWrapper>    
             
-            <button onClick={()=>{
+            {/* <button onClick={()=>{
                 document.getElementById('ce-send-message-button').click();
-            }}>Click me</button> 
+            }}>Click me</button>
             
             <button onClick={()=>{
                 document.getElementById('upload-document-button').click();
-            }}>cteate</button> 
+            }}>cteate</button>  */}
         
         </Col>
         </>
