@@ -4,9 +4,10 @@
 
 .line{
     width: 100%;
-    margin: 7em auto;
+    font-size: 3vh;
+    margin: 3.5em auto;
     text-align: center;
-    color: rgba(25, 186, 168, 1);
+    color: #20C1EF;
 }
 
 
@@ -15,7 +16,16 @@
     font-weight: 600;
     font-size: 1.1em;
 }
-
+.complete {
+  background-color: #20C1EF;
+  border: 1px solid #20C1EF;
+  width: 22vw;
+  height: 8vh;
+  color: white;
+  border-radius: 4px;
+  transition: 0.2s ease-in-out;
+  margin-top: 2.5vh;
+}
 
 
 

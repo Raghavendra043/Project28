@@ -73,7 +73,7 @@ function Signup2({ formData, setForm, navigation }) {
                 <div id="recaptcha" style={{ display: "none" }}></div>
           <div className={classnames(styles1.complete, third_styles.cover)}>
             <button
-              className={classnames(third_styles.complete)}
+              className={classnames(styles.complete)}
               style={{ maginTop: "8vh" }}
               onClick={startOtp}
             >
