@@ -14,3 +14,5 @@
 11. file conformation
 12. notification 
 13. complete your profile ( years of exp )
+14. side nav bar -- \
+15. slider in designer signup 
