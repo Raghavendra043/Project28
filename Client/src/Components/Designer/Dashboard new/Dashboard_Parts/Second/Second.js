@@ -1,7 +1,7 @@
 import React from 'react'
 import "./second.css"
 
-function Second() {
+function Second({ formData, setForm }) {
     return (
         <div>
             <div className="box2 upper">

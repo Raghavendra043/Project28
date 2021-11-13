@@ -6,6 +6,13 @@
   margin-bottom: 4vh;
 }
 
+.loading {
+  position:absolute;
+  margin-top:40vh;
+  margin-left:47vw;
+  display: none !important;
+}
+
 .login_specifics {
   margin: 0 auto;
   width: 88%;

@@ -1,13 +1,13 @@
 import React from 'react'
 import "./First.css"
 
-function First() {
+function First({ formData, setForm }) {
     return (
         <div>
             <div className="box upper">
                 <div className="top">In Progress</div>
                 <div className="content">
-                    <div className="header">Company Name</div>
+                    <div className="header">{formData.title}</div>
                     <div className="subheader">Project Objective</div>
                     <div className="description">Lorem ipsum dolor sit amet. Vivamus ra felis bibendum ut tristique et. </div>
                     <div className="bottom">
@@ -21,14 +21,14 @@ function First() {
                             <div className="date">
                                 <div className="number">24</div>
                                 <div className="restdate">
-                                    <div className="month">September</div>
+                                    <div className="month">{formData.startDate}</div>
                                     <div className="year">2020</div>
                                 </div>
                             </div>
                             <div className="date">
                                 <div className="number">26</div>
                                 <div className="restdate">
-                                    <div className="month">September</div>
+                                    <div className="month">{formData.endDate}</div>
                                     <div className="year">2020</div>
                                 </div>
                             </div>

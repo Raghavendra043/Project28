@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styles from "./First.module.css";
 import third_styles from "./Third.module.css";
 import style from "../../Signup/SignUp.module.css";
@@ -9,11 +9,15 @@ import {
   verify,
 } from "../../../../firebasefunctions/phoneVerification";
 import { signup } from "../../../../firebasefunctions/login";
+require('dotenv');
 
 function SignUpFirst({ formData, setForm, navigation }) {
+  
   console.log(navigation);
   console.log(formData);
   const [Err, setErr] = useState("");
+  const [phone, setPhone] = useState(false);
+  
 
   const startOtp = async () => {
     if (
@@ -120,27 +124,29 @@ function SignUpFirst({ formData, setForm, navigation }) {
       <div
         className={style.next}
         onClick={async () => {
-          if (
-            formData.fullname.trim() &&
-            formData.email.trim() &&
-            formData.phonenumber.trim()
-          ) {
-            const Verify = await verify(formData.otp);
+          navigation.next();
+          // if (
+          //   formData.fullname.trim() &&
+          //   formData.email.trim() &&
+          //   formData.phonenumber.trim()
+          // ) {
+          //   const Verify = await verify(formData.otp);
 
-            //if (Verify === "1") {
-              //const sign = await signup(formData.email, "Project28");
-              //console.log(sign);
-              //if (sign != 0) {
-                setErr("EmailID already in use. Please Login");
-              //} else {
-                navigation.next();
-              //}
-            //} else {
-              //setErr("invalid OTP");
-            //}
-          } else {
-            setErr("Please Fill all the Fields");
-          }
+          //   if (Verify === "1" || phone === true) {
+          //     setPhone(true);
+          //     const sign = await signup(formData.email, "Project28");
+          //     console.log(sign);
+          //     if (sign != "0") {
+          //       setErr("EmailID already in use. Please Login");
+          //     } else {
+          //       // navigation.next();
+          //     }
+          //   } else {
+          //     setErr("invalid OTP");
+          //   }
+          // } else {
+          //   setErr("Please Fill all the Fields");
+          // }
         }}
       >
         <ArrowRight className={style.arrow_right} />

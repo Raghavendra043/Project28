@@ -4,16 +4,18 @@ import { useState } from 'react';
 import style from '../../Signup/SignUp.module.css';
 import {ReactComponent as ArrowRight} from './../assests/ArrowRight.svg'
 import {ReactComponent as ArrowLeft} from './../assests/ArrowLeft.svg'
-import { addData } from '../../../../firebasefunctions/firestore';
+import { addData, search } from '../../../../firebasefunctions/firestore';
 import { signup } from '../../../../firebasefunctions/login';
 import { CreateUser, CreateChat } from '../../../../trail/createchat';
 import axios from 'axios'
+require('dotenv');
 require('../../../../firebasefunctions/firestore');
+
 
 function SignUpSecond({ formData, setForm, navigation }) {
     
     const [toggle, setToggle] = useState(false);
-
+    
     return (
         <div className={style.signupbox}>
             
@@ -61,14 +63,16 @@ function SignUpSecond({ formData, setForm, navigation }) {
                 <div className={style.next} onClick={async() => {
                     if (formData.password1.trim() && formData.password2.trim() && formData.password1 == formData.password2) {
                         //await signup(formData.email, formData.password1);
-                        axios.post(`${process.env.REACT_APP_LINK}/passwordReset`, {email:formData.email, password:formData.password1})
-                        CreateUser(formData.email);
+                        console.log("in 2nd ", formData.email, formData.password1);
+                        const data= {email:formData.email, password:formData.password1}
+                        axios.post(`${process.env.REACT_APP_BACK}/passwordReset`,data )
+                        // CreateUser(formData.email);
                         await addData('Designers',formData.email ,{
                             "name":formData.fullname,
                             "email":formData.email,
                             "phone":formData.phonenumber
                         });
-                            navigation.next();
+                        navigation.next();
                     }
                     else if (formData.password1 != formData.password2) {
                         setToggle(true)

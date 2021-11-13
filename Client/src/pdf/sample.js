@@ -1,6 +1,6 @@
 import WebViewer from '@pdftron/webviewer';
 import {useEffect, useRef} from 'react';
-
+require('./pdf.css');
 
 function MyComponent () {
   const viewerDiv = useRef(null);

@@ -1,20 +1,58 @@
 import React, { useRef, useState } from "react";
+import { useHistory } from 'react-router-dom';
 import e_style from "./../Signup/SignUp.module.css";
 import styles from "./Login.module.css";
 import { ReactComponent as Man } from "./assets/Man.svg";
+import {Login} from '../../../firebasefunctions/login'
+import { BarWave } from "react-cssfx-loading";
+import {search} from '../../../firebasefunctions/firestore'
 
 function DesignerLogin() {
   const emailRef = useRef("");
   const passwordRef = useRef("");
   const [checkState, setCheckState] = useState(false);
+  const [Err, setErr] = useState(false);
+  const history = useHistory();
+  const [details, setDetails] = useState(null);
 
-  const submitHander = () => {};
+  
+  const submitHander = async () => {
+    const res = await Login(emailRef.current.value, passwordRef.current.value);
+    if(res === true){      
+      var element = document.getElementById('loading');
+      // , opacity:"0.15"
+      element.style.display = null;
+      var element = document.getElementById('screen');
+      element.style.opacity = 0.16;
+      const email = emailRef.current.value;
+      if(email){
+        search('Projects', "designerEmail", email).then((project)=>{
+            if(project && project!== false){
+                setDetails(project);
+            } else if(project === false){
+                setDetails("false");
+            }
+        });
+    }
+      
+    } else if(res === false) {
+      setErr("Email is not Verified, please Verify your email");
+    } else {
+      setErr(res);
+    }
+    
+  };
+  if(details){
+    history.push("/home", { user:"designer",email: emailRef.current.value, details});
+  }
+
 
   return (
-    <div className={e_style.container}>
+    <>
+    <div id= "screen" className={e_style.container} style={{position:"absolute"}}>
       <div className={e_style.bottom_background}></div>
 
-      <div className={e_style.page}>
+      <div className={e_style.page} >
         <div className={e_style.man_svg}>
           <Man />
         </div>
@@ -30,7 +68,7 @@ function DesignerLogin() {
                 type="email"
                 placeholder="Ex: johndoe@example.com"
                 ref={emailRef}
-                required="true"
+                required
               />
             </div>
             <div className={e_style.input_cover}>
@@ -40,7 +78,7 @@ function DesignerLogin() {
                 type="password"
                 placeholder="Ex: Password@123"
                 ref={passwordRef}
-                required="true"
+                required
               />
             </div>
             <div className={styles.login_specifics}>
@@ -66,10 +104,20 @@ function DesignerLogin() {
                 Login
               </button>
             </div>
+            <div>
+              {Err} 
+            </div>
+            
           </div>
         </div>
       </div>
+      
     </div>
+    <div id="loading" style={{position:"absolute", marginTop:"45vh", marginLeft:"47vw", display:"none"}}>
+      <BarWave width="50px" height="50px" color="#1ABAA9"/>
+      <p style={{marginTop:"5vh", marginLeft:"-3vw"}}>Getting account Info</p>
+    </div>
+    </>
   );
 }
 

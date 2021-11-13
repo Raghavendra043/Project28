@@ -10,7 +10,7 @@ import data from "./drafts.json"
 // 1:ongoing
 // 2:upcoming
 
-function Third() {
+function Third({ formData, setForm }) {
     return (
             <div style={{overflow:"hidden",height:"90vh",marginTop:'20%'}}>
 
