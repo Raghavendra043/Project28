@@ -1,20 +1,20 @@
-.container{
-    height: 90vh;
-    width: 100%;
-    margin-top: 6vh;
+.container {
+  height: 90vh;
+  width: 100%;
+  margin-top: 6vh;
 }
 
-.box{
-    background: white;
-    border-radius: 30px;
-    width:97%;
-    height: 98%;
-    margin: 0.5em auto;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    padding: 7% 7% 0;
-    color: black;
-    font-family: Red Hat Display;
+.box {
+  background: white;
+  border-radius: 30px;
+  width: 97%;
+  height: 98%;
+  margin: 0.5em auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 2% 4% 0;
+  color: black;
+  font-family: Red Hat Display;
 }

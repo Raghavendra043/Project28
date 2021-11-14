@@ -1,57 +1,94 @@
-.ql-editor {
-    color: blue;
-    width: 80%;
-}
 .ql-container {
-    border-radius: 10px;
-    width: 80%;
+  font-family: Open sans !important;
+  z-index: 2;
+  border-radius: 40px;
+  width: 80%;
+  margin-top: 1vh !important;
 }
 
-.ce-message-bubble {
-    background-color: hsla(199, 37%, 27%, 0.938) !important;
-}
+.ce-message-bubble,
 .ce-my-message-bubble {
-    background-color: hsla(199, 57%, 61%, 0.938) !important;
+  font-family: Open sans;
+  background-color: #24576a !important;
+  border-radius: 8px !important;
+  font-size: 2.4vh !important;
+  padding: 1.5vh !important;
 }
 
-.ql-toolbar  {
-    display: none;
+.ql-toolbar {
+  display: none;
 }
 
+/* #ce-send-message-button {
+  background-color: crimson !important;
+  position: 120px 200px;
+  display: inline;
+} */
 
-
-#ce-send-message-button{
-    background-color: crimson !important;
-    position: 120px 200px;
-    display: inline;
-}
 .toolbar {
-    display: none;
-}
-
-#client  {
-    display:inline;
-    width:9vw;
-    padding:5px;
-    border-Radius:15px;
-    border:none;
-    right:10px;
-    margin-right: 15px;
-    background:hsla(199, 55%, 60%, 0.431)
-}
-
-#admin {
-    width:9vw;
-    padding:5px;
-    border-Radius:15px;
-    border:none;
-    background:hsla(199, 55%, 60%, 0.431)
+  display: none;
 }
 
 .ce-chat-title {
-    display: none !important;
+  display: none !important;
 }
 
-.ce-feed-container-top{
-    height:10px !important;
+.ce-feed-container-top {
+  height: 10px !important;
+}
+
+/* ----------------------------------------------------------------------- */
+
+.chat__title {
+  font-family: Red Hat Display;
+  font-size: 3vh;
+  font-weight: bold;
+  border-bottom: 1.5px solid #949494;
+  margin: 1vh 2vh 0;
+}
+
+.chat__button__cover {
+  z-index: -1;
+  display: flex;
+  justify-content: flex-end;
+  transform: translateY(-125%);
+  padding-left: 1em;
+}
+
+.chat__button {
+  border: none;
+  background-color: white;
+  color: #24576a;
+}
+
+.chat__switch__cover {
+  margin: 2vh 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.chat__switch {
+  border: none;
+  color: white;
+  border-radius: 40px;
+  padding: 0.5em 2em;
+}
+
+.chat__client {
+  background-color: #19baa8;
+}
+
+.chat__admin {
+  background-color: #24576a;
+}
+
+.ce-message-date-text {
+  font-size: 2vh !important;
+  font-style: italic;
+}
+
+ce-message-timestamp ce-my-message-timestamp {
+  font-size: 2vh;
+  font-style: italic !important;
 }

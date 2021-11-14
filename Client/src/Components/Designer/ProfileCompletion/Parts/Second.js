@@ -20,7 +20,7 @@ function Second({ formData, setForm, navigation }) {
           <ArrowLeft className={styles.arrow_left} />
         </div>
         <div className={e_style.box}>
-          <div className={e_style.header}>COMPLETE YOUR PROFILE</div>
+          <div className={styles.header}>COMPLETE YOUR PROFILE</div>
           <div className={e_style.desc}>
             Caution! Existing opportunites ahead{" "}
           </div>
