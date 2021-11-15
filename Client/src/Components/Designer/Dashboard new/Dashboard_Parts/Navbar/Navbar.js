@@ -1,6 +1,7 @@
 import React from 'react'
 import "./navbar.css"
 import { useState } from 'react';
+import Toggle from '../../../ToggleSwitch/Toggle';
 
 function Navbar() {
     const [isHamOn, setIsHamOn] = useState(false);
@@ -87,20 +88,20 @@ function Navbar() {
                 <path d="M8.875 12.2499H8.88274" stroke="#1E1F1E" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
         },
-        {
-            id: 5,
-            menuname: "Your Availability",
-            img: <svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M15 0H7C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14H15C18.866 14 22 10.866 22 7C22 3.13401 18.866 0 15 0Z" fill="#19BAA8"/>
-                <path d="M15 10C16.6569 10 18 8.65685 18 7C18 5.34315 16.6569 4 15 4C13.3431 4 12 5.34315 12 7C12 8.65685 13.3431 10 15 10Z" fill="white"/>
-                </svg>,
+        // {
+        //     id: 5,
+        //     menuname: "Your Availability",
+        //     img: <svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        //         <path d="M15 0H7C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14H15C18.866 14 22 10.866 22 7C22 3.13401 18.866 0 15 0Z" fill="#19BAA8"/>
+        //         <path d="M15 10C16.6569 10 18 8.65685 18 7C18 5.34315 16.6569 4 15 4C13.3431 4 12 5.34315 12 7C12 8.65685 13.3431 10 15 10Z" fill="white"/>
+        //         </svg>,
 
-            imgalt: <svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15 0H7C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14H15C18.866 14 22 10.866 22 7C22 3.13401 18.866 0 15 0Z" fill="#19BAA8"/>
-                    <path d="M15 10C16.6569 10 18 8.65685 18 7C18 5.34315 16.6569 4 15 4C13.3431 4 12 5.34315 12 7C12 8.65685 13.3431 10 15 10Z" fill="white"/>
-                    </svg>
+        //     imgalt: <svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        //             <path d="M15 0H7C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14H15C18.866 14 22 10.866 22 7C22 3.13401 18.866 0 15 0Z" fill="#19BAA8"/>
+        //             <path d="M15 10C16.6569 10 18 8.65685 18 7C18 5.34315 16.6569 4 15 4C13.3431 4 12 5.34315 12 7C12 8.65685 13.3431 10 15 10Z" fill="white"/>
+        //             </svg>
 
-        },
+        // },
         {
             id: 6,
             menuname: "some PRO word",
@@ -149,7 +150,16 @@ function Navbar() {
                         </div>
                     </div>
                 </div>
-                )})}
+                    )
+                })}
+                     <div className="button" key="5" onClick={() => { toggleActive(arr.id) }} >
+                        <Toggle/>
+                    <div className={isHamOn ? "menuname" : "null"}  >
+                         <div className={arr.id==ActiveTopic? "menunameBold" : "menuname1"} > 
+                            Your Availability
+                        </div>
+                    </div>
+                </div>
             </div>
             </div>
         <div className="hamNav">
