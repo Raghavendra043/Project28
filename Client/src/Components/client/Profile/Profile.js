@@ -111,9 +111,11 @@ function Profile() {
                     <div className={styles.innerbox}>
                         <div className={styles.boxheader3}>Brand Assets</div>
                         <div className={styles.fileupload}><input type="file" id="file" className="FileUpload" />
-                    <label for="file">
+                            <label for="file">
                                 <Upload className={styles.svg}/>
-                    </label></div>
+                            </label>
+                        </div>
+                        <div className={styles.uploadBtn}><input type="file" id="file" className="FileUpload"/><label for="file">Upload</label></div>
                         </div>
                     </div>
                 
