@@ -4,6 +4,8 @@ import { useState } from 'react';
 import style from '../Signup.module.css';
 import { ReactComponent as ArrowRight } from '../assets/ArrowRight.svg'
 import {ReactComponent as ArrowLeft} from '../assets/ArrowLeft.svg'
+import {signup} from '../../../../firebasefunctions/login'
+import {addData} from '../../../../firebasefunctions/firestore'
 
 function Signup3({ formData, setForm, navigation }) {
 
@@ -54,8 +56,10 @@ function Signup3({ formData, setForm, navigation }) {
                     </div>
                 </div>
                 </div>
-                <div className={style.next} onClick={() => {
+                <div className={style.next} onClick={async () => {
                     if ( formData.password === formData.confirmPassword) {
+                        await signup(formData.email, formData.password);
+                        addData('Client', formData.email, formData);
                         navigation.next();
                     }
                     else if (formData.password != formData.confirmPassword) {

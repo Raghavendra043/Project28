@@ -3,7 +3,7 @@ import styles from '../SignupPages/signup2.module.css'
 import style from "../Signup.module.css"
 import { ReactComponent as ArrowRight } from '../assets/ArrowRight.svg'
 import {ReactComponent as ArrowLeft} from '../assets/ArrowLeft.svg'
-import {sendcode} from '../../../../firebasefunctions/phoneVerification'
+import {sendcode, verify} from '../../../../firebasefunctions/phoneVerification'
 import styles1 from "../../../Designer/Signup/SignUp.module.css";
 import third_styles from "../../../Designer/Signup/SignUp_new/Third.module.css";
 import classnames from "classnames";
@@ -102,10 +102,17 @@ function Signup2({ formData, setForm, navigation }) {
                 </div>
                 </div>
                 
-            <div className={style.next} onClick={() => {
+            <div className={style.next} onClick={async () => {
                     navigation.next();
                 if ( formData.phoneNumber.trim() && formData.otp.trim()) {
-                    navigation.next();
+                    
+                      let Verify = await verify(formData.otp);
+                      if(Verify == "1"){
+                        navigation.next();
+                      } else {
+                        setErr('Incorrect OTP');
+                      }
+                      
                 }
                 }}><ArrowRight className={style.arrow_right}/></div>
                 
