@@ -10,7 +10,7 @@
   font-size: 3vh;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 700px) {
   .line {
     margin: 2em auto;
   }
