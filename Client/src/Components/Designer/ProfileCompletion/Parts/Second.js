@@ -6,8 +6,14 @@ import { ReactComponent as ArrowRight } from "./../assets/ArrowRight.svg";
 import { ReactComponent as ArrowLeft } from "./../assets/ArrowLeft.svg";
 import classnames from "classnames";
 import Slider from "./../../Slider/Slider";
+import {useLocation, useHistory} from 'react-router-dom'
+import {Update} from '../../../../firebasefunctions/firestore'
 
 function Second({ formData, setForm, navigation }) {
+  const history = useHistory();
+  const location = useLocation();
+  const email = location.state.email;
+  console.log('from second', email, 'rgh');
   return (
     <div className={e_style.container}>
       <div className={e_style.bottom_background}></div>
@@ -119,7 +125,11 @@ function Second({ formData, setForm, navigation }) {
           </div>
         </div>
       </div>
-      <div className={styles.next}>
+      <div className={styles.next} onClick={()=>{
+          Update('Designers', email, formData);
+          alert("successfully prifile created");
+          history.push('/designer/login');
+      }}>
         <ArrowRight className={styles.arrow_right} />
       </div>
     </div>

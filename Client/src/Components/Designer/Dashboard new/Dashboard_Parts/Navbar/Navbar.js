@@ -3,7 +3,8 @@ import "./navbar.css"
 import { useState } from 'react';
 import Toggle from '../../../ToggleSwitch/Toggle';
 
-function Navbar() {
+function Navbar({email}) {
+    console.log("from nav", email);
     const [isHamOn, setIsHamOn] = useState(false);
   const handleClick = () => {
     setIsHamOn(!isHamOn);
@@ -17,7 +18,7 @@ function Navbar() {
 
     const toggleActive = (id) => {
          setActiveTopic(id);
-        console.log(ActiveTopic)
+        console.log("this", ActiveTopic)
     }
 
     const arr = [
@@ -141,7 +142,7 @@ function Navbar() {
             <div className="buttons"   >
                 {arr.map((arr) => {
                     return(
-                        <div className="button" key={arr.id} onClick={() => { toggleActive(arr.id) }} >
+                        <div className="button" key={arr.id} onClick={(e) => { console.log("in if", arr.id);toggleActive(arr.id); }} >
                             <div className={arr.id==ActiveTopic ? "null" : "svg"} >{arr.img}</div>
                             <div className={arr.id==ActiveTopic? "svg" : "null"} > {arr.imgalt}</div>
                     <div className={isHamOn ? "menuname" : "null"}  >
@@ -152,7 +153,7 @@ function Navbar() {
                 </div>
                     )
                 })}
-                     <div className="button" key="5" onClick={() => { toggleActive(arr.id) }} >
+                     <div className="button" key="5" onClick={(e) => { console.log(arr.id);toggleActive(arr.id) }} >
                         <Toggle/>
                     <div className={isHamOn ? "menuname" : "null"}  >
                          <div className={arr.id==ActiveTopic? "menunameBold" : "menuname1"} > 

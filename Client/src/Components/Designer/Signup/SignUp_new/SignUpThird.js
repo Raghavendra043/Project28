@@ -2,8 +2,11 @@ import React from 'react'
 import styles from './Third.module.css'
 import style from '../../Signup/SignUp.module.css';
 import {ReactComponent as ArrowLeft} from './../assests/ArrowLeft.svg'
+import { useHistory } from 'react-router-dom';
 
 function SignUpThird( { formData, setForm, navigation }) {
+    const history = useHistory();
+
     return (
         <div className={styles.container}>
             <div className={style.previous} onClick={navigation.previous}><ArrowLeft className={style.arrow_left}/></div>
@@ -18,10 +21,16 @@ function SignUpThird( { formData, setForm, navigation }) {
                         You're All Set
                     </div>
                     <div className={styles.cover}>
-                        <button className={styles.complete}>Complete Your Profile</button>
+                        <button className={styles.complete} 
+                            onClick={()=>{
+                                history.push("/designer/complete", {email:formData.email});
+                            }}>
+                        Complete Your Profile</button>
                     </div>
                     <div className={styles.cover}>
-                        <button className={styles.proceed}>Proceed To DashBoard</button>
+                        <button className={styles.proceed} onClick={()=>{
+                            history.push("/home", {user:"designer", email:formData.email});
+                        }}>Proceed To DashBoard</button>
                     </div>
                 </div>
 

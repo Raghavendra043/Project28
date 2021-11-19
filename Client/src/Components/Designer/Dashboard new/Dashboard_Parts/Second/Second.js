@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import "./second.css"
-
+let c;
 function Second({ formData, setForm }) {
+    const cur = useRef(formData.onCurrent);
+    console.log('from 2nd ', formData);
     return (
         <div>
             <div className="box2 upper">
                 <div className="topsecond">
-                    <div className="headerSecond">Project Brief</div>
+                    <div className="headerSecond">Project Brief stage {formData.onCurrent}</div>
                     <div className="logo">
                         <svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M5.77637 10.7241L8.50204 13.5001L11.2277 10.7241" stroke="#1E1F1E" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>

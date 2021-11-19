@@ -8,7 +8,6 @@ import e_style from "./../Signup/SignUp.module.css";
 
 
 const defaultData = {
-  email: "",
   work1: "",
   exp1:"",
   work2: "",
@@ -20,7 +19,6 @@ const defaultData = {
   link:"",
   specs:"",
   experience:"",
-
 }
 
 const steps = [

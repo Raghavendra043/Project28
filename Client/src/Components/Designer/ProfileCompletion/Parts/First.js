@@ -3,10 +3,14 @@ import e_style from "./../../Signup/SignUp.module.css";
 import styles from "./First.module.css";
 import { ReactComponent as Man } from "./../assets/Firstman.svg";
 import classnames from "classnames";
+import {useLocation} from 'react-router-dom'
 import { ReactComponent as ArrowRight } from "./../assets/ArrowRight.svg";
 
 function First({ formData, setForm, navigation }) {
-  const [grad, setGrad] = useState("false");
+    const location = useLocation();
+    const email = location.state.email;
+    console.log('from complete', email, 'rgh');
+    const [grad, setGrad] = useState("false");
 
   const handleGrad = () => {
     setGrad(!grad);

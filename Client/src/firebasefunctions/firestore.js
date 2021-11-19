@@ -55,7 +55,26 @@ export const search =  async (collection , property, element )=>{
         if(!projectDetails){
             projectDetails = false;
         }
+        console.log("from search : ", projectDetails);
         return projectDetails;
+    } catch(err){
+        console.log(err);
+    }
+}
+
+export const Update = async (collection, doc, data)=>{
+    try {
+        const Data = await getDocData(collection, doc);
+        let finalData;
+        if(Data){
+            finalData = {
+                ...Data, 
+                ...data
+            }
+        }
+        db.collection(collection).doc(doc).update(finalData).then(function() {
+            console.log("Frank food updated");
+          });
     } catch(err){
         console.log(err);
     }

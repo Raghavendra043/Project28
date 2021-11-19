@@ -14,10 +14,13 @@ function Main() {
     const user = location.state.user;
     const email = location.state.email;
     const Details  =  location.state.details;
-    const [formData, setForm] = useState(Details);
+    let c;
+    if(Details){c = {onCurrent:Details.currentStage};}
+    const [formData, setForm] = useState({...Details, ...c});
+    
     const props = { formData, setForm };
 
-    console.log(user, email, Details);
+    //console.log(user, email, Details);
     
     if(formData && i==0){
         console.log(formData);i+=1;
@@ -25,9 +28,10 @@ function Main() {
     return (
         <div className="main_container1">
                 <div className="Sidebar">
-                    <Navbar/>
+                    <Navbar {...email}/>
             </div>
-            <div className="outer_container1">
+
+            {(Details || false ) ? <div className="outer_container1">
                 <div className=' first'>
                     <First {...props}/>
                 </div>
@@ -40,7 +44,21 @@ function Main() {
                 <div className=' fourth'>
                     <Fourth {...props}/>
                 </div>
-            </div>
+            </div> : <div className="outer_container1">
+                <div className=' first'>
+                    {/* <First {...props}/> */}
+                </div>
+                <div className='second'>
+                    {/* <Second {...props}/> */}
+                </div>
+                <div className=' third'>
+                    {/* <Third {...props}/> */}
+                    <div>You dont have any project currently</div>
+                </div>
+                <div className=' fourth'>
+                    <Fourth {...props}/>
+                </div>
+            </div>}
         </div>
     )
 }

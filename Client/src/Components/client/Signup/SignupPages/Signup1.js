@@ -2,7 +2,7 @@ import React from 'react'
 import styles from '../SignupPages/signup1.module.css'
 import style from "../Signup.module.css"
 import {ReactComponent as ArrowRight} from '../assets/ArrowRight.svg'
-
+import {signup} from '../../../../firebasefunctions/login'
 function signup1({formData,setForm,navigation}) {
     return (
         <div className={style.signupbox}>

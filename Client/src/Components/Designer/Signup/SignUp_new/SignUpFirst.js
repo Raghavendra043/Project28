@@ -9,6 +9,7 @@ import {
   verify,
 } from "../../../../firebasefunctions/phoneVerification";
 import { signup } from "../../../../firebasefunctions/login";
+import { search } from "../../../../firebasefunctions/firestore";
 require('dotenv');
 
 function SignUpFirst({ formData, setForm, navigation }) {
@@ -124,29 +125,28 @@ function SignUpFirst({ formData, setForm, navigation }) {
       <div
         className={style.next}
         onClick={async () => {
-          navigation.next();
-          // if (
-          //   formData.fullname.trim() &&
-          //   formData.email.trim() &&
-          //   formData.phonenumber.trim()
-          // ) {
-          //   const Verify = await verify(formData.otp);
-
-          //   if (Verify === "1" || phone === true) {
-          //     setPhone(true);
-          //     const sign = await signup(formData.email, "Project28");
-          //     console.log(sign);
-          //     if (sign != "0") {
-          //       setErr("EmailID already in use. Please Login");
-          //     } else {
-          //       // navigation.next();
-          //     }
-          //   } else {
-          //     setErr("invalid OTP");
-          //   }
-          // } else {
-          //   setErr("Please Fill all the Fields");
-          // }
+          
+          if (
+            formData.fullname.trim() &&
+            formData.email.trim() &&
+            formData.phonenumber.trim()
+          ) {
+            let Verify = await verify(formData.otp);
+            if (Verify === "1" || phone === true) {
+              setPhone(true);
+              const sign = await search('Designers', "email", formData.email);
+              console.log(sign);
+              if (sign != false) {
+                setErr("EmailID already in use. Please Login");
+              } else {
+                navigation.next();
+              }
+            } else {
+              setErr("invalid OTP");
+            }
+          } else {
+            setErr("Please Fill all the Fields");
+          }
         }}
       >
         <ArrowRight className={style.arrow_right} />

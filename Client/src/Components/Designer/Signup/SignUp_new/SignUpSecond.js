@@ -62,11 +62,11 @@ function SignUpSecond({ formData, setForm, navigation }) {
                 </div>
                 <div className={style.next} onClick={async() => {
                     if (formData.password1.trim() && formData.password2.trim() && formData.password1 == formData.password2) {
-                        //await signup(formData.email, formData.password1);
+                        await signup(formData.email, formData.password1);
                         console.log("in 2nd ", formData.email, formData.password1);
                         const data= {email:formData.email, password:formData.password1}
-                        axios.post(`${process.env.REACT_APP_BACK}/passwordReset`,data )
-                        // CreateUser(formData.email);
+                        //axios.post(`${process.env.REACT_APP_BACK}/passwordReset`,data )
+                        CreateUser(formData.email);
                         await addData('Designers',formData.email ,{
                             "name":formData.fullname,
                             "email":formData.email,
