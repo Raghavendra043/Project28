@@ -1,8 +1,8 @@
 .ql-container {
   font-family: Open sans !important;
   z-index: 2;
-  border-radius: 40px;
-  width: 80%;
+  border-radius: 30px;
+  width: 91%;
   margin-top: 1vh !important;
 }
 
@@ -10,7 +10,6 @@
 .ce-my-message-bubble {
   font-family: Open sans;
   background-color: #24576a !important;
-  border-radius: 8px !important;
   font-size: 2.4vh !important;
   padding: 1.5vh !important;
 }
@@ -41,7 +40,7 @@
 
 .chat__title {
   font-family: Red Hat Display;
-  font-size: 3vh;
+  font-size: 3.5vh;
   font-weight: bold;
   border-bottom: 1.5px solid #949494;
   margin: 1vh 2vh 0;
@@ -69,10 +68,11 @@
 }
 
 .chat__switch {
+  font-size: 3vh;
   border: none;
   color: white;
   border-radius: 40px;
-  padding: 0.5em 2em;
+  padding: 2vh 3.2vw;
 }
 
 .chat__client {

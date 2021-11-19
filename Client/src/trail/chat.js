@@ -42,19 +42,18 @@ function Chat() {
           <button
             className="chat__button"
             onClick={() => {
-              document.getElementById("ce-send-message-button").click();
-            }}
-          >
-            <i class="fas fa-paper-plane"></i>
-          </button>
-
-          <button
-            className="chat__button"
-            onClick={() => {
               document.getElementById("upload-document-button").click();
             }}
           >
             <i class="fas fa-paperclip"></i>
+          </button>
+          <button
+            className="chat__button"
+            onClick={() => {
+              document.getElementById("ce-send-message-button").click();
+            }}
+          >
+            <i class="fas fa-paper-plane"></i>
           </button>
         </div>
       </Col>
