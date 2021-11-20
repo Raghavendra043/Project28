@@ -33,7 +33,7 @@ import Feedback from "./Components/Designer/Feedback/feedback";
 function App() {
   return (
     <div className="App">
-      <Navbar/>
+      {/* <Navbar/> */}
 
       <Router>
         <Switch>

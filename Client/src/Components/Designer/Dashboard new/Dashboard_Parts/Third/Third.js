@@ -12,7 +12,9 @@ import data from "./drafts.json"
 
 function Third({ formData, setForm }) {
 
-    const current = 2;//formData.currentStage;
+    let current = 1;//formData.currentStage;
+    current = formData.currentStage;
+    console.log(formData);
     console.log('from third', current);
 
     const changeStage = (id)=>{

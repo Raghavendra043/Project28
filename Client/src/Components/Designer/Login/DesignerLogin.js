@@ -13,38 +13,35 @@ function DesignerLogin() {
   const [checkState, setCheckState] = useState(false);
   const [Err, setErr] = useState(false);
   const history = useHistory();
-  const [details, setDetails] = useState(null);
 
-  
+  const startLoading = (x)=>{
+      if(x)
+      {var element = document.getElementById('loading');
+      element.style.display = null;
+      var element1 = document.getElementById('screen');
+      element1.style.opacity = 0.16;
+      const email = emailRef.current.value;} else {
+        var element = document.getElementById('loading');
+        element.style.display = "none";
+        var element1 = document.getElementById('screen');
+        element1.style.opacity = 10;
+        const email = emailRef.current.value;
+      }
+  }
   const submitHander = async () => {
+    startLoading(true);
     const res = await Login(emailRef.current.value, passwordRef.current.value);
     if(res === true){      
-      var element = document.getElementById('loading');
-      // , opacity:"0.15"
-      element.style.display = null;
-      var element = document.getElementById('screen');
-      element.style.opacity = 0.16;
-      const email = emailRef.current.value;
-      if(email){
-        search('Projects', "designerEmail", email).then((project)=>{
-            if(project && project!== false){
-                setDetails(project);
-            } else if(project === false){
-                setDetails("false");
-            }
-        });
-    }
-      
+      history.push("/home", {email: emailRef.current.value});
     } else if(res === false) {
+      startLoading(false);
       setErr("Email is not Verified, please Verify your email");
     } else {
+      startLoading(false);
       setErr(res);
     }
     
   };
-  if(details){
-    history.push("/home", { user:"designer",email: emailRef.current.value, details});
-  }
 
 
   return (

@@ -17,3 +17,8 @@
 14. side nav bar -- \
 15. slider in designer signup 
 16. nav in dash
+
+
+17. display files at every stage
+18. change nothing else designer info
+19. logo svg

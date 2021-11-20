@@ -55,7 +55,7 @@ export const search =  async (collection , property, element )=>{
         if(!projectDetails){
             projectDetails = false;
         }
-        console.log("from search : ", projectDetails);
+        //console.log("from search : ", projectDetails);
         return projectDetails;
     } catch(err){
         console.log(err);
