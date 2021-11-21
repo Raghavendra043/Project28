@@ -154,6 +154,7 @@
 
   .signupbox {
     display: block;
+    position: absolute;
   }
 
   .container {

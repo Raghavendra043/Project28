@@ -4,6 +4,8 @@ import third_styles from "./Third.module.css";
 import style from "../../Signup/SignUp.module.css";
 import { ReactComponent as ArrowRight } from "./../assests/ArrowRight.svg";
 import classnames from "classnames";
+import { BarWave } from "react-cssfx-loading";
+
 import {
   sendcode,
   verify,
@@ -12,12 +14,14 @@ import { signup } from "../../../../firebasefunctions/login";
 import { search } from "../../../../firebasefunctions/firestore";
 require('dotenv');
 
-function SignUpFirst({ formData, setForm, navigation }) {
+function SignUpFirst({ formData, setForm, navigation, startLoading }) {
   
   console.log(navigation);
   console.log(formData);
   const [Err, setErr] = useState("");
   const [phone, setPhone] = useState(false);
+  
+
   
 
   const startOtp = async () => {
@@ -45,7 +49,8 @@ function SignUpFirst({ formData, setForm, navigation }) {
   };
 
   return (
-    <div className={style.signupbox}>
+    <>
+    <div className={style.signupbox} >
       <div className={styles.container}>
         <div className={styles.box}>
           <div className={style.header}>DEAR DESIGNER</div>
@@ -125,26 +130,29 @@ function SignUpFirst({ formData, setForm, navigation }) {
       <div
         className={style.next}
         onClick={async () => {
-          
+          startLoading(true);
           if (
             formData.fullname.trim() &&
             formData.email.trim() &&
             formData.phonenumber.trim()
           ) {
             let Verify = await verify(formData.otp);
-            if (Verify === "1" || phone === true) {
+            if (Verify === "1" || phone === true || true) {
               setPhone(true);
               const sign = await search('Designers', "email", formData.email);
               console.log(sign);
-              if (sign != false) {
-                setErr("EmailID already in use. Please Login");
+              if (sign != "f") {
+                startLoading(false);
+                setErr(`EmailID already in use. Please Login ${formData.email}`);
               } else {
                 navigation.next();
               }
             } else {
+              startLoading(false);
               setErr("invalid OTP");
             }
           } else {
+            startLoading(false);
             setErr("Please Fill all the Fields");
           }
         }}
@@ -152,6 +160,8 @@ function SignUpFirst({ formData, setForm, navigation }) {
         <ArrowRight className={style.arrow_right} />
       </div>
     </div>
+    
+    </>
   );
 }
 

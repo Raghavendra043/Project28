@@ -9,12 +9,21 @@ import Navbar from './Dashboard_Parts/Navbar/Navbar';
 import {search} from '../../../firebasefunctions/firestore'
 import { BarWave } from "react-cssfx-loading";
 import About from '../../Admin_new/ProjectTracker/TrackerParts/About';
+import { getAuth } from "firebase/auth";
+
 
 let i=0;
 function Main() {
     
     const location = useLocation();
-    const email = 'f20190120@hyderabad.bits-pilani.ac.in';//location.state.email;
+    
+    const auth = getAuth();
+    const user = auth.currentUser;
+    console.log("User logged in : ", user);
+    //const email = 'f20190120@hyderabad.bits-pilani.ac.in';
+    //const email = location.state.email;
+    const email = user.email;
+    
     const [Details, setDetails] = useState(false);
     let c;
     const [stat, setStat] = useState(0);
@@ -23,13 +32,14 @@ function Main() {
     const props = { formData, setForm };
     
     if(!Details){search('Projects', "designerEmail", email).then((project)=>{
-        if(project && project!== false){
+        if(project && project!== "f"){
             console.log('from inside:', project);
             setDetails(project);
             c = {onCurrent:project.currentStage};
             setForm({...project, ...c});
-        } else if(project === false){
-            setDetails("false");
+        } else if(project === "f"){
+            setDetails("f");
+            setForm("f");
         }
     });}
 
@@ -48,7 +58,7 @@ function Main() {
                     <Navbar {...email}/>
             </div>
 
-            { (formData) ? <div className="outer_container1">
+            { (formData && formData!=='f') ? <div className="outer_container1">
                 <div className=' first'>
                     <First {...props}/>
                 </div>

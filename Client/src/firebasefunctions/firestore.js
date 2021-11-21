@@ -53,7 +53,7 @@ export const search =  async (collection , property, element )=>{
             }
         }
         if(!projectDetails){
-            projectDetails = false;
+            projectDetails = "f";
         }
         //console.log("from search : ", projectDetails);
         return projectDetails;

@@ -6,16 +6,10 @@ import styles from "./SignUp.module.css";
 import SignUpFirst from "./SignUp_new/SignUpFirst";
 import SignUpSecond from "./SignUp_new/SignUpSecond";
 import SignUpThird from "./SignUp_new/SignUpThird";
-
+import { BarWave } from "react-cssfx-loading";
 import { ReactComponent as FirstMan } from "./assests/Firstman.svg";
 import { ReactComponent as SecondMan } from "./assests/SecondMan.svg";
 import { ReactComponent as ThirdMan } from "./assests/ThirdMan.svg";
-
-//     const nameRef = useRef('');
-//     const emailRef = useRef('');
-//     const phoneRef = useRef('');
-//     const password1Ref = useRef('');
-//     const password2Ref = useRef('');
 
 const defaultData = {
   fullname: "",
@@ -32,12 +26,29 @@ function DesginerSignUp() {
     steps,
     initialStep: 0,
   });
-  const props = { formData, setForm, navigation };
+  
+
+
+  const startLoading = (x)=>{
+    if(x)
+        {var element = document.getElementById('loading');
+        element.style.display = null;
+        var element1 = document.getElementById('screen');
+        element1.style.opacity = 0.16;
+      } else {
+          var element = document.getElementById('loading');
+          element.style.display = "none";
+          var element1 = document.getElementById('screen');
+          element1.style.opacity = 10;
+        }
+    }
+    const props = { formData, setForm, navigation, startLoading };
+
   switch (step.id) {
     case "Signup1":
       return (
         <>
-          <div className={styles.container}>
+          <div className={styles.container} id = 'screen' style={{position:"absolute"}}>
             <div className={styles.bottom_background}></div>
             <div className={styles.third}>
               <div className={styles.man_svg}>
@@ -48,12 +59,17 @@ function DesginerSignUp() {
               </div>
             </div>
           </div>
+          <div id="loading" style={{position:"absolute", marginTop:"45vh", marginLeft:"47vw", display:"none"}}>
+            <BarWave width="50px" height="50px" color="#1ABAA9"/>
+            <p style={{marginTop:"5vh", marginLeft:"-3vw"}}>Creating account, Please wait </p>
+          </div>
+          
         </>
       );
     case "Signup2":
       return (
         <>
-          <div className={styles.container}>
+          <div className={styles.container} id = 'screen' style={{position:"absolute"}}>
             <div className={styles.bottom_background}></div>
             <div className={styles.third}>
               <div className={styles.man_svg}>
@@ -64,12 +80,16 @@ function DesginerSignUp() {
               </div>
             </div>
           </div>
+          <div id="loading" style={{position:"absolute", marginTop:"45vh", marginLeft:"47vw", display:"none"}}>
+            <BarWave width="50px" height="50px" color="#1ABAA9"/>
+            <p style={{marginTop:"5vh", marginLeft:"-3vw"}}>Creating account, Please wait </p>
+          </div>
         </>
       );
     case "Signup3":
       return (
         <>
-          <div className={styles.container}>
+          <div className={styles.container} id = 'screen' style={{position:"absolute"}}>
             <div className={styles.bottom_background}></div>
             <div className={styles.third}>
               <div className={styles.man_svg}>
@@ -80,6 +100,11 @@ function DesginerSignUp() {
               </div>
             </div>
           </div>
+          <div id="loading" style={{position:"absolute", marginTop:"45vh", marginLeft:"47vw", display:"none"}}>
+            <BarWave width="50px" height="50px" color="#1ABAA9"/>
+            <p style={{marginTop:"5vh", marginLeft:"-3vw"}}>Creating account, Please wait </p>
+          </div>
+          
         </>
       );
   }
