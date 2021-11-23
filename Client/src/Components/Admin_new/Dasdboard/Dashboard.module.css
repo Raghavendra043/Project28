@@ -1,7 +1,13 @@
-.container{
-    display: flex;
-    height: 100vh;
-    background-color: white;
+.container {
+  height: 100vh;
 }
 
+.list,
+.list th,
+.list td {
+  border: 1px solid black;
+}
 
+.list {
+  margin: 1em auto;
+}
