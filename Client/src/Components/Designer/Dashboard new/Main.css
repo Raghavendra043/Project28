@@ -45,7 +45,7 @@
 @media screen and (max-width: 600px) {
   .outer_container1 {
     flex-direction: column;
-    margin: 0;
+    margin: 0 2vw;
   }
 
   .main_container1 {
@@ -62,18 +62,7 @@
   .third,
   .fourth {
     width: auto;
-  }
-  .first {
-    top: 0%;
-    height: 100%;
-  }
-
-  .second {
-    top: 0%;
-  }
-
-  .third {
-    height: 100%;
+    margin-left: 0;
   }
 
   .fourth {

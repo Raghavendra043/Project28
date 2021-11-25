@@ -46,15 +46,17 @@ function Third({ formData, setForm }) {
               >
                 {data.id}
               </div>
-              <div className="des-d-t-des">{data.Desc}</div>
-              <hr
-                style={{
-                  width: "25%",
-                  height: "2px",
-                  borderTop: "2.5px solid var(--des-text-col)",
-                }}
-              ></hr>
-              <div className="d-flex justify-content-end">
+              <div>
+                <div className="des-d-t-des">{data.Desc}</div>
+                <hr
+                  style={{
+                    width: "25%",
+                    height: "2px",
+                    borderTop: "2.5px solid var(--des-text-col)",
+                  }}
+                ></hr>
+              </div>
+              <div className="des-task">
                 <div style={{ fontSize: "0.8em", fontWeight: "normal" }}>
                   {key + 1 < current
                     ? "TaskCompleted"
