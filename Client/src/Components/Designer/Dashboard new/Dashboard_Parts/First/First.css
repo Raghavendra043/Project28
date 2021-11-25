@@ -89,3 +89,9 @@
 .des-f-svg {
   height: 19vh;
 }
+
+@media screen and (max-width: 600px) {
+  .lower {
+    display: none;
+  }
+}
