@@ -2,6 +2,7 @@ import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth'
 import 'firebase/compat/firestore'
 import 'firebase/compat/storage'
+
 const firebaseConfig = {
   apiKey: "AIzaSyChDgnvRtquXR8lUuRw04d4g6J6lfr47NU",
   authDomain: "client-58290.firebaseapp.com",
@@ -14,11 +15,14 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
-export const auth = app.auth(); 
+const auth = app.auth();
+
+
+//auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
 var storage = firebase.storage();
 export default firebase;
-
+const persistence = firebase.auth.Auth.Persistence.LOCAL;
 
 export {
-    app,db, storage
+    app,db, storage, auth, persistence
 };

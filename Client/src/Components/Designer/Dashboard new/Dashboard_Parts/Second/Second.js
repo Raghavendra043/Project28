@@ -1,9 +1,15 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import "./second.css"
 let c;
 function Second({ formData, setForm }) {
+    const [file, uploadFile] = useState(null);
     const cur = useRef(formData.onCurrent);
     console.log('from 2nd ', formData);
+
+    const uploadFIle  =(image)=>{
+        
+    }
+
     return (
         <div>
             <div className="box2 upper">
@@ -24,7 +30,9 @@ function Second({ formData, setForm }) {
             </div>
             <div className="box2 upload">
                 <div className="inpurFile">
-                    <input type="file" id="file" className="FileUpload" />
+                    <input type="file" id="file" className="FileUpload" 
+                        onChange =  {(e)=>{uploadFile(e.target.files[0])}}
+                    />
                     <label for="file">
                         <svg width="103" height="98" viewBox="0 0 103 98" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="0.375" y="0.125" width="102.5" height="97.5" rx="40" fill="#00DDDC" fill-opacity="0.13"/>

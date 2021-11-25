@@ -11,18 +11,19 @@ import { BarWave } from "react-cssfx-loading";
 import About from '../../Admin_new/ProjectTracker/TrackerParts/About';
 import { getAuth } from "firebase/auth";
 
-
-let i=0;
 function Main() {
     
     const location = useLocation();
     
     const auth = getAuth();
     const user = auth.currentUser;
+    
     console.log("User logged in : ", user);
     //const email = 'f20190120@hyderabad.bits-pilani.ac.in';
     //const email = location.state.email;
-    const email = user.email;
+    //const email = user.email;
+    const email = atob(window.sessionStorage.getItem("key"));
+    console.log('decoded email : ', email);
     
     const [Details, setDetails] = useState(false);
     let c;

@@ -44,7 +44,7 @@ function Third({ formData, setForm }) {
                                     }
                                 </div>
                                 <img className="des-d-t-check"
-                                 src={data.status===0?Tick:data.status===1?EditCheckbox:Extra} 
+                                 src={(key+1)<current?Tick:(key+1)===current?EditCheckbox:Extra} 
                                  />
                             </div>
                         </div>
