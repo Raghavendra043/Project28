@@ -24,6 +24,12 @@
   flex-direction: column;
   align-items: center;
 }
+.contentNested {
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .header {
   font-family: Red Hat Display;
   font-weight: 700;
@@ -33,6 +39,8 @@
 .subheader {
   font-family: Red Hat Display;
   font-weight: 700;
+  width: 23vw;
+  text-align: center;
   font-size: 2.2vh;
 }
 .description {
@@ -64,7 +72,10 @@
 .month {
   font-weight: 700;
 }
-.bottom {
+.Time{
+  display: none;
+}
+.bottomNested {
   display: flex;
   flex-direction: row;
 }
@@ -89,9 +100,97 @@
 .des-f-svg {
   height: 19vh;
 }
+.wideSvg{
+  display: none;
+}
+.headerSvg{
+  display: none;
+}
 
 @media screen and (max-width: 600px) {
   .lower {
     display: none;
   }
+  .subheader{
+    font-size: 1.7vh;
+    width: 32vw;
+  }
+  .description{
+    font-size: 1.7vh;
+    width: 57vw;
+  }
+  .one{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .bottomNested{
+    display: flex;
+    flex-direction: column;
+  }
+  .Time{
+    display: block;
+    font-family: Red Hat Display;
+    font-weight: 700;
+
+
+  }
+  .bottom{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .dotted{
+    width: 40vw;
+    margin:0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vh;
+
+  }
+  .narrowSvg{
+    display:none
+  }
+  .wideSvg{
+    display: block;
+  }
+  .date{
+    margin-top: 0vh;
+    margin-left: 2vh;
+    margin-right: 2vh;
+  }
+  .dates{
+    display: flex;
+    flex-direction: row;
+  }
+  .restdate{
+    font-size: 1.4vh;
+  }
+  .number{
+    font-size: 3.5vh;
+    color: #20C1EF;
+    margin-left: 0.6vh;
+    margin-right: 0.6vh;
+  }
+  .top{
+    display: none;
+  }
+  .box{
+    height:fit-content;
+    background-color: inherit;
+  }
+  .contentNested{
+    background: #ffffff;
+    border-radius: 5vh;
+    padding: 1vh;
+    padding-bottom: -5vh;
+  }
+  .headerSvg{
+    display: block;
+    margin-top: 0vh;
+    transform: translate(80%,-2vh);
+  }
+
 }
