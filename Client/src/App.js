@@ -29,6 +29,7 @@ import Signup from "./trail/signup";
 import MyComponent from "./pdf/sample";
 import { signup } from "./firebasefunctions/login";
 import Feedback from "./Components/Designer/Feedback/feedback";
+import NoProjects from "./Components/Designer/NoProjectsRedirect/NoProjects";
 
 function App() {
   return (
@@ -60,6 +61,7 @@ function App() {
           <Route path="/chatadmin" exact component={ChatEngine} />
           <Route path="/test" exact component={Signup} />
           <Route path="/feedback" exact component={Feedback} />
+          <Route path="/Empty" exact component={NoProjects} />
         </Switch>
       </Router>
     </div>
