@@ -6,9 +6,9 @@ import {ReactComponent as  Man} from './man.svg'
 function NoProjects() {
     return (
         <div>
-            <div className={styles.Sidebar}>
+            {/* <div className={styles.Sidebar}>
                 <Navbar/>
-            </div>
+            </div> */}
             <div className={styles.Redirect}>
                 <div className={styles.RedirectNested}>
                 <div className={styles.header}>Overall Performance {`&`} Account Details</div>

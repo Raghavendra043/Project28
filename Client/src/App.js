@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
-import Navbar from "./Components/Navbar/Navbar";
+//import Navbar from "./Components/Navbar/Navbar";
+import Navbar from "./Components/Designer/Dashboard new/Dashboard_Parts/Navbar/Navbar";
 
 // -----------------------------Designer-----------------------------
 import Main from "./Components/Designer/Dashboard new/Main";
@@ -30,14 +31,20 @@ import MyComponent from "./pdf/sample";
 import { signup } from "./firebasefunctions/login";
 import Feedback from "./Components/Designer/Feedback/feedback";
 import NoProjects from "./Components/Designer/NoProjectsRedirect/NoProjects";
+//import './Components/Designer/Dashboard new/Main.css'
 
+import { useHistory } from "react-router";
 function App() {
+  const history = useHistory();
+  const props=  {history};
   return (
     <div className="App">
+      {/* <div className="Sidebar"><Navbar {...{history}}/></div> */}
       {/* <Navbar/> */}
 
       <Router>
         <Switch>
+          
           <Route path="/home" exact component={Main} />
           <Route path="/designer/login" exact component={DesignerLogin} />
           <Route path="/designer/performance" exact component={DesignerPerformance}/>

@@ -2,10 +2,21 @@ import React,{useRef, useState} from 'react'
 import './ProfileMain.css';
 import Professional from './Profile parts/Professional/Professional';
 import Personal from './Profile parts/Personal/Personal';
-import data from './desProf.json';
+//import data from './desProf.json';
+import { useLocation } from 'react-router';
+import { getDocData } from '../../../firebasefunctions/firestore';
 
 function ProfileMain() {
-
+    const location = useLocation();
+    const email = location.state.email;
+    
+    const [data,setData ] = useState();
+    if(!data){
+        getDocData('Designers',email ).then((data)=>{
+            setData(data);
+        })
+    }
+    
     const nameRef = useRef(data.username);
     const special = data.specialization;
     const [checkedState,setCheckedState] = useState(data.specialization_state);
@@ -13,7 +24,7 @@ function ProfileMain() {
     const work2Ref = useRef(data.work_experience2);
     const work3Ref = useRef(data.work_experience3);
     const linkRef = useRef(data.link);
-
+    
 
     const handleSubmit = () =>{
         console.log("f");

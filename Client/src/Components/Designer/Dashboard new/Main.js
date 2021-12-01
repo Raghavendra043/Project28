@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "./Main.css";
 import { useLocation } from "react-router-dom";
 import First from "./Dashboard_Parts/First/First";
@@ -10,10 +10,11 @@ import { search } from "../../../firebasefunctions/firestore";
 import { BarWave } from "react-cssfx-loading";
 import About from "../../Admin_new/ProjectTracker/TrackerParts/About";
 import { getAuth } from "firebase/auth";
+import NoProjects from '../NoProjectsRedirect/NoProjects'
 
 function Main() {
   const location = useLocation();
-
+  const [dt, setDt] = useState('Loading Account info');
   const auth = getAuth();
   const user = auth.currentUser;
 
@@ -29,7 +30,25 @@ function Main() {
   const [stat, setStat] = useState(0);
 
   const [formData, setForm] = useState(null);
-  const props = { formData, setForm };
+  
+
+  const Loading= (state)=>{
+    if(state){
+        console.log('coming inside');
+        var element = document.getElementById("loading");
+        element.style.display = null;
+        var element1 = document.getElementById("screen");
+        element1.style.opacity = 0.16;
+        //setDt('Uploading');
+    } else {
+        console.log('coming outside');
+        var element = document.getElementById("loading");
+        element.style.display = "none";
+        var element1 = document.getElementById("screen");
+        element1.style.opacity = 10;
+    }
+  }
+  const props = { formData, setForm, Loading };
 
   if (!Details) {
     search("Projects", "designerEmail", email).then((project) => {
@@ -64,7 +83,7 @@ function Main() {
         id="screen"
       >
         <div className="Sidebar">
-          <Navbar {...email} />
+          <Navbar {...{email}} />
         </div>
 
         {formData && formData !== "f" ? (
@@ -84,13 +103,7 @@ function Main() {
           </div>
         ) : (
           <div className="outer_container1">
-            <div className=" first">{/* <First {...props}/> */}</div>
-            <div className="second">{/* <Second {...props}/> */}</div>
-            <div className=" third">
-              {/* <Third {...props}/> */}
-              <div>You dont have any project currently</div>
-            </div>
-            <div className=" fourth">{/* <Fourth {...props}/> */}</div>
+            <NoProjects/>
           </div>
         )}
       </div>
@@ -100,7 +113,7 @@ function Main() {
       >
         <BarWave width="50px" height="50px" color="#1ABAA9" />
         <p style={{ marginTop: "5vh", marginLeft: "-3vw" }}>
-          Getting account Info
+          {dt}
         </p>
       </div>
     </div>

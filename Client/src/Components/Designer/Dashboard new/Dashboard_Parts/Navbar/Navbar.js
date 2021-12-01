@@ -2,8 +2,11 @@ import React from 'react'
 import "./navbar.css"
 import { useState } from 'react';
 import Toggle from '../../../ToggleSwitch/Toggle';
-
+import { useHistory } from 'react-router';
 function Navbar({email}) {
+    const history = useHistory();
+    //const email = 'f20190120@hydrabad.bits-pilani.ac.in';
+    //const history = useHistory();
     console.log("from nav", email);
     const [isHamOn, setIsHamOn] = useState(false);
   const handleClick = () => {
@@ -25,6 +28,7 @@ function Navbar({email}) {
         {
             id: 1,
             menuname: "Your Dashboard",
+            nav:'/home',
             img: <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M6.83333 1.00012H1V6.83346H6.83333V1.00012Z" stroke="#1E1F1E" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M16.0003 1.00012H10.167V6.83346H16.0003V1.00012Z" stroke="#1E1F1E" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
@@ -44,6 +48,7 @@ function Navbar({email}) {
         {
             id: 2,
             menuname: "Your Profile",
+            nav:'/designer/profile',
             img: <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M14.75 16.0001V14.3334C14.75 13.4493 14.3878 12.6015 13.7432 11.9764C13.0985 11.3513 12.2242 11.0001 11.3125 11.0001H4.4375C3.52582 11.0001 2.65148 11.3513 2.00682 11.9764C1.36216 12.6015 1 13.4493 1 14.3334V16.0001" stroke="#1E1F1E" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M7.875 7.66667C9.77348 7.66667 11.3125 6.17428 11.3125 4.33333C11.3125 2.49238 9.77348 1 7.875 1C5.97652 1 4.4375 2.49238 4.4375 4.33333C4.4375 6.17428 5.97652 7.66667 7.875 7.66667Z" stroke="#1E1F1E" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
@@ -59,6 +64,7 @@ function Navbar({email}) {
         {
             id: 3,
             menuname: "Overall Performance",
+            nav:'/designer/performance',
             img: <svg width="15" height="18" viewBox="0 0 15 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M7.5 17V7" stroke="#1E1F1E" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M14 17V1" stroke="#1E1F1E" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
@@ -76,6 +82,7 @@ function Navbar({email}) {
         {
             id: 4,
             menuname: "Help & Support",
+            nav:'/',
             img: <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8.875 16C13.0171 16 16.375 12.6421 16.375 8.5C16.375 4.35786 13.0171 1 8.875 1C4.73286 1 1.375 4.35786 1.375 8.5C1.375 12.6421 4.73286 16 8.875 16Z" stroke="#1E1F1E" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M6.69336 6.25009C6.86969 5.74884 7.21772 5.32617 7.67583 5.05694C8.13393 4.78771 8.67253 4.6893 9.19624 4.77913C9.71995 4.86896 10.195 5.14123 10.5372 5.54774C10.8794 5.95424 11.0667 6.46873 11.0659 7.00009C11.0659 8.50009 8.81586 9.25009 8.81586 9.25009" stroke="#1E1F1E" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
@@ -140,9 +147,9 @@ function Navbar({email}) {
                 </div>
             </div>
             <div className="buttons"   >
-                {arr.map((arr) => {
+                {arr.map((arr, key) => {
                     return(
-                        <div className="button" key={arr.id} onClick={(e) => { console.log("in if", arr.id);toggleActive(arr.id); }} >
+                        <div className="button" key={key} onClick={(e) => { history.push(arr.nav, {email});toggleActive(key); }} >
                             <div className={arr.id==ActiveTopic ? "null" : "svg"} >{arr.img}</div>
                             <div className={arr.id==ActiveTopic? "svg" : "null"} > {arr.imgalt}</div>
                     <div className={isHamOn ? "menuname" : "null"}  >
@@ -153,7 +160,7 @@ function Navbar({email}) {
                 </div>
                     )
                 })}
-                     <div className="button" key="5" onClick={(e) => { console.log(arr.id);toggleActive(arr.id) }} >
+                     <div className="button" key="5" onClick={(e) => { toggleActive(arr.id) }} >
                         <Toggle/>
                     <div className={isHamOn ? "menuname" : "null"}  >
                          <div className={arr.id==ActiveTopic? "menunameBold" : "menuname1"} > 

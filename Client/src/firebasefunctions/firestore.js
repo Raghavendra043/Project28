@@ -1,5 +1,6 @@
 import { db } from "../firebase";
-
+import {arrayUnion} from 'firebase/firestore'
+import axios from "axios";
 export const addData = async (collection, doc, Data) => {
   try {
     if (Data && collection) {
@@ -70,10 +71,73 @@ export const Update = async (collection, doc, data) => {
     db.collection(collection)
       .doc(doc)
       .update(finalData)
-      .then(function () {
-        console.log("Frank food updated");
-      });
+      .then(function () {});
   } catch (err) {
     console.log(err);
   }
 };
+
+export const update= async(collection, doc, name, url, current)=>{
+  try {
+    let project = await getDocData(collection, doc);
+    console.log('Project det:', project);
+    project['files'][current]['files'].push({name, url});
+    
+    await db.collection(collection)
+      .doc(doc)
+      .update(project)
+      
+    return 1;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export const fileDetails = async(title)=>{
+    try{
+      const Files = await getDocData('Projects', title);
+      let files = [];
+      const current = Files.currentStage;
+      for(var i=1;i<=current;i++){
+        for(const j of Files.files[`${i}`].files){
+          files.push(j);}
+      }
+      return files;
+    } catch(err) {
+      console.log(err);
+    }
+}
+
+export const sendNotification= (context, project, stage, name, designerEmail,clientEmail)=>{
+  try {
+    let n;
+    if(context === 1 ){
+      n = `${name} file Submitted by designer for the Project ${project} for the stage ${stage} `
+    }
+    db.collection('Projects')
+      .doc(project)
+      .update({
+        clientNotification:arrayUnion(n)
+      }).then(()=>{})
+    //axios.post('', {context, project, designerEmail, clientEmail}).then(()=>{})
+  } catch(err) {
+      console.log(err);
+    }
+}
+
+export const getNotification= async(project, state)=>{
+  try {
+    let get;
+    let notification=  [];
+    if(state %2 === 0){
+      const Data = await getDocData('Projects', project);
+      notification = notification.concat(Data.clientNotification);
+    } if(state %3 === 0){
+      const Data = await getDocData('Projects', project);
+      notification = notification.concat(Data.designerNotification);
+    }
+    return notification;
+  } catch(err) {
+      console.log(err);
+    }
+}
