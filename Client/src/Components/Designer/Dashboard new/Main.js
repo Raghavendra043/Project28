@@ -83,7 +83,7 @@ function Main() {
         id="screen"
       >
         <div className="Sidebar">
-          <Navbar {...{email}} />
+          <Navbar  />
         </div>
 
         {formData && formData !== "f" ? (

@@ -34,6 +34,7 @@ import NoProjects from "./Components/Designer/NoProjectsRedirect/NoProjects";
 //import './Components/Designer/Dashboard new/Main.css'
 
 import { useHistory } from "react-router";
+import CreateProject from "./Components/client/CreateProject/CreateProject";
 function App() {
   const history = useHistory();
   const props=  {history};
@@ -41,6 +42,9 @@ function App() {
     <div className="App">
       {/* <div className="Sidebar"><Navbar {...{history}}/></div> */}
       {/* <Navbar/> */}
+      {/* <div className="Sidebar">
+          <Navbar  />
+        </div> */}
 
       <Router>
         <Switch>
@@ -70,6 +74,7 @@ function App() {
           <Route path="/test" exact component={Signup} />
           <Route path="/feedback" exact component={Feedback} />
           <Route path="/Empty" exact component={NoProjects} />
+          <Route path="/create" exact component={CreateProject} />
         </Switch>
       </Router>
     </div>
