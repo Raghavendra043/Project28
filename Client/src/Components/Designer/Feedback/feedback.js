@@ -68,7 +68,7 @@ function Feedback() {
                 </div>
                 <div className={styles.col3}>
                     <div className={styles.third}>
-                        <Third />
+                        {/* <Third /> */}
                     </div>
                 </div>
                 </div>

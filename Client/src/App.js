@@ -16,7 +16,7 @@ import Second from "./Components/Designer/ProfileCompletion/Parts/Second";
 // ---------------------------------Client--------------------------------
 import ClientSignup from "./Components/client/Signup/ClientSignup";
 import ClientLogin from "./Components/client/Login/ClientLogin";
-
+import Dashboard from "./Components/client/Dashboard/dashboard";
 // ---------------------------------Admin---------------------------------
 import AdminDashboard from "./Components/Admin_new/Dasdboard/AdminDashboard";
 import ProjectTracker from "./Components/Admin_new/ProjectTracker/ProjectTracker";
@@ -58,6 +58,7 @@ function App() {
 
           <Route path="/clientSignup" exact component={ClientSignup} />
           <Route path="/clientLogin" exact component={ClientLogin} />
+          <Route path="/chome" exact component={Dashboard} />
 
           <Route path="/admin/project" exact component={ProjectTracker} />
           <Route path="/admin/dash" exact component={AdminDashboard} />

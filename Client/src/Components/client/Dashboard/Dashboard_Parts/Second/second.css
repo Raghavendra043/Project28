@@ -1,0 +1,89 @@
+.box2 {
+  height: 43.5vh;
+  background: #ffffff;
+  border-radius: 5vh;
+  margin-left: 20px;
+}
+
+.box3 {
+  height: 43.5vh;
+  background: #ffffff;
+  border-radius: 5vh;
+  margin-left: 20px;
+}
+
+.upper {
+  margin-top: 6vh;
+  margin-bottom: 2vh;
+}
+.topsecond {
+  background-color: white;
+  border-top-left-radius: 5vh;
+  border-top-right-radius: 5vh;
+  height: 5vh;
+  padding-top: 2vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.headerSecond {
+  font-family: Red Hat Display;
+  font-weight: 700;
+  font-size: 4vh;
+  margin-left: 3vh;
+}
+.logo {
+  margin-right: 1.5vw;
+}
+.contentSecond {
+  font-size: 14px;
+  margin-top: 4vh;
+  padding-left: 23px;
+  padding-right: 23px;
+}
+.lines {
+  margin-top: 25px;
+}
+.upload {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+input[type="file"] {
+  display: none;
+}
+label {
+  text-align: center;
+  color: rgb(206, 198, 198);
+}
+label:hover {
+  cursor: pointer;
+}
+.filetitle {
+  font-size: 2.5vh;
+  margin-top: 10px;
+  font-family: sans-serif;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 600px) {
+  .box2 {
+    margin-left: 0;
+    height: auto;
+    min-height: 40vh;
+    border-radius: 2vh;
+  }
+
+  .box3 {
+    margin-left: 0;
+    border-radius: 2vh;
+    height: 30vh;
+  }
+
+  .headerSecond {
+    text-align: center;
+    font-size: 3.5vh;
+    margin: auto;
+  }
+}

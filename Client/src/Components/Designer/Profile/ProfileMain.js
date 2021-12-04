@@ -5,44 +5,82 @@ import Personal from './Profile parts/Personal/Personal';
 //import data from './desProf.json';
 import { useLocation } from 'react-router';
 import { getDocData } from '../../../firebasefunctions/firestore';
+import Navbar from '../Dashboard new/Dashboard_Parts/Navbar/Navbar';
+import { Update } from '../../../firebasefunctions/firestore';
+import { BarWave } from "react-cssfx-loading";
 
 function ProfileMain() {
-    const location = useLocation();
-    const email = location.state.email;
-    
+    //const location = useLocation();
+    //const email = location.state.email;
+    //const email = atob(window.sessionStorage.getItem("key"));
+    const nameRef = useRef('DarthVader');
+    let special = useRef('');//data.specialization;
+    let [checkedState,setCheckedState] = useState(['this', "this"]);//data.specialization_state);
+    let work1Ref = useRef("data.exp1");
+    let work2Ref = useRef("data.exp2");
+    let work3Ref = useRef("data.exp3");
+    let linkRef = useRef("data.link");
+
+    const email = 'ragh12345@gmail.com'
     const [data,setData ] = useState();
+    
     if(!data){
-        getDocData('Designers',email ).then((data)=>{
-            setData(data);
+        getDocData('Designers',email ).then((data1)=>{
+            setData(data1);console.log(data1);
         })
     }
     
-    const nameRef = useRef(data.username);
-    const special = data.specialization;
-    const [checkedState,setCheckedState] = useState(data.specialization_state);
-    const work1Ref = useRef(data.work_experience1);
-    const work2Ref = useRef(data.work_experience2);
-    const work3Ref = useRef(data.work_experience3);
-    const linkRef = useRef(data.link);
+    const handleSubmit = async(field, value) =>{
+        console.log("updated: ", data);
+        startLoading(true)
+        await Update('Designers', email, data);
+        startLoading(false);
+    }
+    const startLoading = (x)=>{
+        if(x)
+        {var element = document.getElementById('loading');
+        element.style.display = null;
+        var element1 = document.getElementById('screen');
+        element1.style.opacity = 0.16;
+        } else {
+          var element = document.getElementById('loading');
+          element.style.display = "none";
+          var element1 = document.getElementById('screen');
+          element1.style.opacity = 10;
+          
+        }
+    }
     
 
-    const handleSubmit = () =>{
-        console.log("f");
-    }
-
     return (
-        <div  style={{backgroundColor:"#4d494905"}}>
+        <div>
+        <div id= "screen"  style={{backgroundColor:"#4d494905"}}>
+
+        <div className="Sidebar">
+          <Navbar {...{email}} />
+        </div>
+
+            {data ? (
             <div className='des-profile-container'>
                 <div className='des-profile-per'>
-                    <Personal nameRef={nameRef} special={special} checkedState={checkedState} setCheckedState={setCheckedState}/>
+                    <Personal {...{data, setData}}/>
                 </div>
                 <div className='des-profile-pro'>
-                    <Professional work1Ref={work1Ref} work2Ref={work2Ref} work3Ref={work3Ref} linkRef={linkRef}/>
+                    <Professional {...{data, setData}}/>
                 </div>
             </div>
+            ) : (<div></div>)
+            
+        }
             <div className='des-pro-but-cover'>
                 <button className='des-pro-but' onClick={handleSubmit}>Save Changes & Proceed</button>
             </div>
+
+        </div>
+        <div id="loading" style={{position:"absolute", marginTop:"45vh", marginLeft:"47vw", display:"none"}}>
+            <BarWave width="50px" height="50px" color="#1ABAA9"/>
+             <p style={{marginTop:"5vh", marginLeft:"-3vw"}}>Updating</p>
+        </div>
         </div>
     )
 }

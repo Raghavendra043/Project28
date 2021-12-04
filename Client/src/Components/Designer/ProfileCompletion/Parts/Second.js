@@ -8,12 +8,31 @@ import classnames from "classnames";
 import Slider from "./../../Slider/Slider";
 import {useLocation, useHistory} from 'react-router-dom'
 import {Update} from '../../../../firebasefunctions/firestore'
+import {storage} from '../../../../firebase'
 
 function Second({ formData, setForm, navigation }) {
   const history = useHistory();
   const location = useLocation();
   const email = location.state.email;
   console.log('from second', email, 'rgh');
+
+  const uploadFile  = async(image)=>{
+    //Loading(true);
+    
+    await storage.ref(`${formData.email}/profile`)
+        .put(image);
+    const URL = await storage
+        .ref(`${formData.email}/Profile-Link`)
+        .getDownloadURL()
+    setForm({
+          ...formData,
+          profileLink:URL
+        });
+    //const file = await update('Projects', '1',image.name,URL, formData.currentStage);
+    //if(file && file === 1 ){//Loading(false);}         
+    
+}
+
   return (
     <div className={e_style.container}>
       <div className={e_style.bottom_background}></div>
@@ -51,7 +70,11 @@ function Second({ formData, setForm, navigation }) {
                 Portfolio
               </div>
               <div className={styles.resume_cover}>
-                <input type="file" id="resume" accept="image/*" />
+                <input type="file" id="resume" 
+                  onChange = {(e)=>{
+                    uploadFile(e.target.files[0])
+                  }}
+                  />
                 <label for="resume" className={styles.resume}>
                   <span style={{ marginRight: "1em" }}>
                     <svg
@@ -100,6 +123,9 @@ function Second({ formData, setForm, navigation }) {
                   type="text"
                   className={styles.profile_input}
                   placeholder="Link to you website / behance  / google drive etc. "
+                  value={formData.link}
+                  onChange={setForm}
+                  name="link"
                 />
               </div>
             </div>

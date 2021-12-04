@@ -145,6 +145,7 @@ function SignUpFirst({ formData, setForm, navigation, startLoading }) {
                 startLoading(false);
                 setErr(`EmailID already in use. Please Login ${formData.email}`);
               } else {
+                startLoading(false);
                 navigation.next();
               }
             } else {

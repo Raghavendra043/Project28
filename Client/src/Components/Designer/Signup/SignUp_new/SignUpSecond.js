@@ -12,7 +12,7 @@ require('dotenv');
 require('../../../../firebasefunctions/firestore');
 
 
-function SignUpSecond({ formData, setForm, navigation }) {
+function SignUpSecond({ formData, setForm, navigation, startLoading }) {
     
     const [toggle, setToggle] = useState(false);
     
@@ -61,6 +61,7 @@ function SignUpSecond({ formData, setForm, navigation }) {
                 </div>
                 </div>
                 <div className={style.next} onClick={async() => {
+                    startLoading(true);
                     if (formData.password1.trim() && formData.password2.trim() && formData.password1 == formData.password2) {
                         await signup(formData.email, formData.password1);
                         console.log("in 2nd ", formData.email, formData.password1);
@@ -72,10 +73,12 @@ function SignUpSecond({ formData, setForm, navigation }) {
                             "email":formData.email,
                             "phone":formData.phonenumber
                         });
+                        startLoading(false);
                         navigation.next();
                     }
                     else if (formData.password1 != formData.password2) {
                         setToggle(true)
+                        startLoading(false);
                     }
                     }}>
                     <ArrowRight className={style.arrow_right}/>

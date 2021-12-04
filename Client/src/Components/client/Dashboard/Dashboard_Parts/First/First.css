@@ -1,0 +1,196 @@
+.box {
+  height: 50vh;
+  background: #ffffff;
+  border-radius: 5vh;
+}
+
+.top {
+  height: 7vh;
+  background-color: #24576a;
+  border-top-left-radius: 5vh;
+  border-top-right-radius: 5vh;
+  font-size: 2.5vh;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.content {
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contentNested {
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header {
+  font-family: Red Hat Display;
+  font-weight: 700;
+  font-size: 3vh;
+  margin: 2vh;
+}
+.subheader {
+  font-family: Red Hat Display;
+  font-weight: 700;
+  width: 23vw;
+  text-align: center;
+  font-size: 2.2vh;
+}
+.description {
+  font-size: 2.2vh;
+  font-weight: 400;
+  margin: 2vh 2vw 0;
+  text-align: center;
+}
+.dates {
+  width: fit-content;
+}
+.date {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 3vh;
+  text-align: left;
+}
+.number {
+  font-family: Red Hat Display;
+  font-size: 5vh;
+  font-weight: 500;
+  color: #19baa8;
+}
+.restdate {
+  margin-left: 0.5vw;
+  font-size: 2.2vh;
+}
+.month {
+  font-weight: 700;
+}
+.Time{
+  display: none;
+}
+.bottomNested {
+  display: flex;
+  flex-direction: row;
+}
+.dotted {
+  margin: 5vh 1vw 0 3vw;
+}
+.image {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.lower {
+  padding: 3vh 0 1vh 2vw;
+  height: 36.5vh;
+}
+
+.lower .text {
+  font-size: 2.2vh;
+  margin-right: 3vw;
+}
+
+.des-f-svg {
+  height: 19vh;
+}
+.wideSvg{
+  display: none;
+}
+.headerSvg{
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .lower {
+    display: none;
+  }
+  .subheader{
+    font-size: 1.7vh;
+    width: 32vw;
+  }
+  .description{
+    font-size: 1.7vh;
+    width: 57vw;
+  }
+  .one{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .bottomNested{
+    display: flex;
+    flex-direction: column;
+  }
+  .Time{
+    display: block;
+    font-family: Red Hat Display;
+    font-weight: 700;
+
+
+  }
+  .bottom{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .dotted{
+    width: 40vw;
+    margin:0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vh;
+
+  }
+  .narrowSvg{
+    display:none
+  }
+  .wideSvg{
+    display: block;
+  }
+  .date{
+    margin-top: 0vh;
+    margin-left: 2vh;
+    margin-right: 2vh;
+  }
+  .dates{
+    display: flex;
+    flex-direction: row;
+  }
+  .restdate{
+    font-size: 1.4vh;
+  }
+  .number{
+    font-size: 3.5vh;
+    color: #20C1EF;
+    margin-left: 0.6vh;
+    margin-right: 0.6vh;
+  }
+  .top{
+    display: none;
+  }
+  .box{
+    height:fit-content;
+    background-color: inherit;
+  }
+  .contentNested{
+    background: #ffffff;
+    border-radius: 5vh;
+    padding: 1vh;
+    padding-bottom: -5vh;
+  }
+  .headerSvg{
+    display: block;
+    margin-top: 0vh;
+    transform: translate(80%,-2vh);
+  }
+
+}

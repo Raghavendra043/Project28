@@ -154,11 +154,17 @@ function First({ formData, setForm, navigation }) {
                     type="text"
                     className={classnames(styles.input, styles.work_left)}
                     placeholder="Your designation"
+                    value={formData.work1}
+                    onChange={setForm}
+                    name="work1"
                   />
                   <input
                     type="text"
                     className={classnames(styles.input, styles.work_right)}
                     placeholder="Your Experience here"
+                    value={formData.exp1}
+                    onChange={setForm}
+                    name="exp1"
                   />
                 </div>
                 <div className={styles.work_input}>
@@ -166,11 +172,17 @@ function First({ formData, setForm, navigation }) {
                     type="text"
                     className={classnames(styles.input, styles.work_left)}
                     placeholder="Your designation"
+                    value={formData.work2}
+                    onChange={setForm}
+                    name="work2"
                   />
                   <input
                     type="text"
                     className={classnames(styles.input, styles.work_right)}
                     placeholder="Your Experience here"
+                    value={formData.exp2}
+                    onChange={setForm}
+                    name="exp2"
                   />
                 </div>
                 <div className={styles.work_input}>
@@ -178,11 +190,17 @@ function First({ formData, setForm, navigation }) {
                     type="text"
                     className={classnames(styles.input, styles.work_left)}
                     placeholder="Your designation"
+                    value={formData.work3}
+                    onChange={setForm}
+                    name="work3"
                   />
                   <input
                     type="text"
                     className={classnames(styles.input, styles.work_right)}
                     placeholder="Your Experience here"
+                    value={formData.exp3}
+                    onChange={setForm}
+                    name="exp3"
                   />
                 </div>
               </div>

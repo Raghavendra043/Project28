@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
 import styles from "./Personal.module.css";
 import classnames from "classnames";
 
-function Personal(props) {
+function Personal({data, setData}) {
+  const Name = useRef();
   var expanded = false;
   const showCheckboxes = () => {
     var check = document.getElementsByClassName(styles.checkboxes)[0];
@@ -17,9 +18,9 @@ function Personal(props) {
     }
   };
 
-  const handleCheck = (i) => {
-    props.special[i].status = !props.special[i].status;
-  };
+  // const handleCheck = (i) => {
+  //   props.special[i].status = !props.special[i].status;
+  // };
 
   return (
     <div>
@@ -46,8 +47,9 @@ function Personal(props) {
               <input
                 type="text"
                 className={styles.profile_input}
-                ref={props.nameRef}
-                placeholder={props.nameRef.current}
+                ref={Name}
+                onChange={()=>{setData({...data, name:Name.current.value})}}
+                placeholder={data.name}
               />
             </div>
           </div>
@@ -71,7 +73,7 @@ function Personal(props) {
                   <div clasNname={styles.overSelect}></div>
                 </div>
                 <div className={classnames(styles.hide, styles.checkboxes)}>
-                  {props.special.map((data, key) => {
+                  {/* {props.special.map((data, key) => {
                     return (
                       <label for={key}>
                         <input
@@ -83,7 +85,7 @@ function Personal(props) {
                         {data.name}
                       </label>
                     );
-                  })}
+                  })} */}
                 </div>
               </div>
             </div>

@@ -5,11 +5,15 @@ import RightDown from "./PerformanceParts/Right/Down/RightDown";
 import DownLeft from "./PerformanceParts/Left/Down/Left/DownLeft";
 import DownRight from "./PerformanceParts/Left/Down/Right/DownRight";
 import LeftUp from "./PerformanceParts/Left/Up/LeftUp";
-
+import Navbar from "../Dashboard new/Dashboard_Parts/Navbar/Navbar";
 function DesignerPerformance() {
   return (
     <div style={{ backgroundColor: "rgba(250, 235, 235, 0.103)" }}>
+      <div className="Sidebar" >
+          <Navbar />
+        </div>
       <div className={styles.container}>
+      
         <div className={styles.left}>
           <div className={styles.l_up}>
             <LeftUp />

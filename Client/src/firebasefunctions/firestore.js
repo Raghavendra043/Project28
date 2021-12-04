@@ -58,16 +58,19 @@ export const search = async (collection, property, element) => {
   }
 };
 
-export const Update = async (collection, doc, data) => {
+export const Update = async (collection, doc, data=false) => {
   try {
+    let finalData=data;
+    if(data){
     const Data = await getDocData(collection, doc);
-    let finalData;
+    
     if (Data) {
       finalData = {
         ...Data,
         ...data,
       };
     }
+  }
     db.collection(collection)
       .doc(doc)
       .update(finalData)
