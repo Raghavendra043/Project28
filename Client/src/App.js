@@ -45,7 +45,6 @@ function App() {
       {/* <div className="Sidebar">
           <Navbar  />
         </div> */}
-
       <Router>
         <Switch>
           

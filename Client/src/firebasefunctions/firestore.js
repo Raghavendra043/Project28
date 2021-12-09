@@ -84,11 +84,15 @@ export const update= async(collection, doc, name, url, current)=>{
   try {
     let project = await getDocData(collection, doc);
     console.log('Project det:', project);
-    project['files'][current]['files'].push({name, url});
+    //project['files'][current]['files'].push({name, url});
+    project['files'][current]['adminFiles'].push({name, url, stage:current});
+    project['files'][current]['currentState'] = "Waiting for Admins approval";
     
     await db.collection(collection)
       .doc(doc)
       .update(project)
+
+    
       
     return 1;
   } catch (err) {
@@ -143,4 +147,34 @@ export const getNotification= async(project, state)=>{
   } catch(err) {
       console.log(err);
     }
+}
+
+
+export const Reject = async()=>{
+  try {
+
+  } catch(err){
+    console.log(err);
+  }
+}
+
+export const Approve = async (project)=>{
+  try {
+    const title = project.title;
+    const current = project.currentStage;
+    console.log("here too");
+    //let project = await getDocData('Projects', title);
+    const len = project['files'][current]['adminFiles'].length;
+    const file = project['files'][current]['adminFiles'][len-1];
+    project['files'][current]['clientFiles'].push(file);
+    project['files'][current]['currentState'] = "Waiting for Clients Feedback, Admin has Approved";
+    
+    //await 
+    await db.collection('Projects')
+      .doc(title)
+      .update(project)
+
+  } catch(err){
+    console.log(err);
+  }
 }

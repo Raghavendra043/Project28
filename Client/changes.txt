@@ -1,24 +1,18 @@
-1. side navbar (done)
-
-*signup second for desiger is scrolling - check all the pages for scrolling
-3. client profile   -- paritosh (done)
-4. client signup (vh) -- paritosh (done)
-6. client forget pass -- paritosh (done)
-7. client login vh    -- paritosh (done)
-5. Designer profile -- shah
-8. complete profile side arrow , props -- paritosh
-2. logo
-9. forget password (done)   
-
-10. client signup(done)
-11. file conformation
-12. notification 
-13. complete your profile ( years of exp )
-14. side nav bar -- \
-15. slider in designer signup 
-16. nav in dash
 
 
-17. display files at every stage
-18. change nothing else designer info
-19. logo svg
+20. flow
+21 navbar
+22 icons for names
+23 upload
+24 text under the stage names
+25 performance page modal for acc det
+26 rate a designer
+icons for files
+
+designer list
+1. name spec estimated_price add rating, view profile, allot
+
+form for notification
+
+form in performance
+adding button in side nav
