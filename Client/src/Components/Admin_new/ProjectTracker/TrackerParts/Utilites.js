@@ -1,13 +1,16 @@
+/* eslint-disable*/
 import React from "react";
 import styles from "./Utilites.module.css";
 import classnames from "classnames";
-import {Approve} from '../../../../firebasefunctions/firestore'
+import {Approve, Reject} from '../../../../firebasefunctions/firestore'
 import App from "../../../../App";
+import { useHistory } from "react-router-dom";
 
 function Utilites({ formData, setForm , print}) {
+  const history = useHistory();
   const current  = formData.currentStage;
 
-  
+  const stages = [...Array(formData.currentStage).keys()];
   // window.onclick = function (event) {
   //   console.log('coming here not ');
   //   var modal = document.getElementById("projectModal");
@@ -32,7 +35,16 @@ function Utilites({ formData, setForm , print}) {
 
   const Approve1 = async ()=>{
     console.log("came here finally");
-    await Approve(formData);
+    history.push('/feedback', {title:formData.title, id:formData.currentStage, from:'admin', request:1});
+    //const project = await Approve(formData);
+    //setForm(project);
+    //window.location.reload();
+  }
+  const Reject1 =async ()=>{
+    console.log('rejected');
+    await Reject(formData);
+    history.push('/feedback', {title:formData.title, id:formData.currentStage, from:'admin', request:0});
+    //window.location.reload();
   }
 
   const giveHandler = () => {
@@ -64,54 +76,60 @@ function Utilites({ formData, setForm , print}) {
         <div className={styles.title}>FEED</div>
 
         <div>
-          {formData && formData.files[current]['adminFiles'].map((element, key)=>(
+          {stages.map((data, key)=>{
+            return <div> {data+1}
+            {formData && formData.files[`${data+1}`]['adminFiles'].map((element, key)=>(
 
-            <div className={styles.box}>
-            <div className={styles.name}>
-              {element.name}
-            </div>
-
-            <div className={styles.action}>
-              <div className={styles.button_cover}>
-                {((key+1) === formData.files[current]['adminFiles'].length && 
-                  formData['files'][current]['adminApproval'] === false
-                ) && (
-                  <>
-                  <button onClick={Approve1} className={classnames(styles.button, styles.hello)}>{element.URL}</button>
-                  <button onClick={approveHandler}
-                    // onclick={print}
+              <div className={styles.box}>
+              <div className={styles.name}>
+                {element.name}
+              </div>
+  
+              <div className={styles.action}>
+                <div className={styles.button_cover}>
+                  {((key+1) === formData.files[`${data+1}`]['adminFiles'].length && 
+                    formData['files'][`${data+1}`]['adminApproval'] === false
+                  ) && (
+                    <>
+                    <a href={element.url}><button onClick={Approve1} className={classnames(styles.button, styles.hello)}>File</button></a>
+                    <button onClick={approveHandler}
+                      // onclick={print}
+                      className={classnames(styles.button, styles.hello)}
+                    >
+                      Approve
+                    </button></>
+                  )}
+                </div>
+                <div className={styles.button_cover}>
+                  {(formData['files'][`${data+1}`]['adminApproval'] === "rejected" ||
+                    formData['files'][`${data+1}`]['adminApproval'] === true
+                    // key+1 < formData.files[current]['adminFiles'].length
+                  ) && (
+                    <button
+                      onClick={viewHandler}
+                      className={classnames(styles.button, styles.hello)}
+                    >
+                      View FeedBack / view File
+                    </button>
+                  )}
+                </div>
+                <div className={styles.button_cover}>
+                  {(key+1 === formData.files[`${data+1}`]['adminFiles'].length &&
+                    formData['files'][`${data+1}`]['adminApproval'] === false
+                  ) && (<button
+                    onClick={giveHandler}
                     className={classnames(styles.button, styles.hello)}
                   >
-                    Approve
-                  </button></>
-                )}
-              </div>
-              <div className={styles.button_cover}>
-                {(formData['files'][current]['adminApproval'] === "rejected" ||
-                  key+1 < formData.files[current]['adminFiles'].length
-                ) && (
-                  <button
-                    onClick={viewHandler}
-                    className={classnames(styles.button, styles.hello)}
-                  >
-                    View FeedBack
-                  </button>
-                )}
-              </div>
-              <div className={styles.button_cover}>
-                {(key+1 === formData.files[current]['adminFiles'].length &&
-                  formData['files'][current]['adminApproval'] === false
-                ) && (<button
-                  onClick={giveHandler}
-                  className={classnames(styles.button, styles.hello)}
-                >
-                  Give Feedback
-                </button>)}
-                
+                    Give Feedback
+                  </button>)}
+                  
+                </div>
               </div>
             </div>
-          </div>
-          ))} 
+            ))}
+            </div>
+          })}
+           
           {/* end of the map func */}
         </div>
 
@@ -173,7 +191,9 @@ function Utilites({ formData, setForm , print}) {
               >Ye1s</button>
             </div>
             <div className={styles.button_cover}>
-              <button className={classnames(styles.button)}>No</button>
+              <button className={classnames(styles.button)}
+                onClick={Reject1}
+              >No</button>
             </div>
           </div>
         </div>

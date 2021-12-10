@@ -28,9 +28,9 @@ function Third({ formData, setForm }) {
           return (
             <div
               className={
-                (key + 1 < current
+                (key < current
                   ? "des-d-t-comp"
-                  : key + 1 === current
+                  : key  === current
                   ? "des-d-t-on"
                   : "des-d-t-up") + " des-d-t-box"
               }
@@ -58,9 +58,9 @@ function Third({ formData, setForm }) {
               </div>
               <div className="des-task">
                 <div style={{ fontSize: "0.8em", fontWeight: "normal" }}>
-                  {key + 1 < current
+                  {key < current
                     ? "TaskCompleted"
-                    : key + 1 === current
+                    : key  === current
                     ? "View"
                     : ""}
                 </div>

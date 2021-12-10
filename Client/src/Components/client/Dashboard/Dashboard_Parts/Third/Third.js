@@ -4,6 +4,7 @@ import EditCheckbox from "./check.png";
 import Extra from "./Extra.png";
 import Tick from "./Tick.png";
 import data from "./drafts.json";
+import { useHistory } from "react-router-dom";
 
 // status:
 // 0:completed
@@ -11,7 +12,8 @@ import data from "./drafts.json";
 // 2:upcoming
 
 function Third({ formData, setForm }) {
-  let current = 1; //formData.currentStage;
+  const history = useHistory();
+  let current = formData.currentStage;
   current = formData.currentStage;
   console.log(formData);
   console.log("from third", current);
@@ -21,6 +23,11 @@ function Third({ formData, setForm }) {
     formData.onCurrent = id;
     setForm(formData);
   };
+  const Route= (id)=>{
+    if(id === current){
+      history.push('/feedback', {title:formData.title,id, from:'client', request:1});
+    }
+  }
   return (
     <div className="des-outtest">
       <div className="des-d-t-box-container">
@@ -28,9 +35,9 @@ function Third({ formData, setForm }) {
           return (
             <div
               className={
-                (key + 1 < current
+                (key < current
                   ? "des-d-t-comp"
-                  : key + 1 === current
+                  : key  === current
                   ? "des-d-t-on"
                   : "des-d-t-up") + " des-d-t-box"
               }
@@ -57,19 +64,22 @@ function Third({ formData, setForm }) {
                 ></hr>
               </div>
               <div className="des-task">
-                <div style={{ fontSize: "0.8em", fontWeight: "normal" }}>
-                  {key + 1 < current
+                <div style={{ fontSize: "0.8em", fontWeight: "normal" }}
+                  onClick={(e)=>{
+                    Route(key)}}
+                >
+                  {key < current
                     ? "TaskCompleted"
-                    : key + 1 === current
-                    ? "View"
+                    : key === current
+                    ? "Feedback"
                     : ""}
                 </div>
                 <img
                   className="des-d-t-check"
                   src={
-                    data.status === 0
+                    key < current === 0
                       ? Tick
-                      : data.status === 1
+                      : key === current
                       ? EditCheckbox
                       : Extra
                   }

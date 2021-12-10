@@ -17,6 +17,7 @@ import Second from "./Components/Designer/ProfileCompletion/Parts/Second";
 import ClientSignup from "./Components/client/Signup/ClientSignup";
 import ClientLogin from "./Components/client/Login/ClientLogin";
 import Dashboard from "./Components/client/Dashboard/dashboard";
+import Deli from "./Components/client/Dashboard/Dashboard_Parts/del/deli";
 // ---------------------------------Admin---------------------------------
 import AdminDashboard from "./Components/Admin_new/Dasdboard/AdminDashboard";
 import ProjectTracker from "./Components/Admin_new/ProjectTracker/ProjectTracker";
@@ -61,6 +62,7 @@ function App() {
 
           <Route path="/clientSignup" exact component={ClientSignup} />
           <Route path="/clientLogin" exact component={ClientLogin} />
+
           <Route path="/chome" exact component={Dashboard} />
 
           <Route path="/admin/project" exact component={ProjectTracker} />
@@ -74,6 +76,8 @@ function App() {
           <Route path="/feedback" exact component={Feedback} />
           <Route path="/Empty" exact component={NoProjects} />
           <Route path="/create" exact component={CreateProject} />
+
+          <Route path="/deli" exact component={Deli} />
         </Switch>
       </Router>
     </div>
