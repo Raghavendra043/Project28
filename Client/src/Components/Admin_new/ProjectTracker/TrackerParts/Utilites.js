@@ -1,27 +1,51 @@
+/* eslint-disable*/
 import React from "react";
 import styles from "./Utilites.module.css";
 import classnames from "classnames";
+import {Approve, Reject} from '../../../../firebasefunctions/firestore'
+import App from "../../../../App";
+import { useHistory } from "react-router-dom";
 
-function Utilites({ formData, setForm }) {
-  window.onclick = function (event) {
-    var modal = document.getElementById("projectModal");
-    var modal1 = document.getElementById("projectModalGive");
-    var modal2 = document.getElementById("projectModalView");
-    if (
-      event.target === modal ||
-      event.target === modal1 ||
-      event.target === modal2
-    ) {
-      event.target.style.display = "none";
-    }
-  };
+function Utilites({ formData, setForm , print}) {
+  const history = useHistory();
+  const current  = formData.currentStage;
+
+  const stages = [...Array(formData.currentStage).keys()];
+  // window.onclick = function (event) {
+  //   console.log('coming here not ');
+  //   var modal = document.getElementById("projectModal");
+  //   var modal1 = document.getElementById("projectModalGive");
+  //   var modal2 = document.getElementById("projectModalView");
+  //   if (event &&
+  //     (event.target === modal ||
+  //     event.target === modal1 ||
+  //     event.target === modal2)
+  //   ) {
+  //     event.target.style.display = "none";
+  //   }
+  // };
 
   //------------------------------button handlers------------------------------
 
   const approveHandler = () => {
+    console.log("coming here too");
     var modal = document.getElementById("projectModal");
     modal.style.display = "block";
   };
+
+  const Approve1 = async ()=>{
+    console.log("came here finally");
+    history.push('/feedback', {title:formData.title, id:formData.currentStage, from:'admin', request:1});
+    //const project = await Approve(formData);
+    //setForm(project);
+    //window.location.reload();
+  }
+  const Reject1 =async ()=>{
+    console.log('rejected');
+    await Reject(formData);
+    history.push('/feedback', {title:formData.title, id:formData.currentStage, from:'admin', request:0});
+    //window.location.reload();
+  }
 
   const giveHandler = () => {
     var modal = document.getElementById("projectModalGive");
@@ -50,28 +74,88 @@ function Utilites({ formData, setForm }) {
     <div>
       <div className={styles.feed}>
         <div className={styles.title}>FEED</div>
-        <div className={styles.list}>
+
+        <div>
+          {stages.map((data, key)=>{
+            return <div> {data+1}
+            {formData && formData.files[`${data+1}`]['adminFiles'].map((element, key)=>(
+
+              <div className={styles.box}>
+              <div className={styles.name}>
+                {element.name}
+              </div>
+  
+              <div className={styles.action}>
+                <div className={styles.button_cover}>
+                  {((key+1) === formData.files[`${data+1}`]['adminFiles'].length && 
+                    formData['files'][`${data+1}`]['adminApproval'] === false
+                  ) && (
+                    <>
+                    <a href={element.url}><button onClick={Approve1} className={classnames(styles.button, styles.hello)}>File</button></a>
+                    <button onClick={approveHandler}
+                      // onclick={print}
+                      className={classnames(styles.button, styles.hello)}
+                    >
+                      Approve
+                    </button></>
+                  )}
+                </div>
+                <div className={styles.button_cover}>
+                  {(formData['files'][`${data+1}`]['adminApproval'] === "rejected" ||
+                    formData['files'][`${data+1}`]['adminApproval'] === true
+                    // key+1 < formData.files[current]['adminFiles'].length
+                  ) && (
+                    <button
+                      onClick={viewHandler}
+                      className={classnames(styles.button, styles.hello)}
+                    >
+                      View FeedBack / view File
+                    </button>
+                  )}
+                </div>
+                <div className={styles.button_cover}>
+                  {(key+1 === formData.files[`${data+1}`]['adminFiles'].length &&
+                    formData['files'][`${data+1}`]['adminApproval'] === false
+                  ) && (<button
+                    onClick={giveHandler}
+                    className={classnames(styles.button, styles.hello)}
+                  >
+                    Give Feedback
+                  </button>)}
+                  
+                </div>
+              </div>
+            </div>
+            ))}
+            </div>
+          })}
+           
+          {/* end of the map func */}
+        </div>
+
+
+        {/* <div className={styles.list}>
           <div className={styles.box}>
             <div className={styles.name}>
-              Draft {Object.keys(formData.files).length}
+              Draft {Object.keys(formData.files[current]['adminFiles']).length}
             </div>
 
             <div className={styles.action}>
               <div className={styles.button_cover}>
-                {((formData.files.one.files.length > 0 &&
-                  formData.files.one.adminFirstApproval === false) ||
-                  (formData.files.one.clientFeedback.lenght > 0 &&
-                    formData.files.one.adminSecondApproval === false)) && (
+                {((formData.files[current].files.length > 0 ||
+                  formData.files[current].adminFirstApproval === false) ||
+                  (formData.files[current].clientFeedback.lenght > 0 &&
+                    formData.files[current].adminSecondApproval === false)) && (
                   <button
-                    onClick={approveHandler}
+                    onClick={print}
                     className={classnames(styles.button, styles.hello)}
                   >
-                    Approve
+                    Approve1
                   </button>
                 )}
               </div>
               <div className={styles.button_cover}>
-                {formData.files.one.clientFeedback > 0 && (
+                {formData.files[current].clientFeedback > 0 && (
                   <button
                     onClick={viewHandler}
                     className={classnames(styles.button, styles.hello)}
@@ -90,7 +174,7 @@ function Utilites({ formData, setForm }) {
               </div>
             </div>
           </div>
-        </div>
+        </div> /// */}
       </div>
 
       <div id="projectModal" class={styles.modal}>
@@ -102,10 +186,14 @@ function Utilites({ formData, setForm }) {
 
           <div className={styles.actions}>
             <div className={styles.button_cover}>
-              <button className={classnames(styles.button)}>Yes</button>
+              <button onClick={Approve1} className={classnames(styles.button)}
+                
+              >Ye1s</button>
             </div>
             <div className={styles.button_cover}>
-              <button className={classnames(styles.button)}>No</button>
+              <button className={classnames(styles.button)}
+                onClick={Reject1}
+              >No</button>
             </div>
           </div>
         </div>

@@ -2,6 +2,8 @@ import React, { useRef, useState } from 'react'
 import "./second.css"
 import {storage} from '../../../../../firebase'
 import {update, getDocData, fileDetails, sendNotification} from '../../../../../firebasefunctions/firestore'
+import Deli from '../del/deli'
+
 function Second({ formData, setForm, Loading }) {
     const cur = useRef(formData.onCurrent);
     console.log('from 2nd ', formData);
@@ -28,7 +30,7 @@ function Second({ formData, setForm, Loading }) {
         <div>
             <div className="box2 upper">
                 <div className="topsecond">
-                    <div className="headerSecond">Project delivirables will be available here {formData.onCurrent}</div>
+                    <div className="headerSecond">Project delivirables</div>
                     <div className="logo">
                         <svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M5.77637 10.7241L8.50204 13.5001L11.2277 10.7241" stroke="#1E1F1E" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
@@ -38,8 +40,9 @@ function Second({ formData, setForm, Loading }) {
                     </div>
                 </div>
                 <div className="contentSecond">
-                    <div className="lines">Lorem Ipsum dolor sit amet. Vivamus ra felis endum</div>
-                    <div className="lines">Lorem Ipsum dolor sit amet. Vivamus ra felis endum</div>
+                  <Deli/>
+                    {/* <div className="lines">Lorem Ipsum dolor sit amet. Vivamus ra felis endum</div>
+                    <div className="lines">Lorem Ipsum dolor sit amet. Vivamus ra felis endum</div> */}
                 </div>
             </div>
             <div className="box2 upload">

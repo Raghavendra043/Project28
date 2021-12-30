@@ -19,6 +19,7 @@ import ClientLogin from "./Components/client/Login/ClientLogin";
 import Dashboard from "./Components/client/Dashboard/dashboard";
 import CreateProject from "./Components/client/CreateProject/CreateProject";
 
+import Deli from "./Components/client/Dashboard/Dashboard_Parts/del/deli";
 // ---------------------------------Admin---------------------------------
 import AdminDashboard from "./Components/Admin_new/Dasdboard/AdminDashboard";
 import ProjectTracker from "./Components/Admin_new/ProjectTracker/ProjectTracker";
@@ -36,6 +37,7 @@ import NoProjects from "./Components/Designer/NoProjectsRedirect/NoProjects";
 //import './Components/Designer/Dashboard new/Main.css'
 
 import { useHistory } from "react-router";
+
 function App() {
   const history = useHistory();
   const props = { history };
@@ -43,7 +45,9 @@ function App() {
     <div className="App">
       {/* <div className="Sidebar"><Navbar {...{history}}/></div> */}
       {/* <Navbar/> */}
-
+      {/* <div className="Sidebar">
+          <Navbar  />
+        </div> */}
       <Router>
         <Switch>
           <Route path="/home" exact component={Main} />
@@ -63,6 +67,7 @@ function App() {
 
           <Route path="/clientSignup" exact component={ClientSignup} />
           <Route path="/clientLogin" exact component={ClientLogin} />
+
           <Route path="/chome" exact component={Dashboard} />
           <Route path="/create" exact component={CreateProject} />
 
@@ -76,6 +81,9 @@ function App() {
           <Route path="/test" exact component={Signup} />
           <Route path="/feedback" exact component={Feedback} />
           <Route path="/Empty" exact component={NoProjects} />
+          <Route path="/create" exact component={CreateProject} />
+
+          <Route path="/deli" exact component={Deli} />
         </Switch>
       </Router>
     </div>

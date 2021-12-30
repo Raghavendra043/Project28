@@ -22,6 +22,16 @@
    flex-direction: row;
    height: 2em;
 }
+.buttonLower{
+  position: absolute;
+  bottom: 4vh;
+  left: 2.5vh;
+  display: flex;
+  flex-direction: row;
+  height: 2em;
+  align-items: center;
+  justify-content: left;
+}
 .menuname
 {   bottom: 0px;
     font-family: sans-serif;

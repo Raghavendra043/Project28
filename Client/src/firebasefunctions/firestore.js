@@ -1,5 +1,5 @@
 import { db } from "../firebase";
-import {arrayUnion} from 'firebase/firestore'
+import {arrayUnion, getDoc} from 'firebase/firestore'
 import axios from "axios";
 export const addData = async (collection, doc, Data) => {
   try {
@@ -84,11 +84,15 @@ export const update= async(collection, doc, name, url, current)=>{
   try {
     let project = await getDocData(collection, doc);
     console.log('Project det:', project);
-    project['files'][current]['files'].push({name, url});
+    //project['files'][current]['files'].push({name, url});
+    project['files'][current]['adminFiles'].push({name, url, stage:current});
+    project['files'][current]['currentState'] = "Waiting for Admins approval";
     
     await db.collection(collection)
       .doc(doc)
       .update(project)
+
+    
       
     return 1;
   } catch (err) {
@@ -144,3 +148,68 @@ export const getNotification= async(project, state)=>{
       console.log(err);
     }
 }
+
+
+export const Reject = async(project, feedback)=>{
+  try {
+    const current = project.currentStage;
+    project['files'][current]['adminApproval'] = "rejected"
+
+    project['files'][current]['designerFiles'].push(feedback);
+  } catch(err){
+    console.log(err);
+  }
+}
+
+export const Approve = async (title, feedback)=>{
+  try {
+    //const project = await getDocData('Projects', title);
+    const project = await search('Projects', 'title', title)
+    //const title = project.title;
+    const current = project.currentStage;
+    console.log("here too");
+    //let project = await getDocData('Projects', title);
+    const len = project['files'][current]['adminFiles'].length;
+    const file = project['files'][current]['adminFiles'][len-1];
+    project['files'][current]['clientFiles'].push(file);
+    project['files'][current]['currentState'] = "Waiting for Clients Feedback, Admin has Approved";
+    project['files'][current]['adminApproval'] = true;
+    //await 
+    await db.collection('Projects')
+      .doc(title)
+      .update(project)
+    return project;
+  } catch(err){
+    console.log(err);
+  }
+}
+
+export const clientApproval=async (title, feedback)=>{
+  try {
+    const project = await search('Projects', 'title', title);
+    console.log(project);
+    const current = project.currentStage;
+    project['files'][current]['clientApproval'] = true;
+    project.currentStage+=1;
+    project['files'][current]['clientFeedback'].push(feedback[1]);
+    
+    await db.collection('Projects')
+      .doc(title)
+      .update(project)
+    
+    return 1;
+
+
+  } catch(err){
+    console.log(err);
+  }
+}
+
+export const clientReject=()=>{
+  try {
+
+  } catch(err){
+    console.log(err);
+  }
+}
+

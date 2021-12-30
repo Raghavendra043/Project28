@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import Fourth from '../Dashboard new/Dashboard_Parts/Fourth/Fourth'
 import Navbar from '../Dashboard new/Dashboard_Parts/Navbar/Navbar'
 import Third from '../Dashboard new/Dashboard_Parts/Third/Third'
@@ -8,8 +8,44 @@ import {ReactComponent as Download} from './download.svg'
 import {ReactComponent as Like} from './thumbsUp.svg'
 import {ReactComponent as NeedChanges} from './needChanges.svg'
 import {ReactComponent as Sad} from './sad.svg'
+import { useHistory, useLocation } from 'react-router-dom'
+import { clientApproval, Approve } from '../../../firebasefunctions/firestore'
 
 function Feedback() {
+    const location = useLocation();
+    const history = useHistory();
+    const ID = location.state.id;
+    const title = location.state.title;
+    const request = location.state.request;
+    const from = location.state.from;
+    console.log(request);
+    
+    const feedback1 = useRef();
+    const feedback2 = useRef();
+
+    const ApproveClient=async()=>{
+        console.log('client');
+        await clientApproval(title, [feedback1.current.value, feedback2.current.value]);
+        history.push('/chome');
+    }
+
+    const ApproveAdmin=async()=>{
+        console.log('admin');
+        await Approve(title, [feedback1.current.value, feedback2.current.value]);
+        history.push('/admin/project');
+    }
+
+    const rejectClient=async()=>{
+        console.log('reject client');
+        //await clientApproval(title, [feedback1.current.value, feedback2.current.value]);
+        //history.push('/chome');
+    }
+
+    const rejectAdmin=async()=>{
+        console.log('reject admin');
+        //await clientApproval(title, [feedback1.current.value, feedback2.current.value]);
+        //history.push('/chome');
+    }
     return (
         <>
             <div className={styles.screen}>
@@ -25,7 +61,7 @@ function Feedback() {
                                     <Back/>
                                 </div>
                                 <div className={styles.title}>
-                                    Deliverables
+                                    Deliverables {title}
                                 </div>
                                 <div className={styles.subtitle}>
                                     First Draft
@@ -53,12 +89,36 @@ function Feedback() {
                             </div>
                             <div className={styles.remarks}>
                                 <div className={styles.title2}>Remarks</div>
-                                <div className={styles.input1}><input placeholder="Enter the deliverable numbers here that require changes" type="text" className={styles.inputOne} /></div>
-                                <div className={styles.textarea}><textarea className={styles.TextArea} placeholder="Please describe the issues. Make sure it as detailed and specific as possible."/></div>
+                                <div className={styles.input1}><input placeholder="Enter the deliverable numbers here that require changes" type="text" className={styles.inputOne} ref = {feedback1}/></div>
+                                <div className={styles.textarea}><textarea className={styles.TextArea} ref = {feedback2} placeholder="Please describe the issues. Make sure it as detailed and specific as possible." /></div>
                             </div>
-                            <div className={styles.confirmFeedback}>
-                                Confirm Feedback
+                            
+                            {from == 'client' ? ( <div>
+                            <div onClick={(e)=>{
+                                rejectClient()
+                            }}
+                            
+                            className={styles.confirmFeedback}>
+                                Suggest for changes
                             </div>
+                            <div onClick={(e)=>{
+                                ApproveClient()
+                            }}
+                            
+                            className={styles.confirmFeedback}>
+                                Approve
+                            </div>
+                            </div> ) : (
+                                <div onClick={(e)=>{
+                                    if(request === 1){ApproveAdmin()}else{rejectAdmin()}
+                                    
+                                }}
+                                
+                                className={styles.confirmFeedback}>
+                                    {request === 0 ? "Suggest for changes1"
+                                    : "Approve1"}
+                                </div>
+                            )}
                     </div>
                 </div>
                 <div className={styles.col2}>

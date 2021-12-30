@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./ProjectTracker.module.css";
 import About from "./TrackerParts/About";
 import { useForm } from "react-hooks-helper";
 import Utilites from "./TrackerParts/Utilites";
 import { ChatEngine } from "react-chat-engine";
+import {addData, getDocData} from '../../../firebasefunctions/firestore'
 import {
   ChatEngineWrapper,
   ChatSocket,
@@ -17,7 +18,8 @@ import axios from "axios";
 var PROJECT_ID = "68a08b56-b99d-4754-85e8-375c862bef48";
 var USER_NAME = "Ragh";
 
-function ProjectTracker() {
+function ProjectTracker({}) {
+  const title = '1';
   const dummy = {
     endDate: "",
     projectType: "Design",
@@ -25,23 +27,30 @@ function ProjectTracker() {
     id: 1,
     projectSummary: "Sample Project",
     files: {
-      0: { files: [] },
-      one: {
-        files: [],
+      '0': { files: [] },
+      '1': {
+        files:[],
+        clientFiles :[],
+        adminFiles:[],
+        designerFiles:[],
         feedback: [],
-        adminFirstApproval: false,
+        adminApproval: false,
+        clientApproval: false,
         clientFeedback: [],
         approved: false,
-        adminSecondApproval: false,
         currentState: "Waiting for Files from Designers",
       },
-      2: {
-        clientFeedback: [],
-        adminSecondApproval: false,
-        adminFirstApproval: false,
-        files: [],
-        approved: false,
+      '2': {
+        files:[],
+        clientFiles :[],
+        adminFiles:[],
+        designerFiles:[],
         feedback: [],
+        adminApproval: false,
+        clientApproval: false,
+        clientFeedback: [],
+        approved: false,
+        currentState: "Waiting for Files from Designers",
       },
     },
     startDate: "12-12-12",
@@ -52,22 +61,26 @@ function ProjectTracker() {
   };
 
   //const [formData1, setForm] = useForm(dummy);
-  const [formData, setForm] = useForm(dummy);
-  axios
-    .get(`http://localhost:9000/projectracker`)
-    .then((res) => {
-      console.log(res.data);
-      setForm(res.data);
-    })
-    .catch((err) => {
+  const [formData, setForm] = useState(null);
+  if(!formData){
+    getDocData('Projects', title).then((project)=>{
+      console.log(project);
+      setForm(project);
+
+    }).catch((err)=>{
       console.log(err);
-    });
-  const props = { formData, setForm };
-  //const props1 = {dummy, setdummy}
+    })
+  }
+  
+  const print=  ()=>{
+    console.log("printed");
+  }
+
+  const props = { formData, setForm , print};
 
   return (
     <div>
-      <div className={styles.container}>
+      {formData ? (<div className={styles.container}>
         <div className={styles.about}>
           {formData ? <About {...props} /> : null}
         </div>
@@ -87,7 +100,10 @@ function ProjectTracker() {
             </ChatEngineWrapper>
           </Col>
         </div>
-      </div>
+      </div>) : (
+        <div>fuck off</div>
+      )}
+
     </div>
   );
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import "./navbar.css"
 import { useState } from 'react';
 import Toggle from '../../../ToggleSwitch/Toggle';
+import {ReactComponent as Kit} from './assets/starterkit.svg'
 import { useHistory } from 'react-router';
 function Navbar({email}) {
     const history = useHistory();
@@ -167,7 +168,13 @@ function Navbar({email}) {
                             Your Availability
                         </div>
                     </div>
-                </div>
+                    </div>
+                    <div className="buttonLower" key="6">
+                        <a href="#" download><Kit /></a>
+                        <div className={isHamOn ? "menuname" : "null"}>
+                            Download StarterKit
+                        </div>
+                    </div>
             </div>
             </div>
         <div className="hamNav">
