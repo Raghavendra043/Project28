@@ -1,0 +1,40 @@
+.container {
+  margin: 10vh 8vw 5vh 10vw;
+  background-color: #e5e5e5;
+}
+
+.box {
+  background-color: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 2em 4em 2em 3em;
+  margin: 10vh auto;
+}
+
+.title {
+  text-transform: uppercase;
+  letter-spacing: 0.185em;
+  font-size: 1.2em;
+  color: white;
+  font-weight: bold;
+  padding: 0.2em 1em;
+  width: auto;
+  background-color: #24576a;
+  width: 27%;
+  border-radius: 6px;
+}
+
+.field {
+  display: flex;
+  justify-content: space-between;
+  margin: 2em 0;
+  font-family: Roboto;
+  font-weight: 400;
+  width: 100%;
+}
+
+.input {
+  width: 110%;
+  border: 0.625926px solid #000000;
+  border-radius: 10px;
+}

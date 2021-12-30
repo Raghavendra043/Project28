@@ -17,6 +17,8 @@ import Second from "./Components/Designer/ProfileCompletion/Parts/Second";
 import ClientSignup from "./Components/client/Signup/ClientSignup";
 import ClientLogin from "./Components/client/Login/ClientLogin";
 import Dashboard from "./Components/client/Dashboard/dashboard";
+import CreateProject from "./Components/client/CreateProject/CreateProject";
+
 // ---------------------------------Admin---------------------------------
 import AdminDashboard from "./Components/Admin_new/Dasdboard/AdminDashboard";
 import ProjectTracker from "./Components/Admin_new/ProjectTracker/ProjectTracker";
@@ -36,7 +38,7 @@ import NoProjects from "./Components/Designer/NoProjectsRedirect/NoProjects";
 import { useHistory } from "react-router";
 function App() {
   const history = useHistory();
-  const props=  {history};
+  const props = { history };
   return (
     <div className="App">
       {/* <div className="Sidebar"><Navbar {...{history}}/></div> */}
@@ -44,10 +46,13 @@ function App() {
 
       <Router>
         <Switch>
-          
           <Route path="/home" exact component={Main} />
           <Route path="/designer/login" exact component={DesignerLogin} />
-          <Route path="/designer/performance" exact component={DesignerPerformance}/>
+          <Route
+            path="/designer/performance"
+            exact
+            component={DesignerPerformance}
+          />
           <Route path="/designer/signup" exact component={DesginerSignUp} />
           <Route path="/designer/dash" exact component={Main} />
           <Route path="/designer/profile" exact component={ProfileMain} />
@@ -59,6 +64,7 @@ function App() {
           <Route path="/clientSignup" exact component={ClientSignup} />
           <Route path="/clientLogin" exact component={ClientLogin} />
           <Route path="/chome" exact component={Dashboard} />
+          <Route path="/create" exact component={CreateProject} />
 
           <Route path="/admin/project" exact component={ProjectTracker} />
           <Route path="/admin/dash" exact component={AdminDashboard} />
