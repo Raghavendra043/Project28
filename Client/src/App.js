@@ -18,6 +18,7 @@ import ClientSignup from "./Components/client/Signup/ClientSignup";
 import ClientLogin from "./Components/client/Login/ClientLogin";
 import Dashboard from "./Components/client/Dashboard/dashboard";
 import CreateProject from "./Components/client/CreateProject/CreateProject";
+import CreateProjectList from "./Components/client/CreateProject/CreateProjectList";
 
 import Deli from "./Components/client/Dashboard/Dashboard_Parts/del/deli";
 // ---------------------------------Admin---------------------------------
@@ -70,6 +71,7 @@ function App() {
 
           <Route path="/chome" exact component={Dashboard} />
           <Route path="/create" exact component={CreateProject} />
+          <Route path="/createlist" exact component={CreateProjectList} />
 
           <Route path="/admin/project" exact component={ProjectTracker} />
           <Route path="/admin/dash" exact component={AdminDashboard} />

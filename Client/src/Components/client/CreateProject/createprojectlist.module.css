@@ -1,0 +1,107 @@
+.container {
+  background-color: #e5e5e556;
+}
+
+.box {
+  background-color: white;
+  margin: 5vh auto;
+  width: 90%;
+  padding: 3vh 4vw;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.title {
+  font-family: Open Sans;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: 3vh;
+  letter-spacing: 0.185em;
+  color: white;
+  background: radial-gradient(
+    77.73% 106.88% at 5.62% 8.64%,
+    rgba(51, 148, 184, 0.77) 0%,
+    #24576a 100%
+  );
+  padding: 1vh 2vw;
+  border-radius: 6px;
+}
+
+.items {
+  margin: 5vh 0 2vh;
+}
+
+.field {
+  display: flex;
+  justify-content: space-between;
+  font-size: 2.5vh;
+  margin-top: 4vh;
+}
+
+.detail {
+}
+
+.input {
+  border: 0.625926px solid #000000;
+  border-radius: 10px;
+  width: 20vw;
+  padding: 0.5vh 1vw;
+}
+
+.radio_cover {
+  width: 20vw;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.radio_label {
+  font-weight: 500;
+  color: black;
+  font-size: 2.5vh;
+  margin-left: 1vw;
+}
+
+.time {
+  display: flex;
+  justify-content: space-between;
+  margin: 5vh 0 2vh;
+}
+
+.timeTitle {
+  font-size: 2vh;
+  font-family: Red Hat Display;
+  font-weight: 500;
+}
+.date {
+  display: flex;
+  flex-direction: row;
+  height: 5vh;
+  align-items: center;
+  margin-top: 2vh;
+}
+.BigDate {
+  font-size: 5vh;
+  font-weight: 500;
+  color: #20c1ef;
+  margin-right: 1.3vh;
+}
+.smolDate {
+  font-size: 1.7vh;
+  font-weight: 500;
+  font-family: Red Hat Display;
+}
+.dates {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 4vh;
+}
+.svg {
+  margin-left: 3vh;
+  margin-right: 3vh;
+}
+
+.pencil {
+  margin-left: 3vw;
+}
