@@ -88,7 +88,7 @@ function Utilites({ formData, setForm , print}) {
               <div className={styles.action}>
                 <div className={styles.button_cover}>
                   {((key+1) === formData.files[`${data+1}`]['adminFiles'].length && 
-                    formData['files'][`${data+1}`]['adminApproval'] === false
+                    formData['files'][`${data+1}`]['adminApproval'] === false && formData['files'][`${data+1}`]['designerFiles'].length ===0
                   ) && (
                     <>
                     <a href={element.url}><button onClick={Approve1} className={classnames(styles.button, styles.hello)}>File</button></a>
@@ -102,7 +102,7 @@ function Utilites({ formData, setForm , print}) {
                 </div>
                 <div className={styles.button_cover}>
                   {(formData['files'][`${data+1}`]['adminApproval'] === "rejected" ||
-                    formData['files'][`${data+1}`]['adminApproval'] === true
+                    formData['files'][`${data+1}`]['adminApproval'] === true || formData['files'][`${data+1}`]['designerFiles'].length > 0 || (key+1) < formData.files[`${data+1}`]['adminFiles'].length
                     // key+1 < formData.files[current]['adminFiles'].length
                   ) && (
                     <button
@@ -115,7 +115,7 @@ function Utilites({ formData, setForm , print}) {
                 </div>
                 <div className={styles.button_cover}>
                   {(key+1 === formData.files[`${data+1}`]['adminFiles'].length &&
-                    formData['files'][`${data+1}`]['adminApproval'] === false
+                    formData['files'][`${data+1}`]['adminApproval'] === false && formData['files'][`${data+1}`]['designerFiles'].length ===0
                   ) && (<button
                     onClick={giveHandler}
                     className={classnames(styles.button, styles.hello)}

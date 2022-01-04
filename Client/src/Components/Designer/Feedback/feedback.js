@@ -9,7 +9,7 @@ import {ReactComponent as Like} from './thumbsUp.svg'
 import {ReactComponent as NeedChanges} from './needChanges.svg'
 import {ReactComponent as Sad} from './sad.svg'
 import { useHistory, useLocation } from 'react-router-dom'
-import { clientApproval, Approve } from '../../../firebasefunctions/firestore'
+import { clientApproval, Approve , Rejectadmin} from '../../../firebasefunctions/firestore'
 
 function Feedback() {
     const location = useLocation();
@@ -43,8 +43,8 @@ function Feedback() {
 
     const rejectAdmin=async()=>{
         console.log('reject admin');
-        //await clientApproval(title, [feedback1.current.value, feedback2.current.value]);
-        //history.push('/chome');
+        await Rejectadmin(title,[feedback1.current.value, feedback2.current.value] );
+        history.push('/admin/project');
     }
     return (
         <>

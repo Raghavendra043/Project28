@@ -1,147 +1,40 @@
-.Body{
-    width: 60vw;
-    height: 80vh;
-    transform: translate(20vw,10vh);
-    background: #FFFFFF;
-    border: 1px solid #E7E7E7;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 11px;
+.container {
+  margin: 10vh 8vw 5vh 10vw;
+  background-color: #e5e5e5;
 }
-.maincontainer{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding-top: 7vh;
-    padding-right: 5vh;
-    padding-left: 5vh;
-}
-/* .left{
-    width: 60%;
-} */
-.header{
-    font-size: 4vh;
-    font-family: Red Hat Display;
-    font-weight: 500;
-    margin-bottom: 5vh;
-}
-.inputs{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 27vw;
-    margin-top: 4vh;
-}
-.inputTitle{
-    font-family: Red Hat Display;
-    font-size: 2vh;
-    font-weight: 500;
 
+.box {
+  background-color: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 2em 4em 2em 3em;
+  margin: 10vh auto;
 }
-.maininput{
-    outline: none;
-    width: 16vw;
-    height: 4vh;
-    border: 1px solid black;
-    border-radius: 1.5vh;
-    padding-left: 1.5vh;
 
+.title {
+  text-transform: uppercase;
+  letter-spacing: 0.185em;
+  font-size: 1.2em;
+  color: white;
+  font-weight: bold;
+  padding: 0.2em 1em;
+  width: auto;
+  background-color: #24576a;
+  width: 27%;
+  border-radius: 6px;
 }
-.textinput{
-    width: 16vw;
-    height: 4vh;
-    border: 1px solid black;
-    border-radius: 1.5vh;
-    outline: none;
-    padding-left: 1.5vh;
+
+.field {
+  display: flex;
+  justify-content: space-between;
+  margin: 2em 0;
+  font-family: Roboto;
+  font-weight: 400;
+  width: 100%;
 }
-.TimePeriod{
-    margin-top: 5vh;
-    margin-bottom: 3vh;
-    padding-right: 2vh;
-}
-.timeTitle{
-    font-size: 2vh;
-    font-family: Red Hat Display ;
-    font-weight: 500;
-}
-.date{
-    display: flex;
-    flex-direction: row;
-    height: 5vh;
-    align-items: center;
-    margin-top: 2vh;
-}
-.BigDate{
-    font-size: 4vh;
-    font-weight: 500;
-    color:  #20C1EF;
-    margin-right: 1.3vh;
-}
-.smolDate{
-    font-size: 1.7vh;
-    font-weight: 500;
-    font-family: Red Hat Display ;
-}
-.dates{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-left: 4vh;
-}
-.svg{
-    margin-left: 3vh;
-    margin-right: 3vh;
-}
-.timeHeader{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-.button{
-    width: 12vw;
-    height: 7vh;
-    background: radial-gradient(77.73% 106.88% at 5.62% 8.64%, rgba(51, 148, 184, 0.77) 0%, #24576A 100%);
-    font-size: 1.7vh;
-    font-weight: 700;
-    font-family: Red Hat Display ;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    border-radius: 1vh;
-    margin-top: 5vh;
-}
-.Number{
-    border: 1px solid black;
-    border-radius: 1vh;
-    width: 100%;
-    padding-left: 2vh;
-    padding-right: 2vh;
-}
-.right{
-    width: 16vw;
-    margin-left: 10vh;
-}
-.Para{
-    margin-top: 6vh;
-    margin-left: 2vh;
-}
-.paraHead{
-    font-size: 2vh;
-    font-weight: 700;
-    font-family: Red Hat Display ;
-    margin-bottom: 2vh;
-}
-.paramain{
-    font-size: 1.65vh;
-    font-family: Red Hat Display ;
-    border: 1px solid grey;
-    border-radius: 2.5vh;
-    padding: 1vh;
-}
-.button:hover{
-    cursor: pointer;
+
+.input {
+  width: 110%;
+  border: 0.625926px solid #000000;
+  border-radius: 10px;
 }

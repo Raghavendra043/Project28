@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useRef } from "react";
 import styles from "../Loginpages/forgotpassword.module.css";
 import style from "../ClientLogin.module.css";
 import {ReactComponent as ArrowLeft} from '../assets/ArrowLeft.svg'
+import axios from "axios";
+import { useState } from "react";
 
 function ForgotPassword({ formData, setForm, navigation }) {
+
+  const [Error, setErr] = useState();
+  const email = useRef();
+  const forgot =()=>{
+    try{
+      axios.post('link', {email:email}).then(()=>{
+
+      })
+    } catch(err){
+      console.log(err);
+
+    }
+  }
+
   return (
     <div>
       <div className={style.signupbox}>
@@ -27,13 +43,15 @@ function ForgotPassword({ formData, setForm, navigation }) {
                   value={formData.email}
                   onChange={setForm}
                   placeholder="Ex: johndoe@gmail.com"
-                  // ref = {props.nameRef}
+                  ref = {email}
                   name="email"
                 />
               </div>
 
               <div className={styles.cover}>
-                <button className={styles.complete} onClick={navigation.next}>Send Recovery Mail</button>
+                <button className={styles.complete} onClick={
+                  navigation.next
+                  }>Send Recovery Mail</button>
               </div>
             </div>
           </div>

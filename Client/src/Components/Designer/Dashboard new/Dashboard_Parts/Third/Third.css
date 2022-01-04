@@ -22,7 +22,12 @@
 }
 .des-d-t-comp {
   --back: white;
-  --des-text-col: rgba(36, 87, 106, 1);
+  --des-text-col: rgba(36, 87, 106, 1); 
+}
+
+.des-d-t-error {
+  --back: rgb(240, 102, 23);
+  --des-text-col: rgb(253, 253, 253);
 }
 
 .des-d-t-up {

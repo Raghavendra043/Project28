@@ -30,7 +30,9 @@ function Third({ formData, setForm }) {
               className={
                 (key < current
                   ? "des-d-t-comp"
-                  : key  === current
+                  : (formData['files'][1]['designerFiles'].length > 0 && key === current)
+                  ? "des-d-t-error"
+                  : key  === current 
                   ? "des-d-t-on"
                   : "des-d-t-up") + " des-d-t-box"
               }
@@ -57,7 +59,11 @@ function Third({ formData, setForm }) {
                 ></hr>
               </div>
               <div className="des-task">
-                <div style={{ fontSize: "0.8em", fontWeight: "normal" }}>
+                <div style={{ fontSize: "0.8em", fontWeight: "normal" }}
+                    onClick={()=>{
+
+                    }}
+                >
                   {key < current
                     ? "TaskCompleted"
                     : key  === current

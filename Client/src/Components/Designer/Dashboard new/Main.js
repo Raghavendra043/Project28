@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Main.css";
 import { useLocation } from "react-router-dom";
 import First from "./Dashboard_Parts/First/First";
@@ -17,7 +17,7 @@ function Main() {
   const [dt, setDt] = useState('Loading Account info');
   const auth = getAuth();
   const user = auth.currentUser;
-
+  
   console.log("User logged in : ", user);
   //const email = 'f20190120@hyderabad.bits-pilani.ac.in';
   //const email = location.state.email;
@@ -30,6 +30,8 @@ function Main() {
   const [stat, setStat] = useState(0);
 
   const [formData, setForm] = useState(null);
+  
+
   
 
   const Loading= (state)=>{
@@ -63,6 +65,8 @@ function Main() {
       }
     });
   }
+
+  
 
   if (formData) {
     var element = document.getElementById("loading");

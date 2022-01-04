@@ -85,8 +85,11 @@ export const update= async(collection, doc, name, url, current)=>{
     let project = await getDocData(collection, doc);
     console.log('Project det:', project);
     //project['files'][current]['files'].push({name, url});
-    project['files'][current]['adminFiles'].push({name, url, stage:current});
+    project['files'][current]['adminFiles'].push({name, url, client:[] ,admin:[], adminApp:2,clientApp:2 });
     project['files'][current]['currentState'] = "Waiting for Admins approval";
+    if(project['files'][current]['designerFiles'].length >0){
+      project['files'][current]['designerFiles'] = []
+    }
     
     await db.collection(collection)
       .doc(doc)
@@ -171,6 +174,9 @@ export const Approve = async (title, feedback)=>{
     //let project = await getDocData('Projects', title);
     const len = project['files'][current]['adminFiles'].length;
     const file = project['files'][current]['adminFiles'][len-1];
+    file.admin = [feedback[0], feedback[1]]
+    file.adminApp = 3;
+  
     project['files'][current]['clientFiles'].push(file);
     project['files'][current]['currentState'] = "Waiting for Clients Feedback, Admin has Approved";
     project['files'][current]['adminApproval'] = true;
@@ -182,6 +188,26 @@ export const Approve = async (title, feedback)=>{
   } catch(err){
     console.log(err);
   }
+}
+
+export const Rejectadmin = async (title, feedback)=>{
+  try{
+    const project = await search('Projects', 'title', title)
+    const current = project.currentStage;
+    console.log("admin rejected");
+    const len = project['files'][current]['adminFiles'].length;
+    const file = project['files'][current]['adminFiles'][len-1];
+    file.adminApp = 1;
+    file.admin.push({1:feedback[0],2:feedback[1]});
+
+    project['files'][current]['designerFiles'][0] = file;
+    await db.collection('Projects')
+      .doc(title)
+      .update(project)
+  }catch(err){
+    console.log(err);
+  }
+
 }
 
 export const clientApproval=async (title, feedback)=>{
