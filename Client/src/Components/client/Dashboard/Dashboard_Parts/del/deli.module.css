@@ -1,0 +1,21 @@
+.files {
+  display: flex;
+  flex-wrap: wrap;
+  height: 30vh;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.file {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 5vw;
+  background-color: #fafafa;
+  padding: 1vh 3.5vw;
+  border-radius: 8px;
+}
+
+.name {
+  font-size: 2vh;
+  word-wrap: break-word;
+}
