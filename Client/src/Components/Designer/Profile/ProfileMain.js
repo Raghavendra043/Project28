@@ -8,6 +8,7 @@ import { getDocData } from '../../../firebasefunctions/firestore';
 import Navbar from '../Dashboard new/Dashboard_Parts/Navbar/Navbar';
 import { Update } from '../../../firebasefunctions/firestore';
 import { BarWave } from "react-cssfx-loading";
+import Navbar2 from '../../Navbar/Navbar2';
 
 function ProfileMain() {
     //const location = useLocation();
@@ -54,6 +55,7 @@ function ProfileMain() {
 
     return (
         <div>
+            <Navbar2/>
         <div id= "screen"  style={{backgroundColor:"#4d494905"}}>
 
         <div className="Sidebar">

@@ -5,6 +5,7 @@ import Second from "./Parts/Second";
 import { useHistory } from "react-router";
 import styles from "./Complete.module.css";
 import e_style from "./../Signup/SignUp.module.css";
+import Navbar1 from "../../Navbar/Navbar1";
 
 
 const defaultData = {
@@ -41,12 +42,14 @@ function DesignerComplete() {
       case 1:
           return (
               <>
+              <Navbar1/>
               <First {...props}/>
               </>
           )
       case 2:
               return (
               <>
+              <Navbar1/>
                 <Second {...props}/>
               </>
           )

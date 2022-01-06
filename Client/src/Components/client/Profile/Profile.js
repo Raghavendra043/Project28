@@ -1,13 +1,15 @@
 import React from 'react'
 import styles from "./Clientprofile.module.css"
-import Navbar from '../../Designer/Dashboard new/Dashboard_Parts/Navbar/Navbar'
+import Navbar from '../Dashboard/Dashboard_Parts/Navbar/Navbar'
 import { ReactComponent as ProfilePhoto } from './assets/profile.svg'
 import { ReactComponent as Pencil } from './assets/pencil.svg'
 import { ReactComponent as Upload } from './assets/upload.svg'
+import Navbar2 from '../../Navbar/Navbar2'
 
 function Profile() {
     return (
         <div className={styles.main_container1}>
+            <Navbar2/>
             <div className={styles.Sidebar}>
                     <Navbar/>
             </div>

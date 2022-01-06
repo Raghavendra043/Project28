@@ -6,6 +6,7 @@ import { ReactComponent as Man } from "./assets/Man.svg";
 import {Login} from '../../../firebasefunctions/login'
 import { BarWave } from "react-cssfx-loading";
 import {search} from '../../../firebasefunctions/firestore'
+import Navbar1 from "../../Navbar/Navbar1";
 
 function DesignerLogin() {
   const emailRef = useRef("");
@@ -46,6 +47,7 @@ function DesignerLogin() {
 
   return (
     <>
+    <Navbar1/>
     <div id= "screen" className={e_style.container} style={{position:"absolute"}}>
       <div className={e_style.bottom_background}></div>
 

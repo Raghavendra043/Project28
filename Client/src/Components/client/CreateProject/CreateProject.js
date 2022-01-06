@@ -2,10 +2,14 @@ import React from "react";
 import styles from "./CreateProject.module.css";
 import { ReactComponent as Time } from "./assets/TimePeriod.svg";
 import { ReactComponent as Edit } from "./assets/pencil.svg";
+import Navbar2 from "../../Navbar/Navbar2";
+import Navbar from "../Dashboard/Dashboard_Parts/Navbar/Navbar";
 
 function CreateProject() {
   return (
     <div className={styles.Body}>
+      <Navbar2/>
+      <Navbar/>
       <div className={styles.maincontainer}>
         <div className={styles.left}>
           <div className={styles.header}>CREATE A PROJECT</div>

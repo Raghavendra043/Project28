@@ -25,7 +25,9 @@ import Deli from "./Components/client/Dashboard/Dashboard_Parts/del/deli";
 // ---------------------------------Admin---------------------------------
 import AdminDashboard from "./Components/Admin_new/Dasdboard/AdminDashboard";
 import ProjectTracker from "./Components/Admin_new/ProjectTracker/ProjectTracker";
-
+import DesignerList from "./Components/Admin_new/Dasdboard/DesignerList";
+import ClientDet from "./Components/Admin_new/Dasdboard/clientDetails";
+import ProjectDet from "./Components/Admin_new/Dasdboard/ProjectDetails";
 // -----------------------------ChatBox-----------------------------
 import Chat from "./trail/chat";
 import ChatEngine from "./trail/admin";
@@ -51,7 +53,7 @@ function App() {
       
         </div> */}
         {/* <Navbar  /> */}
-        <Navbar/>
+        {/* <Navbar/> */}
       <Router>
         <Switch>
           
@@ -88,6 +90,11 @@ function App() {
           <Route path="/create" exact component={CreateProject} />
 
           <Route path="/deli" exact component={Deli} />
+
+          <Route path="/designer" exact component={DesignerList} />
+          <Route path="/client" exact component={ClientDet} />
+          <Route path="/pro" exact component={ProjectDet} />
+
         </Switch>
       </Router>
     </div>

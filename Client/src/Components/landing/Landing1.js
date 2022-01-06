@@ -1,5 +1,5 @@
 import { useHistory } from "react-router-dom"
-
+import Navbar1 from "../Navbar/Navbar1";
 export default function Landing1 (){
     const history = useHistory();
 
@@ -16,6 +16,8 @@ export default function Landing1 (){
 
     return(
         <>
+        <Navbar1/>
+        <div style={{marginTop:"30vh", marginLeft:"43vw"}}>
         <button
             onClick={()=>{
                 route(1);
@@ -33,6 +35,8 @@ export default function Landing1 (){
                 route(3);
             }}
         > Admin </button>
+        </div>
+
         </>
     )
 }

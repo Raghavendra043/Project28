@@ -11,6 +11,11 @@ import { BarWave } from "react-cssfx-loading";
 import About from "../../Admin_new/ProjectTracker/TrackerParts/About";
 import { getAuth } from "firebase/auth";
 import NoProjects from '../NoProjectsRedirect/NoProjects'
+import Navbar1 from "../../Navbar/Navbar1";
+//import Navbar from "./Components/Navbar/Navbar";
+//import Navbar from "../../Navbar/Navbar";
+import Navbar2 from "../../Navbar/Navbar2";
+
 
 function Main() {
   const location = useLocation();
@@ -80,7 +85,11 @@ function Main() {
   }
 
   return (
+    
     <div>
+      {/* <Navbar1/> */}
+      <Navbar2/>
+
       <div
         className="main_container1"
         style={{ position: "absolute", opacity: "0.16" }}

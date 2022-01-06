@@ -4,6 +4,7 @@ import ForgetPassword from './ForgetPassword/ForgetPassword';
 import ForgetSecond from './ForgetPassword/ForgetSecond';
 import { useForm } from 'react-hooks-helper';
 import { useStep } from 'react-hooks-helper';
+import Navbar1 from '../../Navbar/Navbar1';
 
 const defaultData = {
     email: "",
@@ -26,16 +27,17 @@ function ForgetMain() {
     switch (step.id) {
         case "Forgot1":
             return (
-                
-                <ForgetPassword {...props} />
+                <><Navbar1/>
+                <ForgetPassword {...props} /></>
             )
         case "Forgot2":
-            return (
-                <ForgetSecond {...props} />
+            return (<><Navbar1/>
+                <ForgetSecond {...props} /></>
             )
     }
     return (
         <>
+        
         </>
     )
 }

@@ -10,6 +10,8 @@ import { BarWave } from "react-cssfx-loading";
 import { ReactComponent as FirstMan } from "./assests/Firstman.svg";
 import { ReactComponent as SecondMan } from "./assests/SecondMan.svg";
 import { ReactComponent as ThirdMan } from "./assests/ThirdMan.svg";
+import Navbar2 from "../../Navbar/Navbar2";
+import Navbar1 from "../../Navbar/Navbar1";
 
 const defaultData = {
   fullname: "",
@@ -48,6 +50,7 @@ function DesginerSignUp() {
     case "Signup1":
       return (
         <>
+        <Navbar1/>
           <div className={styles.container} id = 'screen' style={{position:"absolute"}}>
             <div className={styles.bottom_background}></div>
             <div className={styles.third}>

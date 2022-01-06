@@ -6,8 +6,12 @@ import DownLeft from "./PerformanceParts/Left/Down/Left/DownLeft";
 import DownRight from "./PerformanceParts/Left/Down/Right/DownRight";
 import LeftUp from "./PerformanceParts/Left/Up/LeftUp";
 import Navbar from "../Dashboard new/Dashboard_Parts/Navbar/Navbar";
+import Navbar2 from "../../Navbar/Navbar2";
+
 function DesignerPerformance() {
   return (
+    <>
+    <Navbar2/>    
     <div style={{ backgroundColor: "rgba(250, 235, 235, 0.103)" }}>
       <div className="Sidebar" >
           <Navbar />
@@ -36,7 +40,7 @@ function DesignerPerformance() {
           </div>
         </div>
       </div>
-    </div>
+    </div></>
   );
 }
 
