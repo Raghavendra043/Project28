@@ -1,8 +1,9 @@
 import React from "react";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
-//import Navbar from "./Components/Navbar/Navbar";
-import Navbar from "./Components/Designer/Dashboard new/Dashboard_Parts/Navbar/Navbar";
+import Navbar from "./Components/Navbar/Navbar";
+//import Navbar from "./Components/Designer/Dashboard new/Dashboard_Parts/Navbar/Navbar";
 
+import Landing1 from "./Components/landing/Landing1";
 // -----------------------------Designer-----------------------------
 import Main from "./Components/Designer/Dashboard new/Main";
 import ProfileMain from "./Components/Designer/Profile/ProfileMain";
@@ -47,17 +48,18 @@ function App() {
       {/* <div className="Sidebar"><Navbar {...{history}}/></div> */}
       {/* <Navbar/> */}
       {/* <div className="Sidebar">
-          <Navbar  />
+      
         </div> */}
+        {/* <Navbar  /> */}
+        <Navbar/>
       <Router>
         <Switch>
+          
+        <Route path="/" exact component={Landing1} />
+
           <Route path="/home" exact component={Main} />
           <Route path="/designer/login" exact component={DesignerLogin} />
-          <Route
-            path="/designer/performance"
-            exact
-            component={DesignerPerformance}
-          />
+          <Route path="/designer/performance" exact component={DesignerPerformance}/>
           <Route path="/designer/signup" exact component={DesginerSignUp} />
           <Route path="/designer/dash" exact component={Main} />
           <Route path="/designer/profile" exact component={ProfileMain} />

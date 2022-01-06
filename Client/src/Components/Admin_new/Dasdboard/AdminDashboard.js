@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import styles from "./Dashboard.module.css";
 import { getData } from "../../../firebasefunctions/firestore";
 import { BarWave } from "react-cssfx-loading";
+import { useHistory } from "react-router-dom";
 
 function AdminDashboard() {
+  const history = useHistory();
   const [designerList, setdesignerList] = useState();
   if (!designerList) {
     getData(`Designers`)
@@ -27,6 +29,37 @@ function AdminDashboard() {
     }
   }
 
+  const set = (id)=>{
+    if(id === 1){
+      getData(`Designers`)
+      .then((project) => {
+        console.log(project);
+        setdesignerList(project);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    } else if(id === 2){
+      getData(`Client`)
+      .then((project) => {
+        console.log(project);
+        setdesignerList(project);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    } else {
+      getData(`Projects`)
+      .then((project) => {
+        console.log(project);
+        setdesignerList(project);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    }
+  }
+
   return (
     <div>
       <div
@@ -36,18 +69,40 @@ function AdminDashboard() {
       >
         <div className={styles.project_list}>Admin dashboard</div>
 
+        <button
+          onClick={()=>{
+            set(1);
+          }}
+        >Designers List</button>
+        <button
+          onClick={()=>{
+            set(2);
+          }}
+        >Clients List</button>
+        <button
+          onClick={()=>{
+            set(3);
+          }}
+        >Project List</button>
+
         {designerList && (
           <table className={styles.list}>
             <tr className={styles.heading}>
+              <th>S.no</th>
               <th>Email</th>
               <th>Name</th>
               <th>Phone Number</th>
             </tr>
-            {designerList.map((project) => (
+            {designerList.map((project, key) => (
               <tr className={styles.details}>
-                <td>{project.email}</td>
-                <td>{project.name}</td>
-                <td>{project.phone}</td>
+                <td 
+                  onClick={()=>{
+                    history.push("/admin/project", {title:project.title});
+                  }}
+                >{key+1}</td>
+                <td>{project.email}{project.title}</td>
+                <td>{project.name}{project.clientEmail}</td>
+                <td>{project.phone}{project.designerEmail}</td>
               </tr>
             ))}
           </table>

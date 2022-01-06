@@ -2,16 +2,18 @@ import { auth, persistence } from "../firebase"
 import firebase from '../firebase'
 import {setPersistence, browserLocalPersistence } from 'firebase/auth';
 
-export const Login = async (email, password) =>{
+export const Login = async (email, password, client =false) =>{
 
     try {
         console.log("Enteged login", email, password);
         await setPersistence(auth, browserLocalPersistence);
-        await auth.signInWithEmailAndPassword(email, password);
+        const final = await auth.signInWithEmailAndPassword(email, password);
         const user = auth.currentUser;
         console.log('user', user);
         window.sessionStorage.setItem("key", btoa(email));
-
+        if(final && client){
+            return true;
+        }
         return user.emailVerified;
     } catch(Error){
         console.log(Error.statusCode);

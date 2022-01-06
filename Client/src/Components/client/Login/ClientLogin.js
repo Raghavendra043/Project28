@@ -1,7 +1,8 @@
 import React from 'react'
 import { useForm, useStep } from 'react-hooks-helper'
 import { ReactComponent as Man } from '../Signup/assets/Man.svg'
-import Login from '../Login/Loginpages/Login'
+//import Login from '../Login/Loginpages/Login'
+import Login1 from './Loginpages/Login1'
 import ForgotPassword from '../Login/Loginpages/ForgotPassword'
 import styles from "../Login/ClientLogin.module.css"
 import ForgetPassword2 from "../Login/Loginpages/ForgotPassword2"
@@ -35,7 +36,7 @@ function ClientLogin() {
                                 <Man  className={styles.svg}/>
                             </div>
                             <div className={styles.box}>
-                                <Login  {...props} />
+                                <Login1  {...props} />
                             </div>
                         </div>
                     </div>

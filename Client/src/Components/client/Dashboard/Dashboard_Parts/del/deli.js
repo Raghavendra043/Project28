@@ -6,7 +6,8 @@ export default  function Deli (){
 
     const [Data, SetData] = useState(null);
     const [details, setDetails] = useState();
-    let email  = 'f20190120@hyderabad.bits-pilani.ac.in'
+    //let email  = 'f20190120@hyderabad.bits-pilani.ac.in'
+    const email = atob(window.sessionStorage.getItem("key"));
     let c;
     const [stages, setStage] = useState(null);
     if(!Data){

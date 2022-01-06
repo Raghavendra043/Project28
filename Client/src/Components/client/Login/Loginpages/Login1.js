@@ -6,6 +6,7 @@ import {ReactComponent as ArrowRight} from '../assets/ArrowLeft.svg'
 import { BarWave } from 'react-cssfx-loading/lib'
 import { Login } from '../../../../firebasefunctions/login'
 
+
 function Login1({formData,setForm,navigation}) {
 
     const emailRef = useRef("");
@@ -30,13 +31,10 @@ function Login1({formData,setForm,navigation}) {
     }
     const submitHander = async () => {
         startLoading(true);
-        const res = await Login(emailRef.current.value, passwordRef.current.value);
+        const res = await Login(formData.email,formData.password, true);
         if(res === true){      
-          history.push("/home", {email: emailRef.current.value});
-        } else if(res === false) {
-          startLoading(false);
-          setErr("Email is not Verified, please Verify your email");
-        } else {
+          history.push("/chome", {email: formData.email});
+        }  else {
           startLoading(false);
           setErr(res);
         }
@@ -44,11 +42,12 @@ function Login1({formData,setForm,navigation}) {
       };
 
     return (
-        <>
-        <div id= "screen" className={style.signupbox} style={{position:"absolute"}}>
-            <div className={styles.container}>
+        <div>
+        {/* <div > */}
+            <div className={styles.container} id = "screen">
+
             
-            <div className={styles.box}>
+            {/* <div className={style.box}> */}
                 <div className={style.header}>WELCOME BACK!</div>
                 <div className={style.desc}>
                     Freelancing was never this easy!{" "}
@@ -96,9 +95,15 @@ function Login1({formData,setForm,navigation}) {
                             onClick={submitHander}
                         >Login</button>
                     </div>
+                    <div style={{textAlign:"center"}}
+                        onClick={()=>{
+                            history.push('/clientSignup');
+                        }}
+                    >dont have an account ? Signup</div>
+                    <p>{Err}</p>
                 </div>
                 </div>
-                </div>
+                {/* </div> */}
                 
             {/* <div className={style.next} onClick={() => {
                 if (formData.fullname.trim() && formData.email.trim()) {
@@ -106,12 +111,12 @@ function Login1({formData,setForm,navigation}) {
                 }
                 }}><ArrowRight className={style.arrow_right}/></div> */}
                 
-        </div>
-        <div id="loading" style={{position:"absolute", marginTop:"45vh", marginLeft:"47vw", display:"none"}}>
+        {/* </div> */}
+        <div id="loading" style={{position:"absolute", marginTop:"35vh", marginLeft:"15vw", display:"none"}}>
             <BarWave width="50px" height="50px" color="#1ABAA9"/>
             <p style={{marginTop:"5vh", marginLeft:"-3vw"}}>Getting account Info</p>
         </div>
-        </>
+        </div>
     )
 }
 

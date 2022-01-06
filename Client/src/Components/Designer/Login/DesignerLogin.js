@@ -101,6 +101,11 @@ function DesignerLogin() {
                 Login
               </button>
             </div>
+            <div style={{textAlign:"center"}}
+              onClick={()=>{
+                history.push("/designer/signup");
+              }}
+            >dont have an account ? Signup</div>
             <div>
               {Err} 
             </div>
