@@ -1,17 +1,18 @@
 import React from "react";
 import styles from "./createprojectlist.module.css";
-import { ReactComponent as Time } from "./assets/TimePeriod.svg";
-import { ReactComponent as Edit } from "./assets/pencil.svg";
-import Navbar2 from "../../Navbar/Navbar2";
-import Navbar from "../Dashboard/Dashboard_Parts/Navbar/Navbar";
+import { ReactComponent as Time } from ".././assets/TimePeriod.svg";
+import { ReactComponent as Edit } from ".././assets/pencil.svg";
+import Navbar from "../../Dashboard/Dashboard_Parts/Navbar/Navbar";
+import Navbar2 from "../../../Navbar/Navbar2";
+
 
 function CreateProjectList() {
   let dis = 5;
 
   return (
     <div className={styles.container}>
-      <Navbar2/><div style={{height:"6vh"}}></div>
-      <div style={{position:"absolute"}}><Navbar/></div>
+       <Navbar2/><div style={{height:"6vh"}}></div>
+      <div style={{position:"absolute"}}><Navbar/>  </div>
       {/* -----------------------------------------Company OVerview----------------------------- */}
       <div
         className={styles.box}

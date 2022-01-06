@@ -36,7 +36,7 @@ export default function Deli() {
             stages.map((data, key) => {
               return (
                 <div>
-                  {/* <div>{data + 1}</div> */}
+                  <div>{data + 1}</div>
                   {Data["files"][`${data + 1}`]["clientFiles"].map(
                     (element, id) => {
                       return (

@@ -14,6 +14,7 @@ import {
 } from "react-chat-engine";
 import { Col } from "react-grid-system";
 import axios from "axios";
+import Navbar3 from "../../Navbar/Navbar3";
 
 var PROJECT_ID = "68a08b56-b99d-4754-85e8-375c862bef48";
 var USER_NAME = "Ragh";
@@ -81,6 +82,7 @@ function ProjectTracker({}) {
 
   return (
     <div>
+      <Navbar3/>
       {formData ? (
         <div className={styles.container}>
           <div className={styles.about}>

@@ -148,9 +148,9 @@ function ProjectDet() {
                     })} else {
                         data.push({
                             col1:i+1,
-                            col2:project[i].name,
-                            col3:project[i].phone,
-                            col4:project[i].email,
+                            col2:project[i].title,
+                            col3:project[i].clientEmail,
+                            col4:project[i].created,
                             col5:<button
                                 onClick={()=>{
                                     viewProfile(project[i].email);
