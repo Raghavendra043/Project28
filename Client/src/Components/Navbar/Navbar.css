@@ -7,14 +7,16 @@
   z-index: 10;
   margin: 0 5vw 0 10vw;
 }
-.part1,.part2 {
+.part1,
+.part2 {
   display: flex;
 }
 
-.navbar > div,.part1 > div,.part2 > div {
+.navbar > div,
+.part1 > div,
+.part2 > div {
   margin-right: 3vw;
 }
-
 
 .navA {
   font-family: Open Sans;
@@ -28,7 +30,10 @@
   align-items: center;
 }
 
-.navA button, .navB button, .navE button, .navLogo button{
+.navA button,
+.navB button,
+.navE button,
+.navLogo button {
   font-weight: 800;
   border: none;
   font-size: 2.3vh;
@@ -36,20 +41,20 @@
   transition: 0.2s step-start;
 }
 
-.nav-logo-button{
+.nav-logo-button {
   width: 10vw;
 }
 
-.navB button{
-  color:rgba(25, 186, 168, 1)
+.navB button {
+  color: rgba(25, 186, 168, 1);
 }
 
-.navA button:hover{
+.navA button:hover {
   border-bottom: 2px solid rgba(25, 186, 168, 1);
 }
 
-.navB button:hover{
-  color: rgba(25, 186, 168, 1) ;
+.navB button:hover {
+  color: rgba(25, 186, 168, 1);
   border: 2px solid rgba(25, 186, 168, 1);
 }
 
@@ -88,6 +93,42 @@
   width: 100%;
   background-color: black;
   border-radius: 10px;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: absolute; /* Stay in place */
+  z-index: 20; /* Sit on top */
+  height: 40vh;
+  width: 40vw;
+  right: 10%;
+  top: 152%;
+  height: 70vh;
+  background-color: white; /* Full width */
+}
+.notif_content {
+  height: 100%;
+}
+
+/* .modal_content {
+  background-color: #fefefe;
+  margin: 15% auto; 
+  padding: 3vh 5vw;
+  border: 1px solid #888;
+  width: 50%; 
+} */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* change the navbar wheh the screen shrinks */
