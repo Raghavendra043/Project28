@@ -6,16 +6,7 @@ import { BarWave } from "react-cssfx-loading";
 import { toast } from 'react-toastify';
 import { useHistory } from 'react-router-dom';
 
-const data1 = [
-      {
-        col1: '',
-        col2: '',
-        col3: '',
-        col4:<button></button>,
-        col5:"",
-        col6:""
-      }
-    ]
+
     const data2 = [
       {
         col1: '',
@@ -49,37 +40,10 @@ const data1 = [
          }
         ]
 
-        const columns1 = [
-            {
-              Header: 'S.no',
-              accessor: 'col1', // accessor is the "key" in the data
-            },
-            {
-              Header: 'Title',
-              accessor: 'col2',
-            },
-            {
-              Header: 'Client',
-              accessor: 'col3', // accessor is the "key" in the data
-            },
-            {
-             Header: 'Designer',
-             accessor: 'col4', // accessor is the "key" in the data
-           },
-            {
-            Header: 'Created',
-            accessor: 'col5', // accessor is the "key" in the data
-            },
-           {
-             Header: 'Check Details',
-             accessor: 'col6', // accessor is the "key" in the data
-           }
-          ]
 let c=0;
-function ProjectDet() {
+function Unassigned() {
     const history = useHistory();
-    const [Data, setData] = useState(data1);
-    const [Data1, setData1] = useState(data2);
+    const [Data, setData] = useState(data2);
     const [y, set] = useState(0);
 
     const startLoading = (x)=>{
@@ -96,31 +60,20 @@ function ProjectDet() {
       }
   }
 
-    if(Data === data1){
+    if(Data === data2){
       if(c === 0){toast.info("Loading...", {position:'bottom-center'});c = 1;}
       
       
         //startLoading(true);
         let data = [];
-        let data1 = [];
         getData(`Projects`)
             .then((project) => {
                 for(let i=0;i<project.length;i+=1){
-                    
-                    if (project[i].assigned){data.push({
-                        col1:i+1,
-                        col2:project[i].title,
-                        col3:project[i].clientEmail,
-                        col4:project[i].designerEmail,
-                        col5:project[i]['created'].toDate().toString(),
-                        col6:<button
-                            onClick={()=>{
-                                viewProfile(project[i]);
-                            }}
-                        >View</button>
-                    })} else {
-                        data1.push({
-                            col1:i+1,
+                    let k=0;
+                    if (project[i].assigned){} else {
+                        k+=1
+                        data.push({
+                            col1:k,
                             col2:project[i].title,
                             col3:project[i].clientEmail,
                             col4:project[i]['created'].toDate().toString(),
@@ -133,7 +86,6 @@ function ProjectDet() {
                     }
                 }
                 setData(data);
-                setData1(data1);
                 
                 //startLoading(false);
       })
@@ -148,15 +100,8 @@ function ProjectDet() {
         headerGroups,
         rows,
         prepareRow,
-      } = useTable({ columns:columns1, data:Data }, useSortBy);
+      } = useTable({ columns:columns, data:Data }, useSortBy);
 
-      let {
-        getTableProps1,
-        getTableBodyProps1,
-        headerGroups1,
-        rows1,
-        prepareRow1,
-      } = useTable({ columns:columns, data:Data1 }, useSortBy);
     const setList =  (id)=>{
         if(id == 1){
             let data = [];
@@ -164,21 +109,12 @@ function ProjectDet() {
             getData(`Projects`)
             .then((project) => {
                 console.log(project[0].created);
+                let k=0;
                 for(let i=0;i<project.length;i+=1){
-                    if (project[i].assigned){data.push({
-                        col1:i+1,
-                        col2:project[i].title,
-                        col3:project[i].clientEmail,
-                        col4:project[i].designerEmail,
-                        col5:project[i]['created'].toDate().toString(),
-                        col6:<button
-                            onClick={()=>{
-                                viewProfile(project[i]);
-                            }}
-                        >View</button>
-                    })} else {
-                        data1.push({
-                          col1:i+1,
+                    if (project[i].assigned){} else {
+                        k+=1;
+                        data.push({
+                          col1:k,
                           col2:project[i].title,
                           col3:project[i].clientEmail,
                           col4:project[i]['created'].toDate().toString(),
@@ -274,58 +210,6 @@ function ProjectDet() {
          })}
          </tbody>
        </table>
-      {/* /// */}
-
-      {/* <table {...getTableProps1()} style={{ border: 'solid 1px black' }}>
-         <thead>
-         {headerGroups1.map(headerGroup => (
-             <tr {...headerGroup.getHeaderGroupProps()}>
-               {headerGroup.headers.map(column => (
-                   <th
-                       {...column.getHeaderProps(column.getSortByToggleProps())}
-                       style={{
-                         borderBottom: 'solid 3px blue',
-                         color: 'black',
-                       }}
-                   >
-                     {column.render('Header')}
-                     <span>
-                       {column.isSorted
-                           ? column.isSortedDesc
-                               ? '🔽'
-                               : '🔼'
-                           : ''}
-                    </span>
-                   </th>
-               ))}
-             </tr>
-         ))}
-         </thead>
-         <tbody {...getTableBodyProps1()}>
-         {rows1.map(row => {
-           prepareRow1(row)
-           return (
-               <tr {...row.getRowProps()}>
-                 {row.cells.map(cell => {
-                   return (
-                       <td
-                           {...cell.getCellProps()}
-                           style={{
-                             padding: '10px',
-                             border: 'solid 1px gray',
-                           }}
-                       >
-                         {cell.render('Cell')}
-                       </td>
-                   )
-                 })}
-               </tr>
-           )
-         })}
-         </tbody>
-       </table> */}
-
-       {/* /// */}
      </div>
      </div>) : <>loading...</>} 
      
@@ -340,4 +224,4 @@ function ProjectDet() {
  );
 }
 
-export default ProjectDet;
+export default Unassigned;

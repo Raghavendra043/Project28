@@ -4,9 +4,13 @@ import styles from "./Utilites.module.css";
 import classnames from "classnames";
 import { Approve, Reject } from "../../../../firebasefunctions/firestore";
 import App from "../../../../App";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 function Utilites({ formData, setForm, print }) {
+  const location = useLocation();
+
+  const data = location.state;
+  console.log("from",data);
   const history = useHistory();
   const current = formData.currentStage;
 
@@ -85,7 +89,7 @@ function Utilites({ formData, setForm, print }) {
       <div className={styles.feed}>
         <div className={styles.title}>FEED</div>
 
-        <div className={styles.list}>
+        {data && data.assigned ? (<div className={styles.list}>
           {stages.map((data, key) => {
             return (
               <div>
@@ -185,7 +189,7 @@ function Utilites({ formData, setForm, print }) {
           })}
 
           {/* end of the map func */}
-        </div>
+        </div>) : (<button>Assign designer</button>)}
 
         {/* <div className={styles.list}>
           <div className={styles.box}>

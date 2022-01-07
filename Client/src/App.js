@@ -28,6 +28,7 @@ import ProjectTracker from "./Components/Admin_new/ProjectTracker/ProjectTracker
 import DesignerList from "./Components/Admin_new/Dasdboard/DesignerList";
 import ClientDet from "./Components/Admin_new/Dasdboard/clientDetails";
 import ProjectDet from "./Components/Admin_new/Dasdboard/ProjectDetails";
+import Unassigned from "./Components/Admin_new/Dasdboard/Unassigned";
 // -----------------------------ChatBox-----------------------------
 import Chat from "./trail/chat";
 import ChatEngine from "./trail/admin";
@@ -95,6 +96,7 @@ function App() {
           <Route path="/designer" exact component={DesignerList} />
           <Route path="/client" exact component={ClientDet} />
           <Route path="/pro" exact component={ProjectDet} />
+          <Route path="/pro1" exact component={Unassigned} />
 
         </Switch>
       </Router>
