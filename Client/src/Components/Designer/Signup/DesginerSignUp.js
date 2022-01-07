@@ -1,3 +1,4 @@
+/* eslint-disable default-case */
 import React, { useRef } from "react";
 import { useForm, useStep } from "react-hooks-helper";
 

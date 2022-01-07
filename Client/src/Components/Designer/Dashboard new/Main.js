@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Main.css";
-import { useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import First from "./Dashboard_Parts/First/First";
 import Second from "./Dashboard_Parts/Second/Second";
 import Third from "./Dashboard_Parts/Third/Third";
@@ -18,6 +18,7 @@ import Navbar2 from "../../Navbar/Navbar2";
 
 
 function Main() {
+  const history = useHistory();
   const location = useLocation();
   const [dt, setDt] = useState('Loading Account info');
   const auth = getAuth();
@@ -31,6 +32,7 @@ function Main() {
   console.log("decoded email : ", email);
 
   const [Details, setDetails] = useState(false);
+  const [designer, setDes] = useState(false);
   let c;
   const [stat, setStat] = useState(0);
 
@@ -69,6 +71,19 @@ function Main() {
         setForm("f");
       }
     });
+  }
+
+  if(!designer){
+    search("Designers", "email", email).then((project) => {
+      if (project && project !== "f") {
+        console.log("from inside:", project);
+        setDes(project.profile);        
+      } else if (project === "f") {
+        console.log("fuck");
+        setDes("nt");
+      }
+    });
+
   }
 
   
@@ -114,11 +129,14 @@ function Main() {
               <Fourth {...props} />
             </div>
           </div>
-        ) : (
+        ) : designer === "nt" || designer ? (
           <div className="outer_container1">
-            <NoProjects/>
+            
+            <NoProjects {...{x:false, email}}/>
           </div>
-        )}
+        ) : (<>
+          <NoProjects {...{x:true, email}}/>
+        </>)}
       </div>
       <div
         id="loading"

@@ -8,7 +8,8 @@ import { ReactComponent as ArrowRight } from "./../assets/ArrowRight.svg";
 
 function First({ formData, setForm, navigation }) {
     const location = useLocation();
-    const email = location.state.email;
+    //const email = location.state.email;
+    const email = 'f20190120@hyderabad.bits-pilani.ac.in'
     console.log('from complete', email, 'rgh');
     const [grad, setGrad] = useState("false");
 

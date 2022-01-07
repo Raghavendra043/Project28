@@ -6,6 +6,23 @@
   margin-bottom: 4vh;
 }
 
+.dark-toast{
+  background: #323232;
+  color: #fff;
+}
+ 
+.dark-toast > .toastify__close{
+  color: #fff;
+}
+ 
+.transparent-progress{
+  background:  rgba(255,255,255,.7);
+}
+ 
+.fancy-progress{
+  background: repeating-radial-gradient(red, yellow 10%, green 15%);
+}
+
 .loading {
   position: absolute;
   margin-top: 40vh;

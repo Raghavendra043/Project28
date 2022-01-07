@@ -7,6 +7,12 @@ import {Login} from '../../../firebasefunctions/login'
 import { BarWave } from "react-cssfx-loading";
 import {search} from '../../../firebasefunctions/firestore'
 import Navbar1 from "../../Navbar/Navbar1";
+import { blue, green, red } from "@material-ui/core/colors";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import { css } from "glamor";
+
+toast.configure()
 
 function DesignerLogin() {
   const emailRef = useRef("");
@@ -14,6 +20,22 @@ function DesignerLogin() {
   const [checkState, setCheckState] = useState(false);
   const [Err, setErr] = useState(false);
   const history = useHistory();
+
+  const check=()=>{
+    const Em = emailRef.current.value;
+    var mail_format = /\S+@\S+\.\S+/;
+    console.log(Em, mail_format.test(Em));
+    if(!mail_format.test(Em)){
+      const element = document.getElementById("Email");
+      element.style.borderColor = "red";
+      //setErr("error");
+      //toast("error", {position: toast.POSITION.BOTTOM_CENTER});
+    } else {
+      const element = document.getElementById("Email");
+      element.style.borderColor = "black";
+      setErr("");
+    }
+  }
 
   const startLoading = (x)=>{
       if(x)
@@ -36,10 +58,13 @@ function DesignerLogin() {
       history.push("/home", {email: emailRef.current.value});
     } else if(res === false) {
       startLoading(false);
-      setErr("Email is not Verified, please Verify your email");
+      //setErr("Email is not Verified, please Verify your email");
+      toast("EmailID is not Verified", {className:'darktoast' ,position: toast.POSITION.BOTTOM_CENTER});
     } else {
       startLoading(false);
-      setErr(res);
+      toast.error("Invalid EmailID or password", {className: 'dark-toast',
+      progressClassName: 'transparent-progress',position: toast.POSITION.BOTTOM_CENTER});
+
     }
     
   };
@@ -63,10 +88,12 @@ function DesignerLogin() {
             <div className={e_style.input_cover}>
               <div className={e_style.titles}>Enter Your Email ID</div>
               <input
+                id="Email"
                 className={e_style.inputs}
                 type="email"
                 placeholder="Ex: johndoe@example.com"
                 ref={emailRef}
+                onChange={check}
                 required
               />
             </div>

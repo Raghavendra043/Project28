@@ -11,6 +11,8 @@ import { BarWave } from "react-cssfx-loading";
 import About from "../../Admin_new/ProjectTracker/TrackerParts/About";
 import { getAuth } from "firebase/auth";
 import NoProjects from "../../Designer/NoProjectsRedirect/NoProjects";
+import Navbar3 from "../../Navbar/Navbar3";
+import Navbar2 from "../../Navbar/Navbar2";
 
 function Dashboard() {
   const location = useLocation();
@@ -77,6 +79,7 @@ function Dashboard() {
 
   return (
     <div>
+      <Navbar2/>
       <div
         className="main_container1"
         style={{ position: "absolute", opacity: "0.16" }}

@@ -5,6 +5,7 @@ import style from "../../Signup/SignUp.module.css";
 import { ReactComponent as ArrowRight } from "./../assests/ArrowRight.svg";
 import classnames from "classnames";
 import { BarWave } from "react-cssfx-loading";
+import { toast } from "react-toastify";
 
 import {
   sendcode,
@@ -21,7 +22,6 @@ function SignUpFirst({ formData, setForm, navigation, startLoading }) {
   const [Err, setErr] = useState("");
   const [phone, setPhone] = useState(false);
   
-
   
 
   const startOtp = async () => {
@@ -32,7 +32,8 @@ function SignUpFirst({ formData, setForm, navigation, startLoading }) {
         formData.phonenumber.trim()
       )
     ) {
-      setErr("Please Fill all the fields");
+      //setErr("Please Fill all the fields");
+      toast.error("Please Fill all the Fields", {className:'darktoast' ,position: toast.POSITION.BOTTOM_CENTER});
     } else {
       await sendcode(formData.phonenumber);
       var button = document.getElementsByClassName(third_styles.cover)[0];
@@ -79,6 +80,7 @@ function SignUpFirst({ formData, setForm, navigation, startLoading }) {
                 placeholder="Eg. johndoe@email.com"
                 // ref = {props.emailRef}
                 name="email"
+                required = "true"
               />
             </div>
             <div className={style.input_cover}>
@@ -137,24 +139,30 @@ function SignUpFirst({ formData, setForm, navigation, startLoading }) {
             formData.phonenumber.trim()
           ) {
             let Verify = await verify(formData.otp);
-            if (Verify === "1" || phone === true || true) {
+            if (Verify === "1" || phone === true) {
               setPhone(true);
               const sign = await search('Designers', "email", formData.email);
               console.log(sign);
-              if (sign != "f") {
+              if (sign != "f") {  
                 startLoading(false);
-                setErr(`EmailID already in use. Please Login ${formData.email}`);
+                //setErr(`EmailID already in use. Please Login ${formData.email}`);
+      toast.error("EmailID already in use. Please Login", {className:'darktoast' ,position: toast.POSITION.BOTTOM_CENTER});
+                
               } else {
                 startLoading(false);
                 navigation.next();
               }
             } else {
               startLoading(false);
-              setErr("invalid OTP");
+              //setErr("invalid OTP");
+      toast.error("invalid OTP", {className:'darktoast' ,position: toast.POSITION.BOTTOM_CENTER});
+
             }
           } else {
             startLoading(false);
-            setErr("Please Fill all the Fields");
+      toast.error("Please Fill all the Fields", {className:'darktoast' ,position: toast.POSITION.BOTTOM_CENTER});
+            
+            //setErr("Please Fill all the Fields");
           }
         }}
       >

@@ -13,11 +13,12 @@ import {storage} from '../../../../firebase'
 function Second({ formData, setForm, navigation }) {
   const history = useHistory();
   const location = useLocation();
-  const email = location.state.email;
+  //const email = location.state.email;
+  const email = 'f20190120@hyderabad.bits-pilani.ac.in'
   console.log('from second', email, 'rgh');
 
   const uploadFile  = async(image)=>{
-    //Loading(true);
+    // Loading(true);
     
     await storage.ref(`${formData.email}/profile`)
         .put(image);

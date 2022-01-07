@@ -29,6 +29,7 @@ function Navbar2() {
 
       <div className="part2">
         <div className="navB"><button>Notifications</button></div>
+        <div>Hey Raghavendra !!</div>
         <div className="navE">
           <button
             onClick={()=>{

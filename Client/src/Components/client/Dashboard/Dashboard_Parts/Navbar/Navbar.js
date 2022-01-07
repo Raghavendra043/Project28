@@ -96,20 +96,23 @@ function Navbar({email}) {
                 <path d="M8.875 12.2499H8.88274" stroke="#1E1F1E" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
         },
-        // {
-        //     id: 5,
-        //     menuname: "Your Availability",
-        //     img: <svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-        //         <path d="M15 0H7C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14H15C18.866 14 22 10.866 22 7C22 3.13401 18.866 0 15 0Z" fill="#19BAA8"/>
-        //         <path d="M15 10C16.6569 10 18 8.65685 18 7C18 5.34315 16.6569 4 15 4C13.3431 4 12 5.34315 12 7C12 8.65685 13.3431 10 15 10Z" fill="white"/>
-        //         </svg>,
+        {
+            id: 5,
+            menuname: "Logout",
+            nav:"/",
+            img: <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.75 16.0001V14.3334C14.75 13.4493 14.3878 12.6015 13.7432 11.9764C13.0985 11.3513 12.2242 11.0001 11.3125 11.0001H4.4375C3.52582 11.0001 2.65148 11.3513 2.00682 11.9764C1.36216 12.6015 1 13.4493 1 14.3334V16.0001" stroke="#1E1F1E" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M7.875 7.66667C9.77348 7.66667 11.3125 6.17428 11.3125 4.33333C11.3125 2.49238 9.77348 1 7.875 1C5.97652 1 4.4375 2.49238 4.4375 4.33333C4.4375 6.17428 5.97652 7.66667 7.875 7.66667Z" stroke="#1E1F1E" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
 
-        //     imgalt: <svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-        //             <path d="M15 0H7C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14H15C18.866 14 22 10.866 22 7C22 3.13401 18.866 0 15 0Z" fill="#19BAA8"/>
-        //             <path d="M15 10C16.6569 10 18 8.65685 18 7C18 5.34315 16.6569 4 15 4C13.3431 4 12 5.34315 12 7C12 8.65685 13.3431 10 15 10Z" fill="white"/>
-        //             </svg>
+            
+                ,
+            imgalt: <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14.75 16.0001V14.3334C14.75 13.4493 14.3878 12.6015 13.7432 11.9764C13.0985 11.3513 12.2242 11.0001 11.3125 11.0001H4.4375C3.52582 11.0001 2.65148 11.3513 2.00682 11.9764C1.36216 12.6015 1 13.4493 1 14.3334V16.0001" stroke="#19BAA8" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7.875 7.66667C9.77348 7.66667 11.3125 6.17428 11.3125 4.33333C11.3125 2.49238 9.77348 1 7.875 1C5.97652 1 4.4375 2.49238 4.4375 4.33333C4.4375 6.17428 5.97652 7.66667 7.875 7.66667Z" stroke="#19BAA8" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
 
-        // },
+        },
         {
             id: 6,
             menuname: "view our portfolio",
@@ -160,14 +163,14 @@ function Navbar({email}) {
                 </div>
                     )
                 })}
-                     {/* <div className="button" key="5" onClick={(e) => { toggleActive(arr.id) }} >
-                        <Toggle/>
-                    <div className={isHamOn ? "menuname" : "null"}  >
+                     <div className="button" key="5" onClick={(e) => {sessionStorage.clear(); history.push("/"); }} >
+                        {/* <Toggle/> */}
+                    {/* <div className={isHamOn ? "menuname" : "null"}  >
                          <div className={arr.id==ActiveTopic? "menunameBold" : "menuname1"} > 
                             Your Availability
                         </div>
-                    </div>
-                </div> */}
+                    </div> */}
+                </div>
             </div>
             </div>
         <div className="hamNav">
