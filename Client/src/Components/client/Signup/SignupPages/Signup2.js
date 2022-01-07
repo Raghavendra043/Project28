@@ -22,14 +22,14 @@ function Signup2({ formData, setForm, navigation }) {
       button.classList.add(styles1.hide2);
       var button = document.getElementsByClassName(styles.complete)[0];
       button.classList.add(styles1.hide);
-      var button = document.getElementsByClassName(styles1.otp_input_cover)[0];
+      var button = document.getElementsByClassName(styles.otp_input_cover)[0];
 
-      button.classList.remove(styles1.hide2);
-      var button = document.getElementsByClassName(styles1.otp_titles)[0];
+      button.classList.remove(styles1.hide);
+      var button = document.getElementsByClassName(styles.otp_titles)[0];
       console.log(button);
-      // button.classList.remove(styles1.hide);
-      // var button = document.getElementsByClassName(styles1.otp)[0];
-      // button.classList.remove(styles1.hide);
+      button.classList.remove(styles1.hide);
+      var button = document.getElementsByClassName(styles.otp)[0];
+      button.classList.remove(styles1.hide);
     }
   };
   return (
@@ -76,11 +76,11 @@ function Signup2({ formData, setForm, navigation }) {
             </button>
           </div>
 
-          <div className={classnames(styles1.otp_input_cover, styles1.hide2)}>
-            <div className={classnames(styles1.otp_titles, styles1.hide)}>
+          <div className={classnames(styles.otp_input_cover, styles1.hide)}>
+            <div className={classnames(styles.otp_titles, styles1.hide)}>
               Enter OTP
             </div>
-            <div className={classnames(styles1.otp, styles1.hide)}>
+            <div className={classnames(styles.otp, styles1.hide)}>
               <input
                 type="number"
                 placeholder="******"
