@@ -3,6 +3,7 @@ import styles from "../SignupPages/signup2.module.css";
 import style from "../Signup.module.css";
 import { ReactComponent as ArrowRight } from "../assets/ArrowRight.svg";
 import { ReactComponent as ArrowLeft } from "../assets/ArrowLeft.svg";
+import { toast } from "react-toastify";
 import {
   sendcode,
   verify,
@@ -11,12 +12,33 @@ import styles1 from "../../../Designer/Signup/SignUp.module.css";
 import third_styles from "../../../Designer/Signup/SignUp_new/Third.module.css";
 import classnames from "classnames";
 
-function Signup2({ formData, setForm, navigation }) {
+function Signup2({ formData, setForm, navigation,startLoading }) {
   const [Err, setErr] = useState("");
+  const [text, setText] = useState("OTP will be sent to the phone Number");
   const startOtp = async () => {
     if (!formData.phoneNumber.trim()) {
-      setErr("Please Fill all the fields");
+      //setErr("Please Fill all the fields");
+      toast('Please Fill all the fields', {
+        position: "bottom-center",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        });
     } else {
+      toast('Please Enter the OTP', {
+        position: "bottom-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        });
+      const phone1 = formData.phoneNumber.toString().trim()
+      setText(`OTP is sent to +91-${phone1[0] }*******${phone1[8]}${phone1[9]} `);
       await sendcode(formData.phoneNumber);
       var button = document.getElementsByClassName(third_styles.cover)[0];
       button.classList.add(styles1.hide2);
@@ -45,6 +67,7 @@ function Signup2({ formData, setForm, navigation }) {
           <div className={style.data}>
             <div className={style.input_cover}>
               <div className={style.titles}>Your Phone Number</div>
+              <div className={style.titles}>{text}</div>
               <input
                 className={style.inputs}
                 type="tel"
@@ -90,6 +113,9 @@ function Signup2({ formData, setForm, navigation }) {
                 onChange={setForm}
               />
             </div>
+            <div className={classnames(styles.otp, styles1.hide)}
+              onClick={startOtp}
+            >Resend</div>
           </div>
           <div id="message" value={Err} className={third_styles.errorMessage}>
             {Err}{" "}
@@ -100,13 +126,25 @@ function Signup2({ formData, setForm, navigation }) {
       <div
         className={style.next}
         onClick={async () => {
-          navigation.next();
+          //navigation.next();
           if (formData.phoneNumber.trim() && formData.otp.trim()) {
+            startLoading(true);
             let Verify = await verify(formData.otp);
             if (Verify == "1") {
+              startLoading(false);
               navigation.next();
             } else {
-              setErr("Incorrect OTP");
+              startLoading(false);
+              //setErr("Incorrect OTP");
+              toast('Incorrect OTP', {
+                position: "bottom-center",
+                autoClose: 1500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                });
             }
           }
         }}

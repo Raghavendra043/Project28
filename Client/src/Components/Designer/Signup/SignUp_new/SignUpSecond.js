@@ -67,11 +67,13 @@ function SignUpSecond({ formData, setForm, navigation, startLoading }) {
                         console.log("in 2nd ", formData.email, formData.password1);
                         const data= {email:formData.email, password:formData.password1}
                         //axios.post(`${process.env.REACT_APP_BACK}/passwordReset`,data )
-                        CreateUser(formData.email);
+                        const chatData = await CreateUser(formData.email, 'designer');
                         await addData('Designers',formData.email ,{
                             "name":formData.fullname,
                             "email":formData.email,
-                            "phone":formData.phonenumber
+                            "phone":formData.phonenumber,
+                            "created":new Date().toString(),
+                            "chat":chatData
                         });
                         startLoading(false);
                         navigation.next();

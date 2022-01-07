@@ -1,0 +1,80 @@
+.title {
+  text-align: center;
+  font-size: 4vh;
+  font-weight: 500;
+  font-family: Red Hat Display;
+  margin-bottom: 4vh;
+}
+
+.dark-toast{
+  background: #323232;
+  color: #fff;
+}
+ 
+.dark-toast > .toastify__close{
+  color: #fff;
+}
+ 
+.transparent-progress{
+  background:  rgba(255,255,255,.7);
+}
+ 
+.fancy-progress{
+  background: repeating-radial-gradient(red, yellow 10%, green 15%);
+}
+
+.loading {
+  position: absolute;
+  margin-top: 40vh;
+  margin-left: 47vw;
+  display: none !important;
+}
+
+.login_specifics {
+  margin: 0 auto;
+  width: 88%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkbox {
+  color: #19baa8;
+  width: 3vh;
+  height: 3vh;
+  margin-right: 1vw;
+}
+
+.link {
+  text-decoration: none;
+  font-size: 2.5vh;
+  color: #19baa8;
+}
+
+.cover {
+  display: flex;
+  justify-content: center;
+  margin: 7vh 0 0;
+  width: 100%;
+}
+
+.complete {
+  background-color: rgba(25, 186, 168, 1);
+  border: 1px solid rgba(25, 186, 168, 1);
+  width: 55%;
+  height: 7vh;
+  color: white;
+  border-radius: 4px;
+  transition: 0.2s ease-in-out;
+  font-size: 3vh;
+}
+
+.complete:hover {
+  background-color: white;
+  color: rgba(25, 186, 168, 1);
+}
+
+@media screen and (max-width: 700px) {
+  .login_specifics {
+    width: 92%;
+  }
+}

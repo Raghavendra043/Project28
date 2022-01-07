@@ -5,6 +5,9 @@ export const addData = async (collection, doc, Data) => {
   try {
     if (Data && collection) {
       if (doc && doc.length > 0) {
+        if(! ("created" in Data)){
+          Data["created"] = new Date().toString();
+        }
         await db.collection(collection).doc(doc).set(Data);
       } else {
         await db.collection(collection).doc(doc).add(Data);

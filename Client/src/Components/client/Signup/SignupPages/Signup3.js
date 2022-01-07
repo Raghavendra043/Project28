@@ -6,8 +6,9 @@ import { ReactComponent as ArrowRight } from '../assets/ArrowRight.svg'
 import {ReactComponent as ArrowLeft} from '../assets/ArrowLeft.svg'
 import {signup} from '../../../../firebasefunctions/login'
 import {addData} from '../../../../firebasefunctions/firestore'
-
-function Signup3({ formData, setForm, navigation }) {
+import { toast } from 'react-toastify';
+import { CreateUser } from '../../../../trail/createchat';
+function Signup3({ formData, setForm, navigation , startLoading}) {
 
      const [toggle, setToggle] = useState(false);
 
@@ -57,13 +58,49 @@ function Signup3({ formData, setForm, navigation }) {
                 </div>
                 </div>
                 <div className={style.next} onClick={async () => {
-                    if ( formData.password === formData.confirmPassword) {
+                    startLoading(true);
+                    if ( formData.password === formData.confirmPassword && formData.password.trim().length>=6) {
+                        
                         await signup(formData.email, formData.password);
                         addData('Client', formData.email, formData);
+                        startLoading(false);
+                        console.log(formData);
+                        const chatData  = await CreateUser(formData.email, 'client');
+                        
+                        await addData('Designers',formData.email ,{
+                            "name":formData.fullname,
+                            "email":formData.email,
+                            "phone":formData.phoneNumber,
+                            "created":new Date().toString(),
+                            "chat":chatData
+                        });
+
                         navigation.next();
                     }
                     else if (formData.password != formData.confirmPassword) {
-                        setToggle(true)
+                        startLoading(false);
+                        toast('Password dosent Martch', {
+                            position: "bottom-center",
+                            autoClose: 1500,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: false,
+                            draggable: true,
+                            progress: undefined,
+                            });
+                        setToggle(true);
+
+                    } else {
+                        startLoading(false);
+                        toast('Password should be greater than 6 characters', {
+                            position: "bottom-center",
+                            autoClose: 1500,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: false,
+                            draggable: true,
+                            progress: undefined,
+                            });
                     }
                     }}>
                     <ArrowRight className={style.arrow_right}/>

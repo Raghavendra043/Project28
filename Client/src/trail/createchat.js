@@ -21,7 +21,8 @@ export const CreateUser = async (username,name)=>{
 
             const user = await axios(config);
             console.log('User Data: ', JSON.stringify(user.data));
-            console.log('done with creation');            
+            console.log('done with creation'); 
+            return JSON.stringify(user.data);
             
     } catch(err){
         console.log(err);
