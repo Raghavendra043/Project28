@@ -15,12 +15,14 @@ import {
 import { Col } from "react-grid-system";
 import axios from "axios";
 import Navbar3 from "../../Navbar/Navbar3";
+import { useHistory, useLocation } from "react-router-dom";
 
 var PROJECT_ID = "68a08b56-b99d-4754-85e8-375c862bef48";
 var USER_NAME = "Ragh";
 
 function ProjectTracker({}) {
-  const title = "1";
+  const location = useLocation();
+  const title = location.state;
   const dummy = {
     endDate: "",
     projectType: "Design",

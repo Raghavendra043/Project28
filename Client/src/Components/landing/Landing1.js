@@ -10,7 +10,7 @@ export default function Landing1 (){
         else if(id ===2){
             history.push("/clientlogin");}
         else {
-                history.push("/admin/dash");
+                history.push("/adminLog");
             }
     }
 

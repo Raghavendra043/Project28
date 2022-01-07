@@ -29,7 +29,7 @@ function About({ formData, setForm }) {
                         DESIGNER
                     </div>
                     <div className={styles.desc}>
-                    {formData.designermail}
+                    {formData.designerEmail}
                     </div>
                 </div>
 

@@ -112,7 +112,7 @@ function ProjectDet() {
                         col2:project[i].title,
                         col3:project[i].clientEmail,
                         col4:project[i].designerEmail,
-                        col5:project[i]['created'].toDate().toString(),
+                        col5:project[i]['created'],
                         col6:<button
                             onClick={()=>{
                                 viewProfile(project[i]);
@@ -123,7 +123,7 @@ function ProjectDet() {
                             col1:i+1,
                             col2:project[i].title,
                             col3:project[i].clientEmail,
-                            col4:project[i]['created'].toDate().toString(),
+                            col4:project[i]['created'],
                             col5:<button
                                 onClick={()=>{
                                     viewProfile(project[i]);
@@ -201,7 +201,7 @@ function ProjectDet() {
         console.log("works",id);
         history.push({ 
           pathname: '/admin/project',
-          state: id
+          state: id.title
          });
     }
 
@@ -215,16 +215,12 @@ function ProjectDet() {
      <div id="screen" style={{position:"absolute"}}>
        <div>
      {Data ? (
-     <div>
+     <div style={{width:"100vw", textAlign:"center"}}>
          <Navbar3/>
-     
-     <div style={{marginTop:"10vh"}}>
+         <h2 style={{textAlign:"center", marginBottom:"40px", marginTop:"15vh"}}>Assigned Projects</h2>
+     <div style={{marginTop:"10vh", textAlign:"center", marginLeft:"3vw"}}>
          
-         <button
-            onClick={()=>{
-                setList(1);
-            }}
-         >Assigned List</button>
+         
 
        <table {...getTableProps()} style={{ border: 'solid 1px black' }}>
          <thead>

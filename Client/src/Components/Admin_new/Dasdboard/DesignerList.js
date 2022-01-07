@@ -1,28 +1,20 @@
-    import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useTable, useSortBy } from 'react-table';
-import { getData } from '../../../firebasefunctions/firestore';
+import { getData, search, Update } from '../../../firebasefunctions/firestore';
 import Navbar3 from '../../Navbar/Navbar3';
+import styles from "./Utilites.module.css";
+import classnames from "classnames";
+import { useHistory, useLocation } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import axios from 'axios';
+
 const data1 = [
       {
-        col1: 'Minsk',
-        col2: '27',
-        col3: 'rain',
-        col4:<button>This is a butt1</button>,
-        col5:"this"
-      },
-      {
-        col1: 'Vilnius',
-        col2: '30',
-        col3: 'rain',
-        col4:<button>This is a butt2</button>,
-        col5:"this"
-      },
-      {
-        col1: 'London',
-        col2: '23',
-        col3: 'rain',
-        col4:<button>This is a butt3</button>,
-        col5:"this"
+        col1: '',
+        col2: '',
+        col3: '',
+        col4:<button></button>,
+        col5:""
       }
     ]
 
@@ -44,34 +36,48 @@ const data1 = [
            accessor: 'col4', // accessor is the "key" in the data
          },
          {
-           Header: 'check Profile',
+           Header: 'created',
            accessor: 'col5', // accessor is the "key" in the data
+         },
+         {
+           Header: 'check Profile',
+           accessor: 'col6', // accessor is the "key" in the data
          }
         ]
     
 function Designer() {
+    const history = useHistory();
+    const location = useLocation();
     const [Data, setData] = useState(data1);
-    let {
-        getTableProps,
-        getTableBodyProps,
-        headerGroups,
-        rows,
-        prepareRow,
-      } = useTable({ columns, data:Data }, useSortBy);
-    const setList =  (id)=>{
-        if(id == 1){
-            let data = [];
-            getData(`Designers`)
+    const [total, setTotal] = useState(null);
+    const [final, setFinal] = useState(null);
+    let title;
+    if('state' in location && !title){
+      title  = location.state;
+    }
+
+    const viewHandler = (id) => {
+      var modal = document.getElementById("projectModal");
+      modal.style.display = "block";
+      setFinal(total[id]);
+
+    };
+
+    if(Data === data1){
+      getData(`Designers`)
             .then((project) => {
+              setTotal(project)
+              let data = [];
                 for(let i=0;i<project.length;i+=1){
                     data.push({
                         col1:i+1,
                         col2:project[i].name,
                         col3:project[i].phone,
                         col4:project[i].email,
-                        col5:<button
+                        col5:project[i]['created'],
+                        col6:<button
                             onClick={()=>{
-                                viewProfile(project[i].email);
+                              viewHandler(i);
                             }}
                         >View</button>
                     })
@@ -81,28 +87,31 @@ function Designer() {
       .catch((err) => {
         console.log(err);
       });
-        } 
     }
-    const viewProfile = (id)=>{
-        console.log("works",id);
-    }
+    let {
+        getTableProps,
+        getTableBodyProps,
+        headerGroups,
+        rows,
+        prepareRow,
+      } = useTable({ columns, data:Data }, useSortBy);
+    
 
-
- 
-
- 
-
+    const closeHandler = () => {
+      var modal = document.getElementById("projectModal");
+      modal.style.display = "none";
+      //modal = document.getElementById("projectModalView");
+      //modal.style.display = "none";
+      //modal = document.getElementById("projectModalGive");
+      //modal.style.display = "none";
+    };
  return (
      <div>
          <Navbar3/>
      
-     <div style={{marginTop:"10vh"}}>
+     <div style={{marginTop:"10vh", alignItems:"center"}}>
          
-         <button
-            onClick={()=>{
-                setList(1);
-            }}
-         >Designer List</button>
+     <h2 style={{textAlign:"center", marginBottom:"40px", marginTop:"15vh"}}>Designers List</h2>
 
        <table {...getTableProps()} style={{ border: 'solid 1px black' }}>
          <thead>
@@ -155,6 +164,73 @@ function Designer() {
 
        
      </div>
+
+     <div id="projectModal" class={styles.modal} style={{display:"none"}}>
+        <div class={styles.modal_content}>
+          <span class={styles.close} onClick={closeHandler}>
+            &times;
+          </span>
+          <div className={styles.title}>Designer Details</div>
+          {final ? (<table>
+            <tr>
+              <td>Name :</td>
+              <td>{final.name}</td>
+            </tr>
+            <tr>
+              <td>Email :</td>
+              <td>{final.email}</td>
+            </tr>
+            <tr>
+              <td>Phone Number :</td>
+              <td>{final.phone}</td>
+            </tr>
+            <tr>
+              <td>Payment : </td>
+              <td>{final.payment}</td>
+            </tr>
+            <tr>
+              <td>Profile Link : </td>
+              <td>{final.profileLink}</td>
+            </tr>
+            <tr>
+              <td>Created : </td>
+              <td>{final.created}</td>
+            </tr>
+            
+          </table>):(<></>)}
+          <div className={styles.actions}>
+            <div className={styles.button_cover}>
+              {title ? (<button className={classnames(styles.button)}
+                onClick={async()=>{
+                  try{toast('loading...');
+                  console.log(title);
+                  const project = await search('Projects', "title", title);
+                  project['designerEmail'] = final.email;
+                  project['assigned'] = true;
+                  project['designerAssigned'] = new Date().toString();
+                  await Update('Projects', title, project);
+                  history.push({ 
+                    pathname: '/admin/project',
+                    state: title
+                   });
+                   const content = {
+                     subject:`Project - ${title}`,
+                     text:'Project Alloted',
+                     html:"<div>Hello Desiger !! A project has been alloted to you</div>"
+                   }
+                   const mailData = {content, TO:final.email}
+                   axios.post(`${process.env.REACT_APP_BACK}/sendMail`,mailData ).then(()=>{}).catch((err)=>{console.log(err)})
+                  } catch(err){
+                    console.log(err);
+                  }
+                }}
+              >
+                Allot
+              </button>):(<></>)}
+            </div>
+          </div>
+        </div>
+      </div>
      </div>
  );
 }

@@ -1,16 +1,18 @@
 /* eslint-disable*/
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Utilites.module.css";
 import classnames from "classnames";
 import { Approve, Reject } from "../../../../firebasefunctions/firestore";
 import App from "../../../../App";
 import { useHistory, useLocation } from "react-router-dom";
 
+
 function Utilites({ formData, setForm, print }) {
   const location = useLocation();
+  const [present, setPre] = useState();
 
   const data = location.state;
-  console.log("from",data);
+  console.log("from this is the last",data);
   const history = useHistory();
   const current = formData.currentStage;
 
@@ -66,7 +68,9 @@ function Utilites({ formData, setForm, print }) {
     modal.style.display = "block";
   };
 
-  const viewHandler = () => {
+  const viewHandler = (id) => {
+    console.log("selected", id);
+    setPre(id);
     var modal = document.getElementById("projectModalView");
     modal.style.display = "block";
   };
@@ -89,7 +93,7 @@ function Utilites({ formData, setForm, print }) {
       <div className={styles.feed}>
         <div className={styles.title}>FEED</div>
 
-        {data && data.assigned ? (<div className={styles.list}>
+        {formData.assigned ? (<div className={styles.list}>
           {stages.map((data, key) => {
             return (
               <div>
@@ -150,7 +154,7 @@ function Utilites({ formData, setForm, print }) {
                                   .length) && (
                               // key+1 < formData.files[current]['adminFiles'].length
                               <button
-                                onClick={viewHandler}
+                                onClick={()=>{viewHandler(element)}}
                                 className={classnames(
                                   styles.button,
                                   styles.hello
@@ -189,7 +193,14 @@ function Utilites({ formData, setForm, print }) {
           })}
 
           {/* end of the map func */}
-        </div>) : (<button>Assign designer</button>)}
+        </div>) : (<button
+          onClick={()=>{
+            history.push({ 
+              pathname: '/designer',
+              state: formData.title
+             });
+          }}
+        >Assign designer</button>)}
 
         {/* <div className={styles.list}>
           <div className={styles.box}>
@@ -262,14 +273,16 @@ function Utilites({ formData, setForm, print }) {
           </span>
           <div className={styles.title}>View Feedback</div>
 
+
           <div className={styles.feedback_box}>
-            <input
-              type="text"
-              className={styles.feedback}
-              name="view_feedback"
-            />
+            {present ? (<><div>{present['admin'][0][1]}</div>
+            <div>{present['admin'][0][2]}</div>
+            {present['adminApp'] != 1 ? (<><div>{present['client'][0]}</div>
+            <div>{present['client'][1]}</div></>) : (<><b>You disapproved this</b></>)}
+            </>) :(<></>)
+            }
             <div className={styles.button_cover}>
-              <button className={classnames(styles.button)}>Feedback</button>
+              <button className={classnames(styles.button)}><a href={present.url}>View File</a></button>
             </div>
           </div>
           <div className={styles.confirm_cover}>

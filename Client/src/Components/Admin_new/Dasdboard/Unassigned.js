@@ -76,7 +76,7 @@ function Unassigned() {
                             col1:k,
                             col2:project[i].title,
                             col3:project[i].clientEmail,
-                            col4:project[i]['created'].toDate().toString(),
+                            col4:project[i]['created'],
                             col5:<button
                                 onClick={()=>{
                                     viewProfile(project[i]);
@@ -117,7 +117,7 @@ function Unassigned() {
                           col1:k,
                           col2:project[i].title,
                           col3:project[i].clientEmail,
-                          col4:project[i]['created'].toDate().toString(),
+                          col4:project[i]['created'],
                             col5:<button
                                 onClick={()=>{
                                     viewProfile(project[i]);
@@ -137,7 +137,7 @@ function Unassigned() {
         console.log("works",id);
         history.push({ 
           pathname: '/admin/project',
-          state: id
+          state: id.title
          });
     }
 
@@ -151,16 +151,10 @@ function Unassigned() {
      <div id="screen" style={{position:"absolute"}}>
        <div>
      {Data ? (
-     <div>
-         <Navbar3/>
-     
-     <div style={{marginTop:"10vh"}}>
-         
-         <button
-            onClick={()=>{
-                setList(1);
-            }}
-         >Assigned List</button>
+     <div style={{width:"100vw", textAlign:"center"}}>
+     <Navbar3/>
+     <h2 style={{textAlign:"center", marginBottom:"40px", marginTop:"15vh"}}>UnAssigned Projects</h2>
+    <div style={{marginTop:"10vh", textAlign:"center", marginLeft:"3vw"}}>
 
        <table {...getTableProps()} style={{ border: 'solid 1px black' }}>
          <thead>
