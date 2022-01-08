@@ -20,8 +20,9 @@ import ClientLogin from "./Components/client/Login/ClientLogin";
 import Dashboard from "./Components/client/Dashboard/dashboard";
 import CreateProject from "./Components/client/CreateProject/Create/CreateProject";
 import CreateProjectList from "./Components/client/CreateProject/Create/CreateProjectList";
-
+import CreateP from "./Components/client/CreateProject/CreateP";
 import Deli from "./Components/client/Dashboard/Dashboard_Parts/del/deli";
+import Home from "./Components/client/Dashboard/Home/Home";
 // ---------------------------------Admin---------------------------------
 import AdminDashboard from "./Components/Admin_new/Dasdboard/AdminDashboard";
 import ProjectTracker from "./Components/Admin_new/ProjectTracker/ProjectTracker";
@@ -75,10 +76,11 @@ function App() {
           <Route path="/clientSignup" exact component={ClientSignup} />
           <Route path="/clientLogin" exact component={ClientLogin} />
 
-          <Route path="/chome" exact component={Dashboard} />
+          <Route path="/chome" exact component={Home} />
           <Route path="/cdash" exact component={Dashboard} />
           <Route path="/create" exact component={CreateProject} />
           <Route path="/createlist" exact component={CreateProjectList} />
+          <Route path="/create1" exact component={CreateP} />
 
           <Route path="/admin/project" exact component={ProjectTracker} />
           <Route path="/admin/dash" exact component={AdminDashboard} />

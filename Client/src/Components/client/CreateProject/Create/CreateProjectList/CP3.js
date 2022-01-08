@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../createprojectlist.module.css";
 
-function CP3() {
+function CP3({Data, setData}) {
   return (
     <div>
       {/* --------------------------------------- Company Overview -3 -----------------------------*/}
@@ -13,7 +13,10 @@ function CP3() {
               <span style={{ marginRight: "2em" }}>1</span> Name of the company
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.companyName  = e.target.value;setData(Data)}}
+                label="companyName"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -21,7 +24,10 @@ function CP3() {
               <span style={{ marginRight: "2em" }}>2</span> Tagline if any
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.tagline  = e.target.value;setData(Data)}}
+                label="tagline"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -29,7 +35,10 @@ function CP3() {
               <span style={{ marginRight: "2em" }}>3</span> Motto{" "}
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.motto   = e.target.value;setData(Data)}}
+                label="motto "
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -38,7 +47,10 @@ function CP3() {
               since you’ve established the company?
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.since    = e.target.value;setData(Data)}}
+                label="since  "
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -47,7 +59,10 @@ function CP3() {
               Demographics(gender)
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.target     = e.target.value;setData(Data)}}
+                label="target"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -57,7 +72,10 @@ function CP3() {
               through the design?
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.message = e.target.value;setData(Data)}}
+                label="message"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -65,7 +83,10 @@ function CP3() {
               <span style={{ marginRight: "2em" }}>7</span> Brand Persona
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.brand  = e.target.value;setData(Data)}}
+                label="brand"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -73,7 +94,10 @@ function CP3() {
               <span style={{ marginRight: "2em" }}>8</span> Competitor
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.competitor  = e.target.value;setData(Data)}}
+                label="competitor "
+              />
             </div>
           </div>
         </div>
@@ -89,7 +113,10 @@ function CP3() {
               guidlines in place?
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.guidlinesPlace = e.target.value;setData(Data)}}
+                label="guidlinesPlace"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -98,7 +125,10 @@ function CP3() {
               objective with this packagin
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.objective = e.target.value;setData(Data)}}
+                label="objective"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -107,7 +137,10 @@ function CP3() {
               for a primary & Secondary packaging?
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.packaging  = e.target.value;setData(Data)}}
+                label="packaging "
+              />
             </div>
           </div>
         </div>
@@ -163,7 +196,10 @@ function CP3() {
               specifications/Dimensions of the label?
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.specs = e.target.value;setData(Data)}}
+                label="specs"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -211,7 +247,10 @@ function CP3() {
               Types of fonts? Colour schemes? if any mind
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.styledef = e.target.value;setData(Data)}}
+                label="styledef"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -220,7 +259,10 @@ function CP3() {
               final product
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.format = e.target.value;setData(Data)}}
+                label="format"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -228,7 +270,10 @@ function CP3() {
               <span style={{ marginRight: "2em" }}>18</span> Number Of Products
             </div>
             <div>
-              <input type="number" className={styles.input} />
+              <input type="number" className={styles.input} 
+                onChange={(e) => {Data.productno  = e.target.value;setData(Data)}}
+                label="productno"
+              />
             </div>
           </div>
         </div>

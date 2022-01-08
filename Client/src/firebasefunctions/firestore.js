@@ -121,7 +121,7 @@ export const fileDetails = async(title)=>{
     }
 }
 
-export const sendNotification= (context, project, stage, name, designerEmail,clientEmail)=>{
+export const sendNotification= async (context, project, stage, name, designerEmail,clientEmail)=>{
   try {
     let n;
     if(context === 1 ){
@@ -130,7 +130,7 @@ export const sendNotification= (context, project, stage, name, designerEmail,cli
     db.collection('Projects')
       .doc(project)
       .update({
-        clientNotification:arrayUnion(n)
+        clientNotification:arrayUnion({data:"File uploaded by designer",sub:n,created:new Date().toString(), user:"client" })
       }).then(()=>{})
     //axios.post('', {context, project, designerEmail, clientEmail}).then(()=>{})
   } catch(err) {
@@ -138,15 +138,27 @@ export const sendNotification= (context, project, stage, name, designerEmail,cli
     }
 }
 
+export const adminNotify=async (data)=>{
+  try {
+    db.collection('Admin')
+      .doc('Notifications')
+      .update({
+        Notification:arrayUnion(data)
+      }).then(()=>{})
+  }catch(err) {
+    console.log(err);
+  }
+}
+
 export const getNotification= async(project, state)=>{
   try {
     let get;
     let notification=  [];
     if(state %2 === 0){
-      const Data = await getDocData('Projects', project);
+      const Data = await getDocData('Projects', project).then(()=>{});
       notification = notification.concat(Data.clientNotification);
     } if(state %3 === 0){
-      const Data = await getDocData('Projects', project);
+      const Data = await getDocData('Projects', project).then(()=>{});
       notification = notification.concat(Data.designerNotification);
     }
     return notification;
@@ -242,3 +254,11 @@ export const clientReject=()=>{
   }
 }
 
+export const clientNames = async()=>{
+  try {
+    const data = await getData('Client');
+    return data;
+  } catch(err){
+    console.log(err);
+  }
+}

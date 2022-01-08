@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import styles from "./createprojecthello.module.css";
 import { ReactComponent as Time } from ".././assets/TimePeriod.svg";
 import { ReactComponent as Edit } from ".././assets/pencil.svg";
@@ -14,7 +14,14 @@ import Navbar from "../../Dashboard/Dashboard_Parts/Navbar/Navbar";
 
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-function CreateProject() {
+function CreateProject({formData, setFormData, navigation,startLoading}) {
+
+  
+  const clientName = useRef();
+  const title = useRef();
+  const companyName = useRef();
+  const brief = useRef();const obj = useRef();
+
   const [startDate, setStartDate] = useState(new Date());
   const [EndDate, setEndDate] = useState(new Date())
   const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
@@ -24,12 +31,19 @@ function CreateProject() {
     <Edit style={{background:Edit}} className={styles.svg} onClick={onClick} ref={ref}/>
   ));
 
+  const setOption=(id)=>{
+    var x;
+    if(id === 2){x = document.getElementById("option2").value;formData['state'] = x;}else{
+    x = document.getElementById("option").value;formData['clientName'] = x;}
+    console.log("this",x);
+    
+    setFormData(formData);
+  }
   const history = useHistory();
   return (
     <>
     
     <div className={styles.Body}>
-    <Navbar2/>
       <div style={{position:"absolute"}}> <Navbar/> </div>
     {/* <div> */}
       
@@ -39,37 +53,51 @@ function CreateProject() {
           <div className={styles.inputs}>
             <div className={styles.inputTitle}>Client Name</div>
             <div className={styles.input}>
-              <select className={styles.maininput}>
-                <option value="something"></option>
-                <option value="something">paritosh</option>
-                <option value="something">raghavendra</option>
-                <option value="something">shashwat</option>
-                <option value="something">yatharth</option>
+              <select className={styles.maininput} id="option"
+                onChange={()=>{setOption(1)}}
+              >
+                {months.map((value, key)=>{
+                  return(<>
+                    <option value={value}>{value}</option>
+                  </>)
+                })
+
+                }
+                
               </select>
             </div>
           </div>
           <div className={styles.inputs}>
             <div className={styles.inputTitle}>Project Name</div>
             <div className={styles.input}>
-              <input type="text" className={styles.textinput}></input>
+              <input type="text" className={styles.textinput}
+                name="title"
+                ref={title}
+              />
             </div>
           </div>
           <div className={styles.inputs}>
             <div className={styles.inputTitle}>Type of Project </div>
             <div className={styles.input}>
-              <select className={styles.maininput}>
+              <select className={styles.maininput} id="option2"
+                onChange={()=>{setOption(2);}}
+                // name="state"
+              >
                 <option value="something"></option>
-                <option value="something">paritosh</option>
-                <option value="something">raghavendra</option>
-                <option value="something">shashwat</option>
-                <option value="something">yatharth</option>
+                <option value="February">February</option>
+                <option value="raghavendra">raghavendra</option>
+                <option value="shashwat">shashwat</option>
+                <option value="yatharth">yatharth</option>
               </select>
             </div>
           </div>
           <div className={styles.inputs}>
             <div className={styles.inputTitle}>Company Name</div>
             <div className={styles.input}>
-              <input type="text" className={styles.textinput}></input>
+              <input type="text" className={styles.textinput}
+                name="companyName"
+                ref={companyName}
+              ></input>
             </div>
           </div>
           <div className={styles.TimePeriod}>
@@ -85,7 +113,7 @@ function CreateProject() {
             <div className={styles.dates}>
             <DatePicker
                 selected={startDate}
-                onChange={(date) => setStartDate(date)}
+                onChange={(date) => {setStartDate(date);formData.start = startDate ;setFormData(formData)}}
                 customInput={<ExampleCustomInput />}
               />
               <div className={styles.date}>
@@ -103,7 +131,7 @@ function CreateProject() {
               <div className={styles.date}>
               <DatePicker
                 selected={EndDate}
-                onChange={(date) => setEndDate(date)}
+                onChange={(date) => {setEndDate(date);formData.end = EndDate ;setFormData(formData)}}
                 customInput={<ExampleCustomInput1 />}
               />
                 <div className={styles.BigDate}>{EndDate.getDate()}</div>
@@ -116,32 +144,34 @@ function CreateProject() {
           </div>
           <div className={styles.button}
             onClick={()=>{
-              history.push("/createlist");
+              
+              formData.start = startDate;
+              formData.end = EndDate;
+              formData.companyName = companyName.current.value;
+              formData.title = title.current.value;
+              formData.brief = brief.current.value;
+              formData.obj = obj.current.value;
+              setFormData(formData);
+              
+              navigation.next();
             }}
           >Next</div>
         </div>
         <div className={styles.right}>
-          <div className={styles.Number}>PRIYA_N199AOP</div>
+          
           <div className={styles.Para}>
             <div className={styles.paraHead}>Project Objective</div>
-            <div className={styles.paramain} contentEditable="true">
-              Lorem ipsum dolor sit amet. Vivamus ra felis bibendum ut tristique
-              et. Lorem ipsum dolor sit amet. Vivamus ra felis bibendum ut
-              tristique et. vLorem ipsum dolor sit amet. Vivamus ra felis
-              bibendum ut tristique et.{" "}
-            </div>
+            <textarea className={styles.paramain} style={{minWidth:"15vw", minHeight:"15vh"}} 
+             placeholder="Objective" ref={obj}/>
+              
           </div>
           <div className={styles.Para}>
             <div className={styles.paraHead}>Brief Summary</div>
-            <div className={styles.paramain}>
-              Lorem ipsum dolor sit amet. Vivamus ra felis bibendum ut tristique
-              et. Lorem ipsum dolor sit amet. Vivamus ra felis bibendum ut
-              tristique et. vLorem ipsum dolor sit amet. Vivamus ra felis
-              bibendum ut tristique et.{" "}
-            </div>
+            <textarea className={styles.paramain} style={{minWidth:"15vw", minHeight:"15vh"}} 
+             placeholder="Brief" ref={brief}/>
           </div>
-          <div className={styles.rightInput}></div>
-          <div className={styles.rightInput}></div>
+          {/* <div className={styles.rightInput}></div>
+          <div className={styles.rightInput}></div> */}
         </div>
       </div>
     </div>

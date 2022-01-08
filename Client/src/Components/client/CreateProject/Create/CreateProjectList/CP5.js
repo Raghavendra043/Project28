@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../createprojectlist.module.css";
 
-function CP5() {
+function CP5({Data, setData}) {
   return (
     <div>
       {/* --------------------------------------- Company Overview -3 -----------------------------*/}
@@ -13,7 +13,10 @@ function CP5() {
               <span style={{ marginRight: "2em" }}>1</span> Name of the company
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.companyName  = e.target.value;setData(Data)}}
+                label="companyName"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -21,7 +24,10 @@ function CP5() {
               <span style={{ marginRight: "2em" }}>2</span> Tagline if any
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.tagline  = e.target.value;setData(Data)}}
+                label="tagline"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -29,7 +35,10 @@ function CP5() {
               <span style={{ marginRight: "2em" }}>3</span> Motto{" "}
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.motto  = e.target.value;setData(Data)}}
+                label="motto"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -38,7 +47,10 @@ function CP5() {
               since you’ve established the company?
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.since  = e.target.value;setData(Data)}}
+                label="since"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -47,7 +59,10 @@ function CP5() {
               Demographics(gender)
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.target  = e.target.value;setData(Data)}}
+                label="target"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -57,7 +72,10 @@ function CP5() {
               through the design?
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.message   = e.target.value;setData(Data)}}
+                label="message "
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -65,7 +83,10 @@ function CP5() {
               <span style={{ marginRight: "2em" }}>7</span> Brand Persona
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.brand   = e.target.value;setData(Data)}}
+                label="brand "
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -73,7 +94,10 @@ function CP5() {
               <span style={{ marginRight: "2em" }}>8</span> Competitor
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.competitor   = e.target.value;setData(Data)}}
+                label="competitor "
+              />
             </div>
           </div>
         </div>
@@ -89,7 +113,10 @@ function CP5() {
               are you looking for?
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.logo  = e.target.value;setData(Data)}}
+                label="logo"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -97,7 +124,10 @@ function CP5() {
               <span style={{ marginRight: "2em" }}>10</span>Style definition
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.style  = e.target.value;setData(Data)}}
+                label="style"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -105,7 +135,10 @@ function CP5() {
               <span style={{ marginRight: "2em" }}>11</span>Look and Feel
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.look  = e.target.value;setData(Data)}}
+                label="look"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -114,7 +147,10 @@ function CP5() {
               Logo
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.application   = e.target.value;setData(Data)}}
+                label="application "
+              />
             </div>
           </div>
         </div>

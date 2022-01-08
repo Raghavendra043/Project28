@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../createprojectlist.module.css";
 
-function CP6() {
+function CP6({Data, setData}) {
   return (
     <div>
       {/* --------------------------------------- DesignObjectives -6 -----------------------------*/}
@@ -14,7 +14,10 @@ function CP6() {
               place
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.guidelines  = e.target.value;setData(Data)}}
+                label="guidelines"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -23,7 +26,10 @@ function CP6() {
               of words in your content?
             </div>
             <div>
-              <input type="number" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.wordsNo  = e.target.value;setData(Data)}}
+                label="wordsNo"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -31,7 +37,10 @@ function CP6() {
               <span style={{ marginRight: "2em" }}>3</span> Look and Feel
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.look  = e.target.value;setData(Data)}}
+                label="look"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -40,7 +49,10 @@ function CP6() {
               there?
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.slides  = e.target.value;setData(Data)}}
+                label="slides"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -49,7 +61,10 @@ function CP6() {
               same
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.dimensions  = e.target.value;setData(Data)}}
+                label="dimensions"
+              />
             </div>
           </div>
           <div className={styles.field}>

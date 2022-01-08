@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../createprojectlist.module.css";
 
-function CP1(props) {
+function CP1({Data, setData}) {
   return (
     <div>
       {/* -----------------------------------------Company OVerview----------------------------- */}
@@ -13,7 +13,10 @@ function CP1(props) {
               <span style={{ marginRight: "2em" }}>1</span> Name of the company
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.companyName = e.target.value;setData(Data)}}
+                label="companyName"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -21,7 +24,10 @@ function CP1(props) {
               <span style={{ marginRight: "2em" }}>2</span>Tagline if any
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.tagline = e.target.value;setData(Data)}}
+                label="tagline"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -29,7 +35,10 @@ function CP1(props) {
               <span style={{ marginRight: "2em" }}>3</span> Motto{" "}
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.motto = e.target.value;setData(Data)}}
+                label="motto"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -38,7 +47,10 @@ function CP1(props) {
               since you’ve established the company?
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.since = e.target.value;setData(Data)}}
+                label="since"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -47,7 +59,10 @@ function CP1(props) {
               Demographics(gender)
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.target = e.target.value;setData(Data)}}
+                label="target"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -57,7 +72,10 @@ function CP1(props) {
               through the design?
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.message = e.target.value;setData(Data)}}
+                label="message"
+              />
             </div>
           </div>
         </div>
@@ -73,7 +91,10 @@ function CP1(props) {
               <span style={{ marginRight: "2em" }}>7</span> Competitor
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.competitor = e.target.value;setData(Data)}}
+                label="competitor"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -83,7 +104,10 @@ function CP1(props) {
               the company?
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.story = e.target.value;setData(Data)}}
+                label="story"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -92,7 +116,10 @@ function CP1(props) {
               guidlines in place?{" "}
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.guidlinesPlace = e.target.value;setData(Data)}}
+                label="guidlinesPlace"
+              />
             </div>
           </div>
         </div>
@@ -109,7 +136,10 @@ function CP1(props) {
               collaterals are you looking for?
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.brandcolleteral = e.target.value;setData(Data)}}
+                label="brandcolleteral"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -117,7 +147,10 @@ function CP1(props) {
               <span style={{ marginRight: "2em" }}>11</span> Style defination
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.styledef = e.target.value;setData(Data)}}
+                label="styledef"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -126,7 +159,10 @@ function CP1(props) {
               collaterals
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.applicationCollateral = e.target.value;setData(Data)}}
+                label="applicationCollateral"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -135,7 +171,10 @@ function CP1(props) {
               if any
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.illustration = e.target.value;setData(Data)}}
+                label="illustration"
+              />
             </div>
           </div>
         </div>

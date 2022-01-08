@@ -5,12 +5,17 @@ import logo from "./../../assets/logo.svg";
 import icon from "./../../assets/user.svg";
 import { useHistory } from "react-router-dom";
 import data from "./data.json";
+import { getNotification } from "../../firebasefunctions/firestore";
 
-function Navbar2() {
+function Navbar2(title) {
   const history = useHistory();
-  const [Not, setNot] = useState(false);
-  if(!Not){
-    
+  const [Noti, setNot] = useState(null);
+  
+  if(!Noti){
+    getNotification(title, 3).then((noti)=>{
+      setNot(noti);
+      console.log(noti);
+    })  
   }
   const viewHandler = () => {
     var modal = document.getElementById("projectModalNotif");
@@ -31,7 +36,7 @@ function Navbar2() {
               alt="logo"
               width="100vw"
               onClick={() => {
-                history.push("/");
+                history.push("/chome");
               }}
             />
           </button>
@@ -74,12 +79,12 @@ function Navbar2() {
           </span>
           <div className="title">Notifications</div>
           <div className="notif_content">
-            {data &&
-              data.map((items, key) => {
+            {Noti &&
+              Noti.map((items, key) => {
                 return (
                   <div
                     className={
-                      (items.id === 1 ? "admin" : "client") + " notifs"
+                      (items.user === 'admin' ? "admin" : "client") + " notifs"
                     }
                   >
                     {items.data}

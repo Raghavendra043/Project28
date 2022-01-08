@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../createprojectlist.module.css";
 
-function CP4() {
+function CP4({Data, setData}) {
   return (
     <div>
       {/* --------------------------------------- Company Overview -3 -----------------------------*/}
@@ -13,7 +13,10 @@ function CP4() {
               <span style={{ marginRight: "2em" }}>1</span> Name of the company
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.companyName  = e.target.value;setData(Data)}}
+                label="companyName"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -21,7 +24,10 @@ function CP4() {
               <span style={{ marginRight: "2em" }}>2</span> Tagline if any
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.tagline  = e.target.value;setData(Data)}}
+                label="tagline"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -29,7 +35,10 @@ function CP4() {
               <span style={{ marginRight: "2em" }}>3</span> Motto{" "}
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.motto  = e.target.value;setData(Data)}}
+                label="motto"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -38,7 +47,10 @@ function CP4() {
               since you’ve established the company?
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.since  = e.target.value;setData(Data)}}
+                label="since"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -47,7 +59,10 @@ function CP4() {
               Demographics(gender)
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.target  = e.target.value;setData(Data)}}
+                label="target"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -57,7 +72,10 @@ function CP4() {
               through the design?
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.message   = e.target.value;setData(Data)}}
+                label="message "
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -65,7 +83,10 @@ function CP4() {
               <span style={{ marginRight: "2em" }}>7</span> Brand Persona
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.brand   = e.target.value;setData(Data)}}
+                label="brand "
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -73,7 +94,10 @@ function CP4() {
               <span style={{ marginRight: "2em" }}>8</span> Competitor
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.competitor   = e.target.value;setData(Data)}}
+                label="competitor "
+              />
             </div>
           </div>
         </div>
@@ -88,7 +112,10 @@ function CP4() {
               guidlines in place?
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.guidlinesPlace  = e.target.value;setData(Data)}}
+                label="guidlinesPlace"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -97,7 +124,10 @@ function CP4() {
               objective with these creatives
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.objective  = e.target.value;setData(Data)}}
+                label="objective"
+              />
             </div>
           </div>
         </div>
@@ -114,7 +144,10 @@ function CP4() {
             </div>
 
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.creatives  = e.target.value;setData(Data)}}
+                label="creatives"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -123,7 +156,10 @@ function CP4() {
               platform is it for?
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.social  = e.target.value;setData(Data)}}
+                label="social"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -133,7 +169,10 @@ function CP4() {
             </div>
 
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.dimensions  = e.target.value;setData(Data)}}
+                label="dimensions"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -182,7 +221,10 @@ function CP4() {
               posts?
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.reels  = e.target.value;setData(Data)}}
+                label="reels"
+              />
             </div>
           </div>
         </div>

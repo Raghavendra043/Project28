@@ -65,9 +65,10 @@ function SignUpFirst({ formData, setForm, navigation, startLoading }) {
                 type="text"
                 value={formData.fullname}
                 onChange={setForm}
+                name="fullname"
                 placeholder="Enter Your Full Name"
                 // ref = {props.nameRef}
-                name="fullname"
+                
               />
             </div>
             <div className={style.input_cover}>

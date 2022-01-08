@@ -79,7 +79,7 @@ function Dashboard() {
 
   return (
     <div>
-      <Navbar2/>
+      {formData ? (<Navbar2 {...formData.title}/>):(<></>)}
       <div
         className="main_container1"
         style={{ position: "absolute", opacity: "0.16" }}

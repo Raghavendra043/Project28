@@ -1,13 +1,13 @@
 import React from "react";
 import styles from "../createprojectlist.module.css";
 
-function CP2(props) {
+function CP2({Data, setData}) {
   return (
     <div>
       {/* --------------------------------------- DesignObjectives -2 -----------------------------*/}
       <div
         className={styles.box}
-        style={{ display: props.dis === 2 ? "block" : "none" }}
+        style={{ display: Data.dis === 2 ? "block" : "none" }}
       >
         <span className={styles.title}>Design Objective</span>
         <div className={styles.items}>
@@ -17,7 +17,10 @@ function CP2(props) {
               place
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.guidelines = e.target.value;setData(Data)}}
+                label="guidelines"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -26,7 +29,10 @@ function CP2(props) {
               of words in your content?
             </div>
             <div>
-              <input type="number" className={styles.input} />
+              <input type="number" className={styles.input} 
+                onChange={(e) => {Data.contentNo = e.target.value;setData(Data)}}
+                label="contentNo"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -34,7 +40,10 @@ function CP2(props) {
               <span style={{ marginRight: "2em" }}>3</span> Look and Feel
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input}                 
+                onChange={(e) => {Data.look = e.target.value;setData(Data)}}
+                label="look"
+              />
             </div>
           </div>
           <div className={styles.field}>
@@ -43,7 +52,10 @@ function CP2(props) {
               there?
             </div>
             <div>
-              <input type="text" className={styles.input} />
+              <input type="text" className={styles.input} 
+                onChange={(e) => {Data.slides = e.target.value;setData(Data)}}
+                label="slides"
+              />
             </div>
           </div>
           <div className={styles.field}>
