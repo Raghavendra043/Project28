@@ -35,23 +35,25 @@ export default function Deli() {
           {stages &&
             stages.map((data, key) => {
               return (
-                <div>
-                  <div>{data + 1}</div>
-                  {Data["files"][`${data + 1}`]["clientFiles"].map(
-                    (element, id) => {
-                      return (
-                        <div className={styles.file}>
-                          <a href={element.url}>
-                            <div>
-                              <File />
-                            </div>
-                          </a>
-                          <div className={styles.name}>{element.name}</div>
-                        </div>
-                      );
-                    }
-                  )}
-                </div>
+                <>
+                  <div className={styles.stage}>Stage {data + 1}</div>
+                  <div className={styles.files2}>
+                    {Data["files"][`${data + 1}`]["clientFiles"].map(
+                      (element, id) => {
+                        return (
+                          <div className={styles.file}>
+                            <a href={element.url}>
+                              <div>
+                                <File />
+                              </div>
+                            </a>
+                            <div className={styles.name}>{element.name}</div>
+                          </div>
+                        );
+                      }
+                    )}
+                  </div>
+                </>
               );
             })}
         </div>
