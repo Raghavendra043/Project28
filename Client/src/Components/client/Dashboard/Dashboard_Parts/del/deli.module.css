@@ -1,24 +1,26 @@
 .files {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+
   height: 30vh;
   overflow: hidden;
-  overflow-y: scroll;
+  overflow: scroll;
 }
 
 .stage {
   text-align: center;
+  font-weight: bold;
 }
 .files2 {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .file {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 1vh 0.2vw;
+  margin: 1vh 0.3vw;
   width: 5vw;
   background-color: #fafafa;
   padding: 1vh 3.5vw;
