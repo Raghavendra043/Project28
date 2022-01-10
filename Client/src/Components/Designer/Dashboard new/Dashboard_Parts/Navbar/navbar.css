@@ -1,28 +1,28 @@
-.maincontainerSidebar{
-    display: flex;
-    flex-direction: column;
-    padding-left: 2vw ;
-    padding-right: 2vw ;
-    width: 19vw;
-    transition: 0.15s;
+.maincontainerSidebar {
+  display: flex;
+  flex-direction: column;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  width: 19vw;
+  transition: 0.15s;
 }
-.null{
-    display: none;
+.null {
+  display: none;
 }
-.compressedSidebar{
-    width: 5vw;
-    display: flex;
-    flex-direction: column;
-    padding-left: 2vw ;
-    padding-right: 2vw ;
-    transition: 0.2s;
+.compressedSidebar {
+  width: 5vw;
+  display: flex;
+  flex-direction: column;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  transition: 0.2s;
 }
-.button{
-   display: flex;
-   flex-direction: row;
-   height: 2em;
+.button {
+  display: flex;
+  flex-direction: row;
+  height: 2em;
 }
-.buttonLower{
+.buttonLower {
   position: absolute;
   bottom: 4vh;
   left: 2.5vh;
@@ -32,33 +32,38 @@
   align-items: center;
   justify-content: left;
 }
-.menuname
-{   bottom: 0px;
-    font-family: sans-serif;
-    font-size: 1em;
-    /* transition-delay: 2s; */
-    animation: fadeIn 0.5s;
+.menuname {
+  bottom: 0px;
+  font-family: sans-serif;
+  font-size: 1em;
+  /* transition-delay: 2s; */
+  animation: fadeIn 0.5s;
 }
-.menuname1
-{   bottom: 0px;
-    font-family: sans-serif;
-    font-size: 1em;
- 
+.menuname1 {
+  bottom: 0px;
+  font-family: sans-serif;
+  font-size: 1em;
 }
 @keyframes fadeIn {
-  0% {opacity:0;}
-  20%{opacity:0;}
-  100% {opacity:1;}
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-.svg{
-    margin-right: 35px;
+.svg {
+  margin-right: 35px;
 }
-.cross{
-    margin-top: 10px;
-    margin-bottom: 30px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.cross {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 /* .button:active,.button:focus{
     font-weight: 600;
@@ -66,19 +71,19 @@
 .menuname:active,.menuname:focus{
     font-weight: 600;
 } */
-.menuname:hover{
-    cursor: pointer;
+.menuname:hover {
+  cursor: pointer;
 }
-.button{
-    margin-bottom: 40px;
+.button {
+  margin-bottom: 40px;
 }
-.menunameBold{
-    bottom: 0px;
-    font-family: Open sans;
-    font-size: 1em;
-    font-weight:700 ;
+.menunameBold {
+  bottom: 0px;
+  font-family: Open sans;
+  font-size: 1em;
+  font-weight: 700;
 }
-.slider {
+/* .slider {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -88,7 +93,7 @@
   background-color: #ccc;
   -webkit-transition: .4s;
   transition: .4s;
-}
+} */
 
 .slider:before {
   position: absolute;
@@ -98,15 +103,15 @@
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #2196f3;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #2196f3;
 }
 
 input:checked + .slider:before {
@@ -130,46 +135,45 @@ input:checked + .slider:before {
   height: 34px;
 }
 
-.switch input { 
+.switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
-.hamNav{
+.hamNav {
   display: none;
 }
 @media screen and (max-width: 500px) {
-
-.maincontainerSidebar{
-  display: none;
-}
-.compressedSidebar{
-  display: none;
-}
-.hamNav{
-  display: block;
-  padding: 10px;
-}
-.headerSidebar{
-  display: none;
-}
-.HamButton{
-  display: flex;
-  flex-direction: row;
-  font-size: 20px;
-  margin-bottom: 5vh;
-}
-.hamMenu{
-  z-index: 10;
-  width: 100vw;
-  height: 100vh;
-  opacity: 0.8;
-}
-.HamButtons{
-  padding-top: 15vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+  .maincontainerSidebar {
+    display: none;
+  }
+  .compressedSidebar {
+    display: none;
+  }
+  .hamNav {
+    display: block;
+    padding: 10px;
+  }
+  .headerSidebar {
+    display: none;
+  }
+  .HamButton {
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    margin-bottom: 5vh;
+  }
+  .hamMenu {
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.8;
+  }
+  .HamButtons {
+    padding-top: 15vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }

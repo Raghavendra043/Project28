@@ -6,33 +6,31 @@ import { ReactComponent as ArrowRight } from "./../assets/ArrowRight.svg";
 import { ReactComponent as ArrowLeft } from "./../assets/ArrowLeft.svg";
 import classnames from "classnames";
 import Slider from "./../../Slider/Slider";
-import {useLocation, useHistory} from 'react-router-dom'
-import {Update} from '../../../../firebasefunctions/firestore'
-import {storage} from '../../../../firebase'
+import { useLocation, useHistory } from "react-router-dom";
+import { Update } from "../../../../firebasefunctions/firestore";
+import { storage } from "../../../../firebase";
 
 function Second({ formData, setForm, navigation }) {
   const history = useHistory();
   const location = useLocation();
   //const email = location.state.email;
-  const email = 'f20190120@hyderabad.bits-pilani.ac.in'
-  console.log('from second', email, 'rgh');
+  const email = "f20190120@hyderabad.bits-pilani.ac.in";
+  console.log("from second", email, "rgh");
 
-  const uploadFile  = async(image)=>{
+  const uploadFile = async (image) => {
     // Loading(true);
-    
-    await storage.ref(`${formData.email}/profile`)
-        .put(image);
+
+    await storage.ref(`${formData.email}/profile`).put(image);
     const URL = await storage
-        .ref(`${formData.email}/Profile-Link`)
-        .getDownloadURL()
+      .ref(`${formData.email}/Profile-Link`)
+      .getDownloadURL();
     setForm({
-          ...formData,
-          profileLink:URL
-        });
+      ...formData,
+      profileLink: URL,
+    });
     //const file = await update('Projects', '1',image.name,URL, formData.currentStage);
-    //if(file && file === 1 ){//Loading(false);}         
-    
-}
+    //if(file && file === 1 ){//Loading(false);}
+  };
 
   return (
     <div className={e_style.container}>
@@ -71,11 +69,13 @@ function Second({ formData, setForm, navigation }) {
                 Portfolio
               </div>
               <div className={styles.resume_cover}>
-                <input type="file" id="resume" 
-                  onChange = {(e)=>{
-                    uploadFile(e.target.files[0])
+                <input
+                  type="file"
+                  id="resume"
+                  onChange={(e) => {
+                    uploadFile(e.target.files[0]);
                   }}
-                  />
+                />
                 <label for="resume" className={styles.resume}>
                   <span style={{ marginRight: "1em" }}>
                     <svg
@@ -152,11 +152,14 @@ function Second({ formData, setForm, navigation }) {
           </div>
         </div>
       </div>
-      <div className={styles.next} onClick={()=>{
-          Update('Designers', email, formData);
+      <div
+        className={styles.next}
+        onClick={() => {
+          Update("Designers", email, formData);
           alert("successfully prifile created");
-          history.push('/designer/login');
-      }}>
+          history.push("/designer/login");
+        }}
+      >
         <ArrowRight className={styles.arrow_right} />
       </div>
     </div>
