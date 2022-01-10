@@ -5,9 +5,10 @@ import logo from "./../../assets/logo.svg";
 import icon from "./../../assets/user.svg";
 import { useHistory } from "react-router-dom";
 import data from "./data.json";
-import { getNotification } from "../../firebasefunctions/firestore";
+import { getDocData, getNotification } from "../../firebasefunctions/firestore";
 import { search } from "../../firebasefunctions/firestore";
-function Navbar2() {
+
+function Navbar4() {
   const history = useHistory();
   const [Noti, setNot] = useState(null);
   const [formData, setForm] = useState(null);
@@ -15,7 +16,7 @@ function Navbar2() {
   const email = atob(window.sessionStorage.getItem("key"));
 
   if(!formData){
-    search("Projects", "clientEmail", email).then((project) => {
+    search("Projects", "designerEmail", email).then((project) => {
       if (project && project !== "f") {
         //console.log("from inside:", project);
         var c = { onCurrent: project.currentStage };
@@ -29,15 +30,19 @@ function Navbar2() {
       
   }  
   if(!Name){
-    search("Client", "email", email).then((project) => {
-      if (project && project !== "f") {
-        setName(project.fullname);
-        console.log()
+    getDocData('Designers', email).then((project)=>{
+        setName(project.name);
+    })
 
-      } else if (project === "f") {
-        setName("");
-      }
-    });
+    // search("Designers", "email", email).then((project) => {
+    //   if (project && project !== "f") {
+    //     setName(project.fullname);
+    //     console.log()
+
+    //   } else if (project === "f") {
+    //     setName("");
+    //   }
+    // });
   }
 
   const viewHandler = () => {
@@ -62,7 +67,7 @@ function Navbar2() {
               alt="logo"
               width="100vw"
               onClick={() => {
-                history.push("/chome");
+                history.push("/designer/dash");
               }}
             />
           </button>
@@ -126,4 +131,4 @@ function Navbar2() {
   );
 }
 
-export default Navbar2;
+export default Navbar4;

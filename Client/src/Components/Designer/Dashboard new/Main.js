@@ -15,6 +15,8 @@ import Navbar1 from "../../Navbar/Navbar1";
 //import Navbar from "./Components/Navbar/Navbar";
 //import Navbar from "../../Navbar/Navbar";
 import Navbar2 from "../../Navbar/Navbar2";
+import Navbar4 from "../../Navbar/Navbar4";
+
 
 
 function Main() {
@@ -24,12 +26,7 @@ function Main() {
   const auth = getAuth();
   const user = auth.currentUser;
   
-  console.log("User logged in : ", user);
-  //const email = 'f20190120@hyderabad.bits-pilani.ac.in';
-  //const email = location.state.email;
-  //const email = user.email;
   const email = atob(window.sessionStorage.getItem("key"));
-  console.log("decoded email : ", email);
 
   const [Details, setDetails] = useState(false);
   const [designer, setDes] = useState(false);
@@ -48,9 +45,8 @@ function Main() {
         element.style.display = null;
         var element1 = document.getElementById("screen");
         element1.style.opacity = 0.16;
-        //setDt('Uploading');
+        // setDt('');
     } else {
-        console.log('coming outside');
         var element = document.getElementById("loading");
         element.style.display = "none";
         var element1 = document.getElementById("screen");
@@ -59,10 +55,10 @@ function Main() {
   }
   const props = { formData, setForm, Loading };
 
+  
   if (!Details) {
     search("Projects", "designerEmail", email).then((project) => {
       if (project && project !== "f") {
-        console.log("from inside:", project);
         setDetails(project);
         c = { onCurrent: project.currentStage };
         setForm({ ...project, ...c });
@@ -76,7 +72,6 @@ function Main() {
   if(!designer){
     search("Designers", "email", email).then((project) => {
       if (project && project !== "f") {
-        console.log("from inside:", project);
         setDes(project.profile);        
       } else if (project === "f") {
         console.log("fuck");
@@ -103,7 +98,7 @@ function Main() {
     
     <div>
       {/* <Navbar1/> */}
-      <Navbar2/>
+      <Navbar4/>
 
       <div
         className="main_container1"

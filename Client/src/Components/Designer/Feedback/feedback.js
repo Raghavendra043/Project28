@@ -1,5 +1,6 @@
-import React, { useRef } from 'react'
-import Fourth from '../Dashboard new/Dashboard_Parts/Fourth/Fourth'
+import React, { useRef, useState } from 'react'
+//import Fourth from '../Dashboard new/Dashboard_Parts/Fourth/Fourth'
+import Fourth from '../../client/Dashboard/Dashboard_Parts/Fourth/Fourth'
 import Navbar from '../Dashboard new/Dashboard_Parts/Navbar/Navbar'
 import Third from '../Dashboard new/Dashboard_Parts/Third/Third'
 import styles from './feedback.module.css'
@@ -9,8 +10,10 @@ import {ReactComponent as Like} from './thumbsUp.svg'
 import {ReactComponent as NeedChanges} from './needChanges.svg'
 import {ReactComponent as Sad} from './sad.svg'
 import { useHistory, useLocation } from 'react-router-dom'
-import { clientApproval, Approve , Rejectadmin} from '../../../firebasefunctions/firestore'
+import { clientApproval, Approve , Rejectadmin, clientReject} from '../../../firebasefunctions/firestore'
 import { toast } from 'react-toastify'
+
+import Fourth1 from '../../Admin_new/Fourth/Fourth'
 
 function Feedback() {
     const location = useLocation();
@@ -19,7 +22,9 @@ function Feedback() {
     const title = location.state.title;
     const request = location.state.request;
     const from = location.state.from;
+    const formData = location.state.formData;
     console.log(request);
+    const [da, setForm] = useState();
     
     const feedback1 = useRef();
     const feedback2 = useRef();
@@ -33,19 +38,19 @@ function Feedback() {
     const ApproveAdmin=async()=>{
         console.log('admin');
         await Approve(title, [feedback1.current.value, feedback2.current.value]);
-        history.push('/admin/project');
+        history.push('/admin/project', {title:formData.title});
     }
 
     const rejectClient=async()=>{
         console.log('reject client');
-        //await clientApproval(title, [feedback1.current.value, feedback2.current.value]);
-        //history.push('/chome');
+        await clientReject(title, [feedback1.current.value, feedback2.current.value]);
+        history.push('/cdash');
     }
 
     const rejectAdmin=async()=>{
         console.log('reject admin');
         await Rejectadmin(title,[feedback1.current.value, feedback2.current.value] );
-        history.push('/admin/project');
+        history.push('/admin/project', {title:formData.title});
     }
     return (
         <>
@@ -124,12 +129,12 @@ function Feedback() {
                 </div>
                 <div className={styles.col2}>
                     <div className={styles.fourth}>
-                        <Fourth />
+                        {from && from =='client'? (<Fourth {...{formData, setForm}}/>):(<></>)}
                     </div>
                 </div>
                 <div className={styles.col3}>
                     <div className={styles.third}>
-                        {/* <Third /> */}
+                        <Third {...{formData, setForm}}/>
                     </div>
                 </div>
                 </div>

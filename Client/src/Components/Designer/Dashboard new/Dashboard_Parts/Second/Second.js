@@ -2,11 +2,15 @@ import React, { useRef, useState } from 'react'
 import "./second.css"
 import {storage} from '../../../../../firebase'
 import {update, getDocData, fileDetails, sendNotification} from '../../../../../firebasefunctions/firestore'
+import {toast} from 'react-toastify'
+
 function Second({ formData, setForm, Loading }) {
     const cur = useRef(formData.onCurrent);
-    console.log('from 2nd ', formData);
 
     const uploadFile  = async(image)=>{
+        Loading(true);
+        try {
+        
         Loading(true);
         
         await storage.ref(`${formData.designerEmail}/${image.name}`)
@@ -15,9 +19,16 @@ function Second({ formData, setForm, Loading }) {
             .ref(`${formData.designerEmail}/${image.name}`)
             .getDownloadURL()
         console.log(URL);        
-        const file = await update('Projects', '1',image.name,URL, formData.currentStage);
-        if(file && file === 1 ){Loading(false);}         
-        sendNotification(1, '1', formData.currentStage, image.name, formData.designerEmail, formData.clientEmail);
+        
+        const file = await update('Projects', formData.title,image.name,URL, formData.currentStage);
+        if(file && file === 1 && file !==5 ){Loading(false);toast.info('File Uploaded successfully', {position:"bottom-center"});}
+        if(file && file ===5 ){Loading(false);toast.error("Error Uploading File", {position:"bottom-center"});}         
+        sendNotification(1, formData.title, formData.currentStage, image.name).then(()=>{})
+      } catch(err){
+        Loading(false);
+        console.log(err);
+        toast.error('error occured', {position:"bottom-ceneter"});
+      }
     }
 
     
@@ -38,8 +49,8 @@ function Second({ formData, setForm, Loading }) {
                     </div>
                 </div>
                 <div className="contentSecond">
-                    <div className="lines">Lorem Ipsum dolor sit amet. Vivamus ra felis endum</div>
-                    <div className="lines">Lorem Ipsum dolor sit amet. Vivamus ra felis endum</div>
+                    <div className="lines">{formData['projectInfo']['obj']}</div>
+                    <div className="lines">{formData['projectInfo']['brief']}</div>
                 </div>
             </div>
             <div className="box2 upload">
@@ -60,75 +71,7 @@ function Second({ formData, setForm, Loading }) {
                 </div>
             </div>
         </div>
-        {/* <div className="contentSecond">
-          <div className="lines">
-            Lorem Ipsum dolor sit amet. Vivamus ra felis endum
-          </div>
-          <div className="lines">
-            Lorem Ipsum dolor sit amet. Vivamus ra felis endum
-          </div>
-        </div> */}
-      </div>
-      {/* <div className="box3 upload">
-        <div className="inpurFile">
-          <input
-            type="file"
-            id="file"
-            className="FileUpload"
-            onChange={(e) => {
-              uploadFile(e.target.files[0]);
-            }}
-          />
-          <label for="file">
-            <svg
-              width="103"
-              height="98"
-              viewBox="0 0 103 98"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect
-                x="0.375"
-                y="0.125"
-                width="102.5"
-                height="97.5"
-                rx="40"
-                fill="#00DDDC"
-                fill-opacity="0.13"
-              />
-              <path
-                d="M59.621 57.6101L51.6347 48.9316L43.6484 57.6101"
-                stroke="#00B4B3"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M51.6348 48.9316V68.4581"
-                stroke="#00B4B3"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M68.3848 62.7954C70.3321 61.6418 71.8704 59.8163 72.757 57.6071C73.6435 55.3978 73.8278 52.9307 73.2808 50.595C72.7337 48.2594 71.4864 46.1882 69.7358 44.7084C67.9852 43.2286 65.8309 42.4244 63.613 42.4228H61.0973C60.493 39.8827 59.3666 37.5246 57.8028 35.5256C56.2391 33.5267 54.2787 31.9389 52.069 30.8818C49.8593 29.8247 47.4578 29.3257 45.0451 29.4223C42.6324 29.5189 40.2712 30.2086 38.1391 31.4395C36.007 32.6705 34.1594 34.4107 32.7353 36.5292C31.3111 38.6478 30.3475 41.0897 29.9168 43.6712C29.4861 46.2527 29.5996 48.9067 30.2487 51.4337C30.8978 53.9607 32.0657 56.295 33.6644 58.2609"
-                stroke="#00B4B3"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M59.621 57.6101L51.6347 48.9316L43.6484 57.6101"
-                stroke="#00B4B3"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-            <div className="filetitle">Upload all your files here</div>
-          </label>
-        </div>
-      </div> */}
+      </div>      
       </div>
       
   );

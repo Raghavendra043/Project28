@@ -1,9 +1,10 @@
-import React from "react";
+/* eslint-disable jsx-a11y/alt-text */
+import React, {useState} from "react";
 import "./Third.css";
 import EditCheckbox from "./check.png";
 import Extra from "./Extra.png";
 import Tick from "./Tick.png";
-import data from "./drafts.json";
+//import data from "./drafts.json";
 
 // status:
 // 0:completed
@@ -12,19 +13,39 @@ import data from "./drafts.json";
 
 function Third({ formData, setForm }) {
   let current = formData.currentStage;
-  current = formData.currentStage;
-  console.log("from this is the most ",formData);
-  console.log("from third", current);
+
+
+  const [data, setData] = useState();
+  const count = ["First", "Second", "Third", "Fourth", "Fifth"]
+  if(!data){
+    const num = formData.stageCount;
+    if(current == 0){
+      if(formData['files']['0']['files'].length > 0){
+        current+=1;
+      }
+    }
+    let Data = []
+    for(let i =0;i<num;i++  ){
+      let Desc='';
+      if(i===num-1){Desc = "Final"}
+      else{Desc=count[i]}
+      Data.push({
+        id:i+1,
+        Desc
+      })
+    }
+    setData(Data);
+  }
 
   const changeStage = (id) => {
     console.log("current = ", id);
     formData.onCurrent = id;
-    setForm(formData);
+    //setForm(formData);
   };
   return (
     <div className="des-outtest">
       <div className="des-d-t-box-container">
-        {data.map((data, key) => {
+        {data && data.map((data, key) => {
           return (
             <div
               className={

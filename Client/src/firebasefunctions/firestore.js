@@ -1,6 +1,7 @@
 import { db } from "../firebase";
 import {arrayUnion, getDoc} from 'firebase/firestore'
 import axios from "axios";
+import { toast } from "react-toastify";
 export const addData = async (collection, doc, Data) => {
   try {
     if (Data && collection) {
@@ -78,6 +79,7 @@ export const Update = async (collection, doc, data=false) => {
       .doc(doc)
       .update(finalData)
       .then(function () {});
+  
   } catch (err) {
     console.log(err);
   }
@@ -87,22 +89,40 @@ export const update= async(collection, doc, name, url, current)=>{
   try {
     let project = await getDocData(collection, doc);
     console.log('Project det:', project);
+    
     //project['files'][current]['files'].push({name, url});
     project['files'][current]['adminFiles'].push({name, url, client:[] ,admin:[], adminApp:2,clientApp:2 });
     project['files'][current]['currentState'] = "Waiting for Admins approval";
     if(project['files'][current]['designerFiles'].length >0){
       project['files'][current]['designerFiles'] = []
+      project['files'][current]['adminApproval'] = false;
     }
     
     await db.collection(collection)
       .doc(doc)
       .update(project)
-
-    
       
     return 1;
   } catch (err) {
+    return 5;
     console.log(err);
+  }
+}
+
+export const clientUpload = async (collection, doc, data1, data2 )=>{
+  try {
+
+    var project = await getDocData(collection, doc);
+    console.log(project, collection, doc);
+
+    const created1 = new Date().toString()
+    project['files']['0']['files'].push({name:data1, url:data2, created:created1})
+    sendNotification(2, doc).then(()=>{})
+    await db.collection(collection).doc(doc).update(project)
+    return 1;
+  }catch(err){
+    console.log(err);
+    return 5;
   }
 }
 
@@ -121,19 +141,60 @@ export const fileDetails = async(title)=>{
     }
 }
 
-export const sendNotification= async (context, project, stage, name, designerEmail,clientEmail)=>{
+export const sendNotification= async (context, project, stage=false, name=false)=>{
   try {
     let n;
     if(context === 1 ){
       n = `${name} file Submitted by designer for the Project ${project} for the stage ${stage} `
-    }
-    db.collection('Projects')
+      db.collection('Projects')
       .doc(project)
       .update({
         clientNotification:arrayUnion({data:"File uploaded by designer",sub:n,created:new Date().toString(), user:"client" })
       }).then(()=>{})
+    } else if(context === 2){
+      n = "client has uploaded project files"
+      db.collection('Projects')
+      .doc(project)
+      .update({
+        designerNotification:arrayUnion({data:"Client has uploaded Project Files",sub:n,created:new Date().toString(), user:"designer" })
+      }).then(()=>{})
+    } else if(context === 3){
+      n = `Client has rejected your files for your files in stage : ${stage}`
+      db.collection('Projects')
+      .doc(project)
+      .update({
+        designerNotification:arrayUnion({data:"Files Rejected",sub:n,created:new Date().toString(), user:"designer" })
+      }).then(()=>{})
+    } else if(context === 4){
+      n = `Hyrray !! You are done with the Project`
+      db.collection('Projects')
+      .doc(project)
+      .update({
+        designerNotification:arrayUnion({data:"Project Completed",sub:n,created:new Date().toString(), user:"designer" })
+      }).then(()=>{})
+    } else if(context === 5){
+      n = `Admin has rejected your project for stage ${stage}`
+      db.collection('Projects')
+      .doc(project)
+      .update({
+        designerNotification:arrayUnion({data:"File Rejected by Admin",sub:n,created:new Date().toString(), user:"designer" })
+      }).then(()=>{})
+    } else if(context === 6){
+      n = `Admin has Approved your File for stage ${stage}`
+      var n1 = `Plese give Feedback for the Stage : ${stage}`
+      db.collection('Projects')
+      .doc(project)
+      .update({
+        designerNotification:arrayUnion({data:"File Rejected by Admin",sub:n,created:new Date().toString(), user:"designer" }),
+        clientNotification:arrayUnion({data:"File Approved",sub:n1,created:new Date().toString(), user:"client" })
+      }).then(()=>{})
+    } else if(context === 7){
+
+    }
+    
     //axios.post('', {context, project, designerEmail, clientEmail}).then(()=>{})
   } catch(err) {
+      toast.error("error occured", {position:"bottom-center"});
       console.log(err);
     }
 }
@@ -170,16 +231,6 @@ export const getNotification= async(project, state)=>{
 }
 
 
-export const Reject = async(project, feedback)=>{
-  try {
-    const current = project.currentStage;
-    project['files'][current]['adminApproval'] = "rejected"
-
-    project['files'][current]['designerFiles'].push(feedback);
-  } catch(err){
-    console.log(err);
-  }
-}
 
 export const Approve = async (title, feedback)=>{
   try {
@@ -190,10 +241,11 @@ export const Approve = async (title, feedback)=>{
     console.log("here too");
     //let project = await getDocData('Projects', title);
     const len = project['files'][current]['adminFiles'].length;
-    const file = project['files'][current]['adminFiles'][len-1];
-    file.admin = [feedback[0], feedback[1]]
-    file.adminApp = 3;
-  
+    
+    project['files'][current]['adminFiles'][len-1]["admin"].push({1:feedback[0],2:feedback[1]});
+    project['files'][current]['adminFiles'][len-1]["admin"]['adminApp'] = 1;
+    const file = project['files'][current]['adminFiles'][len-1] 
+    sendNotification(6, title, current);
     project['files'][current]['clientFiles'].push(file);
     project['files'][current]['currentState'] = "Waiting for Clients Feedback, Admin has Approved";
     project['files'][current]['adminApproval'] = true;
@@ -213,10 +265,11 @@ export const Rejectadmin = async (title, feedback)=>{
     const current = project.currentStage;
     console.log("admin rejected");
     const len = project['files'][current]['adminFiles'].length;
+    
+    project['files'][current]['adminFiles'][len-1]['adminApp'] = 1;
+    project['files'][current]['adminFiles'][len-1]['admin'].push({1:feedback[0],2:feedback[1]});
     const file = project['files'][current]['adminFiles'][len-1];
-    file.adminApp = 1;
-    file.admin.push({1:feedback[0],2:feedback[1]});
-
+    sendNotification(5, title, current);
     project['files'][current]['designerFiles'][0] = file;
     await db.collection('Projects')
       .doc(title)
@@ -231,10 +284,16 @@ export const clientApproval=async (title, feedback)=>{
   try {
     const project = await search('Projects', 'title', title);
     console.log(project);
+    const max = project['stageCount']
     const current = project.currentStage;
     project['files'][current]['clientApproval'] = true;
     project.currentStage+=1;
-    project['files'][current]['clientFeedback'].push(feedback[1]);
+    if(project.currentStage == max){
+      sendNotification(4, title).then(()=>{})
+      //axios.post(`${process.env.REACT_APP_BACK}/sendMail`, );
+    }
+    const len = project['files'][current]['adminFiles'].length
+    project['files'][current]['adminFiles'][len-1]['client'].push({1:feedback[0],2:feedback[1]})
     
     await db.collection('Projects')
       .doc(title)
@@ -248,8 +307,23 @@ export const clientApproval=async (title, feedback)=>{
   }
 }
 
-export const clientReject=()=>{
+export const clientReject= async(title, feedback)=>{
   try {
+
+    const project = await search('Projects', 'title', title)
+    const current = project.currentStage;
+    console.log("client rejected");
+    const len = project['files'][current]['adminFiles'].length;
+    project['files'][current]['adminFiles'][len-1]['client'].push({1:feedback[0], 2:feedback[1]});
+    project['files'][current]['adminFiles'][len-1]['clientApp'] = 1;
+    const file = project['files'][current]['adminFiles'][len-1];
+
+    project['files'][current]['designerFiles'][0] = file;
+    sendNotification(3, project.title, current).then(()=>{})
+    await db.collection('Projects')
+      .doc(title)
+      .update(project)
+
 
   } catch(err){
     console.log(err);

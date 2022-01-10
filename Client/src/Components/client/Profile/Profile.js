@@ -1,15 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from "./Clientprofile.module.css"
 import Navbar from '../Dashboard/Dashboard_Parts/Navbar/Navbar'
 import { ReactComponent as ProfilePhoto } from './assets/profile.svg'
 import { ReactComponent as Pencil } from './assets/pencil.svg'
 import { ReactComponent as Upload } from './assets/upload.svg'
 import Navbar2 from '../../Navbar/Navbar2'
+import Navbar4 from '../../Navbar/Navbar4'
+import { useLocation } from 'react-router-dom'
 
 function Profile() {
+    const location = useLocation()
+    const Data = location.state.Data;
+    console.log("profile", Data);
+
+    const email = atob(window.sessionStorage.getItem("key"));
     return (
         <div className={styles.main_container1}>
-            <Navbar2/>
+            <Navbar4/>
             <div className={styles.Sidebar}>
                     <Navbar/>
             </div>

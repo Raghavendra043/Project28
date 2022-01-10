@@ -12,7 +12,7 @@ function Utilites({ formData, setForm, print }) {
   const [present, setPre] = useState(false);
   const [stageNo, setStage] = useState();
   console.log('from Admin', formData);
-  const data = location.state;
+  const data = location.state.title;
   console.log("from this is the last",data);
   const history = useHistory();
   const current = formData.currentStage;
@@ -48,6 +48,7 @@ function Utilites({ formData, setForm, print }) {
       id: formData.currentStage,
       from: "admin",
       request: 1,
+      formData
     });
     //const project = await Approve(formData);
     //setForm(project);
@@ -55,12 +56,13 @@ function Utilites({ formData, setForm, print }) {
   };
   const Reject1 = async () => {
     console.log("rejected");
-    await Reject(formData);
+    //await Reject(formData);
     history.push("/feedback", {
       title: formData.title,
       id: formData.currentStage,
       from: "admin",
       request: 0,
+      formData
     });
     //window.location.reload();
   };
@@ -233,47 +235,7 @@ function Utilites({ formData, setForm, print }) {
           }}
         >Assign designer</button></>)}
 
-        {/* <div className={styles.list}>
-          <div className={styles.box}>
-            <div className={styles.name}>
-              Draft {Object.keys(formData.files[current]['adminFiles']).length}
-            </div>
-
-            <div className={styles.action}>
-              <div className={styles.button_cover}>
-                {((formData.files[current].files.length > 0 ||
-                  formData.files[current].adminFirstApproval === false) ||
-                  (formData.files[current].clientFeedback.lenght > 0 &&
-                    formData.files[current].adminSecondApproval === false)) && (
-                  <button
-                    onClick={print}
-                    className={classnames(styles.button, styles.hello)}
-                  >
-                    Approve1
-                  </button>
-                )}
-              </div>
-              <div className={styles.button_cover}>
-                {formData.files[current].clientFeedback > 0 && (
-                  <button
-                    onClick={viewHandler}
-                    className={classnames(styles.button, styles.hello)}
-                  >
-                    View FeedBack
-                  </button>
-                )}
-              </div>
-              <div className={styles.button_cover}>
-                <button
-                  onClick={giveHandler}
-                  className={classnames(styles.button, styles.hello)}
-                >
-                  Give Feedback
-                </button>
-              </div>
-            </div>
-          </div>
-        </div> /// */}
+        
       </div>
 
       <div id="projectModal" class={styles.modal}>
@@ -306,10 +268,10 @@ function Utilites({ formData, setForm, print }) {
 
 
           <div className={styles.feedback_box}>
-            {present ? (<><div>{present['admin'][0][1]}</div>
+            {present ? (<><div><b>Admin:</b><br/> {present['admin'][0][1]}</div>
             <div>{present['admin'][0][2]}</div>
-            {present['adminApp'] != 1 ? (<><div>{present['client'][0]}</div>
-            <div>{present['client'][1]}</div></>) : (<><b>You disapproved this</b></>)}
+            {present['adminApp'] != 1 ? (<><div><b>Client:</b><br/> {present['client'][0][1]}</div>
+            <div>{present['client'][0][2]}</div></>) : (<><b>You disapproved this</b></>)}
             </>) :(<></>)
             }
             <div className={styles.button_cover}>

@@ -53,7 +53,7 @@ export default function Deli({user}) {
             stages.map((data, key) => {
               return (
                 <>
-                  <div className={styles.stage}>Stage {data + 1}</div>
+                  <div className={styles.stage}>Stage {data + 2}</div>
                   <div className={styles.files2}>
                     {Data["files"][`${data + 1}`]["clientFiles"].map(
                       (element, id) => {

@@ -22,7 +22,7 @@ var USER_NAME = "Ragh";
 
 function ProjectTracker({}) {
   const location = useLocation();
-  const title = location.state;
+  const title = location.state.title;
   const dummy = {
     endDate: "",
     projectType: "Design",

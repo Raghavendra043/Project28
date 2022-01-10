@@ -71,6 +71,9 @@ function CreateProjectList({formData, setFormData, navigation,startLoading}) {
     "reels":"", // 4
 
     "wordsNo":"",
+
+    "contentdecksorted":"",
+
   }
   const [Data, setData] = useState({...data, ...formData});
   const props = {Data, setData}

@@ -33,9 +33,9 @@ function Dashboard() {
 
   const [formData, setForm] = useState(null);
   
-
+  
   const Loading= (state)=>{
-    if(state){
+    try{if(state){
         console.log('coming inside');
         var element = document.getElementById("loading");
         element.style.display = null;
@@ -48,6 +48,8 @@ function Dashboard() {
         element.style.display = "none";
         var element1 = document.getElementById("screen");
         element1.style.opacity = 10;
+    }} catch(err){
+      console.log(err);
     }
   }
   const props = { formData, setForm, Loading };
@@ -55,7 +57,6 @@ function Dashboard() {
   if (!Details) {
     search("Projects", "clientEmail", email).then((project) => {
       if (project && project !== "f") {
-        console.log("from inside:", project);
         setDetails(project);
         if(project.assigned){c = { onCurrent: project.currentStage };}
         setForm({ ...project, ...c });
@@ -86,7 +87,7 @@ function Dashboard() {
         id="screen"
       >
         <div className="Sidebar">
-          <Navbar {...{email}} />
+          <Navbar />
         </div>
 
         {formData && formData.assigned && formData !== "f" ? (
