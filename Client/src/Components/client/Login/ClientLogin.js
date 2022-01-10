@@ -6,6 +6,8 @@ import Login1 from './Loginpages/Login1'
 import ForgotPassword from '../Login/Loginpages/ForgotPassword'
 import styles from "../Login/ClientLogin.module.css"
 import ForgetPassword2 from "../Login/Loginpages/ForgotPassword2"
+import Navbar3 from '../../Navbar/Navbar3'
+import Navbar1 from '../../Navbar/Navbar1'
 
 const defaultData = {
     email: "",
@@ -29,6 +31,7 @@ function ClientLogin() {
         case "LoginPage":
             return (
                 <>
+                <Navbar1/>
                     <div className={styles.container}>
                         <div className={styles.bottom_background}></div>
                         <div className={styles.third}>

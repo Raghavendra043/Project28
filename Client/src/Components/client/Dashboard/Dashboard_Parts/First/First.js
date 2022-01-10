@@ -1,6 +1,6 @@
 import React from 'react'
 import "./First.css"
-
+let months = ["January"]
 function First({ formData, setForm }) {
     return (
         <div>
@@ -18,7 +18,7 @@ function First({ formData, setForm }) {
                     <div className='contentNested'>
                     <div className='one'>
                         <div className="subheader">Project Objective</div>
-                        <div className="description">Lorem ipsum dolor sit amet. Vivamus ra felis bibendum ut tristique et. </div>
+                        <div className="description">{formData['projectInfo'].obj}</div>
                     </div>
                     
                     <div className="bottom">
@@ -42,17 +42,17 @@ function First({ formData, setForm }) {
                             </div>
                         <div className="dates">
                             <div className="date">
-                                <div className="number">24</div>
+                                <div className="number">{new Date(formData['projectInfo']["start"]).getDate()}</div>
                                 <div className="restdate">
-                                    <div className="month">{formData.startDate}</div>
-                                    <div className="year">2020</div>
+                                    <div className="month">{months[new Date(formData['projectInfo']["start"]).getMonth()]}</div>
+                                    <div className="year">{new Date(formData['projectInfo']["start"]).getFullYear()}</div>
                                 </div>
                             </div>
                             <div className="date">
-                                <div className="number">26</div>
+                                <div className="number">{new Date(formData['projectInfo']["end"]).getDate()}</div>
                                 <div className="restdate">
-                                    <div className="month">{formData.endDate}</div>
-                                    <div className="year">2020</div>
+                                    <div className="month">{months[new Date(formData['projectInfo']["end"]).getMonth()]}</div>
+                                    <div className="year">{new Date(formData['projectInfo']["end"]).getFullYear()}</div>
                                 </div>
                             </div>
                         </div>

@@ -13,12 +13,12 @@ function About({ formData, setForm }) {
                         {formData.title}
                     </div>
                     <div className={styles.main_desc}>
-                        {formData.startDate} - {formData.endDate}
+                        {formData["projectInfo"].start} - {formData["projectInfo"].end}
                     </div>
                 </div>
                 <div className={styles.group}>
                     <div className={styles.title}>
-                        CLIENT NAME
+                        CLIENT
                     </div>
                     <div className={styles.desc}>
                         {formData.clientEmail}

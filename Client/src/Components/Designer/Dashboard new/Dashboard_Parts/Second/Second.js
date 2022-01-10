@@ -9,10 +9,10 @@ function Second({ formData, setForm, Loading }) {
     const uploadFile  = async(image)=>{
         Loading(true);
         
-        await storage.ref(`${formData.email}/${image.name}`)
+        await storage.ref(`${formData.designerEmail}/${image.name}`)
             .put(image);
         const URL = await storage
-            .ref(`${formData.email}/${image.name}`)
+            .ref(`${formData.designerEmail}/${image.name}`)
             .getDownloadURL()
         console.log(URL);        
         const file = await update('Projects', '1',image.name,URL, formData.currentStage);
@@ -48,7 +48,7 @@ function Second({ formData, setForm, Loading }) {
                         onChange =  {(e)=>{uploadFile(e.target.files[0])}}
                     />
                     <label for="file">
-                        <svg width="103" height="98" viewBox="0 0 103 98" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="50" height="50" viewBox="0 0 103 98" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="0.375" y="0.125" width="102.5" height="97.5" rx="40" fill="#00DDDC" fill-opacity="0.13"/>
                         <path d="M59.621 57.6101L51.6347 48.9316L43.6484 57.6101" stroke="#00B4B3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M51.6348 48.9316V68.4581" stroke="#00B4B3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>

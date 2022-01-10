@@ -17,7 +17,7 @@ function Second({ formData, setForm, Loading }) {
             .ref(`${formData.email}/${image.name}`)
             .getDownloadURL()
         console.log(URL);        
-        const file = await update('Projects', '1',image.name,URL, formData.currentStage);
+        const file = await update('Projects', formData.title,image.name,URL, '0');
         if(file && file === 1 ){Loading(false);}         
         sendNotification(1, '1', formData.currentStage, image.name, formData.designerEmail, formData.clientEmail);
     }
@@ -40,7 +40,7 @@ function Second({ formData, setForm, Loading }) {
                     </div>
                 </div>
                 <div className="contentSecond">
-                  <Deli/>
+                  <Deli {...{user:"clientEmail"}}/>
                     {/* <div className="lines">Lorem Ipsum dolor sit amet. Vivamus ra felis endum</div>
                     <div className="lines">Lorem Ipsum dolor sit amet. Vivamus ra felis endum</div> */}
                 </div>

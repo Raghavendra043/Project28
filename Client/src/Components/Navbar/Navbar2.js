@@ -6,18 +6,44 @@ import icon from "./../../assets/user.svg";
 import { useHistory } from "react-router-dom";
 import data from "./data.json";
 import { getNotification } from "../../firebasefunctions/firestore";
-
-function Navbar2(title) {
+import { search } from "../../firebasefunctions/firestore";
+function Navbar2() {
   const history = useHistory();
   const [Noti, setNot] = useState(null);
-  
-  if(!Noti){
-    getNotification(title, 3).then((noti)=>{
-      setNot(noti);
-      console.log(noti);
-    })  
+  const [formData, setForm] = useState(null);
+  const [Name, setName] = useState(null);
+  const email = atob(window.sessionStorage.getItem("key"));
+
+  if(!formData){
+    search("Projects", "clientEmail", email).then((project) => {
+      if (project && project !== "f") {
+        //console.log("from inside:", project);
+        var c = { onCurrent: project.currentStage };
+        setForm({ ...project, ...c });
+
+      } else if (project === "f") {
+        setForm("f");
+      }
+    });
+
+      
+  }  
+  if(!Name){
+    search("Client", "email", email).then((project) => {
+      if (project && project !== "f") {
+        setName(project.fullname);
+        console.log()
+
+      } else if (project === "f") {
+        setName("");
+      }
+    });
   }
+
   const viewHandler = () => {
+    getNotification(formData.title, 3).then((noti)=>{
+      setNot(noti);
+      console.log("noti: ",noti);})
     var modal = document.getElementById("projectModalNotif");
     modal.style.display = "block";
   };
@@ -57,7 +83,7 @@ function Navbar2(title) {
         <div className="navB">
           <button onClick={viewHandler}>Notifications</button>
         </div>
-        <div>Hey Raghavendra !!</div>
+        {Name ? <div style={{}}>Hey {Name} !!</div>:<>Hey !!</>}
         <div className="navE">
           <button
             onClick={() => {

@@ -5,18 +5,20 @@ import classnames from "classnames";
 import { Approve, Reject } from "../../../../firebasefunctions/firestore";
 import App from "../../../../App";
 import { useHistory, useLocation } from "react-router-dom";
-
+import axios from "axios";
 
 function Utilites({ formData, setForm, print }) {
   const location = useLocation();
-  const [present, setPre] = useState();
-
+  const [present, setPre] = useState(false);
+  const [stageNo, setStage] = useState();
+  console.log('from Admin', formData);
   const data = location.state;
   console.log("from this is the last",data);
   const history = useHistory();
   const current = formData.currentStage;
 
   const stages = [...Array(formData.currentStage).keys()];
+  console.log(stages);
   // window.onclick = function (event) {
   //   console.log('coming here not ');
   //   var modal = document.getElementById("projectModal");
@@ -88,10 +90,34 @@ function Utilites({ formData, setForm, print }) {
 
   //----------------------------------------------------------
 
+  const check = ()=>{
+    let opts = {
+      url: `${process.env.REACT_APP_BACK}/create-pdf`,
+      method: "POST",
+      responseType: 'blob'
+  };
+    axios(opts).then((res)=>{
+      saveAs(res.data, `${formData.title}_Project28.pdf`, res.headers['content-type']);
+
+    }).catch((err)=>{console.log(err);})
+  }
+
   return (
     <div>
       <div className={styles.feed}>
-        <div className={styles.title}>FEED</div>
+        <div className={styles.title} style={{display:"inline"}}>FEED</div>
+        <div className={styles.title} style={{display:"inline", marginLeft:"17vw"}}
+          onClick={check}
+        >Project Info</div>
+        
+        {formData && formData.assigned && formData.files[`0`]["files"].map((element, key)=>{
+          return (<div className={styles.box}>
+            <div className={styles.name}>{element.name}</div>
+          </div>)
+        })
+          
+        }
+        <div style={{marginBottom:"10px"}}></div>
 
         {formData.assigned ? (<div className={styles.list}>
           {stages.map((data, key) => {
@@ -137,6 +163,7 @@ function Utilites({ formData, setForm, print }) {
                                   >
                                     Approve
                                   </button>
+                                  
                                 </>
                               )}
                           </div>
@@ -193,14 +220,18 @@ function Utilites({ formData, setForm, print }) {
           })}
 
           {/* end of the map func */}
-        </div>) : (<button
+        </div>) : (<>
+        <input type="number" placeholder="Number of Stages"
+          onChange={(e) => setStage(e.target.value)}
+        />
+        <button
           onClick={()=>{
             history.push({ 
               pathname: '/designer',
-              state: formData.title
+              state: {title:formData.title, stage:stageNo}
              });
           }}
-        >Assign designer</button>)}
+        >Assign designer</button></>)}
 
         {/* <div className={styles.list}>
           <div className={styles.box}>

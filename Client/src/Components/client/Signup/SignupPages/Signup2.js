@@ -126,7 +126,7 @@ function Signup2({ formData, setForm, navigation,startLoading }) {
       <div
         className={style.next}
         onClick={async () => {
-          //navigation.next();
+          navigation.next();
           if (formData.phoneNumber.trim() && formData.otp.trim()) {
             startLoading(true);
             let Verify = await verify(formData.otp);

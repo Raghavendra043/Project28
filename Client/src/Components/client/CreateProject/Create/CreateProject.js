@@ -53,7 +53,11 @@ function CreateProject({formData, setFormData, navigation,startLoading}) {
           <div className={styles.inputs}>
             <div className={styles.inputTitle}>Client Name</div>
             <div className={styles.input}>
-              <select className={styles.maininput} id="option"
+            <input type="text" className={styles.textinput}
+                name="clientName"
+                ref={clientName}
+              />
+              {/* <select className={styles.maininput} id="option"
                 onChange={()=>{setOption(1)}}
               >
                 {months.map((value, key)=>{
@@ -64,7 +68,7 @@ function CreateProject({formData, setFormData, navigation,startLoading}) {
 
                 }
                 
-              </select>
+              </select> */}
             </div>
           </div>
           <div className={styles.inputs}>
@@ -113,7 +117,7 @@ function CreateProject({formData, setFormData, navigation,startLoading}) {
             <div className={styles.dates}>
             <DatePicker
                 selected={startDate}
-                onChange={(date) => {setStartDate(date);formData.start = startDate ;setFormData(formData)}}
+                onChange={(date) => {setStartDate(date);formData.start = startDate.toString() ;setFormData(formData)}}
                 customInput={<ExampleCustomInput />}
               />
               <div className={styles.date}>
@@ -131,7 +135,7 @@ function CreateProject({formData, setFormData, navigation,startLoading}) {
               <div className={styles.date}>
               <DatePicker
                 selected={EndDate}
-                onChange={(date) => {setEndDate(date);formData.end = EndDate ;setFormData(formData)}}
+                onChange={(date) => {setEndDate(date);formData.end = EndDate.toString() ;setFormData(formData)}}
                 customInput={<ExampleCustomInput1 />}
               />
                 <div className={styles.BigDate}>{EndDate.getDate()}</div>
@@ -145,8 +149,9 @@ function CreateProject({formData, setFormData, navigation,startLoading}) {
           <div className={styles.button}
             onClick={()=>{
               
-              formData.start = startDate;
-              formData.end = EndDate;
+              formData.start = startDate.toString();
+              formData.end = EndDate.toString();
+              formData.clientName = clientName.current.value;
               formData.companyName = companyName.current.value;
               formData.title = title.current.value;
               formData.brief = brief.current.value;

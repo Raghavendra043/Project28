@@ -7,6 +7,7 @@ import classnames from "classnames";
 import { useHistory, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import { CreateChat } from '../../../trail/createchat';
 
 const data1 = [
       {
@@ -52,8 +53,10 @@ function Designer() {
     const [total, setTotal] = useState(null);
     const [final, setFinal] = useState(null);
     let title;
+    let stage;
     if('state' in location && !title){
-      title  = location.state;
+      title  = location.state.title;
+      stage =  location.state.stage;
     }
 
     const viewHandler = (id) => {
@@ -204,11 +207,37 @@ function Designer() {
                 onClick={async()=>{
                   try{toast('loading...');
                   console.log(title);
-                  const project = await search('Projects', "title", title);
+                  var project = await search('Projects', "title", title);
+                  console.log("from list", project);
                   project['designerEmail'] = final.email;
                   project['assigned'] = true;
                   project['designerAssigned'] = new Date().toString();
+                  project['stageCount'] = stage;
+                  project['designerNotification'] = []
+                  project['clientNotification'] = []
+                  project['files'] = {}
+                  for(let i=0;i<stage;i++){
+                    if(i===0){
+                      project['files'][`${i}`] =  {}
+                      project['files'][`${i}`]["files"] = [];}else{
+                    project['files'][`${i}`] = {
+                      adminApproval:false,
+                      adminFeedback:[],
+                      adminFiles:[],
+                      approved:false,
+                      clientApproval:false,
+                      clientFeedback:[],
+                      clientFiles:[],
+                      currentState:"",
+                      designerFiles:[],
+                      feedback:[],
+                    };
+                  
+                  }
+                  }
+                  project['currentStage'] = 0
                   await Update('Projects', title, project);
+                  CreateChat(final.email, project.clientEmail, title).then(()=>{})
                   history.push({ 
                     pathname: '/admin/project',
                     state: title
@@ -220,6 +249,7 @@ function Designer() {
                    }
                    const mailData = {content, TO:final.email}
                    axios.post(`${process.env.REACT_APP_BACK}/sendMail`,mailData ).then(()=>{}).catch((err)=>{console.log(err)})
+
                   } catch(err){
                     console.log(err);
                   }

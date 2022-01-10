@@ -63,7 +63,7 @@ function Signup3({ formData, setForm, navigation , startLoading}) {
                         
                         await signup(formData.email, formData.password);
                         addData('Client', formData.email, formData);
-                        startLoading(false);
+                        
                         console.log(formData);
                         const chatData  = await CreateUser(formData.email, 'client');
                         
@@ -74,7 +74,7 @@ function Signup3({ formData, setForm, navigation , startLoading}) {
                             "created":new Date().toString(),
                             "chat":chatData
                         });
-
+                        startLoading(false);
                         navigation.next();
                     }
                     else if (formData.password != formData.confirmPassword) {

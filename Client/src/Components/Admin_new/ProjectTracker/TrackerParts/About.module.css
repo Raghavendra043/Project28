@@ -2,6 +2,8 @@
     background-color: white;
     border-radius: 4px;
     padding: 2vh 0;
+    max-height: 40vh;
+    overflow: scroll;
 }
 
 .header,.group{

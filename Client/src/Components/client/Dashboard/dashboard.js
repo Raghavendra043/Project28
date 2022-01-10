@@ -57,7 +57,7 @@ function Dashboard() {
       if (project && project !== "f") {
         console.log("from inside:", project);
         setDetails(project);
-        c = { onCurrent: project.currentStage };
+        if(project.assigned){c = { onCurrent: project.currentStage };}
         setForm({ ...project, ...c });
       } else if (project === "f") {
         setDetails("f");
@@ -71,15 +71,15 @@ function Dashboard() {
     if (element) {
       element.style.display = "none";
     }
-    var element1 = document.getElementById("screen");
+    var element1 = document.getElementById("screen"); 
     if (element1) {
       element1.style.opacity = 10;
     }
   }
-
+  //const props2 = {title:formData.title};
   return (
     <div>
-      {formData ? (<Navbar2 {...formData.title}/>):(<></>)}
+      {formData && formData !== "f" ? (<Navbar2 {...props} />):(<></>)}
       <div
         className="main_container1"
         style={{ position: "absolute", opacity: "0.16" }}
@@ -89,7 +89,7 @@ function Dashboard() {
           <Navbar {...{email}} />
         </div>
 
-        {formData && formData !== "f" ? (
+        {formData && formData.assigned && formData !== "f" ? (
           <div className="outer_container1">
             <div className=" first">
               <First {...props} />

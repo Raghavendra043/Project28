@@ -4,7 +4,7 @@ import { search } from "../../../../../firebasefunctions/firestore";
 import styles from "./deli.module.css";
 import { ReactComponent as File } from "./File.svg";
 
-export default function Deli() {
+export default function Deli({user}) {
   const [Data, SetData] = useState(null);
   const [details, setDetails] = useState();
   //let email  = 'f20190120@hyderabad.bits-pilani.ac.in'
@@ -12,7 +12,7 @@ export default function Deli() {
   let c;
   const [stages, setStage] = useState(null);
   if (!Data) {
-    search("Projects", "clientEmail", email).then((project) => {
+    search("Projects", user, email).then((project) => {
       if (project && project !== "f") {
         console.log("from inside:", project);
         setDetails(project);
@@ -32,6 +32,23 @@ export default function Deli() {
     <div>
       {Data ? (
         <div className={styles.files}>
+          <div className={styles.stage}>Project Files</div>
+                  <div className={styles.files2}>
+                    {Data["files"][`0`]["files"].map(
+                      (element, id) => {
+                        return (
+                          <div className={styles.file}>
+                            <a href={element.url}>
+                              <div>
+                                <File />
+                              </div>
+                            </a>
+                            <div className={styles.name}>{element.name}</div>
+                          </div>
+                        );
+                      }
+                    )}
+                  </div>
           {stages &&
             stages.map((data, key) => {
               return (

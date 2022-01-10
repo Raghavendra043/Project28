@@ -11,9 +11,9 @@ import data from "./drafts.json";
 // 2:upcoming
 
 function Third({ formData, setForm }) {
-  let current = 1; //formData.currentStage;
+  let current = formData.currentStage;
   current = formData.currentStage;
-  console.log(formData);
+  console.log("from this is the most ",formData);
   console.log("from third", current);
 
   const changeStage = (id) => {
@@ -30,7 +30,7 @@ function Third({ formData, setForm }) {
               className={
                 (key < current
                   ? "des-d-t-comp"
-                  : (formData['files'][1]['designerFiles'].length > 0 && key === current)
+                  : (formData['files'][current]['designerFiles'].length > 0 && key === current)
                   ? "des-d-t-error"
                   : key  === current 
                   ? "des-d-t-on"
