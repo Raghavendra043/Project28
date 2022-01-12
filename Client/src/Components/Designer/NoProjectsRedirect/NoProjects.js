@@ -6,6 +6,13 @@ import { useHistory } from 'react-router-dom'
 
 function NoProjects({x, email}) {
     const history = useHistory();
+    console.log("x", x);
+    const Approve = ()=>{
+
+    }
+    const Disapprove=()=>{
+
+    }
     return (
         <div>
             {/* <div className={styles.Sidebar}>
@@ -13,11 +20,12 @@ function NoProjects({x, email}) {
             </div> */}
             <div className={styles.Redirect}>
                 <div className={styles.RedirectNested}>
-                <div className={styles.header}>Overall Performance {`&`} Account Details</div>
+                <div className={styles.header}>You dont have any Projects Yet</div>
                 <div className={styles.svg}><Man/></div>
-                <div className={styles.subheader}>Priyanshu nigga hot bish got a fish in a dish with good meat to eat what a treat</div>
-                { x ? (
-                    <>Please Complete Your Profile<button
+                <div className={styles.subheader}>Project-28</div>
+                { x && x!=1 ? (
+                    <>Please Complete Your Profile to take up projects<button
+                    style={{border:"none", color:"white", background:"#19BBB9", borderRadius:"5px"}}
                     onClick={()=>{
                       history.push("/designer/complete", {email:email});
                     }}
@@ -26,6 +34,25 @@ function NoProjects({x, email}) {
                     <></>
                 )
 
+                }
+                {x==1 ? (<>You have been assigned A project
+
+                <button
+                    style={{border:"none", color:"white", background:"#19BBB9", borderRadius:"5px"}}
+                    onClick={()=>{
+                      
+                    }}
+                  >Download Project Details</button>
+                  <button
+                    style={{border:"none", color:"white", background:"#19BBB9", borderRadius:"5px", marginTop:"3vh"}}
+                    onClick={Approve}
+                  >Approve</button>
+                  <button
+                    style={{border:"none", color:"white", background:"#19BBB9", borderRadius:"5px", marginTop:"3vh"}}
+                    onClick={Disapprove}
+                  >DisApprove</button>
+                  </>)
+                    :(<></>)
                 }
                 </div>
                 </div>

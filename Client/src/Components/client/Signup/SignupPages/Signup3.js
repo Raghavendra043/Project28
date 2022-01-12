@@ -20,7 +20,7 @@ function Signup3({ formData, setForm, navigation , startLoading}) {
                     <ArrowLeft className={style.arrow_left}/>
                 </div>
         <div className={styles.container}>
-                <div className={style.header}>DEAR DESIGNER,</div>
+                <div className={style.header}>DEAR Client,</div>
                 <div className={style.desc}>
                     Freelancing was never this easy!{" "}
                 </div>
@@ -65,7 +65,7 @@ function Signup3({ formData, setForm, navigation , startLoading}) {
                         addData('Client', formData.email, formData);
                         
                         console.log(formData);
-                        const chatData  = await CreateUser(formData.email, 'client');
+                        const chatData  = await CreateUser(formData.fullname, 'client');
                         
                         await addData('Designers',formData.email ,{
                             "name":formData.fullname,
@@ -79,7 +79,7 @@ function Signup3({ formData, setForm, navigation , startLoading}) {
                     }
                     else if (formData.password != formData.confirmPassword) {
                         startLoading(false);
-                        toast('Password dosent Martch', {
+                        toast('Password dosent Match', {
                             position: "bottom-center",
                             autoClose: 1500,
                             hideProgressBar: false,

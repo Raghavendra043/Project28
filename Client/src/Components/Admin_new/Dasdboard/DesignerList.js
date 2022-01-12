@@ -15,7 +15,8 @@ const data1 = [
         col2: '',
         col3: '',
         col4:<button></button>,
-        col5:""
+        col5:"",
+        col6:""
       }
     ]
 
@@ -43,7 +44,11 @@ const data1 = [
          {
            Header: 'check Profile',
            accessor: 'col6', // accessor is the "key" in the data
-         }
+         },
+         {
+          Header: 'Profile Complete',
+          accessor: 'col6', // accessor is the "key" in the data
+        }
         ]
     
 function Designer() {
@@ -80,6 +85,9 @@ function Designer() {
               setTotal(project)
               let data = [];
                 for(let i=0;i<project.length;i+=1){
+                    let profile;
+                    if(project.profile){profile = "Complete"}else {profile="Not complete"}
+
                     data.push({
                         col1:i+1,
                         col2:project[i].name,
@@ -90,7 +98,8 @@ function Designer() {
                             onClick={()=>{
                               viewHandler(i);
                             }}
-                        >View</button>
+                        >View</button>,
+                        col7:profile
                     })
                 }
                 setData(data);

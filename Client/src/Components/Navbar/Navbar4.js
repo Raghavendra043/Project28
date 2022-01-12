@@ -10,7 +10,7 @@ import { search } from "../../firebasefunctions/firestore";
 
 function Navbar4() {
   const history = useHistory();
-  const [Noti, setNot] = useState(null);
+  const [Noti, setNot] = useState(false);
   const [formData, setForm] = useState(null);
   const [Name, setName] = useState(null);
   const email = atob(window.sessionStorage.getItem("key"));
@@ -31,7 +31,8 @@ function Navbar4() {
   }  
   if(!Name){
     getDocData('Designers', email).then((project)=>{
-        setName(project.name);
+      if(project){setName(project.name);}
+        
     })
 
     // search("Designers", "email", email).then((project) => {
@@ -110,7 +111,7 @@ function Navbar4() {
           </span>
           <div className="title">Notifications</div>
           <div className="notif_content">
-            {Noti &&
+            {Noti && Noti.length >0 &&
               Noti.map((items, key) => {
                 return (
                   <div

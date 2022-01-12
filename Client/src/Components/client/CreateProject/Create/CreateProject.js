@@ -103,6 +103,30 @@ function CreateProject({ formData, setFormData, navigation, startLoading }) {
                 />
               </div>
             </div>
+            <div className={styles.inputs}>
+            <div className={styles.inputTitle}>Type of Project </div>
+            <div className={styles.input}>
+              <select className={styles.maininput} id="option2"
+                onChange={()=>{setOption(2);}}
+                // name="state"
+              >
+                <option value="something"></option>
+                <option value="February">February</option>
+                <option value="raghavendra">raghavendra</option>
+                <option value="shashwat">shashwat</option>
+                <option value="yatharth">yatharth</option>
+              </select>
+            </div>
+          </div>
+          <div className={styles.inputs}>
+            <div className={styles.inputTitle}>Company Name</div>
+            <div className={styles.input}>
+              <input type="text" className={styles.textinput}
+                name="companyName"
+                ref={companyName}
+              ></input>
+            </div>
+          </div>
 
             <div
               className={styles.button}

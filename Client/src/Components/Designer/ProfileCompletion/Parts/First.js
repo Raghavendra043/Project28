@@ -5,8 +5,11 @@ import { ReactComponent as Man } from "./../assets/Firstman.svg";
 import classnames from "classnames";
 import {useLocation} from 'react-router-dom'
 import { ReactComponent as ArrowRight } from "./../assets/ArrowRight.svg";
+import { toast } from "react-toastify";
 
-function First({ formData, setForm, navigation,startLoading }) {
+let specs = ["sepc 1", "sepc 2", "sepc 3", "sepc 4", "sepc 5", "sepc 6"]
+
+function First({ formData, setForm, navigation,spec,setSpec,startLoading }) {
     const location = useLocation();
     //const email = location.state.email;
     //const email = 'f20190120@hyderabad.bits-pilani.ac.in'
@@ -54,12 +57,24 @@ function First({ formData, setForm, navigation,startLoading }) {
                     type="text"
                     className={styles.profile_input}
                     placeholder="Select Your Specializaiton"
-                    disabled
+                    // disabled
                   />
                   <div clasNname={styles.overSelect}></div>
                 </div>
                 <div className={classnames(styles.hide, styles.checkboxes)}>
-                  <label for="one">
+                  {specs && specs.length && specs.map((value, key)=>{
+                    return(
+                      <label for="one">
+                    <input
+                      type="checkbox"
+                      id= {`check${key}`}
+                      className={styles.checkme}
+                    />
+                    {value }
+                  </label>
+                    )
+                  })}
+                  {/* <label for="one">
                     <input
                       type="checkbox"
                       id="one"
@@ -82,7 +97,7 @@ function First({ formData, setForm, navigation,startLoading }) {
                       className={styles.checkme}
                     />
                     Third checkbox
-                  </label>
+                  </label> */}
                 </div>
               </div>
             </div>
@@ -130,6 +145,9 @@ function First({ formData, setForm, navigation,startLoading }) {
                   placeholder="Eg. 2022"
                   style={{ display: grad === true ? "block" : "none" }}
                   className={styles.input}
+                  value={formData.grad}
+                  onChange={setForm}
+                  name="grad"
                 />
                 <div
                   className={classnames(e_style.titles, styles.titles)}
@@ -142,6 +160,9 @@ function First({ formData, setForm, navigation,startLoading }) {
                   placeholder="Eg. 5"
                   style={{ display: grad === true ? "none" : "block" }}
                   className={styles.input}
+                  value={formData.experience}
+                  onChange={setForm}
+                  name="experience"
                 />
               </div>
             </div>
@@ -213,13 +234,26 @@ function First({ formData, setForm, navigation,startLoading }) {
       <div
         className={styles.next}
         onClick={async () => {
+          let data = [];
+          for(let i=0;i<specs.length;i++){
+            if(document.getElementById(`check${i}`).checked){
+              data.push(specs[i]);
+              //setForm(formData);
+            }
+          }
+          setSpec(data);
+          console.log(formData, data);
           if (
             formData.work1.trim() &&
-            formData.exp1.trim()
+            formData.exp1.trim() &&
+            ( formData.grad.trim() || formData.experience.trim()) &&
+            data.length
           ) {
             navigation.next();
+          } else {
+            toast.error('Please fill all the fields', {position:"bottom-center"});
           }
-            navigation.next();
+            //navigation.next();
         }}
       >
         <ArrowRight className={styles.arrow_right} />

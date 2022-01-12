@@ -41,7 +41,7 @@ function Navbar2() {
   }
 
   const viewHandler = () => {
-    getNotification(formData.title, 3).then((noti)=>{
+    getNotification(formData.title, 2).then((noti)=>{
       setNot(noti);
       console.log("noti: ",noti);})
     var modal = document.getElementById("projectModalNotif");

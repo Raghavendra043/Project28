@@ -4,6 +4,7 @@ import { useState } from 'react';
 import styles from '../Loginpages/forgotpassword2.module.css';
 
 import {ReactComponent as ArrowLeft} from './../assets/ArrowLeft.svg'
+import axios from 'axios';
 
 
 function ForgetPassword2({ formData, setForm, navigation }) {
@@ -17,7 +18,7 @@ function ForgetPassword2({ formData, setForm, navigation }) {
                     <ArrowLeft className={style.arrow_left}/>
                 </div>
         <div className={styles.container}>
-                <div className={style.header}>DEAR DESIGNER,</div>
+                <div className={style.header}>DEAR Client !,</div>
                 <div className={style.desc}>
                     Freelancing was never this easy!{" "}
                 </div>
@@ -30,7 +31,7 @@ function ForgetPassword2({ formData, setForm, navigation }) {
                             type="password"
                             placeholder="Enter Your Password"
                             // ref={props.password1Ref}
-                        name="password1"
+                        name="password"
                         value={formData.password}
                         onChange={setForm}
                         />
@@ -42,7 +43,7 @@ function ForgetPassword2({ formData, setForm, navigation }) {
                             type="password"
                             placeholder="Renter Your Password"
                             // ref={props.password2Ref}
-                        name="password2"
+                        name="confirmPassword"
                          value={formData.confirmPassword}
                         onChange={setForm}
                         />
@@ -50,7 +51,16 @@ function ForgetPassword2({ formData, setForm, navigation }) {
                     <div className={toggle? style.show : style.hide}>Passwords don't match! Try again</div>
 
                     <div className={styles.cover}>
-                        <button className={styles.complete}>Set Password { `&`} Login</button>
+                        <button className={styles.complete}
+                            onClick={async()=>{
+                                if(formData.password === formData.confirmPassword){
+                                    axios.get(`${process.env.REACT_APP_BACK}/passwordReset`, {params:{email:formData.email,password:formData.password }}).then((req, res)=>{})
+                                } else {
+                                    setToggle(true);
+                                }
+                                
+                            }}
+                        >Set Password</button>
               </div>
                 </div>
                 </div>
