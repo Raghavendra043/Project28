@@ -90,7 +90,7 @@ function Dashboard() {
         id="screen"
       >
         <div className="Sidebar">
-          <Navbar />
+          {formData && formData !== "f" ? <Navbar {...props}/> : <></>}
         </div>
 
         {formData && formData.assigned && formData !== "f" ? (
