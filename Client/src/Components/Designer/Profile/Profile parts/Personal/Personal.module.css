@@ -1,129 +1,124 @@
-.container{
-    background-color: white;
-    border-radius: 4em;
-    padding: 3vh 3vw;
-    margin:  2vh;
-    height: 75vh;
+.container {
+  background-color: white;
+  border-radius: 4em;
+  padding: 3vh 3vw;
+  margin: 2vh;
+  height: 75vh;
 }
-.image_cover{
-    display: flex;
-    justify-content: center;
-    position: relative;
-}
-
-.image{
-    border-radius: 50%;
-    height: 27vh;
-    width: 27vh;
+.image_cover {
+  display: flex;
+  justify-content: center;
+  position: relative;
 }
 
-.pencil{
-    position:absolute;
-    bottom: 10%;
-    right:25%
+.image {
+  border-radius: 50%;
+  height: 27vh;
+  width: 27vh;
 }
 
-.user{
-    padding: 3vh 0 1vh;
-}
-.special{
-    padding: 2vh 0;;
-}
-
-.main_title{
-    font-family: Red Hat Display;
-    font-weight: bold;
-    font-size: 4vh;
-    text-align: center;
-    margin-bottom: 1vh;
+.pencil {
+  position: absolute;
+  bottom: 10%;
+  right: 25%;
 }
 
-
-
-.title{
-    font-family : Open sans; 
-    font-size: 3vh;
+.user {
+  padding: 3vh 0 1vh;
 }
-.input_cover{
-
-    margin: 2vh auto;
+.special {
+  padding: 2vh 0;
 }
 
-.profile_input{
-    width: 100%;
-    height: 6vh;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding-left: 1.5vw;
-    font-family : Open sans; 
-    font-size: 2.7vh; 
+.main_title {
+  font-family: Red Hat Display;
+  font-weight: bold;
+  font-size: 4vh;
+  text-align: center;
+  margin-bottom: 1vh;
 }
 
+.title {
+  font-family: Open sans;
+  font-size: 3vh;
+}
+.input_cover {
+  margin: 2vh auto;
+}
+
+.profile_input {
+  width: 100%;
+  height: 6vh;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding-left: 1.5vw;
+  font-family: Open sans;
+  font-size: 2.7vh;
+}
 
 /* ----------------------------------- */
 
 .multiselect {
-    width: 100%;
-  }
-  
-  .selectBox {
-    position: relative;
-  }
- .selectBox input {
-    position: relative;
-    width: 100%;
-    height: 6vh;
-    border-radius: 5px;
-    border: 1px solid black;
-  }
-  
+  width: 100%;
+}
 
-  .selectBox::after{
-    content:url(tick.svg);
-    position: absolute;
-    top:-0.5vh;
-    right:1vw;
-    font-size: 4vh;
-  } 
+.selectBox {
+  position: relative;
+}
+.selectBox input {
+  position: relative;
+  width: 100%;
+  height: 6vh;
+  border-radius: 5px;
+  border: 1px solid black;
+}
 
-  .overSelect {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-  }
-  
-  .checkboxes {
-      position: absolute;
-    border: 1px #19BAA8 solid;
-    background-color: white;
-    width: 29.1%;
-    overflow-y: hidden;
-    overflow: scroll;
-    height:20vh;
-  }
+.selectBox::after {
+  content: url(tick.svg);
+  position: absolute;
+  top: -0.5vh;
+  right: 1vw;
+  font-size: 4vh;
+}
 
-  .hide{
-      display: none;
-  }
-  .show{
-      display: block;
-  }
-  
-  .checkboxes label {
-    display: flex;
-    justify-content: space-between;
-    padding: 1vh 1vw;
-    font-size: 2.5vh;
-  }
-  
-  .checkboxes label:hover {
-    background-color: #1e90ff;
-  }
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
 
-  .checkme{
-      color: #1e90ff;
-      height: 3vh;
-      width: 3vh;
-  }
+.checkboxes {
+  position: absolute;
+  border: 1px #19baa8 solid;
+  background-color: white;
+  width: 29.1%;
+  overflow-y: hidden;
+  overflow: scroll;
+  height: 20vh;
+}
+
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+
+.checkboxes label {
+  display: flex;
+  justify-content: space-between;
+  padding: 1vh 1vw;
+  font-size: 2.5vh;
+}
+
+.checkboxes label:hover {
+  background-color: #1e90ff;
+}
+
+.checkme {
+  color: #1e90ff;
+  height: 3vh;
+  width: 3vh;
+}

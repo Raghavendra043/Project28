@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import styles from "./Personal.module.css";
 import classnames from "classnames";
+import data1 from "../../desProf.json";
 
 function Personal({ data, setData }) {
   const Name = useRef();
@@ -18,9 +19,11 @@ function Personal({ data, setData }) {
     }
   };
 
-  // const handleCheck = (i) => {
-  //   props.special[i].status = !props.special[i].status;
-  // };
+  const special = data1.specialization;
+
+  const handleCheck = (i) => {
+    special[i].status = !special[i].status;
+  };
 
   return (
     <div>
@@ -75,19 +78,19 @@ function Personal({ data, setData }) {
                   <div clasNname={styles.overSelect}></div>
                 </div>
                 <div className={classnames(styles.hide, styles.checkboxes)}>
-                  {/* {props.special.map((data, key) => {
+                  {special.map((data, key) => {
                     return (
                       <label for={key}>
+                        {data.name}
                         <input
                           type="checkbox"
                           id={key}
                           onChange={handleCheck(key)}
                           className={styles.checkme}
                         />
-                        {data.name}
                       </label>
                     );
-                  })} */}
+                  })}
                 </div>
               </div>
             </div>

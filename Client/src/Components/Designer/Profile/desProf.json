@@ -1,32 +1,24 @@
 {
-    "username":"John Doe",
-
-    "specialization":[
-        {
-            "name":"UI",
-            "status":true
-        },
-        {
-            "name":"UI",
-            "status":true
-        },
-        {
-            "name":"UI",
-            "status":true
-        },
-        {
-            "name":"UI",
-            "status":true
-        },
-        {
-            "name":"UI",
-            "status":true
-        }
-    ],
-
-    "work_experience1":"Designation, lorem ipsum dolor sit amet Vivamus ",
-    "work_experience2":"Designation, lorem ipsum dolor sit amet Vivamus ",
-    "work_experience3":"Designation, lorem ipsum dolor sit amet Vivamus ",
-
-    "link":"facebook.com"
-}     
+  "specialization": [
+    {
+      "name": "UI",
+      "status": true
+    },
+    {
+      "name": "UI",
+      "status": true
+    },
+    {
+      "name": "UI",
+      "status": true
+    },
+    {
+      "name": "UI",
+      "status": true
+    },
+    {
+      "name": "UI",
+      "status": true
+    }
+  ]
+}
