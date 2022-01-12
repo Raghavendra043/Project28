@@ -12,9 +12,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  padding-top: 7vh;
-  padding-right: 0vh; 
-  padding-left: 5vh;
+  padding: 7vh 15vw 0 10vw;
 }
 
 .header {
@@ -123,6 +121,7 @@
   padding-right: 2vh;
 }
 .right {
+  margin-top: 5vh;
   width: 16vw;
 }
 .Para {
@@ -130,17 +129,17 @@
   margin-left: 2vh;
 }
 .paraHead {
-  font-size: 2vh;
+  font-size: 2.5vh;
   font-weight: 700;
   font-family: Red Hat Display;
   margin-bottom: 2vh;
 }
 .paramain {
-  font-size: 1.65vh;
+  font-size: 2vh;
   font-family: Red Hat Display;
   border: 1px solid grey;
   border-radius: 2.5vh;
-  padding: 1vh;
+  padding: 1.5vh;
 }
 .button:hover {
   cursor: pointer;
