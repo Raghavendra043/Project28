@@ -16,7 +16,7 @@ import Navbar1 from "../../Navbar/Navbar1";
 //import Navbar from "../../Navbar/Navbar";
 import Navbar2 from "../../Navbar/Navbar2";
 import Navbar4 from "../../Navbar/Navbar4";
-
+require('../../../trail/chattest.css');
 
 
 function Main() {
@@ -54,6 +54,7 @@ function Main() {
     }
   }
   const props = { formData, setForm, Loading };
+  const props1 = { formData, setForm, user:"designer" };
 
   
   if (!Details) {
@@ -120,8 +121,10 @@ function Main() {
             <div className=" third">
               <Third {...props} />
             </div>
-            <div className=" fourth">
-              <Fourth {...props} />
+            <div className=" fourth" >
+              
+              <Fourth {...props1} />
+              
             </div>
           </div>
         ) : designer === "nt" || designer ? (

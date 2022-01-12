@@ -9,7 +9,7 @@ function Second({ formData, setForm, Loading }) {
     const cur = useRef(formData.onCurrent);
 
     const uploadFile  = async(image)=>{
-        try { Loading(true);
+        try { Loading(true, true);
         
         await storage.ref(`${formData.clientEmail}/${image.name}`)
             .put(image);

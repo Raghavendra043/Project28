@@ -51,7 +51,7 @@ function Third({ formData, setForm }) {
               className={
                 (key < current
                   ? "des-d-t-comp"
-                  : (formData['files'][current]['designerFiles'].length > 0 && key === current)
+                  : ( current!= 0 && formData['files'][current]['designerFiles'].length > 0 && key === current)
                   ? "des-d-t-error"
                   : key  === current 
                   ? "des-d-t-on"

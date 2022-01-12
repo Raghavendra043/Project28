@@ -34,13 +34,15 @@ function Dashboard() {
   const [formData, setForm] = useState(null);
   
   
-  const Loading= (state)=>{
+  const Loading= (state, set = false)=>{
     try{if(state){
         console.log('coming inside');
         var element = document.getElementById("loading");
         element.style.display = null;
         var element1 = document.getElementById("screen");
         element1.style.opacity = 0.16;
+        if(set){var element2 = document.getElementById("under");
+        element2.innerHTML = ""}
         //setDt('Uploading');
     } else {
         console.log('coming outside');
@@ -53,6 +55,7 @@ function Dashboard() {
     }
   }
   const props = { formData, setForm, Loading };
+  const props1 = { formData, setForm, user:"client" };
 
   if (!Details) {
     search("Projects", "clientEmail", email).then((project) => {
@@ -87,7 +90,7 @@ function Dashboard() {
         id="screen"
       >
         <div className="Sidebar">
-          <Navbar />
+          {formData && formData !== "f" ? <Navbar {...props}/> : <></>}
         </div>
 
         {formData && formData.assigned && formData !== "f" ? (
@@ -102,7 +105,7 @@ function Dashboard() {
               <Third {...props} />
             </div>
             <div className=" fourth">
-              <Fourth {...props} />
+              <Fourth {...props1} />
             </div>
           </div>
         ) : (
@@ -116,7 +119,7 @@ function Dashboard() {
         style={{ position: "absolute", marginTop: "45vh", marginLeft: "47vw" }}
       >
         <BarWave width="50px" height="50px" color="#1ABAA9" />
-        <p style={{ marginTop: "5vh", marginLeft: "-3vw" }}>
+        <p style={{ marginTop: "5vh", marginLeft: "-3vw" }} id="under">
           {dt}
         </p>
       </div>

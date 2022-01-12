@@ -61,6 +61,7 @@
 }
 
 .chat__switch__cover {
+  position: relative;
   margin: 2vh 0;
   width: 100%;
   display: flex;
@@ -86,6 +87,10 @@
 .ce-message-date-text {
   font-size: 2vh !important;
   font-style: italic;
+}
+
+.ce-their-message-bubble{
+  color: white !important;
 }
 
 ce-message-timestamp ce-my-message-timestamp {

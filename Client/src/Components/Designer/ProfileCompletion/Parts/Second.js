@@ -9,25 +9,31 @@ import Slider from "./../../Slider/Slider";
 import { useLocation, useHistory } from "react-router-dom";
 import { Update } from "../../../../firebasefunctions/firestore";
 import { storage } from "../../../../firebase";
+import { toast } from "react-toastify";
 
-function Second({ formData, setForm, navigation }) {
+function Second({ formData, setForm, navigation ,startLoading}) {
   const history = useHistory();
   const location = useLocation();
   //const email = location.state.email;
-  const email = "f20190120@hyderabad.bits-pilani.ac.in";
+  //const email = "f20190120@hyderabad.bits-pilani.ac.in";
+  const email = atob(window.sessionStorage.getItem("key"));
   console.log("from second", email, "rgh");
+  console.log(formData);
 
   const uploadFile = async (image) => {
-    // Loading(true);
+    startLoading(true);
 
-    await storage.ref(`${formData.email}/profile`).put(image);
+    try{await storage.ref(`${formData.email}/profile`).put(image);
     const URL = await storage
       .ref(`${formData.email}/Profile-Link`)
       .getDownloadURL();
-    setForm({
-      ...formData,
-      profileLink: URL,
-    });
+      formData.profileLink = URL;
+    setForm(formData);
+    startLoading(false);
+  } catch(err){
+    startLoading(false);
+    toast.error('Error Occured', {position:"bottom-center"});
+  }
     //const file = await update('Projects', '1',image.name,URL, formData.currentStage);
     //if(file && file === 1 ){//Loading(false);}
   };
@@ -40,7 +46,7 @@ function Second({ formData, setForm, navigation }) {
         <div className={e_style.man_svg}>
           <Man />
         </div>
-        <div className={styles.previous} onClick={navigation.previous}>
+        <div className={styles.previous} >
           <ArrowLeft className={styles.arrow_left} />
         </div>
         <div className={e_style.box}>
@@ -57,7 +63,10 @@ function Second({ formData, setForm, navigation }) {
                   min={0}
                   max={1000}
                   onChange={({ min, max }) =>
-                    console.log(`min = ${min}, max = ${max}`)
+                    {console.log(`min = ${min}, max = ${max}`);
+                      // formData["payment"] = `${min} - ${max}`;
+                      // setForm(formData);
+                  }
                   }
                 />
               </div>
@@ -124,9 +133,9 @@ function Second({ formData, setForm, navigation }) {
                   type="text"
                   className={styles.profile_input}
                   placeholder="Link to you website / behance  / google drive etc. "
-                  value={formData.link}
+                  // value={formData.link}
                   onChange={setForm}
-                  name="link"
+                  //name="link"
                 />
               </div>
             </div>
@@ -135,11 +144,11 @@ function Second({ formData, setForm, navigation }) {
                 <div className={styles.verify_cover}>
                   <input
                     type="checkbox"
-                    name="verify"
+                    //name="verify"
                     style={{ width: "4em" }}
                   />
                   <label
-                    for="verify"
+                    //for="verify"
                     style={{ textAlign: "left", fontSize: "2.1vh" }}
                   >
                     By selecting this box, you are providing us consent to share
@@ -154,9 +163,10 @@ function Second({ formData, setForm, navigation }) {
       </div>
       <div
         className={styles.next}
-        onClick={() => {
-          Update("Designers", email, formData);
-          alert("successfully prifile created");
+        onClick={async () => {  
+          Update("Designers", email, formData).then(()=>{})
+          toast.info("Profile Created", {position:"bottom-center"});
+          //alert("successfully prifile created");
           history.push("/designer/login");
         }}
       >

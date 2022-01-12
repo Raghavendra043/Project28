@@ -13,7 +13,7 @@ require("./chattest.css");
 var PROJECT_ID = "68a08b56-b99d-4754-85e8-375c862bef48";
 var USER_NAME = "Ragh";
 
-function Chat({ data, username, user,from, reverse}) {
+function Chat1({ data,user, title, reverse}) {
 
   // console.log("chat:", formData['chatData']);
   // const [chatID, setChat] = useState(formData['chatData']['admin']['chatID']);
@@ -31,7 +31,7 @@ function Chat({ data, username, user,from, reverse}) {
   
   return (
     <>
-      <div className="chat__title">{'1'} - {user}</div>
+      <div className="chat__title">{title} - {user}</div>
       <Col style={{ height: "80vh", width: "30vw", marginTop: "3vh" }}>
         <ChatEngineWrapper>
           <ChatSocket
@@ -40,7 +40,7 @@ function Chat({ data, username, user,from, reverse}) {
             chatID = {data[0]}
             // chatAccessKey="ca-e9987fb7-0adb-4df6-8f7f-75b06cdc59c9"
             chatAccessKey={data[1]}
-            senderUsername={username}
+            senderUsername='Darthvader'
           />
 
           <ChatFeed />
@@ -67,17 +67,22 @@ function Chat({ data, username, user,from, reverse}) {
       <div className="chat__switch__cover">
         <button className="chat__switch chat__client"
           onClick={()=>{
-            reverse(true);
+            reverse(true, false);
           }}
-        > {from}</button>
+        > A</button>
         <button className="chat__switch chat__admin"
           onClick={()=>{
-            reverse(false);
+            reverse(false, true);
           }}
-        >Admin</button>
+        >D</button>
+        <button className="chat__switch chat__admin"
+          onClick={()=>{
+            reverse(true, true);
+          }}
+        >C</button>
       </div>
     </>
   );
 }
 
-export default Chat;
+export default Chat1;

@@ -117,6 +117,7 @@ export const clientUpload = async (collection, doc, data1, data2 )=>{
 
     const created1 = new Date().toString()
     project['files']['0']['files'].push({name:data1, url:data2, created:created1})
+    project["currentStage"]+=1
     sendNotification(2, doc).then(()=>{})
     await db.collection(collection).doc(doc).update(project)
     return 1;
@@ -243,7 +244,8 @@ export const Approve = async (title, feedback)=>{
     const len = project['files'][current]['adminFiles'].length;
     
     project['files'][current]['adminFiles'][len-1]["admin"].push({1:feedback[0],2:feedback[1]});
-    project['files'][current]['adminFiles'][len-1]["admin"]['adminApp'] = 1;
+    project['files'][current]['adminFiles'][len-1]['adminApp'] = 1;
+    project['files'][current]['adminFiles'][len-1]['clientApp'] = 2;
     const file = project['files'][current]['adminFiles'][len-1] 
     sendNotification(6, title, current);
     project['files'][current]['clientFiles'].push(file);
@@ -266,7 +268,7 @@ export const Rejectadmin = async (title, feedback)=>{
     console.log("admin rejected");
     const len = project['files'][current]['adminFiles'].length;
     
-    project['files'][current]['adminFiles'][len-1]['adminApp'] = 1;
+    project['files'][current]['adminFiles'][len-1]['adminApp'] = 3;
     project['files'][current]['adminFiles'][len-1]['admin'].push({1:feedback[0],2:feedback[1]});
     const file = project['files'][current]['adminFiles'][len-1];
     sendNotification(5, title, current);
@@ -315,7 +317,7 @@ export const clientReject= async(title, feedback)=>{
     console.log("client rejected");
     const len = project['files'][current]['adminFiles'].length;
     project['files'][current]['adminFiles'][len-1]['client'].push({1:feedback[0], 2:feedback[1]});
-    project['files'][current]['adminFiles'][len-1]['clientApp'] = 1;
+    project['files'][current]['adminFiles'][len-1]['clientApp'] = 3;
     const file = project['files'][current]['adminFiles'][len-1];
 
     project['files'][current]['designerFiles'][0] = file;

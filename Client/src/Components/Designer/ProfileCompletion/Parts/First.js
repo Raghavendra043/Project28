@@ -6,10 +6,11 @@ import classnames from "classnames";
 import {useLocation} from 'react-router-dom'
 import { ReactComponent as ArrowRight } from "./../assets/ArrowRight.svg";
 
-function First({ formData, setForm, navigation }) {
+function First({ formData, setForm, navigation,startLoading }) {
     const location = useLocation();
     //const email = location.state.email;
-    const email = 'f20190120@hyderabad.bits-pilani.ac.in'
+    //const email = 'f20190120@hyderabad.bits-pilani.ac.in'
+    const email = atob(window.sessionStorage.getItem("key"));
     console.log('from complete', email, 'rgh');
     const [grad, setGrad] = useState("false");
 

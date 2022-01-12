@@ -7,13 +7,14 @@ import { useSearch } from 'rsuite/esm/Picker';
 import { getDoc } from 'firebase/firestore';
 import { getDocData } from '../../../../../firebasefunctions/firestore';
 
-function Navbar() {
+function Navbar({ formData, setForm, Loading }) {
     const email = atob(window.sessionStorage.getItem("key"));
     const [Data, SetData] = useState(null);
 
     const history = useHistory();
     //const email = 'f20190120@hydrabad.bits-pilani.ac.in';
     //const history = useHistory();
+    const props = { formData, setForm, Loading };
     console.log("from nav", email);
     const [isHamOn, setIsHamOn] = useState(false);
   const handleClick = () => {
@@ -165,7 +166,7 @@ function Navbar() {
             <div className="buttons"   >
                 {arr.map((arr, key) => {
                     return(
-                        <div className="button" key={key} onClick={(e) => { if(arr.id === 3){history.push(arr.nav, {Data});}history.push(arr.nav, {email});toggleActive(key); }} >
+                        <div className="button" key={key} onClick={(e) => {history.push(arr.nav, {Data});toggleActive(key); }} >
                             <div className={arr.id==ActiveTopic ? "null" : "svg"} >{arr.img}</div>
                             <div className={arr.id==ActiveTopic? "svg" : "null"} > {arr.imgalt}</div>
                     <div className={isHamOn ? "menuname" : "null"}  >

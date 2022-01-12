@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from "react";
 import "./Third.css";
 import EditCheckbox from "./check.png";
@@ -14,7 +15,13 @@ import { useHistory } from "react-router-dom";
 function Third({ formData, setForm }) {
   const history = useHistory();
   let current = formData.currentStage;
-  
+  let y = formData['files'][current]["files"].length > 0
+  var x;
+  if(current != 0){const len = formData['files'][formData.currentStage]['adminFiles'].length
+  var x = false;
+  if(len>0){
+  x = (formData['files'][formData.currentStage]['adminFiles'][len-1]['adminApp'] === 1) && (formData['files'][formData.currentStage]['adminFiles'][len-1]['clientApp'] === 2)}
+  }
   
   const [data, setData] = useState();
   const count = ["First", "Second", "Third", "Fourth", "Fifth"]
@@ -57,6 +64,8 @@ function Third({ formData, setForm }) {
               className={
                 (key < current
                   ? "des-d-t-comp"
+                  : current === 0 && !y && key === current
+                  ? "des-d-t-error"
                   : key  === current
                   ? "des-d-t-on"
                   : "des-d-t-up") + " des-d-t-box"
@@ -86,13 +95,21 @@ function Third({ formData, setForm }) {
               <div className="des-task">
                 <div style={{ fontSize: "0.8em", fontWeight: "normal" }}
                   onClick={(e)=>{
-                    Route(key)}}
+                    //const len = formData['files'][formData.currentStage]['adminFiles'].length
+                    //const x = (formData['files'][formData.currentStage]['adminFiles'][len-1]['adminApp'] === 1) && (formData['files'][formData.currentStage]['adminFiles'][len-1]['clientApp'] === 2)
+                    if(x){Route(key)}
+                    }
+                  }
                 >
                   {key < current
                     ? "TaskCompleted"
-                    : key === current
+                    : current === 0 && !y
+                    ? "Upload Files"
+                    : key === current && x
                     ? "Feedback"
-                    : ""}
+                    : key === current && !x
+                    ? "Waiting for files"
+                    :  ""}
                 </div>
                 <img
                   className="des-d-t-check"
@@ -102,6 +119,12 @@ function Third({ formData, setForm }) {
                       : key === current
                       ? EditCheckbox
                       : Extra
+                  }
+                  onClick={(e)=>{
+                    
+                    //const x = (formData['files'][formData.currentStage]['adminFiles'][len-1]['adminApp'] === 1) && (formData['files'][formData.currentStage]['adminFiles'][len-1]['clientApp'] === 2)
+                    if(x){Route(key)}
+                    }
                   }
                 />
               </div>

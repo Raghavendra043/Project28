@@ -54,9 +54,17 @@ function Designer() {
     const [final, setFinal] = useState(null);
     let title;
     let stage;
+    let clientPay;
+    let designerPay;
+    let start;
+    let end;
     if('state' in location && !title){
       title  = location.state.title;
       stage =  location.state.stage;
+      clientPay = location.state.clientPay;
+      designerPay = location.state.designerPay;
+      start = location.state.start;
+      end = location.state.end;
     }
 
     const viewHandler = (id) => {
@@ -205,10 +213,15 @@ function Designer() {
             <div className={styles.button_cover}>
               {title ? (<button className={classnames(styles.button)}
                 onClick={async()=>{
-                  try{toast('loading...');
+                  try{
+                  toast('loading...');
                   console.log(title);
                   var project = await search('Projects', "title", title);
                   console.log("from list", project);
+                  project['projectInfo']['start'] = start;
+                  project['projectInfo']['end'] = end;
+                  project['projectInfo']['clientPay'] = clientPay;
+                  project['projectInfo']['designerPay'] = designerPay;
                   project['designerEmail'] = final.email;
                   project['assigned'] = true;
                   project['designerAssigned'] = new Date().toString();
@@ -238,10 +251,7 @@ function Designer() {
                   project['currentStage'] = 0
                   await Update('Projects', title, project);
                   CreateChat(final.email, project.clientEmail, title).then(()=>{})
-                  history.push({ 
-                    pathname: '/admin/project',
-                    state: title
-                   });
+                  history.push( '/admin/project',{title});
                    const content = {
                      subject:`Project - ${title}`,
                      text:'Project Alloted',

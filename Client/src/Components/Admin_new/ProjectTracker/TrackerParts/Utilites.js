@@ -1,19 +1,40 @@
 /* eslint-disable*/
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styles from "./Utilites.module.css";
 import classnames from "classnames";
 import { Approve, Reject } from "../../../../firebasefunctions/firestore";
 import App from "../../../../App";
 import { useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
+import { forwardRef } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css"
+import { ReactComponent as Time } from "../../../client/CreateProject/assets/TimePeriod.svg";
+import { ReactComponent as Edit } from "../../../client/CreateProject/assets/pencil.svg";
+
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 function Utilites({ formData, setForm, print }) {
   const location = useLocation();
   const [present, setPre] = useState(false);
   const [stageNo, setStage] = useState();
+
+
+  const [startDate, setStartDate] = useState(new Date());
+  const [EndDate, setEndDate] = useState(new Date())
+  const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
+    <Edit style={{background:Edit}} className={styles.svg} onClick={onClick} ref={ref}/>
+  ));
+  const ExampleCustomInput1 = forwardRef(({ value, onClick }, ref) => (
+    <Edit style={{background:Edit}} className={styles.svg} onClick={onClick} ref={ref}/>
+  ));
+
+  const clientPay = useRef();
+  const designerPay = useRef();
+
   console.log('from Admin', formData);
-  const data = location.state.title;
-  console.log("from this is the last",data);
+  // const data = location.state.title;
+  // console.log("from this is the last",data);
   const history = useHistory();
   const current = formData.currentStage;
 
@@ -230,10 +251,61 @@ function Utilites({ formData, setForm, print }) {
           onClick={()=>{
             history.push({ 
               pathname: '/designer',
-              state: {title:formData.title, stage:stageNo}
+              state: {title:formData.title, stage:stageNo, clientPay:clientPay.current.value, designerPay:designerPay.current.value, start:startDate.toString(), end:EndDate.toString()}
              });
           }}
-        >Assign designer</button></>)}
+        >Assign designer</button><br/><br/>
+        Payment- client
+        <input
+          placeholder="Client"
+          ref={clientPay}
+        /><br/><br/>
+        Payment- Designer
+        <input
+          placeholder="Designer"
+          ref={designerPay}
+        /><br/><br/>
+
+        <div className={styles.TimePeriod}>
+            <div className={styles.timeHeader}>
+              <div className={styles.timeTitle}><b>Time Period</b></div><br/>
+              <div className={styles.pencil}>                
+              </div>
+            </div>
+            <div className={styles.dates}>
+            <DatePicker
+                selected={startDate}
+                onChange={(date) => {setStartDate(date)}}
+                customInput={<ExampleCustomInput />}
+              />
+              <div className={styles.date}>
+                <div className={styles.BigDate}>{startDate.getDate()}</div>
+                <div className={styles.smolDate}>
+                  <div className={styles.month}>{months[startDate.getMonth()]}</div>
+                  <div className={styles.mainDate}>{startDate.getFullYear()}</div>
+                </div>
+              </div>
+              
+              <div className={styles.svg}>
+              
+                <Time />
+              </div>
+              <div className={styles.date}>
+              <DatePicker
+                selected={EndDate}
+                onChange={(date) => {setEndDate(date) }}
+                customInput={<ExampleCustomInput1 />}
+              />
+                <div className={styles.BigDate}>{EndDate.getDate()}</div>
+                <div className={styles.smolDate}>
+                  <div className={styles.month}>{months[EndDate.getMonth()]}</div>
+                  <div className={styles.mainDate}>{EndDate.getFullYear()}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+        </>)}
 
         
       </div>
@@ -270,8 +342,8 @@ function Utilites({ formData, setForm, print }) {
           <div className={styles.feedback_box}>
             {present ? (<><div><b>Admin:</b><br/> {present['admin'][0][1]}</div>
             <div>{present['admin'][0][2]}</div>
-            {present['adminApp'] != 1 ? (<><div><b>Client:</b><br/> {present['client'][0][1]}</div>
-            <div>{present['client'][0][2]}</div></>) : (<><b>You disapproved this</b></>)}
+            {present['adminApp'] != 1 && present['client'].length >0  ? (<><div><b>Client:</b><br/> {present['client'][0][1]}</div>
+            <div>{present['client'][0][2]}</div></>) : present['adminApp'] != 3 ? (<><b>You disapproved this</b></>):(<></>)}
             </>) :(<></>)
             }
             <div className={styles.button_cover}>

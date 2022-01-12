@@ -73,6 +73,7 @@ function DesginerSignUp() {
     case "Signup2":
       return (
         <>
+        <Navbar1/>
           <div className={styles.container} id = 'screen' style={{position:"absolute"}}>
             <div className={styles.bottom_background}></div>
             <div className={styles.third}>
@@ -93,6 +94,7 @@ function DesginerSignUp() {
     case "Signup3":
       return (
         <>
+        <Navbar1/>
           <div className={styles.container} id = 'screen' style={{position:"absolute"}}>
             <div className={styles.bottom_background}></div>
             <div className={styles.third}>

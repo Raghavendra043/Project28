@@ -7,21 +7,52 @@ import { ReactComponent as Upload } from './assets/upload.svg'
 import Navbar2 from '../../Navbar/Navbar2'
 import Navbar4 from '../../Navbar/Navbar4'
 import { useLocation } from 'react-router-dom'
+import { BarWave } from "react-cssfx-loading";
+import { search } from '../../../firebasefunctions/firestore'
+
 
 function Profile() {
     const location = useLocation()
     const Data = location.state.Data;
     console.log("profile", Data);
-
+    
+    const startLoading = (x)=>{
+        if(x)
+        {var element = document.getElementById('loading');
+        if(element){element.style.display = null;}
+        var element1 = document.getElementById('screen');
+        if(element1){element1.style.opacity = 0.16;}
+        } else {
+          var element = document.getElementById('loading');
+          if(element){element.style.display = "none";}
+          var element1 = document.getElementById('screen');
+          if(element1){element1.style.opacity = 10;}
+        }
+    }
     const email = atob(window.sessionStorage.getItem("key"));
+
+    const [data, setData] = useState(null);
+    const x = document.getElementById('loading')
+    if(!data && x){
+        startLoading(true);
+        search('Client', "email", email).then((det)=>{
+            setData(det);
+            startLoading(false);
+        })
+        
+    }
+    
+
+    
     return (
-        <div className={styles.main_container1}>
+        <>
+        <div className={styles.main_container1} id= "screen" style={{position:"absolute"}}>
             <Navbar4/>
             <div className={styles.Sidebar}>
                     <Navbar/>
             </div>
           
-            <div className={styles.Profile}>
+            {data ? (<div className={styles.Profile}>
                 <div className={styles.box}>
                     <div className={styles.boxheader}>Personal info</div>
                     <div className={styles.row}>
@@ -38,7 +69,7 @@ function Profile() {
                             <div className={styles.input}>
                                 <div className={styles.headinput}>UserName <Pencil className={styles.pencilsvg}/></div>
                                 <div className={styles.inputbox}>
-                                    <input placeholder="john Doe" type="text" className={styles.inputboxmain}/>
+                                    <input placeholder={"data.fullname"} type="text" className={styles.inputboxmain}/>
                                 </div>
                             </div>
                       </div>
@@ -128,8 +159,13 @@ function Profile() {
                         </div>
                     </div>
                 
-            </div>
+            </div>) : (<></>)}
         </div>
+        <div id="loading" style={{position:"absolute", marginTop:"45vh", marginLeft:"47vw", display:"none"}}>
+            <BarWave width="50px" height="50px" color="#1ABAA9"/>
+            <p style={{marginTop:"5vh", marginLeft:"-3vw"}}>Getting account Info</p>
+            </div>
+        </>
     )
 }
 
