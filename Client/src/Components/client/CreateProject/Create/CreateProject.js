@@ -103,38 +103,45 @@ function CreateProject({ formData, setFormData, navigation, startLoading }) {
                 />
               </div>
             </div>
+
+            <div
+              className={styles.button}
+              onClick={() => {
+                // formData.start = startDate.toString();
+                // formData.end = EndDate.toString();
+                formData.clientName = clientName.current.value;
+                formData.companyName = companyName.current.value;
+                formData.title = title.current.value;
+                formData.brief = brief.current.value;
+                formData.obj = obj.current.value;
+                setFormData(formData);
+
+                navigation.next();
+              }}
+            >
+              Next
+            </div>
           </div>
-          
-          <div className={styles.button}
-            onClick={()=>{
-              
-              // formData.start = startDate.toString();
-              // formData.end = EndDate.toString();
-              formData.clientName = clientName.current.value;
-              formData.companyName = companyName.current.value;
-              formData.title = title.current.value;
-              formData.brief = brief.current.value;
-              formData.obj = obj.current.value;
-              setFormData(formData);
-              
-              navigation.next();
-            }}
-          >Next</div>
-        </div>
-        <div className={styles.right}>
-          
-          <div className={styles.Para}>
-            <div className={styles.paraHead}>Project Objective</div>
-            <textarea className={styles.paramain} style={{minWidth:"15vw", minHeight:"15vh"}} 
-             placeholder="Objective" ref={obj}/>
-              
-          </div>
-          <div className={styles.Para}>
-            <div className={styles.paraHead}>Brief Summary</div>
-            <textarea className={styles.paramain} style={{minWidth:"15vw", minHeight:"15vh"}} 
-             placeholder="Brief" ref={brief}/>
-          </div>
-          {/* <div className={styles.rightInput}></div>
+          <div className={styles.right}>
+            <div className={styles.Para}>
+              <div className={styles.paraHead}>Project Objective</div>
+              <textarea
+                className={styles.paramain}
+                style={{ minWidth: "15vw", minHeight: "15vh" }}
+                placeholder="Objective"
+                ref={obj}
+              />
+            </div>
+            <div className={styles.Para}>
+              <div className={styles.paraHead}>Brief Summary</div>
+              <textarea
+                className={styles.paramain}
+                style={{ minWidth: "15vw", minHeight: "15vh" }}
+                placeholder="Brief"
+                ref={brief}
+              />
+            </div>
+            {/* <div className={styles.rightInput}></div>
           <div className={styles.rightInput}></div> */}
           </div>
         </div>
