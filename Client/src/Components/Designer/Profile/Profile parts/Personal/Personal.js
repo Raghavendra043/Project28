@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import styles from "./Personal.module.css";
 import classnames from "classnames";
 
-function Personal({data, setData}) {
+function Personal({ data, setData }) {
   const Name = useRef();
   var expanded = false;
   const showCheckboxes = () => {
@@ -48,7 +48,9 @@ function Personal({data, setData}) {
                 type="text"
                 className={styles.profile_input}
                 ref={Name}
-                onChange={()=>{setData({...data, name:Name.current.value})}}
+                onChange={() => {
+                  setData({ ...data, name: Name.current.value });
+                }}
                 placeholder={data.name}
               />
             </div>

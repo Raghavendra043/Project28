@@ -5,6 +5,7 @@
   padding-right: 2vw;
   width: 19vw;
   transition: 0.15s;
+  background-color: #fafafa;
 }
 .null {
   display: none;
@@ -16,6 +17,7 @@
   padding-left: 2vw;
   padding-right: 2vw;
   transition: 0.2s;
+  background-color: #fafafa;
 }
 .button {
   display: flex;

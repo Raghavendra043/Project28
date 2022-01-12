@@ -16,7 +16,7 @@ import Navbar2 from "../../Navbar/Navbar2";
 
 function Dashboard() {
   const location = useLocation();
-  const [dt, setDt] = useState('Loading Account info');
+  const [dt, setDt] = useState("Loading Account info");
   const auth = getAuth();
   const user = auth.currentUser;
 
@@ -32,36 +32,41 @@ function Dashboard() {
   const [stat, setStat] = useState(0);
 
   const [formData, setForm] = useState(null);
-  
-  
-  const Loading= (state, set = false)=>{
-    try{if(state){
-        console.log('coming inside');
+
+  const Loading = (state, set = false) => {
+    try {
+      if (state) {
+        console.log("coming inside");
         var element = document.getElementById("loading");
         element.style.display = null;
         var element1 = document.getElementById("screen");
         element1.style.opacity = 0.16;
-        if(set){var element2 = document.getElementById("under");
-        element2.innerHTML = ""}
+        if (set) {
+          var element2 = document.getElementById("under");
+          element2.innerHTML = "";
+        }
         //setDt('Uploading');
-    } else {
-        console.log('coming outside');
+      } else {
+        console.log("coming outside");
         var element = document.getElementById("loading");
         element.style.display = "none";
         var element1 = document.getElementById("screen");
         element1.style.opacity = 10;
-    }} catch(err){
+      }
+    } catch (err) {
       console.log(err);
     }
-  }
+  };
   const props = { formData, setForm, Loading };
-  const props1 = { formData, setForm, user:"client" };
+  const props1 = { formData, setForm, user: "client" };
 
   if (!Details) {
     search("Projects", "clientEmail", email).then((project) => {
       if (project && project !== "f") {
         setDetails(project);
-        if(project.assigned){c = { onCurrent: project.currentStage };}
+        if (project.assigned) {
+          c = { onCurrent: project.currentStage };
+        }
         setForm({ ...project, ...c });
       } else if (project === "f") {
         setDetails("f");
@@ -75,7 +80,7 @@ function Dashboard() {
     if (element) {
       element.style.display = "none";
     }
-    var element1 = document.getElementById("screen"); 
+    var element1 = document.getElementById("screen");
     if (element1) {
       element1.style.opacity = 10;
     }
@@ -83,14 +88,14 @@ function Dashboard() {
   //const props2 = {title:formData.title};
   return (
     <div>
-      {formData && formData !== "f" ? (<Navbar2 {...props} />):(<></>)}
+      {formData && formData !== "f" ? <Navbar2 {...props} /> : <></>}
       <div
         className="main_container1"
         style={{ position: "absolute", opacity: "0.16" }}
         id="screen"
       >
         <div className="Sidebar">
-          {formData && formData !== "f" ? <Navbar {...props}/> : <></>}
+          {formData && formData !== "f" ? <Navbar {...props} /> : <></>}
         </div>
 
         {formData && formData.assigned && formData !== "f" ? (
@@ -110,7 +115,7 @@ function Dashboard() {
           </div>
         ) : (
           <div className="outer_container1">
-            <NoProjects/>
+            <NoProjects />
           </div>
         )}
       </div>
