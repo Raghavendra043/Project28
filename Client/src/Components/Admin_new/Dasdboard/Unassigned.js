@@ -135,10 +135,8 @@ function Unassigned() {
     }
     const viewProfile = (id)=>{
         console.log("works",id);
-        history.push({ 
-          pathname: '/admin/project',
-          state: id.title
-         });
+        history.push('/admin/project',
+          {title: id.title});
     }
 
     

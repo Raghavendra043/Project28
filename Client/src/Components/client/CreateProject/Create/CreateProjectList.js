@@ -91,13 +91,13 @@ function CreateProjectList({formData, setFormData, navigation,startLoading}) {
     startLoading(false);
 
     toast.info("Project Created Successfully", {position:"bottom-center"})
-    history.push("/");
+    history.push("/cdash");
     const content = {
       TO:process.env.REACT_APP_ADMIN,
       content:{
         subject:"New Project Created",
         text:"project",
-        html:`<div><h2>New Project Created</h2><h3>Title : ${Data.title}</h3><h3>ClientEmail : ${Data.clientEmail}</h3></div>`
+        html:`<div><h2>New Project Created</h2><h3>Title : ${Data.title}</h3><h3>ClientEmail : ${atob(window.sessionStorage.getItem("key"))}</h3></div>`
       }
     }
     const noti= {
@@ -107,8 +107,8 @@ function CreateProjectList({formData, setFormData, navigation,startLoading}) {
       user:"client"
     }
     adminNotify(noti).then(()=>{})
-    axios.post(`${process.env.REACT_APP_BACK}/sendMail`, content).then(()=>{})
-    history.push("/");} catch (err){
+    axios.post(`${process.env.REACT_APP_BACK}/sendMail`, content).then(()=>{})    
+  } catch (err){
       console.log(err);
     }
 
@@ -141,7 +141,7 @@ function CreateProjectList({formData, setFormData, navigation,startLoading}) {
       </span>
 
       {/* --------------------------------------- Time Period -----------------------------*/}
-      <div className={styles.box}>
+      {/* <div className={styles.box}>
         <span className={styles.title}>Time Period</span>
         <div className={styles.time}>
           <div className={styles.detail}>MileStone</div>
@@ -169,7 +169,7 @@ function CreateProjectList({formData, setFormData, navigation,startLoading}) {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div  style={{textAlign:"center", marginBottom:"20px"}}>
         <button className={styles.title1}

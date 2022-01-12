@@ -22,7 +22,9 @@ function ProfileMain() {
     let work3Ref = useRef("data.exp3");
     let linkRef = useRef("data.link");
 
-    const email = 'ragh12345@gmail.com'
+    //const email = 'ragh12345@gmail.com'
+    
+    const email = atob(window.sessionStorage.getItem("key"));
     const [data,setData ] = useState();
     
     if(!data){

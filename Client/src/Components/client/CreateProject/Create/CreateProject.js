@@ -22,14 +22,14 @@ function CreateProject({formData, setFormData, navigation,startLoading}) {
   const companyName = useRef();
   const brief = useRef();const obj = useRef();
 
-  const [startDate, setStartDate] = useState(new Date());
-  const [EndDate, setEndDate] = useState(new Date())
-  const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
-    <Edit style={{background:Edit}} className={styles.svg} onClick={onClick} ref={ref}/>
-  ));
-  const ExampleCustomInput1 = forwardRef(({ value, onClick }, ref) => (
-    <Edit style={{background:Edit}} className={styles.svg} onClick={onClick} ref={ref}/>
-  ));
+  // const [startDate, setStartDate] = useState(new Date());
+  // const [EndDate, setEndDate] = useState(new Date())
+  // const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
+  //   <Edit style={{background:Edit}} className={styles.svg} onClick={onClick} ref={ref}/>
+  // ));
+  // const ExampleCustomInput1 = forwardRef(({ value, onClick }, ref) => (
+  //   <Edit style={{background:Edit}} className={styles.svg} onClick={onClick} ref={ref}/>
+  // ));
 
   const setOption=(id)=>{
     var x;
@@ -104,53 +104,12 @@ function CreateProject({formData, setFormData, navigation,startLoading}) {
               ></input>
             </div>
           </div>
-          <div className={styles.TimePeriod}>
-            <div className={styles.timeHeader}>
-              <div className={styles.timeTitle}>Time Period</div>
-              <div className={styles.pencil}>
-                {/* <Edit /> */}
-                
-
           
-              </div>
-            </div>
-            <div className={styles.dates}>
-            <DatePicker
-                selected={startDate}
-                onChange={(date) => {setStartDate(date);formData.start = startDate.toString() ;setFormData(formData)}}
-                customInput={<ExampleCustomInput />}
-              />
-              <div className={styles.date}>
-                <div className={styles.BigDate}>{startDate.getDate()}</div>
-                <div className={styles.smolDate}>
-                  <div className={styles.month}>{months[startDate.getMonth()]}</div>
-                  <div className={styles.mainDate}>{startDate.getFullYear()}</div>
-                </div>
-              </div>
-              
-              <div className={styles.svg}>
-              
-                <Time />
-              </div>
-              <div className={styles.date}>
-              <DatePicker
-                selected={EndDate}
-                onChange={(date) => {setEndDate(date);formData.end = EndDate.toString() ;setFormData(formData)}}
-                customInput={<ExampleCustomInput1 />}
-              />
-                <div className={styles.BigDate}>{EndDate.getDate()}</div>
-                <div className={styles.smolDate}>
-                  <div className={styles.month}>{months[EndDate.getMonth()]}</div>
-                  <div className={styles.mainDate}>{EndDate.getFullYear()}</div>
-                </div>
-              </div>
-            </div>
-          </div>
           <div className={styles.button}
             onClick={()=>{
               
-              formData.start = startDate.toString();
-              formData.end = EndDate.toString();
+              // formData.start = startDate.toString();
+              // formData.end = EndDate.toString();
               formData.clientName = clientName.current.value;
               formData.companyName = companyName.current.value;
               formData.title = title.current.value;

@@ -74,7 +74,7 @@
   font-size: 4vh;
   font-weight: 500;
   color: #20c1ef;
-  margin-right: 1.3vh;
+  /* margin-right: 1.3vh; */
 }
 .smolDate {
   font-size: 2vh;
@@ -89,7 +89,7 @@
 }
 .svg {
   margin-left: 3vh;
-  margin-right: 3vh;
+  /* margin-right: 3vh; */
 }
 .timeHeader {
   display: flex;
@@ -120,7 +120,7 @@
   border-radius: 1vh;
   width: 100%;
   padding-left: 2vh;
-  padding-right: 2vh;
+  /* padding-right: 2vh; */
 }
 .right {
   width: 16vw;

@@ -23,12 +23,14 @@ function SignUpThird( { formData, setForm, navigation }) {
                     <div className={styles.cover}>
                         <button className={styles.complete} 
                             onClick={()=>{
+                                window.sessionStorage.setItem("key", btoa(formData.email));
                                 history.push("/designer/complete", {email:formData.email});
                             }}>
                         Complete Your Profile</button>
                     </div>
                     <div className={styles.cover}>
                         <button className={styles.proceed} onClick={()=>{
+                            window.sessionStorage.setItem("key", btoa(formData.email));
                             history.push("/home", {user:"designer", email:formData.email});
                         }}>Proceed To DashBoard</button>
                     </div>
