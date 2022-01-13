@@ -12,18 +12,14 @@ import Navbar2 from '../../Navbar/Navbar2';
 import Navbar4 from '../../Navbar/Navbar4';
 
 function ProfileMain() {
-    //const location = useLocation();
-    //const email = location.state.email;
-    //const email = atob(window.sessionStorage.getItem("key"));
+    
     const nameRef = useRef('DarthVader');
-    let special = useRef('');//data.specialization;
-    let [checkedState,setCheckedState] = useState(['this', "this"]);//data.specialization_state);
+    let special = useRef('');
+    let [checkedState,setCheckedState] = useState([]);
     let work1Ref = useRef("data.exp1");
     let work2Ref = useRef("data.exp2");
     let work3Ref = useRef("data.exp3");
     let linkRef = useRef("data.link");
-
-    //const email = 'ragh12345@gmail.com'
     
     const email = atob(window.sessionStorage.getItem("key"));
     const [data,setData ] = useState();

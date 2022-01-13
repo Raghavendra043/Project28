@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import styles from './Fourth.module.css';
 import Chat from '../../../../../trail/chat';
 import { Zoom } from 'react-toastify';
+import { getDocData } from '../../../../../firebasefunctions/firestore';
 
 function Fourth({ formData, setForm ,user}) {
+    
     const x = formData['chatData']['admin']['chatID'];
     const x1 = formData['chatData']['admin']['accessKey']
 
@@ -17,8 +19,10 @@ function Fourth({ formData, setForm ,user}) {
     if(user === "designer"){
         To = "client";
     } else {To = "designer"}
-    const props = { data:[x, x1], username:formData[`${user}Email`], user:To, from:To, reverse }
-    const props1 = { data:[y, y1], username:formData[`${user}Email`], user:"Admin", from:To ,reverse}
+        
+    
+    const props = { title:formData.title,data:[x, x1], username:formData[`${user}`], user:To, from:To, reverse }
+    const props1 = {title:formData.title, data:[y, y1], username:formData[`${user}`], user:"Admin", from:To ,reverse}
 
     
     const [Z, setZ] = useState(true);
@@ -34,6 +38,7 @@ function Fourth({ formData, setForm ,user}) {
                 <Chat {...props}/>    
             </div>) :
             (<></>) }
+
         </div>
 
     )

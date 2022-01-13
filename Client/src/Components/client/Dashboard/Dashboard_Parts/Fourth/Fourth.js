@@ -6,8 +6,8 @@ function Fourth({ formData, setForm ,user}) {
     const x = formData['chatData']['admin']['chatID'];
     const x1 = formData['chatData']['admin']['accessKey']
 
-    const y = formData['chatData'][user]['chatID'];
-    const y1 = formData['chatData'][user]['accessKey']
+    const y = formData['chatData']["client"]['chatID'];
+    const y1 = formData['chatData']["client"]['accessKey']
     var To;
     const reverse = (a)=>{            
             setZ(a);
@@ -16,8 +16,8 @@ function Fourth({ formData, setForm ,user}) {
     if(user === "designer"){
         To = "client";
     } else {To = "designer"}
-    const props = { data:[x, x1], username:formData[`${user}Email`], user:To,from:To, reverse }
-    const props1 = { data:[y, y1], username:formData[`${user}Email`], user:"Admin" ,from:To,reverse}
+    const props = {title:formData.title, data:[x, x1], username:formData[`${user}`], user:To,from:To, reverse }
+    const props1 = {title:formData.title, data:[y, y1], username:formData[`${user}`], user:"Admin" ,from:To,reverse}
 
     
     const [Z, setZ] = useState(true);

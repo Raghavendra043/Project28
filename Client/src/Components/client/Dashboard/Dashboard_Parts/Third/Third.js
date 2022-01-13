@@ -15,7 +15,8 @@ import { useHistory } from "react-router-dom";
 function Third({ formData, setForm }) {
   const history = useHistory();
   let current = formData.currentStage;
-  let y = formData['files'][current]["files"].length > 0
+  let y = formData['files'][`${current}`]['files']
+  if(y){y = y.length > 0}
   var x;
   if(current != 0){const len = formData['files'][formData.currentStage]['adminFiles'].length
   var x = false;

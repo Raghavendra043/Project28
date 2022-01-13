@@ -39,6 +39,7 @@ function Main() {
   
 
   const Loading= (state)=>{
+    console.log("triggred");
     if(state){
         console.log('coming inside');
         var element = document.getElementById("loading");
@@ -87,14 +88,15 @@ function Main() {
   
 
   if (formData) {
+    console.log("came but");
     var element = document.getElementById("loading");
-    if (element) {
+    
       element.style.display = "none";
-    }
+    
     var element1 = document.getElementById("screen");
-    if (element1) {
+    
       element1.style.opacity = 10;
-    }
+    
   }
 
   return (
@@ -129,16 +131,16 @@ function Main() {
               
             </div>
           </div>
-        ) : (designer === "nt" || designer) && formData['desStatus']!=2 ? (
+        ) : formData && (designer === "nt" || designer) && formData['desStatus'] !=2 ? (
           <div className="outer_container1">
             
-            <NoProjects {...{x:false, email}}/>
+            <NoProjects {...{x:false, formData}}/>
           </div>
         ) : formData && formData['desStatus'] === 2 && !formData['assigned'] ? 
         
-          (<><NoProjects {...{x:1, email}}/></>)
+          (<><NoProjects {...{x:1, formData}}/></>)
         :(<>
-          <NoProjects {...{x:true, email}}/>
+          <NoProjects {...{x:true, formData}}/>
         </>)
         
         }

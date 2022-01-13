@@ -62,18 +62,18 @@ function Signup3({ formData, setForm, navigation , startLoading}) {
                     if ( formData.password === formData.confirmPassword && formData.password.trim().length>=6) {
                         
                         await signup(formData.email, formData.password);
-                        addData('Client', formData.email, formData);
+                        
                         
                         console.log(formData);
                         const chatData  = await CreateUser(formData.fullname, 'client');
-                        
-                        await addData('Designers',formData.email ,{
-                            "name":formData.fullname,
-                            "email":formData.email,
-                            "phone":formData.phoneNumber,
-                            "created":new Date().toString(),
-                            "chat":chatData
-                        });
+                        await addData('Client', formData.email, {...formData, ...{phone:formData.phoneNumber,created:new Date().toString(),chat:chatData }});
+                        // await addData('Client',formData.email ,{
+                        //     "name":formData.fullname,
+                        //     "email":formData.email,
+                        //     "phone":formData.phoneNumber,
+                        //     "created":new Date().toString(),
+                        //     "chat":chatData
+                        // });
                         startLoading(false);
                         navigation.next();
                     }

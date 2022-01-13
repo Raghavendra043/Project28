@@ -4,6 +4,16 @@ import Chat from '../../../../../trail/chat';
 import Chat1 from '../../../../../trail/chat1';
 
 function Fourth({ formData}) {
+
+    const reverse = (a, b)=>{            
+        setZ(a);
+        setS(b);
+    }
+    let props ;
+    let props1;
+    let props2;
+
+    if(formData.assigned){
     const x = formData['chatData']['admin']['chatID'];
     const x1 = formData['chatData']['admin']['accessKey']
 
@@ -13,15 +23,13 @@ function Fourth({ formData}) {
     const r = formData['chatData']['client']['chatID'];
     const r1 = formData['chatData']['client']['accessKey']
 
-    
-    const reverse = (a, b)=>{            
-            setZ(a);
-            setS(b);
+    props = { data:[x, x1],user:"Common",title:formData.title,reverse }
+    props1 = { data:[y, y1],user:"Designer",title:formData.title, reverse}
+    props2 = { data:[r, r1],user:"Client",title:formData.title, reverse}
     }
     
-    const props = { data:[x, x1],user:"Common",title:formData.title,reverse }
-    const props1 = { data:[y, y1],user:"Designer",title:formData.title, reverse}
-    const props2 = { data:[r, r1],user:"Client",title:formData.title, reverse}
+    
+    
 
     
     const [Z, setZ] = useState(true);
@@ -29,7 +37,7 @@ function Fourth({ formData}) {
     return (
         <div className={styles.container}>
             
-            {!Z && S ? (<div className={styles.box}>
+            {formData.assigned ? ( <>{!Z && S ? (<div className={styles.box}>
                 <Chat1 {...props1}/>     
             </div>) :
             (<></>) }
@@ -40,7 +48,7 @@ function Fourth({ formData}) {
             {Z && S ? (<div className={styles.box}>
                 <Chat1 {...props2}/>    
             </div>) :
-            (<></>) }
+            (<></>) }</> ) : (<></>)}
         </div>
 
     )

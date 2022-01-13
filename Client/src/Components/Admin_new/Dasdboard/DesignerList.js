@@ -16,7 +16,8 @@ const data1 = [
         col3: '',
         col4:<button></button>,
         col5:"",
-        col6:""
+        col6:"",
+        col7:""
       }
     ]
 
@@ -47,7 +48,7 @@ const data1 = [
          },
          {
           Header: 'Profile Complete',
-          accessor: 'col6', // accessor is the "key" in the data
+          accessor: 'col7', // accessor is the "key" in the data
         }
         ]
     
@@ -223,7 +224,7 @@ function Designer() {
               {title ? (<button className={classnames(styles.button)}
                 onClick={async()=>{
                   try{
-                  toast('loading...');
+                  toast('loading...', {position:"bottom-center"});
                   console.log(title);
                   var project = await search('Projects', "title", title);
                   console.log("from list", project);
@@ -232,7 +233,8 @@ function Designer() {
                   project['projectInfo']['clientPay'] = clientPay;
                   project['projectInfo']['designerPay'] = designerPay;
                   project['designerEmail'] = final.email;
-                  project['assigned'] = true;
+                  project['assigned'] = false;
+                  project['desStatus'] = 2;
                   project['designerAssigned'] = new Date().toString();
                   project['stageCount'] = stage;
                   project['designerNotification'] = []
@@ -259,7 +261,7 @@ function Designer() {
                   }
                   project['currentStage'] = 0
                   await Update('Projects', title, project);
-                  CreateChat(final.email, project.clientEmail, title).then(()=>{})
+                  //CreateChat(final.email, project.clientEmail, title).then(()=>{})
                   history.push( '/admin/project',{title});
                    const content = {
                      subject:`Project - ${title}`,
@@ -271,6 +273,7 @@ function Designer() {
 
                   } catch(err){
                     console.log(err);
+                    toast.error('error occured', {position:"bottom-center"});
                   }
                 }}
               >

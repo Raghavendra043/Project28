@@ -23,6 +23,8 @@ function Personal({ data, setData }) {
 
   const handleCheck = (i) => {
     special[i].status = !special[i].status;
+    setData({...data, ...{}})
+
   };
 
   return (
@@ -60,7 +62,7 @@ function Personal({ data, setData }) {
           </div>
           <div className={styles.special}>
             <div className={styles.title}>
-              Specailizations
+              Specializations
               <span>
                 {" "}
                 <i class="fas fa-pencil-alt fa"></i>

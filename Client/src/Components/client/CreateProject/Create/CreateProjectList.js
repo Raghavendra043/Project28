@@ -87,7 +87,7 @@ function CreateProjectList({formData, setFormData, navigation,startLoading}) {
       }
     }
     startLoading(true);
-    await addData('Projects', Data.title, {title:Data.title,projectInfo:Data1, assigned:false,clientEmail:atob(window.sessionStorage.getItem("key"))});
+    await addData('Projects', Data.title, {desStatus:1, title:Data.title,projectInfo:Data1, assigned:false,clientEmail:atob(window.sessionStorage.getItem("key"))});
     startLoading(false);
 
     toast.info("Project Created Successfully", {position:"bottom-center"})
