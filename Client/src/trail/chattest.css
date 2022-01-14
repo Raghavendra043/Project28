@@ -69,11 +69,12 @@
 }
 
 .chat__switch {
+  width: 10vw;
   font-size: 3vh;
   border: none;
   color: white;
   border-radius: 40px;
-  padding: 2vh 3.2vw;
+  padding: 2vh;
 }
 
 .chat__client {
@@ -89,7 +90,7 @@
   font-style: italic;
 }
 
-.ce-their-message-bubble{
+.ce-their-message-bubble {
   color: white !important;
 }
 
