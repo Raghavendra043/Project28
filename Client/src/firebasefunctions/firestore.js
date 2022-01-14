@@ -97,6 +97,7 @@ export const update= async(collection, doc, name, url, current)=>{
       project['files'][current]['designerFiles'] = []
       project['files'][current]['adminApproval'] = false;
     }
+    //sendNotification().then(()=>{})
     
     await db.collection(collection)
       .doc(doc)
@@ -217,7 +218,7 @@ export const getNotification= async(project, state)=>{
     let get;
     let notification=  [];
     if(state %2 === 0){
-      const Data = await getDocData('Projects', project).then(()=>{});
+      const Data = await getDocData('Projects', project);
       console.log("from funck ", Data)
       notification = notification.concat(Data.clientNotification);
     } if(state %3 === 0){

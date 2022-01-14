@@ -1,16 +1,16 @@
-import React,{useRef, useState} from 'react'
+import React,{useEffect, useRef, useState} from 'react'
 import './ProfileMain.css';
 import Professional from './Profile parts/Professional/Professional';
 import Personal from './Profile parts/Personal/Personal';
 //import data from './desProf.json';
 import { useLocation } from 'react-router';
-import { getDocData } from '../../../firebasefunctions/firestore';
+import { getDocData, search } from '../../../firebasefunctions/firestore';
 import Navbar from '../Dashboard new/Dashboard_Parts/Navbar/Navbar';
 import { Update } from '../../../firebasefunctions/firestore';
 import { BarWave } from "react-cssfx-loading";
 import Navbar2 from '../../Navbar/Navbar2';
 import Navbar4 from '../../Navbar/Navbar4';
-
+let x= 0;
 function ProfileMain() {
     
     const nameRef = useRef('DarthVader');
@@ -22,13 +22,27 @@ function ProfileMain() {
     let linkRef = useRef("data.link");
     
     const email = atob(window.sessionStorage.getItem("key"));
-    const [data,setData ] = useState();
+    const [data,setData ] = useState(null);
     
+    // if(!data){
+    //     getDocData('Designers',email ).then((data1)=>{
+    //         //setData(data1);
+    //         console.log(data1);
+    //     })
+    // }
     if(!data){
-        getDocData('Designers',email ).then((data1)=>{
-            setData(data1);console.log(data1);
-        })
-    }
+        
+        search("Designers", "email", email).then((project) => {
+          if (project && project !== "f") {
+            console.log("designer det : ",project);
+            setData(project);        
+          } else if (project === "f") {
+            console.log("fuck");
+            setData("nt");
+          }
+        });
+    
+      }
     
     const handleSubmit = async(field, value) =>{
         console.log("updated: ", data);

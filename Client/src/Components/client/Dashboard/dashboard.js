@@ -98,7 +98,7 @@ function Dashboard() {
            <Navbar  />
         </div>
 
-        {formData && formData.assigned && formData !== "f" ? (
+        {formData && formData.assigned && formData !== "f"  ? (
           <div className="outer_container1">
             <div className=" first">
               <First {...props} />
@@ -115,7 +115,7 @@ function Dashboard() {
           </div>
         ) : (
           <div className="outer_container1">
-            <NoProjects />
+            <NoProjects {...{x:5, formData}}/>
           </div>
         )}
       </div>

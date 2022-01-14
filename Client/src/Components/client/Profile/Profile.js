@@ -8,21 +8,54 @@ import Navbar2 from '../../Navbar/Navbar2'
 import Navbar4 from '../../Navbar/Navbar4'
 import { useLocation } from 'react-router-dom'
 import { BarWave } from "react-cssfx-loading";
-import { search } from '../../../firebasefunctions/firestore'
+import { addData, search } from '../../../firebasefunctions/firestore'
+import { addDoc } from 'firebase/firestore'
 
-let data;
+let data = {
+    add1:"",
+    add2:"",
+    fullname:"",
+    companyName:"",
+    email:"",
+    phoneNumber:"",
+    gst:"",
+    companyWebsite:""
+};
 
 function Profile() {
     const location = useLocation()
     const Data1 = location.state;
     const [Data, setData] =useState();
 
+
+    const startLoading = (x)=>{
+        if(x)
+        {var element = document.getElementById('loading');
+        element.style.display = null;
+        var element1 = document.getElementById('screen');
+        element1.style.opacity = 0.16;
+        } else {
+          var element = document.getElementById('loading');
+          element.style.display = "none";
+          var element1 = document.getElementById('screen');
+          element1.style.opacity = 10;
+        }
+    }
+
+    if(!Data && document.getElementById('loading')){
+        startLoading(true);
+    }
+    if(Data){
+        startLoading(false);
+    }
+
     const email = atob(window.sessionStorage.getItem("key"));
     if(!Data){
+        
         search("Client", "email", email).then((project) => {
           if (project && project !== "f") {
             console.log("designer det : ",project);
-            setData(project.profile);        
+            setData(project);        
           } else if (project === "f") {
             console.log("fuck");
             setData("nt");
@@ -125,8 +158,15 @@ function Profile() {
                     <div className={styles.innerbox}>
                         <div className={styles.boxheader1}>Billing Address
                             <button style={{marginLeft:"10vw",fontSize:"1.4vw", color:"white",border:"none",borderRadius:"0.8vw" ,background:"#19BAA8"}}
-                                onClick={()=>{
+                                onClick={async()=>{
+                                    
+                                    for(let i of Object.keys(data)){
+                                        if(data[i] === ""){
+                                            data[i] = Data[i]
+                                        }
+                                    }
                                     setData(data) ;
+                                    addData('Client', Data.email,data).then(()=>{})
                                 }}
                             >Update</button>
                         </div>
@@ -135,7 +175,7 @@ function Profile() {
                             <div className={styles.input}>
                                 <div className={styles.headinput}>Address1 </div>
                                 <div className={styles.inputbox}>
-                                    <input placeholder="" type="text" className={styles.inputboxmain}
+                                    <input placeholder={Data.add1} type="text" className={styles.inputboxmain}
                                         onChange={(e)=>{
                                             data["add1"] = e.target.value
                                         }}
@@ -147,7 +187,7 @@ function Profile() {
                             <div className={styles.input2}>
                                 <div className={styles.headinput}>Address2 </div>
                                 <div className={styles.inputbox}>
-                                    <input placeholder="" type="text" className={styles.inputboxmain}
+                                    <input placeholder={Data.add2} type="text" className={styles.inputboxmain}
                                         onChange={(e)=>{
                                             data["add2"] = e.target.value
                                         }}
@@ -159,7 +199,7 @@ function Profile() {
                             <div className={styles.input}>
                                 <div className={styles.headinput}>Company Name </div>
                                 <div className={styles.inputbox}>
-                                    <input placeholder="" type="text" className={styles.inputboxmain}
+                                    <input placeholder={Data.companyName} type="text" className={styles.inputboxmain}
                                          onChange={(e)=>{
                                             data.companyName = e.target.value
                                         }}
@@ -171,7 +211,7 @@ function Profile() {
                             <div className={styles.input2}>
                                 <div className={styles.headinput}>GST Number </div>
                                 <div className={styles.inputbox}>
-                                    <input placeholder="" type="text" className={styles.inputboxmain}
+                                    <input placeholder={Data.gst} type="text" className={styles.inputboxmain}
                                          onChange={(e)=>{
                                             data["gst"] = e.target.value
                                         }}

@@ -16,6 +16,7 @@ function Navbar4() {
   const email = atob(window.sessionStorage.getItem("key"));
 
   if(!formData){
+    
     search("Projects", "designerEmail", email).then((project) => {
       if (project && project !== "f") {
         //console.log("from inside:", project);

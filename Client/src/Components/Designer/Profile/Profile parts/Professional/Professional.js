@@ -21,17 +21,17 @@ function Professional({data, setData}) {
                     </div>
                     <div className={styles.input_cover}>
                         <input type='text' className={styles.profile_input} ref = {exp1} placeholder={data.exp1}
-                            onChange={()=>{setData({...data, exp1:exp1.current.value})}}
+                            //onChange={()=>{setData({...data, exp1:exp1.current.value})}}
                         />
                     </div>
                     <div className={styles.input_cover}>
                         <input type='text' className={styles.profile_input} ref = {exp2} placeholder={data.exp2}
-                            onChange={()=>{setData({...data, exp2:exp2.current.value})}}
+                            //onChange={()=>{setData({...data, exp2:exp2.current.value})}}
                         />
                     </div>
                     <div className={styles.input_cover}>
                         <input type='text' className={styles.profile_input} ref = {exp3} placeholder={data.exp3}
-                            onChange={()=>{setData({...data, exp3:exp3.current.value})}}
+                            //onChange={()=>{setData({...data, exp3:exp3.current.value})}}
                         />
                     </div>
 
@@ -44,7 +44,8 @@ function Professional({data, setData}) {
                     </div>
                     <div className={styles.input_cover}>
                         <input type='text' className={styles.profile_input} ref = {link} placeholder={data.link}
-                            onChange={()=>{setData({...data, link:link.current.value})}}
+                            onChange={()=>{//setData({...data, link:link.current.value})
+                            }}
                         />
                     </div>
                     <div className={styles.or}>OR</div>

@@ -6,19 +6,18 @@ import {ReactComponent as Kit} from './assets/starterkit.svg'
 import { useHistory } from 'react-router';
 function Navbar({email}) {
     const history = useHistory();
-    //const email = 'f20190120@hydrabad.bits-pilani.ac.in';
-    //const history = useHistory();
-    console.log("from nav", email);
+    const [ActiveTopic, setActiveTopic] = useState();
     const [isHamOn, setIsHamOn] = useState(false);
-  const handleClick = () => {
-    setIsHamOn(!isHamOn);
+    
+    const handleClick = () => {
+        setIsHamOn(!isHamOn);
     };
     
 //     const [isBtnOn, setIsBtnOn] = useState(false);
 //   const handleClicknew = () => {
 //     setIsBtnOn(!isBtnOn);
 //     };
-    const [ActiveTopic, setActiveTopic] = useState(0);
+    
 
     const toggleActive = (id) => {
          setActiveTopic(id);

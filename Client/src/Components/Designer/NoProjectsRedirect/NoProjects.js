@@ -7,6 +7,7 @@ import { CreateChat } from '../../../trail/createchat'
 import { BarWave } from "react-cssfx-loading";
 import { toast } from 'react-toastify'
 import { addData, getDocData, search, Update } from '../../../firebasefunctions/firestore'
+import axios from 'axios'
 
 function NoProjects({x, formData}) {
     const location = useLocation();
@@ -27,6 +28,12 @@ function NoProjects({x, formData}) {
           //console.log(project);
           //await Update('Projects', formData.title, project);
           await addData('Projects', formData.title, project)
+          const content = {
+            subject:`Project - ${project.title}`,
+            text:'Project Alloted',
+            html:"<div>Designer has approved the project</div>"
+          }
+          axios.post(`${process.env.REACT_APP_BACK}/sendMail`, content).then(()=>{})    
           //Loading(true);
           //window.location.reload(true);
         }catch(err){
@@ -62,7 +69,7 @@ function NoProjects({x, formData}) {
                 <div className={styles.header}>You dont have any Projects Yet</div>
                 <div className={styles.svg}><Man/></div>
                 <div className={styles.subheader}>Project-28</div>
-                { x && x!=1 ? (
+                { x && x!=1 && x!=5 ? (
                     <>Please Complete Your Profile to take up projects<button
                     style={{border:"none", color:"white", background:"#19BBB9", borderRadius:"5px"}}
                     onClick={()=>{
@@ -92,7 +99,9 @@ function NoProjects({x, formData}) {
                   >DisApprove</button>
                   
                   </>)
-                    :(<></>)
+                    : formData && x ===5 && !formData['assigned'] ?
+                    
+                    (<>Download</>) : (<></>)
                 }
                 </div>
                 </div>

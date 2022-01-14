@@ -54,7 +54,7 @@ function Personal({ data, setData }) {
                 className={styles.profile_input}
                 ref={Name}
                 onChange={() => {
-                  setData({ ...data, name: Name.current.value });
+                  //setData({ ...data, name: Name.current.value });
                 }}
                 placeholder={data.name}
               />
@@ -87,7 +87,7 @@ function Personal({ data, setData }) {
                         <input
                           type="checkbox"
                           id={key}
-                          onChange={handleCheck(key)}
+                          // onChange={handleCheck(key)}
                           className={styles.checkme}
                         />
                       </label>
