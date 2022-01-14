@@ -11,7 +11,7 @@ import { Update } from "../../../../firebasefunctions/firestore";
 import { storage } from "../../../../firebase";
 import { toast } from "react-toastify";
 
-function Second({ formData, setForm, navigation ,startLoading}) {
+function Second( { formData,formData1, setForm1,spec,setSpec, navigation ,startLoading}) {
   const history = useHistory();
   const location = useLocation();
   //const email = location.state.email;
@@ -23,15 +23,16 @@ function Second({ formData, setForm, navigation ,startLoading}) {
   const uploadFile = async (image) => {
     startLoading(true);
 
-    try{await storage.ref(`${formData.email}/profile`).put(image);
+    try{await storage.ref(`${email}/profile`).put(image);
     const URL = await storage
-      .ref(`${formData.email}/Profile-Link`)
+      .ref(`${email}/ProfileLink`)
       .getDownloadURL();
       formData.profileLink = URL;
-    setForm(formData);
+    setForm1(formData);
     startLoading(false);
   } catch(err){
     startLoading(false);
+    console.log(err);
     toast.error('Error Occured', {position:"bottom-center"});
   }
     //const file = await update('Projects', '1',image.name,URL, formData.currentStage);
@@ -57,15 +58,15 @@ function Second({ formData, setForm, navigation ,startLoading}) {
           <div className={e_style.data}>
             <div className={e_style.input_cover}>
               <div className={e_style.titles}>Estimated Price Range</div>
-              <div className={styles.desc}>Hourly Payment</div>
+              <div className={styles.desc} style={{marginBottom:"10vh !important"}}>Hourly Payment</div>
               <div className={styles.slider}>
                 <Slider
                   min={0}
                   max={1000}
                   onChange={({ min, max }) =>
                     {console.log(`min = ${min}, max = ${max}`);
-                      // formData["payment"] = `${min} - ${max}`;
-                      // setForm(formData);
+                      formData["payment"] = `${min} - ${max}`;
+                      setForm1(formData);
                   }
                   }
                 />
@@ -134,7 +135,10 @@ function Second({ formData, setForm, navigation ,startLoading}) {
                   className={styles.profile_input}
                   placeholder="Link to you website / behance  / google drive etc. "
                   // value={formData.link}
-                  onChange={setForm}
+                  onChange={(e)=>{
+                    formData.link = e.target.value;
+                    setForm1(formData);
+                  }}
                   //name="link"
                 />
               </div>
@@ -164,11 +168,19 @@ function Second({ formData, setForm, navigation ,startLoading}) {
       <div
         className={styles.next}
         onClick={async () => {  
-          Update("Designers", email, formData).then(()=>{})
+          try{formData1['specs'] = spec;
+          formData1["profile"] = true;
+          Update("Designers", email, formData1).then(()=>{})
           toast.info("Profile Created", {position:"bottom-center"});
           //alert("successfully prifile created");
-          history.push("/designer/login");
-        }}
+          console.log(formData, formData1, spec);
+          history.push("/designer/login");}catch(err){
+            console.log(err);
+            toast.error("Error Occured", {position:"bottom-center"});
+            history.push('/designer/complete');
+          }
+        }      
+      }
       >
         <ArrowRight className={styles.arrow_right} />
       </div>

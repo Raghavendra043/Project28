@@ -39,6 +39,7 @@ function Main() {
   
 
   const Loading= (state)=>{
+    console.log("triggred");
     if(state){
         console.log('coming inside');
         var element = document.getElementById("loading");
@@ -61,6 +62,7 @@ function Main() {
     search("Projects", "designerEmail", email).then((project) => {
       if (project && project !== "f") {
         setDetails(project);
+        console.log(project);
         c = { onCurrent: project.currentStage };
         setForm({ ...project, ...c });
       } else if (project === "f") {
@@ -73,9 +75,10 @@ function Main() {
   if(!designer){
     search("Designers", "email", email).then((project) => {
       if (project && project !== "f") {
+        //console.log("designer det : ",project);
         setDes(project.profile);        
       } else if (project === "f") {
-        console.log("fuck");
+        //console.log("fuck");
         setDes("nt");
       }
     });
@@ -85,14 +88,15 @@ function Main() {
   
 
   if (formData) {
+    console.log("came but");
     var element = document.getElementById("loading");
-    if (element) {
+    
       element.style.display = "none";
-    }
+    
     var element1 = document.getElementById("screen");
-    if (element1) {
+    
       element1.style.opacity = 10;
-    }
+    
   }
 
   return (
@@ -110,7 +114,7 @@ function Main() {
           <Navbar  />
         </div>
 
-        {formData && formData !== "f" ? (
+        {formData && formData !== "f" && formData['assigned'] ? (
           <div className="outer_container1">
             <div className=" first">
               <First {...props} />
@@ -127,14 +131,19 @@ function Main() {
               
             </div>
           </div>
-        ) : designer === "nt" || designer ? (
+        ) : formData && (designer === "nt" || designer) && formData['desStatus'] !=2 ? (
           <div className="outer_container1">
             
-            <NoProjects {...{x:false, email}}/>
+            <NoProjects {...{x:false, formData}}/>
           </div>
-        ) : (<>
-          <NoProjects {...{x:true, email}}/>
-        </>)}
+        ) : formData && formData['desStatus'] === 2 && !formData['assigned'] ? 
+        
+          (<><NoProjects {...{x:1, formData}}/></>)
+        :(<>
+          <NoProjects {...{x:true, formData}}/>
+        </>)
+        
+        }
       </div>
       <div
         id="loading"

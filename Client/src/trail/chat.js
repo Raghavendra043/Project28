@@ -13,7 +13,7 @@ require("./chattest.css");
 var PROJECT_ID = "68a08b56-b99d-4754-85e8-375c862bef48";
 var USER_NAME = "Ragh";
 
-function Chat({ data, username, user,from, reverse}) {
+function Chat({title, data, username, user,from, reverse}) {
 
   // console.log("chat:", formData['chatData']);
   // const [chatID, setChat] = useState(formData['chatData']['admin']['chatID']);
@@ -31,7 +31,7 @@ function Chat({ data, username, user,from, reverse}) {
   
   return (
     <>
-      <div className="chat__title">{'1'} - {user}</div>
+      <div className="chat__title">{title} - {user}</div>
       <Col style={{ height: "80vh", width: "30vw", marginTop: "3vh" }}>
         <ChatEngineWrapper>
           <ChatSocket

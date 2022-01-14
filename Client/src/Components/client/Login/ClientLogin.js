@@ -1,3 +1,4 @@
+/* eslint-disable default-case */
 import React from 'react'
 import { useForm, useStep } from 'react-hooks-helper'
 import { ReactComponent as Man } from '../Signup/assets/Man.svg'
@@ -12,6 +13,7 @@ import Navbar1 from '../../Navbar/Navbar1'
 const defaultData = {
     email: "",
     password:"",
+    confirmPassword:""
 }
 
 const steps = [
@@ -47,7 +49,7 @@ function ClientLogin() {
             )
         case "ForgotPassword":
             return (
-                <>
+                <><Navbar1/>
                     <div className={styles.container}>
                         <div className={styles.bottom_background}></div>
                         <div className={styles.third}>
@@ -63,7 +65,7 @@ function ClientLogin() {
             )
         case "ForgotPassword2":
             return (
-                <>
+                <><Navbar1/>
                     <div className={styles.container}>
                         <div className={styles.bottom_background}></div>
                         <div className={styles.third}>

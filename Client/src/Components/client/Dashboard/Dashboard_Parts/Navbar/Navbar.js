@@ -7,14 +7,14 @@ import { useSearch } from 'rsuite/esm/Picker';
 import { getDoc } from 'firebase/firestore';
 import { getDocData } from '../../../../../firebasefunctions/firestore';
 
-function Navbar({ formData, setForm, Loading }) {
+function Navbar() {
     const email = atob(window.sessionStorage.getItem("key"));
     const [Data, SetData] = useState(null);
 
     const history = useHistory();
     //const email = 'f20190120@hydrabad.bits-pilani.ac.in';
     //const history = useHistory();
-    const props = { formData, setForm, Loading };
+    //const props = { formData, setForm, Loading };
     console.log("from nav", email);
     const [isHamOn, setIsHamOn] = useState(false);
   const handleClick = () => {

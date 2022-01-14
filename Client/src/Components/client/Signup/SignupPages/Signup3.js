@@ -20,7 +20,7 @@ function Signup3({ formData, setForm, navigation , startLoading}) {
                     <ArrowLeft className={style.arrow_left}/>
                 </div>
         <div className={styles.container}>
-                <div className={style.header}>DEAR DESIGNER,</div>
+                <div className={style.header}>DEAR Client,</div>
                 <div className={style.desc}>
                     Freelancing was never this easy!{" "}
                 </div>
@@ -62,24 +62,24 @@ function Signup3({ formData, setForm, navigation , startLoading}) {
                     if ( formData.password === formData.confirmPassword && formData.password.trim().length>=6) {
                         
                         await signup(formData.email, formData.password);
-                        addData('Client', formData.email, formData);
+                        
                         
                         console.log(formData);
-                        const chatData  = await CreateUser(formData.email, 'client');
-                        
-                        await addData('Designers',formData.email ,{
-                            "name":formData.fullname,
-                            "email":formData.email,
-                            "phone":formData.phoneNumber,
-                            "created":new Date().toString(),
-                            "chat":chatData
-                        });
+                        const chatData  = await CreateUser(formData.fullname, 'client');
+                        await addData('Client', formData.email, {...formData, ...{phone:formData.phoneNumber,created:new Date().toString(),chat:chatData }});
+                        // await addData('Client',formData.email ,{
+                        //     "name":formData.fullname,
+                        //     "email":formData.email,
+                        //     "phone":formData.phoneNumber,
+                        //     "created":new Date().toString(),
+                        //     "chat":chatData
+                        // });
                         startLoading(false);
                         navigation.next();
                     }
                     else if (formData.password != formData.confirmPassword) {
                         startLoading(false);
-                        toast('Password dosent Martch', {
+                        toast('Password dosent Match', {
                             position: "bottom-center",
                             autoClose: 1500,
                             hideProgressBar: false,

@@ -1,5 +1,5 @@
 /* eslint-disable default-case */
-import React from "react";
+import React, { useState } from "react";
 import { useForm, useStep } from "react-hooks-helper";
 import First from "./Parts/First";
 import Second from "./Parts/Second";
@@ -19,9 +19,11 @@ const defaultData = {
   payment:"",
   profileLink:"",
   link:"",
-  specs:"",
+  specs:[],
+  grad:"",
   experience:"",
-  verify:""
+  verify:"",
+  profile:""
 }
 
 const steps = [
@@ -48,10 +50,13 @@ function DesignerComplete() {
 
 
   const [formData, setForm] = useForm(defaultData);
+  const [formData1, setForm1] = useState(defaultData);
+  const [spec, setSpec] = useState(null);
   const { step, navigation } = useStep({
     steps, initialStep: 0,
   });
-  const props = { formData, setForm, navigation ,startLoading}
+  const props = { formData, setForm, navigation , spec,setSpec,startLoading}
+  const props1 = { formData,formData1, setForm1, spec,setSpec,navigation ,startLoading}
 
 
   switch (step.id) {
@@ -73,7 +78,7 @@ function DesignerComplete() {
               <>
               <Navbar1/>
               <div id = 'screen' style={{position:"absolute", width:"100%"}}>
-              <Second {...props}/>
+              <Second {...props1}/>
               </div>
               <div id="loading" style={{position:"absolute", marginTop:"45vh", marginLeft:"47vw", display:"none"}}>
                 <BarWave width="50px" height="50px" color="#1ABAA9"/>

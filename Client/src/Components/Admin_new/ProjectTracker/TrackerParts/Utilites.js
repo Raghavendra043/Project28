@@ -243,7 +243,10 @@ function Utilites({ formData, setForm, print }) {
           })}
 
           {/* end of the map func */}
-        </div>) : (<>
+        </div>) : formData && formData['desStatus'] === 3 || formData['desStatus'] == 1?
+        
+        (<>
+        {formData['desStatus'] == 3 ? (<>Designer has rejected , please Allot<br/></>) : (<></>)}
         <input type="number" placeholder="Number of Stages"
           onChange={(e) => setStage(e.target.value)}
         />
@@ -305,7 +308,13 @@ function Utilites({ formData, setForm, print }) {
             </div>
           </div>
         
-        </>)}
+        </>)
+        : formData['desStatus'] ==2 ?
+        (<>You have already alloted the designer,waiting for approval
+              <></>
+        </>) 
+        : (<></>) 
+      }
 
         
       </div>

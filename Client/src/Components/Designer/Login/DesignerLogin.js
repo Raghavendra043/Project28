@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useRef, useState } from "react";
 import { useHistory } from 'react-router-dom';
 import e_style from "./../Signup/SignUp.module.css";
@@ -119,7 +120,7 @@ function DesignerLogin() {
                 </label>
               </div>
               <div className={styles.forget}>
-                <a href="#" className={styles.link}>
+                <a className={styles.link} onClick={()=>{history.push('/designer/forget');}}>
                   Forget Password?
                 </a>
               </div>

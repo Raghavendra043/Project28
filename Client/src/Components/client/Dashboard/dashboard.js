@@ -88,14 +88,14 @@ function Dashboard() {
   //const props2 = {title:formData.title};
   return (
     <div>
-      {formData && formData !== "f" ? <Navbar2 {...props} /> : <></>}
+      <Navbar2 /> 
       <div
         className="main_container1"
         style={{ position: "absolute", opacity: "0.16" }}
         id="screen"
       >
         <div className="Sidebar">
-          {formData && formData !== "f" ? <Navbar {...props} /> : <></>}
+           <Navbar  />
         </div>
 
         {formData && formData.assigned && formData !== "f" ? (

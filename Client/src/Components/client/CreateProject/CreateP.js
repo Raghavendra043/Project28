@@ -48,6 +48,7 @@ export default function CreateP() {
     case "create1":
       return (
         <>
+        <Navbar2 />
           <div
             style={{
               backgroundColor: "#fafafa",
@@ -55,7 +56,7 @@ export default function CreateP() {
               position: "fixed",
             }}
           >
-            <Navbar2 />
+            
           </div>
           <div>
             <CreateProject {...props} />

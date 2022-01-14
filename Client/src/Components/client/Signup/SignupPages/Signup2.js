@@ -61,7 +61,7 @@ function Signup2({ formData, setForm, navigation,startLoading }) {
       </div>
       <div className={styles.container}>
         <div className={styles.box}>
-          <div className={style.header}>DEAR client</div>
+          <div className={style.header}>DEAR Client</div>
           <div className={style.desc}>Freelancing was never this easy! </div>
 
           <div className={style.data}>
@@ -126,7 +126,7 @@ function Signup2({ formData, setForm, navigation,startLoading }) {
       <div
         className={style.next}
         onClick={async () => {
-          navigation.next();
+          //navigation.next();
           if (formData.phoneNumber.trim() && formData.otp.trim()) {
             startLoading(true);
             let Verify = await verify(formData.otp);

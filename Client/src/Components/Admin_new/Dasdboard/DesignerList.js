@@ -15,7 +15,9 @@ const data1 = [
         col2: '',
         col3: '',
         col4:<button></button>,
-        col5:""
+        col5:"",
+        col6:"",
+        col7:""
       }
     ]
 
@@ -43,7 +45,11 @@ const data1 = [
          {
            Header: 'check Profile',
            accessor: 'col6', // accessor is the "key" in the data
-         }
+         },
+         {
+          Header: 'Profile Complete',
+          accessor: 'col7', // accessor is the "key" in the data
+        }
         ]
     
 function Designer() {
@@ -80,6 +86,9 @@ function Designer() {
               setTotal(project)
               let data = [];
                 for(let i=0;i<project.length;i+=1){
+                    let profile;
+                    if(project.profile){profile = "Complete"}else {profile="Not complete"}
+
                     data.push({
                         col1:i+1,
                         col2:project[i].name,
@@ -90,7 +99,8 @@ function Designer() {
                             onClick={()=>{
                               viewHandler(i);
                             }}
-                        >View</button>
+                        >View</button>,
+                        col7:profile
                     })
                 }
                 setData(data);
@@ -214,7 +224,7 @@ function Designer() {
               {title ? (<button className={classnames(styles.button)}
                 onClick={async()=>{
                   try{
-                  toast('loading...');
+                  toast('loading...', {position:"bottom-center"});
                   console.log(title);
                   var project = await search('Projects', "title", title);
                   console.log("from list", project);
@@ -223,7 +233,8 @@ function Designer() {
                   project['projectInfo']['clientPay'] = clientPay;
                   project['projectInfo']['designerPay'] = designerPay;
                   project['designerEmail'] = final.email;
-                  project['assigned'] = true;
+                  project['assigned'] = false;
+                  project['desStatus'] = 2;
                   project['designerAssigned'] = new Date().toString();
                   project['stageCount'] = stage;
                   project['designerNotification'] = []
@@ -250,7 +261,7 @@ function Designer() {
                   }
                   project['currentStage'] = 0
                   await Update('Projects', title, project);
-                  CreateChat(final.email, project.clientEmail, title).then(()=>{})
+                  //CreateChat(final.email, project.clientEmail, title).then(()=>{})
                   history.push( '/admin/project',{title});
                    const content = {
                      subject:`Project - ${title}`,
@@ -262,6 +273,7 @@ function Designer() {
 
                   } catch(err){
                     console.log(err);
+                    toast.error('error occured', {position:"bottom-center"});
                   }
                 }}
               >
