@@ -10,22 +10,21 @@ import { search } from "../../../firebasefunctions/firestore";
 import { BarWave } from "react-cssfx-loading";
 import About from "../../Admin_new/ProjectTracker/TrackerParts/About";
 import { getAuth } from "firebase/auth";
-import NoProjects from '../NoProjectsRedirect/NoProjects'
+import NoProjects from "../NoProjectsRedirect/NoProjects";
 import Navbar1 from "../../Navbar/Navbar1";
 //import Navbar from "./Components/Navbar/Navbar";
 //import Navbar from "../../Navbar/Navbar";
 import Navbar2 from "../../Navbar/Navbar2";
 import Navbar4 from "../../Navbar/Navbar4";
-require('../../../trail/chattest.css');
-
+require("../../../trail/chattest.css");
 
 function Main() {
   const history = useHistory();
   const location = useLocation();
-  const [dt, setDt] = useState('Loading Account info');
+  const [dt, setDt] = useState("Loading Account info");
   const auth = getAuth();
   const user = auth.currentUser;
-  
+
   const email = atob(window.sessionStorage.getItem("key"));
 
   const [Details, setDetails] = useState(false);
@@ -34,30 +33,26 @@ function Main() {
   const [stat, setStat] = useState(0);
 
   const [formData, setForm] = useState(null);
-  
 
-  
-
-  const Loading= (state)=>{
+  const Loading = (state) => {
     console.log("triggred");
-    if(state){
-        console.log('coming inside');
-        var element = document.getElementById("loading");
-        element.style.display = null;
-        var element1 = document.getElementById("screen");
-        element1.style.opacity = 0.16;
-        // setDt('');
+    if (state) {
+      console.log("coming inside");
+      var element = document.getElementById("loading");
+      element.style.display = null;
+      var element1 = document.getElementById("screen");
+      element1.style.opacity = 0.16;
+      // setDt('');
     } else {
-        var element = document.getElementById("loading");
-        element.style.display = "none";
-        var element1 = document.getElementById("screen");
-        element1.style.opacity = 10;
+      var element = document.getElementById("loading");
+      element.style.display = "none";
+      var element1 = document.getElementById("screen");
+      element1.style.opacity = 10;
     }
-  }
+  };
   const props = { formData, setForm, Loading };
-  const props1 = { formData, setForm, user:"designer" };
+  const props1 = { formData, setForm, user: "designer" };
 
-  
   if (!Details) {
     search("Projects", "designerEmail", email).then((project) => {
       if (project && project !== "f") {
@@ -72,38 +67,33 @@ function Main() {
     });
   }
 
-  if(!designer){
+  if (!designer) {
     search("Designers", "email", email).then((project) => {
       if (project && project !== "f") {
         //console.log("designer det : ",project);
-        setDes(project.profile);        
+        setDes(project.profile);
       } else if (project === "f") {
         //console.log("fuck");
         setDes("nt");
       }
     });
-
   }
-
-  
 
   if (formData) {
     console.log("came but");
     var element = document.getElementById("loading");
-    
-      element.style.display = "none";
-    
+
+    element.style.display = "none";
+
     var element1 = document.getElementById("screen");
-    
-      element1.style.opacity = 10;
-    
+
+    element1.style.opacity = 10;
   }
 
   return (
-    
     <div>
       {/* <Navbar1/> */}
-      <Navbar4/>
+      <Navbar4 />
 
       <div
         className="main_container1"
@@ -111,10 +101,10 @@ function Main() {
         id="screen"
       >
         <div className="Sidebar">
-          <Navbar  />
+          <Navbar />
         </div>
 
-        {formData && formData !== "f" && formData['assigned'] ? (
+        {formData && formData !== "f" && formData["assigned"] ? (
           <div className="outer_container1">
             <div className=" first">
               <First {...props} />
@@ -125,34 +115,32 @@ function Main() {
             <div className=" third">
               <Third {...props} />
             </div>
-            <div className=" fourth" >
-              
+            <div className=" fourth">
               <Fourth {...props1} />
-              
             </div>
           </div>
-        ) : formData && (designer === "nt" || designer) && formData['desStatus'] !=2 ? (
+        ) : formData &&
+          (designer === "nt" || designer) &&
+          formData["desStatus"] != 2 ? (
           <div className="outer_container1">
-            
-            <NoProjects {...{x:false, formData}}/>
+            <NoProjects {...{ x: false, formData }} />
           </div>
-        ) : formData && formData['desStatus'] === 2 && !formData['assigned'] ? 
-        
-          (<><NoProjects {...{x:1, formData}}/></>)
-        :(<>
-          <NoProjects {...{x:true, formData}}/>
-        </>)
-        
-        }
+        ) : formData && formData["desStatus"] === 2 && !formData["assigned"] ? (
+          <div className="outer_container1">
+            <NoProjects {...{ x: 1, formData }} />
+          </div>
+        ) : (
+          <div className="outer_container1">
+            <NoProjects {...{ x: true, formData }} />
+          </div>
+        )}
       </div>
       <div
         id="loading"
         style={{ position: "absolute", marginTop: "45vh", marginLeft: "47vw" }}
       >
         <BarWave width="50px" height="50px" color="#1ABAA9" />
-        <p style={{ marginTop: "5vh", marginLeft: "-3vw" }}>
-          {dt}
-        </p>
+        <p style={{ marginTop: "5vh", marginLeft: "-3vw" }}>{dt}</p>
       </div>
     </div>
   );
