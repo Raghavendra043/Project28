@@ -76,7 +76,9 @@ function ForgotPassword({ formData, setForm, navigation }) {
 
               <div className={styles.cover}>
                 <button className={styles.complete} onClick={async()=>{
-                  try{if(Text1 === "Send Recovery Email"){
+                  try{
+                    if(email.current && email.current.value){
+                  if(Text1 === "Send Recovery Email"){
                   setText("Next");
                   document.getElementById("OTP").style.display = "block";
                   const ran = generate_token(9);
@@ -89,7 +91,11 @@ function ForgotPassword({ formData, setForm, navigation }) {
                   } else {
                     toast.error("Wrong OTP", {position:"bottom-center"});
                   }
-                }} catch(err){
+                }
+              }else{
+                toast.error('Enter all the fieds', {position:"bottom-center"});
+              }
+              } catch(err){
                   toast.error("Error Occured", {position:"bottom-center"});
                 }
                   

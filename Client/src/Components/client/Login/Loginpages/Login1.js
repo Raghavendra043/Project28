@@ -58,7 +58,7 @@ function Login1({formData,setForm,navigation}) {
         
                 <div className={style.data}>
                     <div className={style.input_cover}>
-                        <div className={style.titles}>Your Name</div>
+                        <div className={style.titles}>Your Email</div>
                         <input
                             className={style.inputs}
                             type="text"
@@ -72,7 +72,7 @@ function Login1({formData,setForm,navigation}) {
                     
                     
                     <div className={style.input_cover}>
-                        <div className={style.titles}>Company Name</div>
+                        <div className={style.titles}>Password</div>
                         <input
                             className={style.inputs}
                             type="text"

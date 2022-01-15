@@ -3,6 +3,8 @@ import {arrayUnion, getDoc} from 'firebase/firestore'
 import axios from "axios";
 import { toast } from "react-toastify";
 import { saveAs } from "file-saver";
+import { doc, deleteDoc } from "firebase/firestore";
+
 export const addData = async (collection, doc, Data) => {
   try {
     if (Data && collection) {
@@ -292,17 +294,26 @@ export const clientApproval=async (title, feedback)=>{
     const current = project.currentStage;
     project['files'][current]['clientApproval'] = true;
     project.currentStage+=1;
-    if(project.currentStage == max){
+    if(project.currentStage === max){
       sendNotification(4, title).then(()=>{})
-      //axios.post(`${process.env.REACT_APP_BACK}/sendMail`, );
-    }
+      await deleteDoc(doc(db, "Projects", title));
+      const content = {
+        TO:process.env.REACT_APP_ADMIN,
+        content:{
+          subject:`Project Successfully COmpleted ${title}`,
+          text:"project",
+          html:`<div><h2>Congragulations !! You have successfully completed the project</h2><h3>Title : ${title}</h3><h3></h3></div>`
+        }
+      }
+      axios.post(`${process.env.REACT_APP_BACK}/sendMail`, content).then(()=>{})    
+    } else {
     const len = project['files'][current]['adminFiles'].length
     project['files'][current]['adminFiles'][len-1]['client'].push({1:feedback[0],2:feedback[1]})
     
     await db.collection('Projects')
       .doc(title)
       .update(project)
-    
+  }
     return 1;
 
 

@@ -16,7 +16,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 
 
-const months = ["Febr3uary", "February", "Febrdeuary", "Februarefy", "Fdebruary", "February"];
+const months = ["1", "2", "3", "4", "5", "6"];
 
 function CreateProjectList({formData, setFormData, navigation,startLoading}) {
   const history = useHistory();

@@ -53,10 +53,12 @@ function ForgetPassword2({ formData, setForm, navigation }) {
                     <div className={styles.cover}>
                         <button className={styles.complete}
                             onClick={async()=>{
-                                if(formData.password === formData.confirmPassword){
+                                try{if(formData.password === formData.confirmPassword){
                                     axios.get(`${process.env.REACT_APP_BACK}/passwordReset`, {params:{email:formData.email,password:formData.password }}).then((req, res)=>{})
                                 } else {
                                     setToggle(true);
+                                }} catch(err){
+                                    console.log(err);
                                 }
                                 
                             }}

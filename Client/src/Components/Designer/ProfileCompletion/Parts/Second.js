@@ -25,7 +25,7 @@ function Second( { formData,formData1, setForm1,spec,setSpec, navigation ,startL
 
     try{await storage.ref(`${email}/profile`).put(image);
     const URL = await storage
-      .ref(`${email}/ProfileLink`)
+      .ref(`${email}/profile`)
       .getDownloadURL();
       formData.profileLink = URL;
     setForm1(formData);
@@ -177,7 +177,7 @@ function Second( { formData,formData1, setForm1,spec,setSpec, navigation ,startL
           history.push("/designer/login");}catch(err){
             console.log(err);
             toast.error("Error Occured", {position:"bottom-center"});
-            history.push('/designer/complete');
+            //history.push('/designer/complete');
           }
         }      
       }

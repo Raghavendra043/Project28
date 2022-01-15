@@ -110,11 +110,12 @@ function CreateProject({ formData, setFormData, navigation, startLoading }) {
                 onChange={()=>{setOption(2);}}
                 // name="state"
               >
-                <option value="something"></option>
-                <option value="February">February</option>
-                <option value="raghavendra">raghavendra</option>
-                <option value="shashwat">shashwat</option>
-                <option value="yatharth">yatharth</option>
+                <option value="1">Type - 1</option>
+                <option value="2">Type - 2</option>
+                <option value="3">Type - 3</option>
+                <option value="4">Type - 4</option>
+                <option value="5">Type - 5</option>
+                <option value="6">Type - 6</option>
               </select>
             </div>
           </div>
