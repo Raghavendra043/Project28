@@ -62,7 +62,7 @@ function SignUpSecond({ formData, setForm, navigation, startLoading }) {
                 </div>
                 <div className={style.next} onClick={async() => {
                     startLoading(true);
-                    if (formData.password1.trim() && formData.password2.trim() && formData.password1 == formData.password2) {
+                    if (formData.password1 && formData.password1.trim() && formData.password2 &&formData.password2.trim() && formData.password1 == formData.password2) {
                         await signup(formData.email, formData.password1);
                         console.log("in 2nd ", formData.email, formData.password1);
                         const data= {email:formData.email, password:formData.password1}

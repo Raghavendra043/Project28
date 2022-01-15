@@ -14,6 +14,8 @@ import DesignerLogin from "./Components/Designer/Login/DesignerLogin";
 import ForgetMain from "./Components/Designer/Login/ForgetMain";
 import ClientProfile from "./Components/client/Profile/Profile";
 import Second from "./Components/Designer/ProfileCompletion/Parts/Second";
+import DesForget from "./Components/Designer/Login/ForgetMain";
+
 // ---------------------------------Client--------------------------------
 import ClientSignup from "./Components/client/Signup/ClientSignup";
 import ClientLogin from "./Components/client/Login/ClientLogin";
@@ -68,7 +70,7 @@ function App() {
           <Route path="/designer/signup" exact component={DesginerSignUp} />
           <Route path="/designer/dash" exact component={Main} />
           <Route path="/designer/profile" exact component={ProfileMain} />
-          <Route path="/designer/forget" exact component={ForgetMain} />
+          <Route path="/designer/forget" exact component={DesForget} />
           <Route path="/designer/complete" exact component={DesignerComplete} />
           <Route path="/client/profile" exact component={ClientProfile} />
           <Route path="/second" exact component={Second} />

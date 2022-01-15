@@ -2,6 +2,7 @@ import { db } from "../firebase";
 import {arrayUnion, getDoc} from 'firebase/firestore'
 import axios from "axios";
 import { toast } from "react-toastify";
+import { saveAs } from "file-saver";
 export const addData = async (collection, doc, Data) => {
   try {
     if (Data && collection) {
@@ -339,5 +340,21 @@ export const clientNames = async()=>{
     return data;
   } catch(err){
     console.log(err);
+  }
+}
+
+export const Download = (title)=>{  
+  try{
+    let opts = {
+    url: `${process.env.REACT_APP_BACK}/create-pdf`,
+    method: "POST",
+    responseType: 'blob',
+    data:{title}
+    };
+  axios(opts).then((res)=>{
+    saveAs(res.data, `${title}_Project28.pdf`, res.headers['content-type']);
+  })}catch(err){
+    console.log(err);
+
   }
 }

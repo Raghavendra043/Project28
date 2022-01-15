@@ -117,7 +117,8 @@ function Utilites({ formData, setForm, print }) {
     let opts = {
       url: `${process.env.REACT_APP_BACK}/create-pdf`,
       method: "POST",
-      responseType: 'blob'
+      responseType: 'blob',
+      data:{title:formData.title}
   };
     axios(opts).then((res)=>{
       saveAs(res.data, `${formData.title}_Project28.pdf`, res.headers['content-type']);

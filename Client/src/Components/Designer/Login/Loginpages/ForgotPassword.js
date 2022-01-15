@@ -1,19 +1,11 @@
-import React, { useRef, useState } from "react";
-import e_style from "./../../Signup/SignUp.module.css";
-// import style from "./../../Signup/SignUp_new/First.module.css";
-// import styles from "./Forget.module.css";
-
-import style from "../../../client/Login/ClientLogin.module.css";
-
-import styles from '../../../client/Login/Loginpages/forgotpassword.module.css';
-
-import { ReactComponent as Man } from "./../assets/Man.svg";
-import { ReactComponent as ArrowRight } from "./../assets/ArrowRight.svg";
-import { ReactComponent as ArrowLeft } from "./../assets/ArrowLeft.svg";
-import { toast } from "react-toastify";
+import React, { useRef } from "react";
+import styles from "../Loginpages/forgotpassword.module.css";
+import style from "../ClientLogin.module.css";
+import {ReactComponent as ArrowLeft} from '../assets/ArrowLeft.svg'
 import axios from "axios";
-
-import classnames from "classnames";
+import { useState } from "react";
+import { ChatSettingsTop } from "react-chat-engine";
+import { toast } from "react-toastify";
 
 function generate_token(length){
   //edit the token allowed characters
@@ -26,8 +18,8 @@ function generate_token(length){
   return b.join("");
 }
 
-function ForgetPassword({ formData, setForm, navigation }) {
-  
+function ForgotPassword({ formData, setForm, navigation }) {
+
   const [Error, setErr] = useState();
   const [otp, setOTp] = useState();
   const email = useRef();
@@ -47,10 +39,13 @@ function ForgetPassword({ formData, setForm, navigation }) {
   return (
     <div>
       <div className={style.signupbox}>
+        <div className={style.previous} onClick={navigation.previous}>
+                    <ArrowLeft className={style.arrow_left}/>
+                </div>
             
         <div className={styles.container}>
           <div className={styles.box}>
-            <div className={style.header}>DEAR DESIGNER!</div>
+            <div className={style.header}>DEAR Designer!</div>
             <div className={style.desc}>Freelancing was never this easy! </div>
             
 
@@ -110,4 +105,4 @@ function ForgetPassword({ formData, setForm, navigation }) {
   );
 }
 
-export default ForgetPassword;
+export default ForgotPassword;

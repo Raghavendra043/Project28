@@ -27,8 +27,11 @@ function SignUpFirst({ formData, setForm, navigation, startLoading }) {
   const startOtp = async () => {
     if (
       !(
+        formData.fullname &&
         formData.fullname.trim() &&
+        formData.email &&
         formData.email.trim() &&
+        formData.phonenumber &&
         formData.phonenumber.trim()
       )
     ) {

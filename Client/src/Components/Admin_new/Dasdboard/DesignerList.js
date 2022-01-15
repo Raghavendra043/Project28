@@ -87,7 +87,7 @@ function Designer() {
               let data = [];
                 for(let i=0;i<project.length;i+=1){
                     let profile;
-                    if(project.profile){profile = "Complete"}else {profile="Not complete"}
+                    if(project[i].profile){profile = "Complete"}else {profile="Not complete"}
 
                     data.push({
                         col1:i+1,
@@ -217,6 +217,14 @@ function Designer() {
               <td>Created : </td>
               <td>{final.created}</td>
             </tr>
+            <tr>
+              <td>Work : </td>
+              <td>{final.work1}</td>
+            </tr>
+            <tr>
+              <td>Experience : </td>
+              <td>{final.exp1}</td>
+            </tr>
             
           </table>):(<></>)}
           <div className={styles.actions}>
@@ -266,7 +274,8 @@ function Designer() {
                    const content = {
                      subject:`Project - ${title}`,
                      text:'Project Alloted',
-                     html:"<div>Hello Desiger !! A project has been alloted to you</div>"
+                     html:`<div>Hello Desiger !! A project has been alloted to you</div>
+                     `
                    }
                    const mailData = {content, TO:final.email}
                    axios.post(`${process.env.REACT_APP_BACK}/sendMail`,mailData ).then(()=>{}).catch((err)=>{console.log(err)})

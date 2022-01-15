@@ -14,6 +14,7 @@ import { clientApproval, Approve , Rejectadmin, clientReject} from '../../../fir
 import { toast } from 'react-toastify'
 
 import Fourth1 from '../../Admin_new/Fourth/Fourth'
+import { BarWave } from 'react-cssfx-loading/lib'
 
 function Feedback() {
     const location = useLocation();
@@ -26,35 +27,57 @@ function Feedback() {
     console.log(request);
     const [da, setForm] = useState();
     
+    const startLoading = (x)=>{
+        if(x)
+        {var element = document.getElementById('loading');
+        element.style.display = null;
+        var element1 = document.getElementById('screen');
+        element1.style.opacity = 0.16;
+        } else {
+          var element = document.getElementById('loading');
+          element.style.display = "none";
+          var element1 = document.getElementById('screen');
+          element1.style.opacity = 10;
+        }
+    }
+
     const feedback1 = useRef();
     const feedback2 = useRef();
 
     const ApproveClient=async()=>{
+        startLoading(true);
         console.log('client');
         await clientApproval(title, [feedback1.current.value, feedback2.current.value]);
+        startLoading(false);
         history.push('/chome');
     }
 
     const ApproveAdmin=async()=>{
+        startLoading(true);
         console.log('admin');
         await Approve(title, [feedback1.current.value, feedback2.current.value]);
+        startLoading(false);
         history.push('/admin/project', {title:formData.title});
     }
 
     const rejectClient=async()=>{
+        startLoading(true);
         console.log('reject client');
         await clientReject(title, [feedback1.current.value, feedback2.current.value]);
+        startLoading(false);
         history.push('/cdash');
     }
 
     const rejectAdmin=async()=>{
+        startLoading(true);
         console.log('reject admin');
         await Rejectadmin(title,[feedback1.current.value, feedback2.current.value] );
+        startLoading(false);
         history.push('/admin/project', {title:formData.title});
     }
     return (
         <>
-            <div className={styles.screen}>
+            <div className={styles.screen} id="screen" style={{position:"absolute"}}>
             <div className={styles.sidebar}>
                 <Navbar/>
             </div>
@@ -139,6 +162,12 @@ function Feedback() {
                 </div>
                 </div>
                 </div>
+
+                <div id="loading" style={{position:"absolute", marginTop:"45vh", marginLeft:"47vw", display:"none"}}>
+                    <BarWave width="50px" height="50px" color="#1ABAA9"/>
+                    <p style={{marginTop:"5vh", marginLeft:"-3vw"}}></p>
+                </div>
+
         </>
     )
 }
